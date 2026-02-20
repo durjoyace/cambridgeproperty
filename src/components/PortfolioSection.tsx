@@ -1,20 +1,41 @@
+import building1 from "@/assets/building-1.jpg";
+import building2 from "@/assets/building-2.jpg";
+
 const portfolioItems = [
   {
-    label: "Recent Acquisition",
-    type: "Class B Multifamily",
+    label: "Class B Multifamily",
+    location: "High-Growth Secondary Market",
     units: "24 Units",
     description:
-      "Value-add execution focused on operational efficiencies and targeted capital improvements.",
+      "Value-add execution focused on operational efficiencies and targeted capital improvements. Leveraging enterprise-grade AppFolio management systems.",
     tag: "Multifamily",
+    image: building1,
+    metrics: [
+      { label: "Asset Type", value: "Class B Residential" },
+      { label: "Strategy", value: "Value-Add" },
+      { label: "Status", value: "Active" },
+    ],
   },
   {
     label: "Mixed-Use Asset",
-    type: "Residential + Retail",
+    location: "Urban Secondary Market",
     units: "18 Units",
     description:
-      "Stabilization of commercial tenant base while repositioning residential floorplans.",
+      "Stabilization of commercial tenant base while repositioning residential floorplans. 63 residential and 12 retail doors under active management.",
     tag: "Mixed-Use",
+    image: building2,
+    metrics: [
+      { label: "Asset Type", value: "Res + Retail" },
+      { label: "Strategy", value: "Stabilization" },
+      { label: "Status", value: "Active" },
+    ],
   },
+];
+
+const stats = [
+  { value: "75", label: "Doors Under Management", sub: "63 Residential · 12 Retail" },
+  { value: "15+", label: "Years Combined Experience", sub: "Acquisitions & Operations" },
+  { value: "100%", label: "AppFolio-Managed Portfolio", sub: "Enterprise-Grade Systems" },
 ];
 
 export default function PortfolioSection() {
@@ -22,61 +43,75 @@ export default function PortfolioSection() {
     <section id="portfolio" className="py-28 bg-charcoal-mid">
       <div className="container mx-auto">
         {/* Header */}
-        <div className="max-w-xl mb-16">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="divider-gold" />
-            <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-gold">
-              Operational Excellence
-            </span>
+        <div className="grid lg:grid-cols-2 gap-12 mb-16 items-end">
+          <div>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="divider-gold" />
+              <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-gold">
+                Operational Excellence
+              </span>
+            </div>
+            <h2 className="font-display text-4xl md:text-5xl font-semibold text-cream leading-tight">
+              Our Portfolio &amp; Track Record
+            </h2>
           </div>
-          <h2 className="font-display text-4xl md:text-5xl font-semibold text-cream leading-tight mb-4">
-            Our Portfolio
-          </h2>
-          <p className="font-sans text-sm leading-relaxed text-cream-muted font-light">
-            Active, hands-on management leveraging enterprise-grade systems like AppFolio to maximize asset value and ensure seamless post-acquisition transitions.
+          <p className="font-sans text-sm leading-relaxed text-cream-muted font-light lg:max-w-sm lg:ml-auto">
+            Active, hands-on management leveraging enterprise-grade systems. Our operational track record is the foundation of our institutional credibility with sellers and partners.
           </p>
         </div>
 
-        {/* Stats + Cards */}
-        <div className="grid lg:grid-cols-3 gap-6">
-          {/* Stat block */}
-          <div className="lg:col-span-1 flex flex-col justify-center bg-charcoal border border-gold/20 p-10 shadow-card">
-            <div
-              className="font-display text-7xl font-semibold leading-none mb-2"
-              style={{ color: "hsl(var(--gold))" }}
-            >
-              75
+        {/* Stats row */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border mb-12">
+          {stats.map((s, i) => (
+            <div key={i} className="bg-charcoal p-8 flex flex-col">
+              <div className="font-display text-5xl font-semibold text-gold mb-2">{s.value}</div>
+              <div className="font-sans text-xs tracking-[0.15em] uppercase text-cream mb-1">{s.label}</div>
+              <div className="font-sans text-xs text-cream-muted font-light">{s.sub}</div>
             </div>
-            <div className="font-sans text-xs tracking-[0.2em] uppercase text-cream mb-3">
-              Doors Currently Managed
-            </div>
-            <div className="divider-gold mb-3" />
-            <div className="font-sans text-xs text-cream-muted font-light">
-              63 Residential · 12 Retail
-            </div>
-          </div>
+          ))}
+        </div>
 
-          {/* Portfolio cards */}
+        {/* Portfolio cards */}
+        <div className="grid lg:grid-cols-2 gap-6">
           {portfolioItems.map((item, i) => (
             <div
               key={i}
-              className="bg-charcoal border border-border hover:border-gold/30 transition-colors duration-300 p-8 flex flex-col justify-between shadow-card group"
+              className="bg-charcoal border border-border hover:border-gold/25 transition-all duration-300 overflow-hidden group shadow-card"
             >
-              <div>
-                <span className="font-sans text-[9px] tracking-[0.25em] uppercase text-gold border border-gold/30 px-2.5 py-1 inline-block mb-5">
+              {/* Image */}
+              <div className="relative h-52 overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.label}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent" />
+                <span className="absolute top-4 left-4 font-sans text-[9px] tracking-[0.25em] uppercase text-gold border border-gold/40 bg-charcoal/60 backdrop-blur-sm px-2.5 py-1">
                   {item.tag}
                 </span>
-                <h3 className="font-display text-xl font-semibold text-cream mb-1">
-                  {item.label}
-                </h3>
-                <p className="font-sans text-xs tracking-wide text-cream-muted mb-4">
-                  {item.type} · {item.units}
-                </p>
-                <p className="font-sans text-sm text-cream-muted leading-relaxed font-light">
+              </div>
+              {/* Body */}
+              <div className="p-8">
+                <div className="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 className="font-display text-xl font-semibold text-cream mb-1">{item.label}</h3>
+                    <p className="font-sans text-xs text-cream-muted">{item.location} · {item.units}</p>
+                  </div>
+                </div>
+                <p className="font-sans text-sm text-cream-muted leading-relaxed font-light mb-6">
                   {item.description}
                 </p>
+                {/* Metrics */}
+                <div className="grid grid-cols-3 gap-4 pt-5 border-t border-border">
+                  {item.metrics.map((m, j) => (
+                    <div key={j}>
+                      <div className="font-sans text-[9px] tracking-[0.2em] uppercase text-gold mb-1">{m.label}</div>
+                      <div className="font-sans text-xs text-cream">{m.value}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div className="mt-8 h-px bg-border group-hover:bg-gold/30 transition-colors duration-300" />
             </div>
           ))}
         </div>

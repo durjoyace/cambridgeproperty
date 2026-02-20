@@ -16,6 +16,7 @@ export default {
         sans: ["Inter", "sans-serif"],
       },
       colors: {
+        error: "hsl(var(--error))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
