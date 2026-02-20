@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Acquisition Thesis", href: "#thesis" },
-  { label: "Our Portfolio", href: "#portfolio" },
-  { label: "Partners", href: "#partners" },
-  { label: "Sell Your Property", href: "#submit" },
+  { label: "Our Approach", href: "#thesis" },
+  { label: "Portfolio", href: "#portfolio" },
+  { label: "Markets", href: "#markets" },
+  { label: "Work With Us", href: "#submit" },
 ];
 
 export default function Navbar() {
@@ -33,7 +33,7 @@ export default function Navbar() {
             Barrett &amp; Johnson
           </span>
           <span className="font-sans text-[10px] tracking-[0.25em] uppercase text-gold">
-            Institutional Multifamily Acquisitions
+            Cambridge Property Owners &amp; Developers
           </span>
         </a>
 
@@ -52,7 +52,7 @@ export default function Navbar() {
             href="#submit"
             className="font-sans text-xs tracking-[0.15em] uppercase px-5 py-2.5 border border-gold text-gold hover:bg-gold hover:text-charcoal transition-all duration-200"
           >
-            Submit Property
+          Work With Us
           </a>
         </nav>
 

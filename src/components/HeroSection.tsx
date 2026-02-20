@@ -22,30 +22,30 @@ export default function HeroSection() {
           <div className="flex items-center gap-3 mb-8">
             <div className="divider-gold" />
             <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-gold">
-              Confidential Acquisitions Platform
+              Cambridge, Massachusetts
             </span>
           </div>
 
           <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold text-cream leading-[1.08] mb-6">
-            Institutional-Grade Capital for Multifamily Owners.
+            Owners. Developers. Operators.
           </h1>
 
           <p className="font-sans text-base md:text-lg text-cream-muted leading-relaxed max-w-xl mb-10 font-light">
-            A highly discreet, owner-first acquisition platform driven by data and backed by a proven operational track record.
+            Patrick W. Barrett III and Tim Johnson, CPM are hands-on Cambridge property owners and developers — acquiring, improving, and operating multifamily and mixed-use assets across high-growth markets.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
             <a
-              href="#submit"
+              href="#portfolio"
               className="inline-flex items-center justify-center font-sans text-xs tracking-[0.2em] uppercase px-8 py-4 bg-gold text-charcoal font-medium hover:bg-gold-light transition-colors duration-200 shadow-gold"
             >
-              Submit a Property Confidentially
+              View Our Portfolio
             </a>
             <a
-              href="#thesis"
+              href="#submit"
               className="inline-flex items-center justify-center font-sans text-xs tracking-[0.2em] uppercase px-8 py-4 border border-cream/30 text-cream hover:border-gold hover:text-gold transition-all duration-200"
             >
-              Review Our Criteria
+              Work With Us
             </a>
           </div>
         </div>

@@ -9,17 +9,17 @@ export default function Footer() {
               Barrett &amp; Johnson
             </div>
             <div className="font-sans text-[10px] tracking-[0.25em] uppercase text-gold">
-              Institutional Multifamily Acquisitions
+              Cambridge Property Owners &amp; Developers
             </div>
           </div>
 
           {/* Nav links */}
           <nav className="flex flex-wrap gap-x-8 gap-y-3">
             {[
-              { label: "Acquisition Thesis", href: "#thesis" },
+              { label: "Our Approach", href: "#thesis" },
               { label: "Portfolio", href: "#portfolio" },
-              { label: "Partners", href: "#partners" },
-              { label: "Sell Your Property", href: "#submit" },
+              { label: "Markets", href: "#markets" },
+              { label: "Work With Us", href: "#submit" },
             ].map((link) => (
               <a
                 key={link.href}

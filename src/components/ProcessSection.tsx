@@ -1,27 +1,27 @@
 const steps = [
   {
     number: "01",
-    title: "Confidential Submission",
+    title: "Source Off-Market",
     description:
-      "Owner submits property details through our secure portal. All information bypasses public markets and is encrypted in transit.",
+      "We identify opportunities through direct owner relationships, broker networks, and proprietary market intelligence — not the open MLS.",
   },
   {
     number: "02",
-    title: "Principal Review",
+    title: "Underwrite Rigorously",
     description:
-      "Our acquisition principals review every submission within 48 hours. No junior staff, no broker intermediaries — direct access.",
+      "Every deal is underwritten by Patrick and Tim directly. We stress-test assumptions, model downside scenarios, and only move forward when conviction is high.",
   },
   {
     number: "03",
-    title: "Offer & Structure",
+    title: "Develop &amp; Improve",
     description:
-      "We present a structured offer — fee-simple or joint venture — aligned with the owner's goals and timeline.",
+      "We execute targeted capital improvements — unit renovations, common area upgrades, energy efficiency retrofits — to unlock embedded value.",
   },
   {
     number: "04",
-    title: "Seamless Transition",
+    title: "Operate &amp; Hold",
     description:
-      "Post-acquisition, our enterprise-grade AppFolio management infrastructure ensures an operationally seamless transition for every asset.",
+      "Post-close, our AppFolio-powered management infrastructure keeps operations tight. We are long-term owners, not transactional flippers.",
   },
 ];
 
@@ -34,15 +34,15 @@ export default function ProcessSection() {
             <div className="flex items-center gap-3 mb-6">
               <div className="divider-gold" />
               <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-gold">
-                Our Process
+                How We Work
               </span>
             </div>
             <h2 className="font-display text-4xl md:text-5xl font-semibold text-cream leading-tight">
-              How We Work
+              Our Development Process
             </h2>
           </div>
           <p className="font-sans text-sm leading-relaxed text-cream-muted font-light lg:self-end">
-            Our process is designed for sophisticated sellers seeking certainty of execution without broad market exposure. Every step is built around discretion, speed, and operational excellence.
+            From sourcing to stabilization, every step is owner-led. Patrick and Tim are directly involved in every acquisition, improvement, and operational decision — no delegation, no bureaucracy.
           </p>
         </div>
 
@@ -52,9 +52,7 @@ export default function ProcessSection() {
               <div className="font-display text-5xl font-semibold text-gold/20 group-hover:text-gold/30 transition-colors duration-300 mb-5 leading-none">
                 {step.number}
               </div>
-              <h3 className="font-display text-lg font-semibold text-cream mb-3 leading-snug">
-                {step.title}
-              </h3>
+              <h3 className="font-display text-lg font-semibold text-cream mb-3 leading-snug" dangerouslySetInnerHTML={{ __html: step.title }} />
               <p className="font-sans text-sm text-cream-muted font-light leading-relaxed">
                 {step.description}
               </p>

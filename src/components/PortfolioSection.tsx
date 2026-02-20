@@ -33,9 +33,9 @@ const portfolioItems = [
 ];
 
 const stats = [
-  { value: "75", label: "Doors Under Management", sub: "63 Residential · 12 Retail" },
-  { value: "15+", label: "Years Combined Experience", sub: "Acquisitions & Operations" },
-  { value: "100%", label: "AppFolio-Managed Portfolio", sub: "Enterprise-Grade Systems" },
+  { value: "75", label: "Doors Owned &amp; Managed", sub: "63 Residential · 12 Retail" },
+  { value: "15+", label: "Years Combined Experience", sub: "Development &amp; Operations" },
+  { value: "100%", label: "Owner-Operated Portfolio", sub: "AppFolio-Managed Systems" },
 ];
 
 export default function PortfolioSection() {
@@ -48,15 +48,15 @@ export default function PortfolioSection() {
             <div className="flex items-center gap-3 mb-6">
               <div className="divider-gold" />
               <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-gold">
-                Operational Excellence
+                Our Portfolio
               </span>
             </div>
             <h2 className="font-display text-4xl md:text-5xl font-semibold text-cream leading-tight">
-              Our Portfolio &amp; Track Record
+              What We Own &amp; Operate
             </h2>
           </div>
           <p className="font-sans text-sm leading-relaxed text-cream-muted font-light lg:max-w-sm lg:ml-auto">
-            Active, hands-on management leveraging enterprise-grade systems. Our operational track record is the foundation of our institutional credibility with sellers and partners.
+            A growing portfolio of multifamily and mixed-use properties — each acquired, improved, and operated directly by Patrick and Tim. No third-party management. No passive capital.
           </p>
         </div>
 
