@@ -9,20 +9,20 @@ export default function PartnersSection() {
             <div className="flex items-center gap-3 mb-6">
               <div className="divider-gold" />
               <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-gold">
-                Future Ecosystem
+                Service Network
               </span>
             </div>
             <h2 className="font-display text-4xl md:text-5xl font-semibold text-cream leading-tight mb-6">
-              Preferred Service Vendors
+              Our Preferred Vendors
             </h2>
             <p className="font-sans text-sm leading-relaxed text-cream-muted font-light max-w-sm mb-8">
-              We are actively developing a preferred vendor network to provide value-add opportunities, strategic discounts, and streamlined operations for our property partners in future phases.
+              Over 15 years of hands-on ownership, Patrick and Tim have built a trusted network of contractors, architects, and service providers who understand how owner-operators work. We are formalizing this network for our growing portfolio.
             </p>
             <a
               href="mailto:partners@barrettjohnson.com"
               className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.2em] uppercase text-gold border-b border-gold/40 pb-1 hover:border-gold transition-colors duration-200 group"
             >
-              Inquire About Partnership
+              Inquire About Joining the Network
               <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-200" />
             </a>
           </div>

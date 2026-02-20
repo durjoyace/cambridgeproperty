@@ -98,22 +98,22 @@ export default function SubmitSection() {
             <div className="flex items-center gap-3 mb-6">
               <div className="divider-gold" />
               <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-gold">
-                Discreet Lead Capture
+                Work With Us
               </span>
             </div>
             <h2 className="font-display text-4xl md:text-5xl font-semibold text-cream leading-tight mb-6">
-              Sell Your Property
+              Partner With Us
             </h2>
             <p className="font-sans text-sm leading-relaxed text-cream-muted font-light mb-8 max-w-sm">
-              Submit your property details securely. All submissions bypass public markets and are routed directly to our acquisitions principals for immediate, confidential review within 48 hours.
+              Are you an owner considering a sale or joint venture? We are direct buyers — no brokers, no committees. Patrick and Tim review every submission personally and respond within 48 hours.
             </p>
 
             {/* Trust signals */}
             <div className="flex flex-col gap-3 mb-8">
               {[
-                "All submissions are encrypted in transit",
-                "No public market exposure — ever",
-                "Direct review by acquisition principals",
+                "Direct conversation with Patrick or Tim — no intermediaries",
+                "All submissions are confidential and encrypted",
+                "No obligation — explore your options with real principals",
                 "Response within 48 business hours",
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3">
@@ -127,10 +127,10 @@ export default function SubmitSection() {
               <Shield size={15} className="text-gold mt-0.5 shrink-0" />
               <div>
                 <p className="font-sans text-xs font-medium text-cream tracking-wide mb-1">
-                  Data Security Notice
+                  Confidentiality Guarantee
                 </p>
                 <p className="font-sans text-xs text-cream-muted font-light leading-relaxed">
-                  Information submitted here is encrypted and directly integrated into our secure CRM infrastructure. CCPA-aligned data handling.
+                  Your property details are shared only with Patrick W. Barrett III and Tim Johnson, CPM — never listed, never brokered, never disclosed.
                 </p>
               </div>
             </div>

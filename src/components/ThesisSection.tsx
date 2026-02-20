@@ -4,16 +4,16 @@ const criteria = [
     value: "Value-add multifamily and mixed-use (residential/retail).",
   },
   {
-    label: "Size",
+    label: "Scale",
     value: "15–150 units, with flexibility for strategic portfolios.",
   },
   {
     label: "Geography",
-    value: "High-growth secondary markets with strong demand fundamentals.",
+    value: "Cambridge-rooted, expanding into high-growth secondary markets across the Northeast and Southeast.",
   },
   {
-    label: "Structure",
-    value: "Fee-simple acquisitions and joint venture partnerships.",
+    label: "Approach",
+    value: "Hands-on ownership — we buy, develop, and operate. No flipping, no passive holds.",
   },
 ];
 
@@ -27,14 +27,14 @@ export default function ThesisSection() {
             <div className="flex items-center gap-3 mb-6">
               <div className="divider-gold" />
               <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-gold">
-                Acquisition Thesis
+                Our Approach
               </span>
             </div>
             <h2 className="font-display text-4xl md:text-5xl font-semibold text-cream leading-tight mb-6">
-              Target Criteria
+              How We Build &amp; Operate
             </h2>
             <p className="font-sans text-sm leading-relaxed text-cream-muted font-light max-w-sm">
-              We target high-potential multifamily and mixed-use assets, bringing institutional rigor to middle-market transactions. Our process is designed for sophisticated sellers seeking certainty of execution without broad market exposure.
+              We are Cambridge-based property owners and developers with a direct, operator-led approach. Every asset we acquire is improved, managed, and held with long-term conviction — bringing institutional discipline to the middle market.
             </p>
           </div>
 

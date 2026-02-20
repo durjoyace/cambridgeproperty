@@ -14,7 +14,7 @@ const typeOrder: Record<string, number> = { "Primary Focus": 0, "Active": 1, "No
 
 export default function MarketsSection() {
   return (
-    <section className="py-28 bg-charcoal-mid border-t border-border">
+    <section id="markets" className="py-28 bg-charcoal-mid border-t border-border">
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-start mb-14">
           <div>
@@ -25,11 +25,11 @@ export default function MarketsSection() {
               </span>
             </div>
             <h2 className="font-display text-4xl md:text-5xl font-semibold text-cream leading-tight">
-              High-Growth Secondary Markets
+              Where We Own &amp; Grow
             </h2>
           </div>
           <p className="font-sans text-sm leading-relaxed text-cream-muted font-light lg:self-end">
-            We target markets with strong demand fundamentals, favorable landlord economics, and meaningful value-add opportunity — prioritizing execution speed and local intelligence over broad geographic scatter.
+            Rooted in Cambridge, we are expanding into high-growth secondary markets where owner-operators with local intelligence and real capital have a structural edge over passive investors.
           </p>
         </div>
 
@@ -54,7 +54,7 @@ export default function MarketsSection() {
         </div>
 
         <p className="font-sans text-xs text-cream-muted/50 mt-5 font-light">
-          Asset submissions welcome from all geographies. Focus markets listed above represent primary acquisition targets.
+          We welcome conversations from owners in all geographies. Markets listed above represent our current development focus.
         </p>
       </div>
     </section>
