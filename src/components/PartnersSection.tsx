@@ -1,11 +1,14 @@
 import { ArrowRight } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export default function PartnersSection() {
+  const sectionRef = useScrollReveal<HTMLElement>();
+
   return (
-    <section id="partners" className="py-28 bg-charcoal-mid">
+    <section id="partners" className="py-28 bg-charcoal-mid" ref={sectionRef}>
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div>
+          <div data-reveal>
             <div className="flex items-center gap-3 mb-6">
               <div className="divider-gold" />
               <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-gold">
@@ -28,7 +31,7 @@ export default function PartnersSection() {
           </div>
 
           {/* Visual accent */}
-          <div className="hidden lg:flex items-center justify-center">
+          <div data-reveal className="hidden lg:flex items-center justify-center">
             <div className="relative w-full max-w-xs">
               <div className="aspect-square border border-gold/15 flex items-center justify-center">
                 <div className="absolute inset-8 border border-gold/10" />

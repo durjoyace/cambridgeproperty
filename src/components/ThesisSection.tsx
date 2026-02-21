@@ -1,3 +1,5 @@
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+
 const criteria = [
   {
     label: "Asset Types",
@@ -18,12 +20,14 @@ const criteria = [
 ];
 
 export default function ThesisSection() {
+  const sectionRef = useScrollReveal<HTMLElement>();
+
   return (
-    <section id="thesis" className="py-28 bg-charcoal">
+    <section id="thesis" className="py-28 bg-charcoal" ref={sectionRef}>
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           {/* Left — Header */}
-          <div>
+          <div data-reveal>
             <div className="flex items-center gap-3 mb-6">
               <div className="divider-gold" />
               <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-gold">
@@ -39,7 +43,7 @@ export default function ThesisSection() {
           </div>
 
           {/* Right — Criteria list */}
-          <div className="flex flex-col divide-y divide-border">
+          <div data-reveal className="flex flex-col divide-y divide-border">
             {criteria.map((item, i) => (
               <div key={i} className="py-6 flex gap-5">
                 <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-gold mt-0.5 shrink-0 w-24">
