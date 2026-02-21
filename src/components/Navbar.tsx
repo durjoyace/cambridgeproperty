@@ -20,45 +20,45 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
         scrolled
-          ? "bg-charcoal/95 backdrop-blur-md border-b border-gold/10 shadow-card"
+          ? "bg-background/90 backdrop-blur-xl border-b border-border/40 shadow-card"
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto flex items-center justify-between h-18 py-4">
+      <div className="container mx-auto flex items-center justify-between py-5">
         {/* Logo */}
-        <a href="#" className="flex flex-col leading-tight">
+        <a href="#" className="flex flex-col leading-tight group">
           <span className="font-display text-lg font-semibold tracking-wide text-cream">
             Barrett &amp; Johnson
           </span>
-          <span className="font-sans text-[10px] tracking-[0.25em] uppercase text-gold">
+          <span className="font-sans text-[9px] tracking-[0.3em] uppercase text-gold/70 group-hover:text-gold transition-colors duration-300">
             Cambridge Property Owners &amp; Developers
           </span>
         </a>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="font-sans text-xs tracking-[0.15em] uppercase text-cream-muted hover:text-gold transition-colors duration-200"
+              className="relative font-sans text-[11px] tracking-[0.15em] uppercase text-cream-muted/70 hover:text-cream transition-colors duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-gold/40 hover:after:w-full after:transition-all after:duration-300"
             >
               {link.label}
             </a>
           ))}
           <a
             href="#submit"
-            className="font-sans text-xs tracking-[0.15em] uppercase px-5 py-2.5 border border-gold text-gold hover:bg-gold hover:text-charcoal transition-all duration-200"
+            className="font-sans text-[11px] tracking-[0.15em] uppercase px-6 py-2.5 border border-gold/40 text-gold hover:bg-gold hover:text-primary-foreground transition-all duration-300"
           >
-          Work With Us
+            Work With Us
           </a>
         </nav>
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden text-cream-muted hover:text-gold transition-colors"
+          className="md:hidden text-cream-muted hover:text-gold transition-colors duration-300"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -68,13 +68,13 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-charcoal/98 backdrop-blur-md border-t border-gold/10 px-6 py-6 flex flex-col gap-5">
+        <div className="md:hidden bg-background/95 backdrop-blur-xl border-t border-border/30 px-6 py-8 flex flex-col gap-6">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="font-sans text-xs tracking-[0.18em] uppercase text-cream-muted hover:text-gold transition-colors"
+              className="font-sans text-xs tracking-[0.18em] uppercase text-cream-muted/70 hover:text-gold transition-colors duration-300"
             >
               {link.label}
             </a>
@@ -82,7 +82,7 @@ export default function Navbar() {
           <a
             href="#submit"
             onClick={() => setMobileOpen(false)}
-            className="font-sans text-xs tracking-[0.15em] uppercase px-5 py-3 border border-gold text-gold hover:bg-gold hover:text-charcoal transition-all text-center"
+            className="font-sans text-xs tracking-[0.15em] uppercase px-6 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-primary-foreground transition-all duration-300 text-center"
           >
             Submit Property
           </a>
