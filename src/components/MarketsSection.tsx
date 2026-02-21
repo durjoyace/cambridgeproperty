@@ -1,18 +1,18 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const markets = [
-  { city: "Nashville", state: "TN", type: "Primary Focus" },
-  { city: "Charlotte", state: "NC", type: "Primary Focus" },
-  { city: "Raleigh-Durham", state: "NC", type: "Primary Focus" },
-  { city: "Columbus", state: "OH", type: "Active" },
-  { city: "Indianapolis", state: "IN", type: "Active" },
-  { city: "Richmond", state: "VA", type: "Active" },
-  { city: "Providence", state: "RI", type: "Northeast" },
-  { city: "Hartford", state: "CT", type: "Northeast" },
-  { city: "Worcester", state: "MA", type: "Northeast" },
+  { city: "Cambridge", state: "MA", type: "Home Base" },
+  { city: "Somerville", state: "MA", type: "Home Base" },
+  { city: "Boston", state: "MA", type: "Home Base" },
+  { city: "Brookline", state: "MA", type: "Active" },
+  { city: "Medford", state: "MA", type: "Active" },
+  { city: "Malden", state: "MA", type: "Active" },
+  { city: "Everett", state: "MA", type: "Greater Boston" },
+  { city: "Revere", state: "MA", type: "Greater Boston" },
+  { city: "Chelsea", state: "MA", type: "Greater Boston" },
 ];
 
-const typeOrder: Record<string, number> = { "Primary Focus": 0, "Active": 1, "Northeast": 2 };
+const typeOrder: Record<string, number> = { "Home Base": 0, "Active": 1, "Greater Boston": 2 };
 
 export default function MarketsSection() {
   const sectionRef = useScrollReveal<HTMLElement>();
@@ -33,7 +33,7 @@ export default function MarketsSection() {
             </h2>
           </div>
           <p className="font-sans text-sm md:text-base leading-[1.8] text-cream-muted font-light lg:self-end lg:max-w-sm lg:ml-auto">
-            Rooted in Cambridge, we are expanding into high-growth secondary markets where owner-operators with local intelligence have a structural edge.
+            Rooted in Cambridge, we focus on Greater Boston neighborhoods where deep local knowledge and owner-operator conviction create a structural edge.
           </p>
         </div>
 
@@ -58,7 +58,7 @@ export default function MarketsSection() {
         </div>
 
         <p data-reveal className="font-sans text-xs text-cream-muted/40 mt-6 font-light">
-          We welcome conversations from owners in all geographies. Markets listed above represent our current development focus.
+          We welcome conversations from owners across the Greater Boston area. Neighborhoods listed above represent our current focus.
         </p>
       </div>
     </section>

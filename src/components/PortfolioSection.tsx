@@ -5,7 +5,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 const portfolioItems = [
   {
     label: "Class B Multifamily",
-    location: "High-Growth Secondary Market",
+    location: "Cambridge, MA",
     units: "24 Units",
     description:
       "Value-add execution focused on operational efficiencies and targeted capital improvements. Leveraging enterprise-grade AppFolio management systems.",
@@ -19,7 +19,7 @@ const portfolioItems = [
   },
   {
     label: "Mixed-Use Asset",
-    location: "Urban Secondary Market",
+    location: "Somerville, MA",
     units: "18 Units",
     description:
       "Stabilization of commercial tenant base while repositioning residential floorplans. 63 residential and 12 retail doors under active management.",
