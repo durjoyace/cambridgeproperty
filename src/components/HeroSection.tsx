@@ -5,6 +5,89 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+function createArchitecturalGroup(): THREE.Group {
+  const group = new THREE.Group();
+
+  const wireMat = new THREE.LineBasicMaterial({ color: 0xaabbcc, transparent: true, opacity: 0.35 });
+  const edgeMat = new THREE.LineBasicMaterial({ color: 0xddeeff, transparent: true, opacity: 0.6 });
+  const glowMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.08 });
+
+  // Main tower — tall box
+  const towerGeo = new THREE.BoxGeometry(1.8, 5, 1.8);
+  const towerEdges = new THREE.EdgesGeometry(towerGeo);
+  const towerWire = new THREE.LineSegments(towerEdges, edgeMat);
+  towerWire.position.set(0, 0.5, 0);
+  group.add(towerWire);
+
+  // Tower fill (subtle)
+  const towerFill = new THREE.Mesh(towerGeo, glowMat);
+  towerFill.position.copy(towerWire.position);
+  group.add(towerFill);
+
+  // Floor lines inside tower
+  for (let i = -2; i <= 3; i += 0.7) {
+    const floorGeo = new THREE.PlaneGeometry(1.78, 1.78);
+    const floorEdges = new THREE.EdgesGeometry(floorGeo);
+    const floorLine = new THREE.LineSegments(floorEdges, wireMat);
+    floorLine.rotation.x = -Math.PI / 2;
+    floorLine.position.set(0, i + 0.5, 0);
+    group.add(floorLine);
+  }
+
+  // Side wing — lower, wider
+  const wingGeo = new THREE.BoxGeometry(2.8, 2.2, 1.4);
+  const wingEdges = new THREE.EdgesGeometry(wingGeo);
+  const wingWire = new THREE.LineSegments(wingEdges, edgeMat);
+  wingWire.position.set(2.2, -1.4, 0.2);
+  group.add(wingWire);
+
+  const wingFill = new THREE.Mesh(wingGeo, glowMat);
+  wingFill.position.copy(wingWire.position);
+  group.add(wingFill);
+
+  // Canopy / overhang
+  const canopyGeo = new THREE.BoxGeometry(3.2, 0.08, 2.0);
+  const canopyEdges = new THREE.EdgesGeometry(canopyGeo);
+  const canopyWire = new THREE.LineSegments(canopyEdges, edgeMat.clone());
+  canopyWire.material.opacity = 0.8;
+  canopyWire.position.set(2.2, -0.2, 0.3);
+  group.add(canopyWire);
+
+  // Secondary block — back left
+  const block2Geo = new THREE.BoxGeometry(1.2, 3.2, 1.0);
+  const block2Edges = new THREE.EdgesGeometry(block2Geo);
+  const block2Wire = new THREE.LineSegments(block2Edges, edgeMat);
+  block2Wire.position.set(-1.6, -0.4, -0.8);
+  group.add(block2Wire);
+
+  const block2Fill = new THREE.Mesh(block2Geo, glowMat);
+  block2Fill.position.copy(block2Wire.position);
+  group.add(block2Fill);
+
+  // Ground plane grid
+  const gridSize = 8;
+  const gridDiv = 16;
+  const gridHelper = new THREE.GridHelper(gridSize, gridDiv, 0x556677, 0x334455);
+  gridHelper.position.y = -3;
+  gridHelper.material.transparent = true;
+  (gridHelper.material as THREE.Material).opacity = 0.2;
+  group.add(gridHelper);
+
+  // Vertical accent lines (construction guides)
+  const accentGeo = new THREE.BufferGeometry().setFromPoints([
+    new THREE.Vector3(0, -3, 0),
+    new THREE.Vector3(0, 4, 0),
+  ]);
+  const accentLine = new THREE.Line(accentGeo, new THREE.LineBasicMaterial({ color: 0x8899aa, transparent: true, opacity: 0.15 }));
+  group.add(accentLine);
+
+  const accentLine2 = accentLine.clone();
+  accentLine2.position.set(2.2, 0, 0.2);
+  group.add(accentLine2);
+
+  return group;
+}
+
 export default function HeroSection() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
@@ -13,81 +96,66 @@ export default function HeroSection() {
   useEffect(() => {
     if (!canvasRef.current || !sectionRef.current) return;
 
-    // --- 1. Three.js Scene Setup ---
+    // --- Scene ---
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
-    camera.position.set(0, 0, 12);
+    scene.fog = new THREE.FogExp2(0x0d1117, 0.06);
+
+    const camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.set(5, 2, 10);
+    camera.lookAt(0, 0, 0);
 
     const renderer = new THREE.WebGLRenderer({
       canvas: canvasRef.current,
       antialias: true,
       alpha: true,
     });
-
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.0;
+    renderer.toneMappingExposure = 1.2;
 
-    // --- 2. 3D Object & Material (Torus Knot) ---
-    const geometry = new THREE.TorusKnotGeometry(2.4, 0.8, 256, 64);
-    const material = new THREE.MeshPhysicalMaterial({
-      color: 0x111111,
-      metalness: 0.9,
-      roughness: 0.15,
-      transmission: 0.95,
-      thickness: 1.5,
-      ior: 1.5,
-      clearcoat: 1.0,
-      clearcoatRoughness: 0.1,
-      iridescence: 1.0,
-      iridescenceIOR: 1.3,
-      iridescenceThicknessRange: [100, 400],
-      transparent: true,
-      opacity: 1,
-    });
+    // --- Architectural object ---
+    const building = createArchitecturalGroup();
+    building.rotation.y = Math.PI * 0.15;
+    scene.add(building);
 
-    const torusKnot = new THREE.Mesh(geometry, material);
-    scene.add(torusKnot);
+    // --- Lighting: Monochrome silver ---
+    const keyLight = new THREE.DirectionalLight(0xddeeff, 2.0);
+    keyLight.position.set(4, 6, 3);
+    scene.add(keyLight);
 
-    // --- 3. Lighting (3-Point Setup) ---
-    const blueLight = new THREE.DirectionalLight(0x00d2ff, 4);
-    blueLight.position.set(5, 5, 2);
-    scene.add(blueLight);
+    const fillLight = new THREE.DirectionalLight(0x99aabb, 1.0);
+    fillLight.position.set(-4, 2, -2);
+    scene.add(fillLight);
 
-    const purpleLight = new THREE.PointLight(0x9d00ff, 8, 20);
-    purpleLight.position.set(-5, -5, 2);
-    scene.add(purpleLight);
-
-    const rimLight = new THREE.DirectionalLight(0xcceeff, 1.5);
-    rimLight.position.set(0, 5, -8);
+    const rimLight = new THREE.DirectionalLight(0xffffff, 0.8);
+    rimLight.position.set(0, -2, -6);
     scene.add(rimLight);
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
+    const ambientLight = new THREE.AmbientLight(0x445566, 0.5);
     scene.add(ambientLight);
 
-    // --- 4. Animation Loop & Camera Physics ---
+    // --- Animation ---
     const clock = new THREE.Clock();
     let animationFrameId: number;
-    let objectRotationX = 0;
-    let objectRotationY = 0;
 
     const animate = () => {
-      const elapsedTime = clock.getElapsedTime();
+      const elapsed = clock.getElapsedTime();
 
-      torusKnot.rotation.x = objectRotationX + elapsedTime * 0.15;
-      torusKnot.rotation.y = objectRotationY + elapsedTime * 0.2;
+      // Slow rotation
+      building.rotation.y = Math.PI * 0.15 + elapsed * 0.08;
 
-      camera.position.y = Math.sin(elapsedTime * 0.8) * 0.15;
-      camera.position.x = Math.cos(elapsedTime * 0.5) * 0.1;
-      camera.rotation.z = Math.sin(elapsedTime * 0.3) * 0.02;
+      // Breathing camera
+      camera.position.y = 2 + Math.sin(elapsed * 0.6) * 0.12;
+      camera.position.x = 5 + Math.cos(elapsed * 0.4) * 0.08;
+      camera.lookAt(0, 0, 0);
 
       renderer.render(scene, camera);
       animationFrameId = requestAnimationFrame(animate);
     };
     animate();
 
-    // --- 5. Responsive Resizing ---
+    // --- Resize ---
     const handleResize = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
@@ -96,13 +164,13 @@ export default function HeroSection() {
     };
     window.addEventListener("resize", handleResize);
 
-    // --- 6. GSAP Animations ---
+    // --- GSAP ---
     gsap.to(contentRef.current, {
       opacity: 1,
       y: 0,
       duration: 1.5,
       ease: "power3.out",
-      delay: 0.2,
+      delay: 0.3,
     });
 
     const tl = gsap.timeline({
@@ -114,16 +182,13 @@ export default function HeroSection() {
       },
     });
 
-    tl.to(camera.position, { z: 4.0, ease: "power1.inOut" }, 0)
-      .to(torusKnot.rotation, { x: "+=2", z: "+=1.5", ease: "none" }, 0)
+    tl.to(camera.position, { z: 5, y: 4, ease: "power1.inOut" }, 0)
+      .to(building.rotation, { y: "+=1.2", ease: "none" }, 0)
       .to(contentRef.current, { y: -100, opacity: 0, ease: "none" }, 0);
 
-    // --- Cleanup ---
     return () => {
       window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(animationFrameId);
-      geometry.dispose();
-      material.dispose();
       renderer.dispose();
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
@@ -131,14 +196,12 @@ export default function HeroSection() {
 
   return (
     <section ref={sectionRef} className="relative min-h-screen flex items-end pb-24 overflow-hidden">
-      {/* 3D WebGL Background */}
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full"
         style={{ zIndex: 0 }}
       />
 
-      {/* Content Overlay */}
       <div className="relative container mx-auto" style={{ zIndex: 1 }}>
         <div
           ref={contentRef}
@@ -186,7 +249,6 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Bottom scroll indicator */}
       <div className="absolute bottom-8 right-8 flex flex-col items-center gap-2 opacity-50" style={{ zIndex: 1 }}>
         <span className="font-sans text-[9px] tracking-[0.3em] uppercase text-cream-muted rotate-90 origin-center">
           Scroll
