@@ -1,3 +1,5 @@
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+
 const markets = [
   { city: "Nashville", state: "TN", type: "Primary Focus" },
   { city: "Charlotte", state: "NC", type: "Primary Focus" },
@@ -13,10 +15,12 @@ const markets = [
 const typeOrder: Record<string, number> = { "Primary Focus": 0, "Active": 1, "Northeast": 2 };
 
 export default function MarketsSection() {
+  const sectionRef = useScrollReveal<HTMLElement>();
+
   return (
-    <section id="markets" className="py-28 bg-charcoal-mid border-t border-border">
+    <section id="markets" className="py-28 bg-charcoal-mid border-t border-border" ref={sectionRef}>
       <div className="container mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-start mb-14">
+        <div data-reveal className="grid lg:grid-cols-2 gap-16 items-start mb-14">
           <div>
             <div className="flex items-center gap-3 mb-6">
               <div className="divider-gold" />
@@ -33,7 +37,7 @@ export default function MarketsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+        <div data-reveal className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
           {markets
             .sort((a, b) => (typeOrder[a.type] ?? 9) - (typeOrder[b.type] ?? 9))
             .map((m, i) => (

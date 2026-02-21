@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Shield, ArrowRight, CheckCircle } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const STEPS = [
   { label: "Property Info", description: "Asset type and size" },
@@ -50,7 +51,9 @@ export default function SubmitSection() {
   const [form, setForm] = useState<FormData>(empty);
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Partial<FormData>>({});
+  const sectionRef = useScrollReveal<HTMLElement>();
 
+  // ... keep existing code
   const set = (k: keyof FormData, v: string) => {
     setForm((f) => ({ ...f, [k]: v }));
     setErrors((e) => ({ ...e, [k]: undefined }));
@@ -90,11 +93,11 @@ export default function SubmitSection() {
   const labelCls = "font-sans text-[10px] tracking-[0.2em] uppercase text-cream-muted block mb-1.5";
 
   return (
-    <section id="submit" className="py-28 bg-charcoal">
+    <section id="submit" className="py-28 bg-charcoal" ref={sectionRef}>
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           {/* Left — Copy */}
-          <div className="lg:sticky lg:top-28">
+          <div data-reveal className="lg:sticky lg:top-28">
             <div className="flex items-center gap-3 mb-6">
               <div className="divider-gold" />
               <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-gold">
@@ -137,7 +140,7 @@ export default function SubmitSection() {
           </div>
 
           {/* Right — Multi-step form */}
-          <div className="bg-charcoal-mid border border-border shadow-card">
+          <div data-reveal className="bg-charcoal-mid border border-border shadow-card">
             {/* Step indicators */}
             <div className="flex border-b border-border">
               {STEPS.map((s, i) => (

@@ -1,5 +1,6 @@
 import building1 from "@/assets/building-1.jpg";
 import building2 from "@/assets/building-2.jpg";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const portfolioItems = [
   {
@@ -39,11 +40,13 @@ const stats = [
 ];
 
 export default function PortfolioSection() {
+  const sectionRef = useScrollReveal<HTMLElement>();
+
   return (
-    <section id="portfolio" className="py-28 bg-charcoal-mid">
+    <section id="portfolio" className="py-28 bg-charcoal-mid" ref={sectionRef}>
       <div className="container mx-auto">
         {/* Header */}
-        <div className="grid lg:grid-cols-2 gap-12 mb-16 items-end">
+        <div data-reveal className="grid lg:grid-cols-2 gap-12 mb-16 items-end">
           <div>
             <div className="flex items-center gap-3 mb-6">
               <div className="divider-gold" />
@@ -61,7 +64,7 @@ export default function PortfolioSection() {
         </div>
 
         {/* Stats row */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border mb-12">
+        <div data-reveal className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border mb-12">
           {stats.map((s, i) => (
             <div key={i} className="bg-charcoal p-8 flex flex-col">
               <div className="font-display text-5xl font-semibold text-gold mb-2">{s.value}</div>
@@ -72,7 +75,7 @@ export default function PortfolioSection() {
         </div>
 
         {/* Portfolio cards */}
-        <div className="grid lg:grid-cols-2 gap-6">
+        <div data-reveal className="grid lg:grid-cols-2 gap-6">
           {portfolioItems.map((item, i) => (
             <div
               key={i}
