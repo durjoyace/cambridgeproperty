@@ -23,33 +23,39 @@ export default function ThesisSection() {
   const sectionRef = useScrollReveal<HTMLElement>();
 
   return (
-    <section id="thesis" className="py-28 bg-charcoal" ref={sectionRef}>
-      <div className="container mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+    <section id="thesis" className="relative section-pad bg-charcoal overflow-hidden" ref={sectionRef}>
+      {/* Subtle radial glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[radial-gradient(ellipse,hsl(42_65%_58%_/_0.03),transparent_70%)] pointer-events-none" />
+
+      <div className="container mx-auto relative">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-32 items-start">
           {/* Left — Header */}
           <div data-reveal>
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-4 mb-8">
               <div className="divider-gold" />
-              <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-gold">
-                Our Approach
-              </span>
+              <span className="section-label">Our Approach</span>
             </div>
-            <h2 className="font-display text-4xl md:text-5xl font-semibold text-cream leading-tight mb-6">
-              How We Build &amp; Operate
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-cream leading-[1.1] mb-8 tracking-tight">
+              How We Build
+              <br />
+              <span className="text-gold">&amp; Operate</span>
             </h2>
-            <p className="font-sans text-sm leading-relaxed text-cream-muted font-light max-w-sm">
-              We are Cambridge-based property owners and developers with a direct, operator-led approach. Every asset we acquire is improved, managed, and held with long-term conviction — bringing institutional discipline to the middle market.
+            <p className="font-sans text-sm md:text-base leading-[1.8] text-cream-muted font-light max-w-md">
+              We are Cambridge-based property owners and developers with a direct, operator-led approach. Every asset we acquire is improved, managed, and held with long-term conviction.
             </p>
           </div>
 
           {/* Right — Criteria list */}
-          <div data-reveal className="flex flex-col divide-y divide-border">
+          <div data-reveal className="flex flex-col lg:pt-6">
             {criteria.map((item, i) => (
-              <div key={i} className="py-6 flex gap-5">
-                <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-gold mt-0.5 shrink-0 w-24">
+              <div
+                key={i}
+                className="group py-7 border-b border-border/60 last:border-b-0 flex gap-6 hover:pl-2 transition-all duration-300"
+              >
+                <span className="font-sans text-[10px] tracking-[0.25em] uppercase text-gold mt-1 shrink-0 w-24 opacity-60 group-hover:opacity-100 transition-opacity duration-300">
                   {item.label}
                 </span>
-                <p className="font-sans text-sm text-cream-muted leading-relaxed font-light">
+                <p className="font-sans text-sm md:text-base text-cream-muted leading-[1.7] font-light group-hover:text-cream transition-colors duration-300">
                   {item.value}
                 </p>
               </div>

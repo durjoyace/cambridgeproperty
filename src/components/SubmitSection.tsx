@@ -53,7 +53,6 @@ export default function SubmitSection() {
   const [errors, setErrors] = useState<Partial<FormData>>({});
   const sectionRef = useScrollReveal<HTMLElement>();
 
-  // ... keep existing code
   const set = (k: keyof FormData, v: string) => {
     setForm((f) => ({ ...f, [k]: v }));
     setErrors((e) => ({ ...e, [k]: undefined }));
@@ -88,51 +87,51 @@ export default function SubmitSection() {
   };
 
   const inputCls = (err?: string) =>
-    `bg-charcoal border ${err ? "border-error/60" : "border-border focus:border-gold/50"} text-cream font-sans text-sm px-4 py-3 focus:outline-none transition-colors placeholder:text-cream-muted/40 w-full`;
+    `bg-charcoal border ${err ? "border-destructive/60" : "border-border/60 focus:border-gold/40"} text-cream font-sans text-sm px-5 py-4 focus:outline-none transition-all duration-300 placeholder:text-cream-muted/30 w-full`;
 
-  const labelCls = "font-sans text-[10px] tracking-[0.2em] uppercase text-cream-muted block mb-1.5";
+  const labelCls = "font-sans text-[10px] tracking-[0.2em] uppercase text-cream-muted/70 block mb-2";
 
   return (
-    <section id="submit" className="py-28 bg-charcoal" ref={sectionRef}>
+    <section id="submit" className="relative section-pad bg-charcoal-mid overflow-hidden" ref={sectionRef}>
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           {/* Left — Copy */}
-          <div data-reveal className="lg:sticky lg:top-28">
-            <div className="flex items-center gap-3 mb-6">
+          <div data-reveal className="lg:sticky lg:top-32">
+            <div className="flex items-center gap-4 mb-8">
               <div className="divider-gold" />
-              <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-gold">
-                Work With Us
-              </span>
+              <span className="section-label">Work With Us</span>
             </div>
-            <h2 className="font-display text-4xl md:text-5xl font-semibold text-cream leading-tight mb-6">
-              Partner With Us
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-cream leading-[1.1] tracking-tight mb-8">
+              Partner
+              <br />
+              <span className="text-gold">With Us</span>
             </h2>
-            <p className="font-sans text-sm leading-relaxed text-cream-muted font-light mb-8 max-w-sm">
-              Are you an owner considering a sale or joint venture? We are direct buyers — no brokers, no committees. Patrick and Tim review every submission personally and respond within 48 hours.
+            <p className="font-sans text-sm md:text-base leading-[1.8] text-cream-muted font-light mb-10 max-w-md">
+              Are you an owner considering a sale or joint venture? We are direct buyers — no brokers, no committees. Patrick and Tim review every submission personally.
             </p>
 
             {/* Trust signals */}
-            <div className="flex flex-col gap-3 mb-8">
+            <div className="flex flex-col gap-4 mb-10">
               {[
-                "Direct conversation with Patrick or Tim — no intermediaries",
+                "Direct conversation with Patrick or Tim",
                 "All submissions are confidential and encrypted",
-                "No obligation — explore your options with real principals",
+                "No obligation — explore your options",
                 "Response within 48 business hours",
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3">
-                  <CheckCircle size={13} className="text-gold shrink-0" />
-                  <span className="font-sans text-sm text-cream-muted font-light">{item}</span>
+                  <CheckCircle size={13} className="text-gold/60 shrink-0" />
+                  <span className="font-sans text-sm text-cream-muted/80 font-light">{item}</span>
                 </div>
               ))}
             </div>
 
-            <div className="flex gap-3 items-start bg-charcoal-mid border border-gold/20 p-5">
-              <Shield size={15} className="text-gold mt-0.5 shrink-0" />
+            <div className="flex gap-4 items-start bg-charcoal border border-gold/10 p-6">
+              <Shield size={15} className="text-gold/60 mt-0.5 shrink-0" />
               <div>
-                <p className="font-sans text-xs font-medium text-cream tracking-wide mb-1">
+                <p className="font-sans text-xs font-medium text-cream tracking-wide mb-1.5">
                   Confidentiality Guarantee
                 </p>
-                <p className="font-sans text-xs text-cream-muted font-light leading-relaxed">
+                <p className="font-sans text-xs text-cream-muted/60 font-light leading-relaxed">
                   Your property details are shared only with Patrick W. Barrett III and Tim Johnson, CPM — never listed, never brokered, never disclosed.
                 </p>
               </div>
@@ -140,47 +139,46 @@ export default function SubmitSection() {
           </div>
 
           {/* Right — Multi-step form */}
-          <div data-reveal className="bg-charcoal-mid border border-border shadow-card">
+          <div data-reveal className="bg-charcoal border border-border/40 shadow-elevated">
             {/* Step indicators */}
-            <div className="flex border-b border-border">
+            <div className="flex border-b border-border/40">
               {STEPS.map((s, i) => (
                 <div
                   key={i}
-                  className={`flex-1 px-4 py-4 text-center border-r last:border-r-0 border-border transition-colors ${
+                  className={`flex-1 px-4 py-5 text-center border-r last:border-r-0 border-border/40 transition-all duration-300 ${
                     i === step && !submitted
-                      ? "border-b-2 border-b-gold bg-charcoal"
+                      ? "bg-charcoal-mid border-b-2 border-b-gold"
                       : i < step || submitted
-                      ? "bg-charcoal/50"
+                      ? "bg-charcoal-mid/50"
                       : ""
                   }`}
                 >
-                  <div className={`font-sans text-[9px] tracking-[0.2em] uppercase mb-0.5 ${i <= step || submitted ? "text-gold" : "text-cream-muted/40"}`}>
+                  <div className={`font-sans text-[9px] tracking-[0.25em] uppercase mb-1 transition-colors duration-300 ${i <= step || submitted ? "text-gold" : "text-cream-muted/25"}`}>
                     Step {i + 1}
                   </div>
-                  <div className={`font-sans text-xs ${i <= step || submitted ? "text-cream" : "text-cream-muted/40"}`}>
+                  <div className={`font-sans text-xs transition-colors duration-300 ${i <= step || submitted ? "text-cream" : "text-cream-muted/25"}`}>
                     {s.label}
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="p-8">
+            <div className="p-8 md:p-10">
               {submitted ? (
-                <div className="py-10 text-center">
-                  <div className="w-14 h-14 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center mx-auto mb-5">
+                <div className="py-14 text-center">
+                  <div className="w-16 h-16 border border-gold/20 flex items-center justify-center mx-auto mb-6">
                     <CheckCircle size={24} className="text-gold" />
                   </div>
-                  <p className="font-display text-xl text-cream mb-3">Submission Received</p>
-                  <p className="font-sans text-sm text-cream-muted font-light max-w-xs mx-auto leading-relaxed">
-                    Our principals will review your property and be in touch within 48 business hours. All information is kept strictly confidential.
+                  <p className="font-display text-2xl text-cream mb-4 tracking-tight">Submission Received</p>
+                  <p className="font-sans text-sm text-cream-muted font-light max-w-xs mx-auto leading-[1.7]">
+                    Our principals will review your property and be in touch within 48 business hours.
                   </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} noValidate>
-                  {/* Step 0 */}
                   {step === 0 && (
-                    <div className="flex flex-col gap-5">
-                      <h3 className="font-display text-lg font-semibold text-cream mb-1">Property Information</h3>
+                    <div className="flex flex-col gap-6">
+                      <h3 className="font-display text-xl font-semibold text-cream mb-2">Property Information</h3>
                       <div>
                         <label className={labelCls}>Asset Type *</label>
                         <select
@@ -191,7 +189,7 @@ export default function SubmitSection() {
                           <option value="">Select asset type…</option>
                           {assetTypes.map((t) => <option key={t} value={t}>{t}</option>)}
                         </select>
-                        {errors.assetType && <p className="text-destructive text-xs mt-1">{errors.assetType}</p>}
+                        {errors.assetType && <p className="text-destructive text-xs mt-1.5">{errors.assetType}</p>}
                       </div>
                       <div className="grid grid-cols-2 gap-4">
                         <div>
@@ -202,7 +200,7 @@ export default function SubmitSection() {
                             onChange={(e) => set("unitCount", e.target.value)}
                             className={inputCls(errors.unitCount)}
                           />
-                          {errors.unitCount && <p className="text-destructive text-xs mt-1">{errors.unitCount}</p>}
+                          {errors.unitCount && <p className="text-destructive text-xs mt-1.5">{errors.unitCount}</p>}
                         </div>
                         <div>
                           <label className={labelCls}>Asking Price (Optional)</label>
@@ -216,17 +214,16 @@ export default function SubmitSection() {
                       </div>
                       <button
                         type="button" onClick={next}
-                        className="mt-2 font-sans text-xs tracking-[0.2em] uppercase px-8 py-4 bg-gold text-charcoal font-medium hover:bg-gold-light transition-colors duration-200 shadow-gold flex items-center justify-center gap-2"
+                        className="mt-3 font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold flex items-center justify-center gap-2"
                       >
                         Continue <ArrowRight size={13} />
                       </button>
                     </div>
                   )}
 
-                  {/* Step 1 */}
                   {step === 1 && (
-                    <div className="flex flex-col gap-5">
-                      <h3 className="font-display text-lg font-semibold text-cream mb-1">Market Details</h3>
+                    <div className="flex flex-col gap-6">
+                      <h3 className="font-display text-xl font-semibold text-cream mb-2">Market Details</h3>
                       <div className="grid grid-cols-2 gap-4">
                         <div>
                           <label className={labelCls}>City / Market *</label>
@@ -236,7 +233,7 @@ export default function SubmitSection() {
                             onChange={(e) => set("market", e.target.value)}
                             className={inputCls(errors.market)}
                           />
-                          {errors.market && <p className="text-destructive text-xs mt-1">{errors.market}</p>}
+                          {errors.market && <p className="text-destructive text-xs mt-1.5">{errors.market}</p>}
                         </div>
                         <div>
                           <label className={labelCls}>State *</label>
@@ -246,7 +243,7 @@ export default function SubmitSection() {
                             onChange={(e) => set("state", e.target.value)}
                             className={inputCls(errors.state)}
                           />
-                          {errors.state && <p className="text-destructive text-xs mt-1">{errors.state}</p>}
+                          {errors.state && <p className="text-destructive text-xs mt-1.5">{errors.state}</p>}
                         </div>
                       </div>
                       <div>
@@ -259,18 +256,18 @@ export default function SubmitSection() {
                           <option value="">Select structure…</option>
                           {dealStructures.map((d) => <option key={d} value={d}>{d}</option>)}
                         </select>
-                        {errors.dealStructure && <p className="text-destructive text-xs mt-1">{errors.dealStructure}</p>}
+                        {errors.dealStructure && <p className="text-destructive text-xs mt-1.5">{errors.dealStructure}</p>}
                       </div>
-                      <div className="flex gap-3 mt-2">
+                      <div className="flex gap-4 mt-3">
                         <button
                           type="button" onClick={() => setStep(0)}
-                          className="font-sans text-xs tracking-[0.2em] uppercase px-6 py-4 border border-border text-cream-muted hover:border-gold/30 hover:text-cream transition-colors duration-200"
+                          className="font-sans text-xs tracking-[0.2em] uppercase px-8 py-5 border border-border/60 text-cream-muted hover:border-gold/20 hover:text-cream transition-all duration-300"
                         >
                           Back
                         </button>
                         <button
                           type="button" onClick={next}
-                          className="flex-1 font-sans text-xs tracking-[0.2em] uppercase px-8 py-4 bg-gold text-charcoal font-medium hover:bg-gold-light transition-colors duration-200 shadow-gold flex items-center justify-center gap-2"
+                          className="flex-1 font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold flex items-center justify-center gap-2"
                         >
                           Continue <ArrowRight size={13} />
                         </button>
@@ -278,10 +275,9 @@ export default function SubmitSection() {
                     </div>
                   )}
 
-                  {/* Step 2 */}
                   {step === 2 && (
-                    <div className="flex flex-col gap-5">
-                      <h3 className="font-display text-lg font-semibold text-cream mb-1">Contact Information</h3>
+                    <div className="flex flex-col gap-6">
+                      <h3 className="font-display text-xl font-semibold text-cream mb-2">Contact Information</h3>
                       <div>
                         <label className={labelCls}>Owner / Representative Name *</label>
                         <input
@@ -290,7 +286,7 @@ export default function SubmitSection() {
                           onChange={(e) => set("ownerName", e.target.value)}
                           className={inputCls(errors.ownerName)}
                         />
-                        {errors.ownerName && <p className="text-destructive text-xs mt-1">{errors.ownerName}</p>}
+                        {errors.ownerName && <p className="text-destructive text-xs mt-1.5">{errors.ownerName}</p>}
                       </div>
                       <div className="grid grid-cols-2 gap-4">
                         <div>
@@ -301,7 +297,7 @@ export default function SubmitSection() {
                             onChange={(e) => set("email", e.target.value)}
                             className={inputCls(errors.email)}
                           />
-                          {errors.email && <p className="text-destructive text-xs mt-1">{errors.email}</p>}
+                          {errors.email && <p className="text-destructive text-xs mt-1.5">{errors.email}</p>}
                         </div>
                         <div>
                           <label className={labelCls}>Phone (Optional)</label>
@@ -323,16 +319,16 @@ export default function SubmitSection() {
                           className={inputCls() + " resize-none"}
                         />
                       </div>
-                      <div className="flex gap-3 mt-2">
+                      <div className="flex gap-4 mt-3">
                         <button
                           type="button" onClick={() => setStep(1)}
-                          className="font-sans text-xs tracking-[0.2em] uppercase px-6 py-4 border border-border text-cream-muted hover:border-gold/30 hover:text-cream transition-colors duration-200"
+                          className="font-sans text-xs tracking-[0.2em] uppercase px-8 py-5 border border-border/60 text-cream-muted hover:border-gold/20 hover:text-cream transition-all duration-300"
                         >
                           Back
                         </button>
                         <button
                           type="submit"
-                          className="flex-1 font-sans text-xs tracking-[0.2em] uppercase px-8 py-4 bg-gold text-charcoal font-medium hover:bg-gold-light transition-colors duration-200 shadow-gold flex items-center justify-center gap-2"
+                          className="flex-1 font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold flex items-center justify-center gap-2"
                         >
                           <Shield size={13} />
                           Submit Securely
