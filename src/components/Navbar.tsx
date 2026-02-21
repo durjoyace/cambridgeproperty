@@ -1,22 +1,69 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Our Approach", href: "#thesis" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Markets", href: "#markets" },
-  { label: "Work With Us", href: "#submit" },
+  { label: "Our Approach", href: "/#thesis" },
+  { label: "Portfolio", href: "/#portfolio" },
+  { label: "Management", href: "/management" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "Sell Your Property", href: "/sell-your-property" },
 ];
+
+function NavAnchor({
+  href,
+  className,
+  onClick,
+  children,
+}: {
+  href: string;
+  className: string;
+  onClick?: () => void;
+  children: React.ReactNode;
+}) {
+  const { pathname } = useLocation();
+  const isHashLink = href.startsWith("/#");
+
+  if (isHashLink) {
+    const hash = href.slice(1); // e.g. "#thesis"
+    if (pathname === "/") {
+      // On homepage: smooth scroll
+      return (
+        <a href={hash} className={className} onClick={onClick}>
+          {children}
+        </a>
+      );
+    }
+    // On inner page: navigate to homepage with hash
+    return (
+      <Link to={href} className={className} onClick={onClick}>
+        {children}
+      </Link>
+    );
+  }
+
+  return (
+    <Link to={href} className={className} onClick={onClick}>
+      {children}
+    </Link>
+  );
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
 
   return (
     <header
@@ -28,32 +75,32 @@ export default function Navbar() {
     >
       <div className="container mx-auto flex items-center justify-between py-5">
         {/* Logo */}
-        <a href="#" className="flex flex-col leading-tight group">
+        <Link to="/" className="flex flex-col leading-tight group">
           <span className="font-display text-lg font-semibold tracking-wide text-cream">
             Barrett &amp; Johnson
           </span>
           <span className="font-sans text-[9px] tracking-[0.3em] uppercase text-gold/70 group-hover:text-gold transition-colors duration-300">
             Cambridge Property Owners &amp; Developers
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
-            <a
+            <NavAnchor
               key={link.href}
               href={link.href}
               className="relative font-sans text-[11px] tracking-[0.15em] uppercase text-cream-muted/70 hover:text-cream transition-colors duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-gold/40 hover:after:w-full after:transition-all after:duration-300"
             >
               {link.label}
-            </a>
+            </NavAnchor>
           ))}
-          <a
-            href="#submit"
+          <NavAnchor
+            href="/sell-your-property"
             className="font-sans text-[11px] tracking-[0.15em] uppercase px-6 py-2.5 border border-gold/40 text-gold hover:bg-gold hover:text-primary-foreground transition-all duration-300"
           >
             Work With Us
-          </a>
+          </NavAnchor>
         </nav>
 
         {/* Mobile Menu Toggle */}
@@ -70,22 +117,22 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="md:hidden bg-background/95 backdrop-blur-xl border-t border-border/30 px-6 py-8 flex flex-col gap-6">
           {navLinks.map((link) => (
-            <a
+            <NavAnchor
               key={link.href}
               href={link.href}
-              onClick={() => setMobileOpen(false)}
               className="font-sans text-xs tracking-[0.18em] uppercase text-cream-muted/70 hover:text-gold transition-colors duration-300"
+              onClick={() => setMobileOpen(false)}
             >
               {link.label}
-            </a>
+            </NavAnchor>
           ))}
-          <a
-            href="#submit"
-            onClick={() => setMobileOpen(false)}
+          <NavAnchor
+            href="/sell-your-property"
             className="font-sans text-xs tracking-[0.15em] uppercase px-6 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-primary-foreground transition-all duration-300 text-center"
+            onClick={() => setMobileOpen(false)}
           >
             Submit Property
-          </a>
+          </NavAnchor>
         </div>
       )}
     </header>

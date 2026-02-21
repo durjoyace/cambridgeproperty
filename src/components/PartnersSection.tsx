@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
@@ -21,15 +22,15 @@ export default function PartnersSection() {
             <p className="font-sans text-sm md:text-base leading-[1.8] text-cream-muted font-light max-w-md mb-10">
               Over 15 years of hands-on ownership, Patrick and Tim have built a trusted network of contractors, architects, and service providers who understand how owner-operators work.
             </p>
-            <a
-              href="mailto:partners@barrettjohnson.com"
+            <Link
+              to="/partners"
               className="inline-flex items-center gap-3 font-sans text-xs tracking-[0.2em] uppercase text-gold group"
             >
               <span className="border-b border-gold/30 pb-1 group-hover:border-gold transition-colors duration-300">
-                Inquire About Joining
+                View Our Network
               </span>
               <ArrowRight size={14} className="group-hover:translate-x-1.5 transition-transform duration-300" />
-            </a>
+            </Link>
           </div>
 
           {/* Visual accent */}
