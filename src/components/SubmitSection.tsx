@@ -228,7 +228,7 @@ export default function SubmitSection() {
                         <div>
                           <label className={labelCls}>City / Market *</label>
                           <input
-                            type="text" placeholder="e.g. Nashville"
+                            type="text" placeholder="e.g. Cambridge"
                             value={form.market}
                             onChange={(e) => set("market", e.target.value)}
                             className={inputCls(errors.market)}
@@ -238,7 +238,7 @@ export default function SubmitSection() {
                         <div>
                           <label className={labelCls}>State *</label>
                           <input
-                            type="text" placeholder="e.g. TN"
+                            type="text" placeholder="e.g. MA"
                             value={form.state}
                             onChange={(e) => set("state", e.target.value)}
                             className={inputCls(errors.state)}

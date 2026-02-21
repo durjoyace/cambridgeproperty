@@ -11,7 +11,7 @@ const criteria = [
   },
   {
     label: "Geography",
-    value: "Cambridge-rooted, expanding into high-growth secondary markets across the Northeast and Southeast.",
+    value: "Cambridge and Greater Boston — neighborhoods we know block by block.",
   },
   {
     label: "Approach",
@@ -41,7 +41,7 @@ export default function ThesisSection() {
               <span className="text-gold">&amp; Operate</span>
             </h2>
             <p className="font-sans text-sm md:text-base leading-[1.8] text-cream-muted font-light max-w-md">
-              We are Cambridge-based property owners and developers with a direct, operator-led approach. Every asset we acquire is improved, managed, and held with long-term conviction.
+              We are Cambridge and Boston property owners and developers with a direct, operator-led approach. Every asset we acquire is improved, managed, and held with long-term conviction.
             </p>
           </div>
 

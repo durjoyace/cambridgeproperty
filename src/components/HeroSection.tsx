@@ -238,9 +238,9 @@ export default function HeroSection() {
           >
             <p className="font-sans text-base md:text-lg text-cream-muted leading-[1.7] max-w-lg font-light">
               Patrick W. Barrett III and Tim Johnson, CPM are hands-on Cambridge
-              property owners and developers — acquiring, improving, and
-              operating multifamily and mixed-use assets across high-growth
-              markets.
+              and Boston property owners and developers — acquiring, improving,
+              and operating multifamily and mixed-use assets across Greater
+              Boston.
             </p>
           </div>
 
