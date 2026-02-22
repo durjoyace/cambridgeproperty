@@ -6,6 +6,10 @@ const labelMap: Record<string, string> = {
   "case-studies": "Case Studies",
   "sell-your-property": "Sell Your Property",
   partners: "Our Partners",
+  about: "About Us",
+  contact: "Contact",
+  insights: "Insights",
+  portfolio: "Portfolio",
 };
 
 export default function Breadcrumbs() {

@@ -66,6 +66,44 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       `,
     });
 
+    // Send confirmation email to submitter
+    await resend.emails.send({
+      from: "Barrett & Johnson <notifications@barrettjohnson.com>",
+      to: data.email,
+      subject: "We've Received Your Property Submission — Barrett & Johnson",
+      html: `
+        <div style="font-family:'Helvetica Neue',Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;">
+          <div style="background:#1a1d23;padding:32px 24px;text-align:center;">
+            <h1 style="color:#d4a855;font-size:22px;font-weight:600;margin:0;letter-spacing:1px;">Barrett &amp; Johnson</h1>
+            <p style="color:#a0a0a0;font-size:11px;letter-spacing:3px;text-transform:uppercase;margin:8px 0 0;">Cambridge Property Owners &amp; Developers</p>
+          </div>
+          <div style="padding:32px 24px;">
+            <p style="font-size:16px;line-height:1.7;margin:0 0 20px;">Dear ${data.ownerName},</p>
+            <p style="font-size:15px;line-height:1.7;margin:0 0 20px;">Thank you for submitting your property to Barrett &amp; Johnson. Our principals — Patrick W. Barrett III and Tim Johnson, CPM — will personally review your submission and be in touch within <strong>48 business hours</strong>.</p>
+            <div style="background:#f8f7f5;border-left:3px solid #d4a855;padding:20px 24px;margin:24px 0;">
+              <p style="font-size:12px;text-transform:uppercase;letter-spacing:2px;color:#888;margin:0 0 12px;">Your Submission Summary</p>
+              <table style="width:100%;border-collapse:collapse;">
+                <tr><td style="padding:6px 0;font-size:13px;color:#666;">Asset Type</td><td style="padding:6px 0;font-size:13px;font-weight:600;text-align:right;">${data.assetType}</td></tr>
+                <tr><td style="padding:6px 0;font-size:13px;color:#666;">Units</td><td style="padding:6px 0;font-size:13px;font-weight:600;text-align:right;">${data.unitCount}</td></tr>
+                <tr><td style="padding:6px 0;font-size:13px;color:#666;">Market</td><td style="padding:6px 0;font-size:13px;font-weight:600;text-align:right;">${data.market}, ${data.state}</td></tr>
+                <tr><td style="padding:6px 0;font-size:13px;color:#666;">Deal Structure</td><td style="padding:6px 0;font-size:13px;font-weight:600;text-align:right;">${data.dealStructure}</td></tr>
+              </table>
+            </div>
+            <p style="font-size:14px;line-height:1.7;color:#555;margin:24px 0 8px;"><strong>What happens next:</strong></p>
+            <ol style="font-size:14px;line-height:1.8;color:#555;padding-left:20px;margin:0 0 24px;">
+              <li>Patrick and Tim review your submission personally</li>
+              <li>If there's a fit, we'll schedule a confidential conversation</li>
+              <li>You'll hear from us within 48 business hours either way</li>
+            </ol>
+            <p style="font-size:14px;line-height:1.7;color:#555;">Questions in the meantime? Reach us at <a href="mailto:acquisitions@barrettjohnson.com" style="color:#d4a855;">acquisitions@barrettjohnson.com</a> or <a href="tel:6177783521" style="color:#d4a855;">617-778-3521</a>.</p>
+          </div>
+          <div style="background:#f8f7f5;padding:20px 24px;text-align:center;border-top:1px solid #e8e5e0;">
+            <p style="font-size:11px;color:#999;margin:0;">Barrett &amp; Johnson &middot; Cambridge, MA &middot; barrettjohnson.com</p>
+          </div>
+        </div>
+      `,
+    });
+
     return res.status(200).json({ success: true });
   } catch (error) {
     console.error("Submission error:", error);

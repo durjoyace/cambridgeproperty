@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import type { CaseStudy } from "@/lib/data/case-studies";
 
 interface Props {
@@ -62,7 +64,7 @@ export default function CaseStudyCard({ study }: Props) {
         </div>
 
         {/* Metrics */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-border/40">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-border/40 mb-6">
           {study.metrics.map((m, j) => (
             <div key={j}>
               <div className="font-sans text-[9px] tracking-[0.2em] uppercase text-gold/60 mb-1.5">{m.label}</div>
@@ -70,6 +72,13 @@ export default function CaseStudyCard({ study }: Props) {
             </div>
           ))}
         </div>
+
+        <Link
+          to={`/portfolio/${study.slug}`}
+          className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase text-gold/60 hover:text-gold transition-colors duration-300"
+        >
+          View Details <ArrowRight size={12} />
+        </Link>
       </div>
     </div>
   );

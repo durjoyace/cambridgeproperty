@@ -29,4 +29,22 @@ export const PAGE_META = {
       "Barrett & Johnson's trusted network of contractors, architects, and service providers built over 15+ years of hands-on property ownership in Greater Boston.",
     canonical: "/partners",
   },
+  about: {
+    title: "About Us — Our Principals & Philosophy",
+    description:
+      "Meet Patrick W. Barrett III and Tim Johnson, CPM — Cambridge-based property owners and developers with 15+ years of hands-on multifamily and mixed-use experience across Greater Boston.",
+    canonical: "/about",
+  },
+  contact: {
+    title: "Contact Barrett & Johnson",
+    description:
+      "Get in touch with Barrett & Johnson — Cambridge-based property owners and developers. Reach our principals directly for acquisitions, management inquiries, or partnership opportunities.",
+    canonical: "/contact",
+  },
+  insights: {
+    title: "Insights — Real Estate Perspectives from Barrett & Johnson",
+    description:
+      "Market analysis, acquisition strategy, and property management insights from Cambridge-based owners and operators Patrick W. Barrett III and Tim Johnson, CPM.",
+    canonical: "/insights",
+  },
 } as const;

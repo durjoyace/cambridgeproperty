@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Shield, ArrowRight, CheckCircle, AlertCircle } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
 import { submitProperty } from "@/lib/api/submit";
+import { trackEvent } from "@/components/Analytics";
 import PrivacyNotice from "./PrivacyNotice";
 
 const STEPS = [
@@ -64,6 +65,10 @@ export default function PropertySubmissionForm({ variant = "inline" }: Props) {
     onSuccess: () => {
       setSubmitted(true);
       setSubmitError(false);
+      trackEvent("generate_lead", {
+        event_category: "form",
+        event_label: "property_submission",
+      });
     },
     onError: () => {
       setSubmitError(true);

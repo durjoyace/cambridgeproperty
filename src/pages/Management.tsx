@@ -15,6 +15,7 @@ import { PAGE_META } from "@/lib/seo/metadata";
 import { serviceSchema, breadcrumbSchema, faqSchema } from "@/lib/seo/schemas";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { COMPANY_STATS } from "@/lib/data/stats";
+import TestimonialsSection from "@/components/TestimonialsSection";
 
 const managementFaqs = [
   {
@@ -190,6 +191,9 @@ export default function Management() {
           </div>
         </div>
       </section>
+
+      {/* Testimonials */}
+      <TestimonialsSection label="Client Testimonials" />
 
       {/* FAQ */}
       <FAQSection faqs={managementFaqs} label="Management FAQ" />

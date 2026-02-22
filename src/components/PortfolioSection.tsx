@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import building1 from "@/assets/building-1.jpg";
 import building2 from "@/assets/building-2.jpg";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -5,6 +7,7 @@ import { COMPANY_STATS } from "@/lib/data/stats";
 
 const portfolioItems = [
   {
+    slug: "cambridge-24-unit",
     label: "Class B Multifamily",
     location: "Cambridge, MA",
     units: "24 Units",
@@ -19,6 +22,7 @@ const portfolioItems = [
     ],
   },
   {
+    slug: "somerville-mixed-use",
     label: "Mixed-Use Asset",
     location: "Somerville, MA",
     units: "18 Units",
@@ -108,7 +112,7 @@ export default function PortfolioSection() {
                   {item.description}
                 </p>
                 {/* Metrics */}
-                <div className="grid grid-cols-3 gap-4 pt-6 border-t border-border/40">
+                <div className="grid grid-cols-3 gap-4 pt-6 border-t border-border/40 mb-6">
                   {item.metrics.map((m, j) => (
                     <div key={j}>
                       <div className="font-sans text-[9px] tracking-[0.2em] uppercase text-gold/60 mb-1.5">{m.label}</div>
@@ -116,6 +120,12 @@ export default function PortfolioSection() {
                     </div>
                   ))}
                 </div>
+                <Link
+                  to={`/portfolio/${item.slug}`}
+                  className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase text-gold/60 hover:text-gold transition-colors duration-300"
+                >
+                  View Details <ArrowRight size={12} />
+                </Link>
               </div>
             </div>
           ))}

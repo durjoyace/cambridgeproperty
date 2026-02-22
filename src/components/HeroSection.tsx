@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import heroBg from "@/assets/hero-bg.jpg";
+import { trackEvent } from "@/components/Analytics";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -126,12 +127,14 @@ export default function HeroSection() {
           >
             <a
               href="#portfolio"
+              onClick={() => trackEvent("cta_click", { event_label: "hero_view_portfolio" })}
               className="group inline-flex items-center justify-center font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
             >
               View Our Portfolio
             </a>
             <a
               href="#submit"
+              onClick={() => trackEvent("cta_click", { event_label: "hero_work_with_us" })}
               className="inline-flex items-center justify-center font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 border border-cream/20 text-cream hover:border-gold hover:text-gold transition-all duration-300 focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
             >
               Work With Us

@@ -3,10 +3,10 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Our Approach", href: "/#thesis" },
+  { label: "About", href: "/about" },
   { label: "Portfolio", href: "/#portfolio" },
   { label: "Management", href: "/management" },
-  { label: "Case Studies", href: "/case-studies" },
+  { label: "Insights", href: "/insights" },
   { label: "Sell Your Property", href: "/sell-your-property" },
 ];
 

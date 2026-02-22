@@ -89,6 +89,77 @@ export function serviceSchema(
   };
 }
 
+export function personSchema(person: {
+  name: string;
+  jobTitle: string;
+  description: string;
+  url?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: person.name,
+    jobTitle: person.jobTitle,
+    description: person.description,
+    url: person.url || BASE_URL,
+    worksFor: {
+      "@type": "Organization",
+      name: "Barrett & Johnson",
+      url: BASE_URL,
+    },
+    knowsAbout: [
+      "Multifamily Real Estate",
+      "Property Management",
+      "Value-Add Acquisitions",
+    ],
+  };
+}
+
+export function articleSchema(article: {
+  title: string;
+  description: string;
+  url: string;
+  datePublished: string;
+  author: string;
+  image?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.description,
+    url: `${BASE_URL}${article.url}`,
+    datePublished: article.datePublished,
+    author: {
+      "@type": "Person",
+      name: article.author,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Barrett & Johnson",
+      url: BASE_URL,
+    },
+    ...(article.image && { image: article.image }),
+  };
+}
+
+export function contactPointSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Barrett & Johnson",
+    url: BASE_URL,
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "617-778-3521",
+      email: "acquisitions@barrettjohnson.com",
+      contactType: "sales",
+      areaServed: "Greater Boston",
+      availableLanguage: "English",
+    },
+  };
+}
+
 export function itemListSchema(
   items: { name: string; url: string; description?: string }[]
 ) {

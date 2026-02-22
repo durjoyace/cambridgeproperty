@@ -6,6 +6,7 @@ import MarketsSection from "@/components/MarketsSection";
 import SubmitSection from "@/components/SubmitSection";
 import FAQSection from "@/components/FAQSection";
 import PartnersSection from "@/components/PartnersSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import SEOHead from "@/components/seo/SEOHead";
 import { PAGE_META } from "@/lib/seo/metadata";
 import { organizationSchema, localBusinessSchema, faqSchema } from "@/lib/seo/schemas";
@@ -42,6 +43,7 @@ const Index = () => {
       <PortfolioSection />
       <MarketsSection />
       <SubmitSection />
+      <TestimonialsSection />
       <FAQSection faqs={homeFaqs} />
       <PartnersSection />
     </>
