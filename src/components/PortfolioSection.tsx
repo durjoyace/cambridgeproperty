@@ -1,6 +1,7 @@
 import building1 from "@/assets/building-1.jpg";
 import building2 from "@/assets/building-2.jpg";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { COMPANY_STATS } from "@/lib/data/stats";
 
 const portfolioItems = [
   {
@@ -34,9 +35,9 @@ const portfolioItems = [
 ];
 
 const stats = [
-  { value: "75", label: "Doors Owned & Managed", sub: "63 Residential · 12 Retail" },
-  { value: "15+", label: "Years Combined Experience", sub: "Development & Operations" },
-  { value: "100%", label: "Owner-Operated Portfolio", sub: "AppFolio-Managed Systems" },
+  { value: String(COMPANY_STATS.totalDoors), label: "Doors Owned & Managed", sub: `${COMPANY_STATS.residentialUnits} Residential · ${COMPANY_STATS.retailDoors} Retail` },
+  { value: COMPANY_STATS.yearsExperience, label: "Years Combined Experience", sub: "Development & Operations" },
+  { value: COMPANY_STATS.ownerOperated, label: "Owner-Operated Portfolio", sub: "AppFolio-Managed Systems" },
 ];
 
 export default function PortfolioSection() {

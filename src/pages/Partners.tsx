@@ -64,7 +64,7 @@ export default function Partners() {
                   Vendor Network
                 </div>
                 <div className="font-sans text-[10px] tracking-[0.2em] uppercase text-cream-muted/30 mt-2">
-                  Coming Soon
+                  {vendorCategories.length} Categories
                 </div>
               </div>
             </div>

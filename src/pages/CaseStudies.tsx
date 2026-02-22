@@ -7,12 +7,13 @@ import { caseStudies } from "@/lib/data/case-studies";
 import { PAGE_META } from "@/lib/seo/metadata";
 import { itemListSchema, breadcrumbSchema } from "@/lib/seo/schemas";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { COMPANY_STATS } from "@/lib/data/stats";
 
 const stats = [
-  { value: "75", label: "Doors Owned & Managed" },
-  { value: "15+", label: "Years Experience" },
-  { value: "100%", label: "Owner-Operated" },
-  { value: "2", label: "Active Case Studies" },
+  { value: String(COMPANY_STATS.totalDoors), label: "Doors Owned & Managed" },
+  { value: COMPANY_STATS.yearsExperience, label: "Years Experience" },
+  { value: COMPANY_STATS.ownerOperated, label: "Owner-Operated" },
+  { value: String(COMPANY_STATS.activeCaseStudies), label: "Active Case Studies" },
 ];
 
 export default function CaseStudies() {

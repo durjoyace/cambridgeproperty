@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Shield, ArrowRight, CheckCircle } from "lucide-react";
+import { Shield, ArrowRight, CheckCircle, AlertCircle } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
 import { submitProperty } from "@/lib/api/submit";
 import PrivacyNotice from "./PrivacyNotice";
@@ -56,12 +56,18 @@ export default function PropertySubmissionForm({ variant = "inline" }: Props) {
   const [step, setStep] = useState(0);
   const [form, setForm] = useState<FormData>(empty);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const [errors, setErrors] = useState<Partial<FormData>>({});
 
   const mutation = useMutation({
     mutationFn: submitProperty,
-    onSuccess: () => setSubmitted(true),
-    onError: () => setSubmitted(true), // Show success anyway for UX (submission stored client-side intent)
+    onSuccess: () => {
+      setSubmitted(true);
+      setSubmitError(false);
+    },
+    onError: () => {
+      setSubmitError(true);
+    },
   });
 
   const set = (k: keyof FormData, v: string) => {
@@ -144,6 +150,29 @@ export default function PropertySubmissionForm({ variant = "inline" }: Props) {
             <p className="font-sans text-sm text-cream-muted font-light max-w-xs mx-auto leading-[1.7]">
               Our principals will review your property and be in touch within 48 business hours.
             </p>
+          </div>
+        ) : submitError ? (
+          <div className="py-14 text-center">
+            <div className="w-16 h-16 border border-destructive/20 flex items-center justify-center mx-auto mb-6">
+              <AlertCircle size={24} className="text-destructive" />
+            </div>
+            <p className="font-display text-2xl text-cream mb-4 tracking-tight">Something Went Wrong</p>
+            <p className="font-sans text-sm text-cream-muted font-light max-w-xs mx-auto leading-[1.7] mb-8">
+              Your submission couldn't be processed. Please try again or contact us directly at 617-778-3521.
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                setSubmitError(false);
+                mutation.mutate({
+                  ...form,
+                  unitCount: parseInt(form.unitCount, 10) || 0,
+                });
+              }}
+              className="font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold"
+            >
+              {mutation.isPending ? "Retrying..." : "Try Again"}
+            </button>
           </div>
         ) : (
           <form onSubmit={handleSubmit} noValidate>

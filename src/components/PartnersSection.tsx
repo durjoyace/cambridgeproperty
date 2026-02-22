@@ -46,7 +46,7 @@ export default function PartnersSection() {
                     Vendor Network
                   </div>
                   <div className="font-sans text-[9px] tracking-[0.2em] uppercase text-cream-muted/20 mt-1.5">
-                    Coming Soon
+                    15+ Years
                   </div>
                 </div>
               </div>

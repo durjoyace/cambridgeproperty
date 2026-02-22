@@ -13,12 +13,13 @@ import SEOHead from "@/components/seo/SEOHead";
 import { PAGE_META } from "@/lib/seo/metadata";
 import { serviceSchema, breadcrumbSchema } from "@/lib/seo/schemas";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { COMPANY_STATS } from "@/lib/data/stats";
 
 const stats = [
-  { value: "75", label: "Total Doors", sub: "Owned & Managed" },
-  { value: "63", label: "Residential Units", sub: "Across Portfolio" },
-  { value: "12", label: "Retail Doors", sub: "Commercial Tenants" },
-  { value: "100%", label: "AppFolio-Powered", sub: "Enterprise Systems" },
+  { value: String(COMPANY_STATS.totalDoors), label: "Total Doors", sub: "Owned & Managed" },
+  { value: String(COMPANY_STATS.residentialUnits), label: "Residential Units", sub: "Across Portfolio" },
+  { value: String(COMPANY_STATS.retailDoors), label: "Retail Doors", sub: "Commercial Tenants" },
+  { value: COMPANY_STATS.ownerOperated, label: "AppFolio-Powered", sub: "Enterprise Systems" },
 ];
 
 const services = [
@@ -70,7 +71,7 @@ export default function Management() {
         schema={[
           serviceSchema(
             "Property Management Services",
-            "Full-service property management for 75 doors across Cambridge and Greater Boston.",
+            `Full-service property management for ${COMPANY_STATS.totalDoors} doors across Cambridge and Greater Boston.`,
             "/management"
           ),
           breadcrumbSchema([
