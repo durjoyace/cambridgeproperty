@@ -17,8 +17,14 @@ export function useScrollReveal<T extends HTMLElement>(opts: ScrollRevealOptions
   useEffect(() => {
     if (!ref.current) return;
 
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const children = ref.current.querySelectorAll("[data-reveal]");
     const targets = children.length > 0 ? children : [ref.current];
+
+    if (prefersReducedMotion) {
+      gsap.set(targets, { opacity: 1, y: 0 });
+      return;
+    }
 
     gsap.set(targets, { opacity: 0, y: opts.y ?? 40 });
 

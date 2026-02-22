@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export default function PartnersSection() {
@@ -19,12 +19,24 @@ export default function PartnersSection() {
               <br />
               Vendors
             </h2>
-            <p className="font-sans text-sm md:text-base leading-[1.8] text-cream-muted font-light max-w-md mb-10">
+            <p className="font-sans text-sm md:text-base leading-[1.8] text-cream-muted font-light max-w-md mb-6">
               Over 15 years of hands-on ownership, Patrick and Tim have built a trusted network of contractors, architects, and service providers who understand how owner-operators work.
             </p>
+            <div className="flex flex-col gap-3 mb-10">
+              {[
+                "Consistent project volume across 75 doors",
+                "Long-term relationships with direct ownership access",
+                "Professional billing and prompt payment",
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-3">
+                  <CheckCircle size={13} className="text-gold/60 shrink-0" />
+                  <span className="font-sans text-sm text-cream-muted/70 font-light">{item}</span>
+                </div>
+              ))}
+            </div>
             <Link
               to="/partners"
-              className="inline-flex items-center gap-3 font-sans text-xs tracking-[0.2em] uppercase text-gold group"
+              className="inline-flex items-center gap-3 font-sans text-xs tracking-[0.2em] uppercase text-gold group focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
             >
               <span className="border-b border-gold/30 pb-1 group-hover:border-gold transition-colors duration-300">
                 View Our Network
@@ -33,23 +45,23 @@ export default function PartnersSection() {
             </Link>
           </div>
 
-          {/* Visual accent */}
-          <div data-reveal className="hidden lg:flex items-center justify-center">
-            <div className="relative w-full max-w-sm">
-              <div className="aspect-square border border-gold/10 flex items-center justify-center">
-                <div className="absolute inset-6 border border-gold/[0.06]" />
-                <div className="absolute inset-12 border border-gold/[0.04]" />
-                <div className="absolute inset-[4.5rem] border border-gold/[0.03]" />
-                <div className="text-center">
-                  <div className="font-display text-6xl font-semibold text-gold/15 mb-3 tracking-tight">B&amp;J</div>
-                  <div className="font-sans text-[9px] tracking-[0.3em] uppercase text-gold/25">
-                    Vendor Network
-                  </div>
-                  <div className="font-sans text-[9px] tracking-[0.2em] uppercase text-cream-muted/20 mt-1.5">
-                    15+ Years
-                  </div>
-                </div>
-              </div>
+          {/* Stats display */}
+          <div data-reveal className="hidden lg:grid grid-cols-2 gap-4">
+            <div className="bg-charcoal-mid border border-border/40 p-8 text-center">
+              <div className="font-display text-4xl font-semibold text-gold mb-2 tracking-tight">8</div>
+              <div className="font-sans text-[10px] tracking-[0.2em] uppercase text-cream-muted/60">Vendor Categories</div>
+            </div>
+            <div className="bg-charcoal-mid border border-border/40 p-8 text-center">
+              <div className="font-display text-4xl font-semibold text-gold mb-2 tracking-tight">75</div>
+              <div className="font-sans text-[10px] tracking-[0.2em] uppercase text-cream-muted/60">Doors Serviced</div>
+            </div>
+            <div className="bg-charcoal-mid border border-border/40 p-8 text-center">
+              <div className="font-display text-4xl font-semibold text-gold mb-2 tracking-tight">15+</div>
+              <div className="font-sans text-[10px] tracking-[0.2em] uppercase text-cream-muted/60">Years Experience</div>
+            </div>
+            <div className="bg-charcoal-mid border border-border/40 p-8 text-center">
+              <div className="font-display text-4xl font-semibold text-gold mb-2 tracking-tight">100%</div>
+              <div className="font-sans text-[10px] tracking-[0.2em] uppercase text-cream-muted/60">Owner-Operated</div>
             </div>
           </div>
         </div>

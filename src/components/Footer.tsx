@@ -13,7 +13,7 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
   const { pathname } = useLocation();
   const isHashLink = href.startsWith("/#");
 
-  const cls = "font-sans text-[10px] tracking-[0.15em] uppercase text-cream-muted/50 hover:text-gold transition-colors duration-300";
+  const cls = "font-sans text-[10px] tracking-[0.15em] uppercase text-cream-muted/50 hover:text-gold transition-colors duration-300 focus-visible:text-gold focus-visible:outline-none";
 
   if (isHashLink && pathname === "/") {
     return <a href={href.slice(1)} className={cls}>{children}</a>;
@@ -29,7 +29,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
           {/* Brand */}
           <div>
-            <Link to="/" className="block">
+            <Link to="/" className="block" aria-label="Barrett & Johnson homepage">
               <div className="font-display text-xl font-semibold text-cream mb-2 tracking-tight">
                 Barrett &amp; Johnson
               </div>

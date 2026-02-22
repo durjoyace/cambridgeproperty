@@ -90,14 +90,14 @@ export default function Navbar() {
             <NavAnchor
               key={link.href}
               href={link.href}
-              className="relative font-sans text-[11px] tracking-[0.15em] uppercase text-cream-muted/70 hover:text-cream transition-colors duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-gold/40 hover:after:w-full after:transition-all after:duration-300"
+              className="relative font-sans text-[11px] tracking-[0.15em] uppercase text-cream-muted/70 hover:text-cream transition-colors duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-gold/40 hover:after:w-full after:transition-all after:duration-300 focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
             >
               {link.label}
             </NavAnchor>
           ))}
           <NavAnchor
             href="/sell-your-property"
-            className="font-sans text-[11px] tracking-[0.15em] uppercase px-6 py-2.5 border border-gold/40 text-gold hover:bg-gold hover:text-primary-foreground transition-all duration-300"
+            className="font-sans text-[11px] tracking-[0.15em] uppercase px-6 py-2.5 border border-gold/40 text-gold hover:bg-gold hover:text-primary-foreground transition-all duration-300 focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
           >
             Work With Us
           </NavAnchor>
@@ -105,9 +105,10 @@ export default function Navbar() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden text-cream-muted hover:text-gold transition-colors duration-300"
+          className="md:hidden text-cream-muted hover:text-gold transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
         >
           {mobileOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
@@ -115,12 +116,12 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-xl border-t border-border/30 px-6 py-8 flex flex-col gap-6">
+        <nav aria-label="Mobile navigation" className="md:hidden bg-background/95 backdrop-blur-xl border-t border-border/30 px-6 py-8 flex flex-col gap-6">
           {navLinks.map((link) => (
             <NavAnchor
               key={link.href}
               href={link.href}
-              className="font-sans text-xs tracking-[0.18em] uppercase text-cream-muted/70 hover:text-gold transition-colors duration-300"
+              className="font-sans text-xs tracking-[0.18em] uppercase text-cream-muted/70 hover:text-gold transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
               onClick={() => setMobileOpen(false)}
             >
               {link.label}
@@ -128,12 +129,12 @@ export default function Navbar() {
           ))}
           <NavAnchor
             href="/sell-your-property"
-            className="font-sans text-xs tracking-[0.15em] uppercase px-6 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-primary-foreground transition-all duration-300 text-center"
+            className="font-sans text-xs tracking-[0.15em] uppercase px-6 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-primary-foreground transition-all duration-300 text-center focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
             onClick={() => setMobileOpen(false)}
           >
             Submit Property
           </NavAnchor>
-        </div>
+        </nav>
       )}
     </header>
   );

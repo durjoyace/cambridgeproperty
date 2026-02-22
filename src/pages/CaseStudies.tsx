@@ -2,12 +2,28 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import SEOHead from "@/components/seo/SEOHead";
+import FAQSection from "@/components/FAQSection";
 import CaseStudyCard from "@/components/case-studies/CaseStudyCard";
 import { caseStudies } from "@/lib/data/case-studies";
 import { PAGE_META } from "@/lib/seo/metadata";
-import { itemListSchema, breadcrumbSchema } from "@/lib/seo/schemas";
+import { itemListSchema, breadcrumbSchema, faqSchema } from "@/lib/seo/schemas";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { COMPANY_STATS } from "@/lib/data/stats";
+
+const caseStudyFaqs = [
+  {
+    question: "What is your value-add strategy?",
+    answer: "We execute targeted capital improvements — unit renovations, common area upgrades, and energy efficiency retrofits — to unlock embedded value. Our approach focuses on operational efficiencies and strategic repositioning rather than speculative development.",
+  },
+  {
+    question: "What size properties do you target?",
+    answer: "We focus on 15-150 unit multifamily and mixed-use assets. This size range allows us to apply our hands-on, owner-operated approach while achieving meaningful operational economies of scale.",
+  },
+  {
+    question: "Do you work with brokers?",
+    answer: "While we welcome broker-sourced deals, we prefer working directly with property owners. This allows for a more efficient, confidential process and eliminates broker fees for sellers. We are direct buyers with the ability to close quickly.",
+  },
+];
 
 const stats = [
   { value: String(COMPANY_STATS.totalDoors), label: "Doors Owned & Managed" },
@@ -35,6 +51,7 @@ export default function CaseStudies() {
             { name: "Home", url: "/" },
             { name: "Case Studies", url: "/case-studies" },
           ]),
+          faqSchema(caseStudyFaqs),
         ]}
       />
       <Breadcrumbs />
@@ -84,6 +101,9 @@ export default function CaseStudies() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <FAQSection faqs={caseStudyFaqs} label="Investment FAQ" />
+
       {/* CTA */}
       <section className="py-24 bg-charcoal-mid">
         <div className="container mx-auto text-center max-w-2xl">
@@ -95,7 +115,7 @@ export default function CaseStudies() {
           </p>
           <Link
             to="/sell-your-property"
-            className="inline-flex items-center gap-3 font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold"
+            className="inline-flex items-center gap-3 font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
           >
             Sell Your Property <ArrowRight size={13} />
           </Link>

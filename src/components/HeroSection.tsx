@@ -16,6 +16,16 @@ export default function HeroSection() {
   useEffect(() => {
     if (!sectionRef.current) return;
 
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReducedMotion) {
+      // Show everything immediately without animation
+      gsap.set([labelRef.current, headlineRef.current, subtextRef.current, ctaRef.current], {
+        opacity: 1, y: 0,
+      });
+      return;
+    }
+
     // GSAP entrance — staggered cinematic reveal
     const tl = gsap.timeline({ delay: 0.2 });
     tl.to(labelRef.current, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 0)
@@ -23,7 +33,8 @@ export default function HeroSection() {
       .to(subtextRef.current, { opacity: 1, y: 0, duration: 1, ease: "power3.out" }, 0.5)
       .to(ctaRef.current, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 0.7);
 
-    // Scroll parallax — image + content fade
+    // Scroll parallax — skip image parallax on mobile for performance
+    const isMobile = window.innerWidth < 768;
     const scrollTl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
@@ -33,8 +44,11 @@ export default function HeroSection() {
       },
     });
 
+    if (!isMobile) {
+      scrollTl.to(imageRef.current, { scale: 1.08, y: 60, ease: "none" }, 0);
+    }
+
     scrollTl
-      .to(imageRef.current, { scale: 1.08, y: 60, ease: "none" }, 0)
       .to(headlineRef.current, { y: -80, opacity: 0, ease: "none" }, 0)
       .to(subtextRef.current, { y: -60, opacity: 0, ease: "none" }, 0)
       .to(ctaRef.current, { y: -40, opacity: 0, ease: "none" }, 0)
@@ -55,6 +69,8 @@ export default function HeroSection() {
         className="absolute inset-0 w-full h-full object-cover"
         style={{ zIndex: 0 }}
         fetchPriority="high"
+        width={1920}
+        height={1080}
       />
 
       {/* Gradient overlays for text readability */}
@@ -110,13 +126,13 @@ export default function HeroSection() {
           >
             <a
               href="#portfolio"
-              className="group inline-flex items-center justify-center font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold"
+              className="group inline-flex items-center justify-center font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
             >
               View Our Portfolio
             </a>
             <a
               href="#submit"
-              className="inline-flex items-center justify-center font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 border border-cream/20 text-cream hover:border-gold hover:text-gold transition-all duration-300"
+              className="inline-flex items-center justify-center font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 border border-cream/20 text-cream hover:border-gold hover:text-gold transition-all duration-300 focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
             >
               Work With Us
             </a>
@@ -125,7 +141,7 @@ export default function HeroSection() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3" style={{ zIndex: 2 }}>
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3" style={{ zIndex: 2 }} aria-hidden="true">
         <div className="w-px h-10 bg-gradient-to-b from-gold/40 to-transparent animate-pulse" />
       </div>
     </section>

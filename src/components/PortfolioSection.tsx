@@ -91,6 +91,7 @@ export default function PortfolioSection() {
                   loading="lazy"
                   width={600}
                   height={400}
+                  sizes="(min-width: 1024px) 50vw, 100vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal-mid via-charcoal-mid/20 to-transparent" />
                 <span className="absolute top-5 left-5 font-sans text-[9px] tracking-[0.25em] uppercase text-gold border border-gold/30 bg-charcoal/70 backdrop-blur-sm px-3 py-1.5">

@@ -10,10 +10,26 @@ import {
 } from "lucide-react";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import SEOHead from "@/components/seo/SEOHead";
+import FAQSection from "@/components/FAQSection";
 import { PAGE_META } from "@/lib/seo/metadata";
-import { serviceSchema, breadcrumbSchema } from "@/lib/seo/schemas";
+import { serviceSchema, breadcrumbSchema, faqSchema } from "@/lib/seo/schemas";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { COMPANY_STATS } from "@/lib/data/stats";
+
+const managementFaqs = [
+  {
+    question: "What property management software do you use?",
+    answer: "Our entire portfolio runs on AppFolio's enterprise property management platform. This enables online rent collection, real-time maintenance tracking, tenant portals, and institutional-grade financial reporting for every property we manage.",
+  },
+  {
+    question: "How do you handle emergency maintenance?",
+    answer: "We have a 24/7 emergency maintenance response system through AppFolio. Tenants can submit urgent requests at any time, and our vetted vendor network ensures rapid response for critical issues like plumbing emergencies, heating failures, or safety concerns.",
+  },
+  {
+    question: "What is your reporting frequency?",
+    answer: "We provide institutional-grade monthly financial reports including income statements, balance sheets, rent rolls, and variance analysis. Owners have real-time access to property performance through our AppFolio owner portal.",
+  },
+];
 
 const stats = [
   { value: String(COMPANY_STATS.totalDoors), label: "Total Doors", sub: "Owned & Managed" },
@@ -78,6 +94,7 @@ export default function Management() {
             { name: "Home", url: "/" },
             { name: "Property Management", url: "/management" },
           ]),
+          faqSchema(managementFaqs),
         ]}
       />
       <Breadcrumbs />
@@ -174,6 +191,9 @@ export default function Management() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <FAQSection faqs={managementFaqs} label="Management FAQ" />
+
       {/* CTA */}
       <section className="py-24 bg-charcoal">
         <div className="container mx-auto text-center max-w-2xl">
@@ -185,7 +205,7 @@ export default function Management() {
           </p>
           <Link
             to="/sell-your-property"
-            className="inline-flex items-center gap-3 font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold"
+            className="inline-flex items-center gap-3 font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
           >
             Sell Your Property <ArrowRight size={13} />
           </Link>

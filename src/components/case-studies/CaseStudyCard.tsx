@@ -17,6 +17,7 @@ export default function CaseStudyCard({ study }: Props) {
             loading="lazy"
             width={600}
             height={400}
+            sizes="(min-width: 1024px) 50vw, 100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal-mid via-charcoal-mid/20 to-transparent" />
         </div>

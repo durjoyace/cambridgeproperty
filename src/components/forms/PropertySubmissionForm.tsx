@@ -169,7 +169,7 @@ export default function PropertySubmissionForm({ variant = "inline" }: Props) {
                   unitCount: parseInt(form.unitCount, 10) || 0,
                 });
               }}
-              className="font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold"
+              className="font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
             >
               {mutation.isPending ? "Retrying..." : "Try Again"}
             </button>
@@ -180,31 +180,38 @@ export default function PropertySubmissionForm({ variant = "inline" }: Props) {
               <div className="flex flex-col gap-6">
                 <h3 className="font-display text-xl font-semibold text-cream mb-2">Property Information</h3>
                 <div>
-                  <label className={labelCls}>Asset Type *</label>
+                  <label htmlFor="assetType" className={labelCls}>Asset Type *</label>
                   <select
+                    id="assetType"
                     value={form.assetType}
                     onChange={(e) => set("assetType", e.target.value)}
                     className={inputCls(errors.assetType) + " appearance-none"}
+                    aria-required="true"
+                    aria-describedby={errors.assetType ? "assetType-error" : undefined}
                   >
                     <option value="">Select asset type...</option>
                     {assetTypes.map((t) => <option key={t} value={t}>{t}</option>)}
                   </select>
-                  {errors.assetType && <p className="text-destructive text-xs mt-1.5">{errors.assetType}</p>}
+                  {errors.assetType && <p id="assetType-error" className="text-destructive text-xs mt-1.5" aria-live="polite">{errors.assetType}</p>}
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className={labelCls}>Unit Count *</label>
+                    <label htmlFor="unitCount" className={labelCls}>Unit Count *</label>
                     <input
+                      id="unitCount"
                       type="number" min={1} placeholder="e.g. 24"
                       value={form.unitCount}
                       onChange={(e) => set("unitCount", e.target.value)}
                       className={inputCls(errors.unitCount)}
+                      aria-required="true"
+                      aria-describedby={errors.unitCount ? "unitCount-error" : undefined}
                     />
-                    {errors.unitCount && <p className="text-destructive text-xs mt-1.5">{errors.unitCount}</p>}
+                    {errors.unitCount && <p id="unitCount-error" className="text-destructive text-xs mt-1.5" aria-live="polite">{errors.unitCount}</p>}
                   </div>
                   <div>
-                    <label className={labelCls}>Asking Price (Optional)</label>
+                    <label htmlFor="askingPrice" className={labelCls}>Asking Price (Optional)</label>
                     <input
+                      id="askingPrice"
                       type="text" placeholder="e.g. $4.2M"
                       value={form.askingPrice}
                       onChange={(e) => set("askingPrice", e.target.value)}
@@ -214,7 +221,7 @@ export default function PropertySubmissionForm({ variant = "inline" }: Props) {
                 </div>
                 <button
                   type="button" onClick={next}
-                  className="mt-3 font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold flex items-center justify-center gap-2"
+                  className="mt-3 font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold flex items-center justify-center gap-2 focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
                 >
                   Continue <ArrowRight size={13} />
                 </button>
@@ -226,48 +233,57 @@ export default function PropertySubmissionForm({ variant = "inline" }: Props) {
                 <h3 className="font-display text-xl font-semibold text-cream mb-2">Market Details</h3>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className={labelCls}>City / Market *</label>
+                    <label htmlFor="market" className={labelCls}>City / Market *</label>
                     <input
+                      id="market"
                       type="text" placeholder="e.g. Cambridge"
                       value={form.market}
                       onChange={(e) => set("market", e.target.value)}
                       className={inputCls(errors.market)}
+                      aria-required="true"
+                      aria-describedby={errors.market ? "market-error" : undefined}
                     />
-                    {errors.market && <p className="text-destructive text-xs mt-1.5">{errors.market}</p>}
+                    {errors.market && <p id="market-error" className="text-destructive text-xs mt-1.5" aria-live="polite">{errors.market}</p>}
                   </div>
                   <div>
-                    <label className={labelCls}>State *</label>
+                    <label htmlFor="state" className={labelCls}>State *</label>
                     <input
+                      id="state"
                       type="text" placeholder="e.g. MA"
                       value={form.state}
                       onChange={(e) => set("state", e.target.value)}
                       className={inputCls(errors.state)}
+                      aria-required="true"
+                      aria-describedby={errors.state ? "state-error" : undefined}
                     />
-                    {errors.state && <p className="text-destructive text-xs mt-1.5">{errors.state}</p>}
+                    {errors.state && <p id="state-error" className="text-destructive text-xs mt-1.5" aria-live="polite">{errors.state}</p>}
                   </div>
                 </div>
                 <div>
-                  <label className={labelCls}>Preferred Deal Structure *</label>
+                  <label htmlFor="dealStructure" className={labelCls}>Preferred Deal Structure *</label>
                   <select
+                    id="dealStructure"
                     value={form.dealStructure}
                     onChange={(e) => set("dealStructure", e.target.value)}
                     className={inputCls(errors.dealStructure) + " appearance-none"}
+                    aria-required="true"
+                    aria-describedby={errors.dealStructure ? "dealStructure-error" : undefined}
                   >
                     <option value="">Select structure...</option>
                     {dealStructures.map((d) => <option key={d} value={d}>{d}</option>)}
                   </select>
-                  {errors.dealStructure && <p className="text-destructive text-xs mt-1.5">{errors.dealStructure}</p>}
+                  {errors.dealStructure && <p id="dealStructure-error" className="text-destructive text-xs mt-1.5" aria-live="polite">{errors.dealStructure}</p>}
                 </div>
                 <div className="flex gap-4 mt-3">
                   <button
                     type="button" onClick={() => setStep(0)}
-                    className="font-sans text-xs tracking-[0.2em] uppercase px-8 py-5 border border-border/60 text-cream-muted hover:border-gold/20 hover:text-cream transition-all duration-300"
+                    className="font-sans text-xs tracking-[0.2em] uppercase px-8 py-5 border border-border/60 text-cream-muted hover:border-gold/20 hover:text-cream transition-all duration-300 focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
                   >
                     Back
                   </button>
                   <button
                     type="button" onClick={next}
-                    className="flex-1 font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold flex items-center justify-center gap-2"
+                    className="flex-1 font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold flex items-center justify-center gap-2 focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
                   >
                     Continue <ArrowRight size={13} />
                   </button>
@@ -279,29 +295,36 @@ export default function PropertySubmissionForm({ variant = "inline" }: Props) {
               <div className="flex flex-col gap-6">
                 <h3 className="font-display text-xl font-semibold text-cream mb-2">Contact Information</h3>
                 <div>
-                  <label className={labelCls}>Owner / Representative Name *</label>
+                  <label htmlFor="ownerName" className={labelCls}>Owner / Representative Name *</label>
                   <input
+                    id="ownerName"
                     type="text" placeholder="Full name"
                     value={form.ownerName}
                     onChange={(e) => set("ownerName", e.target.value)}
                     className={inputCls(errors.ownerName)}
+                    aria-required="true"
+                    aria-describedby={errors.ownerName ? "ownerName-error" : undefined}
                   />
-                  {errors.ownerName && <p className="text-destructive text-xs mt-1.5">{errors.ownerName}</p>}
+                  {errors.ownerName && <p id="ownerName-error" className="text-destructive text-xs mt-1.5" aria-live="polite">{errors.ownerName}</p>}
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className={labelCls}>Email Address *</label>
+                    <label htmlFor="email" className={labelCls}>Email Address *</label>
                     <input
+                      id="email"
                       type="email" placeholder="you@company.com"
                       value={form.email}
                       onChange={(e) => set("email", e.target.value)}
                       className={inputCls(errors.email)}
+                      aria-required="true"
+                      aria-describedby={errors.email ? "email-error" : undefined}
                     />
-                    {errors.email && <p className="text-destructive text-xs mt-1.5">{errors.email}</p>}
+                    {errors.email && <p id="email-error" className="text-destructive text-xs mt-1.5" aria-live="polite">{errors.email}</p>}
                   </div>
                   <div>
-                    <label className={labelCls}>Phone (Optional)</label>
+                    <label htmlFor="phone" className={labelCls}>Phone (Optional)</label>
                     <input
+                      id="phone"
                       type="tel" placeholder="(617) 000-0000"
                       value={form.phone}
                       onChange={(e) => set("phone", e.target.value)}
@@ -310,8 +333,9 @@ export default function PropertySubmissionForm({ variant = "inline" }: Props) {
                   </div>
                 </div>
                 <div>
-                  <label className={labelCls}>Additional Notes (Optional)</label>
+                  <label htmlFor="additionalNotes" className={labelCls}>Additional Notes (Optional)</label>
                   <textarea
+                    id="additionalNotes"
                     rows={3}
                     placeholder="Any context about the property, timeline, or special circumstances..."
                     value={form.additionalNotes}
@@ -323,14 +347,14 @@ export default function PropertySubmissionForm({ variant = "inline" }: Props) {
                 <div className="flex gap-4 mt-3">
                   <button
                     type="button" onClick={() => setStep(1)}
-                    className="font-sans text-xs tracking-[0.2em] uppercase px-8 py-5 border border-border/60 text-cream-muted hover:border-gold/20 hover:text-cream transition-all duration-300"
+                    className="font-sans text-xs tracking-[0.2em] uppercase px-8 py-5 border border-border/60 text-cream-muted hover:border-gold/20 hover:text-cream transition-all duration-300 focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
                   >
                     Back
                   </button>
                   <button
                     type="submit"
                     disabled={mutation.isPending}
-                    className="flex-1 font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold flex items-center justify-center gap-2 disabled:opacity-50"
+                    className="flex-1 font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold flex items-center justify-center gap-2 disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
                   >
                     <Shield size={13} />
                     {mutation.isPending ? "Submitting..." : "Submit Securely"}
