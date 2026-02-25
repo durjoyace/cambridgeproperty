@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, TrendingUp } from "lucide-react";
-import building1 from "@/assets/building-1.jpg";
+import hotel907 from "@/assets/907-main.jpg";
 import building2 from "@/assets/building-2.jpg";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { COMPANY_STATS } from "@/lib/data/stats";
@@ -16,7 +16,7 @@ const portfolioItems = [
       "Ground-up development of a $45M boutique luxury hotel — designed by Gensler Boston, LEED-certifiable, $37.75M institutional financing. Now operating as The Lark Cambridge.",
     tag: "Hotel",
     statusBadge: "Completed Development",
-    image: building1,
+    image: hotel907,
     metrics: [
       { label: "Asset Type", value: "Boutique Hotel" },
       { label: "Strategy", value: "Ground-Up Development" },

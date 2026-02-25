@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/907-main.jpg";
 import { trackEvent } from "@/components/Analytics";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -66,7 +66,7 @@ export default function HeroSection() {
       <img
         ref={imageRef}
         src={heroBg}
-        alt="Aerial view of multifamily residential complex at golden hour in Greater Boston"
+        alt="907 Main — The Lark Cambridge, a 67-key boutique hotel developed by Barrett & Johnson in Central Square"
         className="absolute inset-0 w-full h-full object-cover"
         style={{ zIndex: 0 }}
         fetchPriority="high"
