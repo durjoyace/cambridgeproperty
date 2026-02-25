@@ -39,6 +39,7 @@ export const caseStudies: CaseStudy[] = [
     strategy: "Ground-Up Development",
     status: "Stabilized",
     statusDetail: "Completed Development",
+    image: "907-main",
     description:
       "Ground-up development of a 67-key boutique luxury hotel in Central Square — a $45M project designed by Gensler Boston with LEED-certifiable standards. Secured $37.75M institutional financing. Now operating as The Lark Cambridge.",
     highlights: [
@@ -88,6 +89,7 @@ export const caseStudies: CaseStudy[] = [
     strategy: "Historic Preservation + Development",
     status: "In Development",
     statusDetail: "CHC Approved 7-0",
+    image: "building-2",
     description:
       "Preservation of the historic Harriet Jacobs House — an African American heritage site — combined with a new hotel and 50+ homes including 10 affordable units. Five years of community engagement with the Jacobs Legacy Committee, Harvard Square Business Association, and Cambridge residents. Designed by Cambridge Seven.",
     highlights: [

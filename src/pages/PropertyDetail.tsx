@@ -5,6 +5,13 @@ import SEOHead from "@/components/seo/SEOHead";
 import { breadcrumbSchema } from "@/lib/seo/schemas";
 import { getCaseStudyBySlug, caseStudies } from "@/lib/data/case-studies";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import hotel907 from "@/assets/907-main.jpg";
+import building2 from "@/assets/building-2.jpg";
+
+const propertyImages: Record<string, string> = {
+  "907-main": hotel907,
+  "building-2": building2,
+};
 
 export default function PropertyDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -34,8 +41,22 @@ export default function PropertyDetail() {
       />
       <Breadcrumbs />
 
+      {/* Hero Image */}
+      {property.image && propertyImages[property.image] && (
+        <div className="relative h-72 md:h-96 lg:h-[28rem] overflow-hidden">
+          <img
+            src={propertyImages[property.image]}
+            alt={property.title}
+            className="w-full h-full object-cover"
+            width={1200}
+            height={600}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/40 to-transparent" />
+        </div>
+      )}
+
       {/* Hero */}
-      <section className="pt-8 pb-20 bg-charcoal" ref={sectionRef}>
+      <section className={`${property.image ? "pt-12" : "pt-8"} pb-20 bg-charcoal`} ref={sectionRef}>
         <div className="container mx-auto" data-reveal>
           {/* Back link */}
           <Link
