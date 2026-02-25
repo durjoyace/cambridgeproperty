@@ -8,34 +8,35 @@ import { caseStudies } from "@/lib/data/case-studies";
 
 const portfolioItems = [
   {
-    slug: "cambridge-24-unit",
-    label: "Class B Multifamily",
-    location: "Cambridge, MA",
-    units: "24 Units",
+    slug: "907-main-hotel",
+    label: "907 Main — The Lark Cambridge",
+    location: "Central Square, Cambridge",
+    units: "67 Keys",
     description:
-      "Value-add execution focused on operational efficiencies and targeted capital improvements. Leveraging enterprise-grade AppFolio management systems.",
-    tag: "Multifamily",
+      "Ground-up development of a $45M boutique luxury hotel — designed by Gensler Boston, LEED-certifiable, $37.75M institutional financing. Now operating as The Lark Cambridge.",
+    tag: "Hotel",
+    statusBadge: "Completed Development",
     image: building1,
     metrics: [
-      { label: "Asset Type", value: "Class B Residential" },
-      { label: "Strategy", value: "Value-Add" },
-      { label: "Status", value: "Active" },
+      { label: "Asset Type", value: "Boutique Hotel" },
+      { label: "Strategy", value: "Ground-Up Development" },
+      { label: "Architect", value: "Gensler Boston" },
     ],
   },
   {
-    slug: "somerville-mixed-use",
-    label: "Mixed-Use Asset",
-    location: "Somerville, MA",
-    units: "18 Units",
+    slug: "17-story-street",
+    label: "17 Story Street — Harriet Jacobs House",
+    location: "Harvard Square, Cambridge",
+    units: "50+ Homes",
     description:
-      "Stabilization of commercial tenant base while repositioning residential floorplans. 63 residential and 12 retail doors under active management.",
-    tag: "Mixed-Use",
-    statusBadge: "Completed Value Creation",
+      "Historic preservation of an African American heritage site combined with a hotel and 50+ new homes. Five years of community engagement. Cambridge Historical Commission approved 7-0 unanimous.",
+    tag: "Preservation + Dev",
+    statusBadge: "CHC Approved 7-0",
     image: building2,
     metrics: [
-      { label: "Asset Type", value: "Res + Retail" },
-      { label: "Strategy", value: "Stabilization" },
-      { label: "Status", value: "Stabilized" },
+      { label: "Asset Type", value: "Hotel + Residential" },
+      { label: "Strategy", value: "Preservation + Dev" },
+      { label: "Architect", value: "Cambridge Seven" },
     ],
   },
 ];
@@ -66,7 +67,7 @@ export default function PortfolioSection() {
             </h2>
           </div>
           <p className="font-sans text-sm md:text-base leading-[1.8] text-cream-muted font-light lg:max-w-sm lg:ml-auto">
-            A growing portfolio of multifamily and mixed-use properties — each acquired, improved, and operated directly by Patrick and Tim.
+            From a $45M boutique hotel to historic preservation with 50+ new homes — each project developed and operated directly by Patrick and Tim.
           </p>
         </div>
 
