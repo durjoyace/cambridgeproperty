@@ -19,6 +19,7 @@ const Contact = lazy(() => import("./pages/Contact"));
 const Insights = lazy(() => import("./pages/Insights"));
 const InsightPost = lazy(() => import("./pages/InsightPost"));
 const PropertyDetail = lazy(() => import("./pages/PropertyDetail"));
+const Press = lazy(() => import("./pages/Press"));
 
 const queryClient = new QueryClient();
 
@@ -43,6 +44,7 @@ const App = () => (
                 <Route path="/insights" element={<Insights />} />
                 <Route path="/insights/:slug" element={<InsightPost />} />
                 <Route path="/portfolio/:slug" element={<PropertyDetail />} />
+                <Route path="/press" element={<Press />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>

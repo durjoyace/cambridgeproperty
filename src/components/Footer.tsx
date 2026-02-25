@@ -6,6 +6,7 @@ const navLinks = [
   { label: "Management", href: "/management" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Insights", href: "/insights" },
+  { label: "Press", href: "/press" },
   { label: "Contact", href: "/contact" },
   { label: "Sell Your Property", href: "/sell-your-property" },
 ];
