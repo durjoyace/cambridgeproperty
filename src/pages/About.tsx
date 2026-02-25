@@ -5,12 +5,14 @@ import SEOHead from "@/components/seo/SEOHead";
 import { PAGE_META } from "@/lib/seo/metadata";
 import { personSchema, breadcrumbSchema } from "@/lib/seo/schemas";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import patrickHeadshot from "@/assets/patrick-barrett.png";
 
 const principals = [
   {
     name: "Patrick W. Barrett III",
     role: "Principal & Co-Founder",
     credential: "Zoning Attorney · Developer · Central Square BID Treasurer",
+    image: patrickHeadshot,
     bio: "Patrick is a Cambridge zoning attorney and real estate developer with 20 years of entitlement and development experience across Greater Boston. He conceived and developed the 907 Main Hotel — a $45 million, 67-key boutique hotel in Central Square with $37.75M in institutional financing — and authored the Central Square Overlay zoning amendments adopted by the City Council in 2017. His active pipeline includes the preservation and adaptive reuse of the Harriet Jacobs House at 17 Story Street (Cambridge Historical Commission approved 7-0) and a planned $57 million residential condominium on Columbia Street. Patrick's constitutional challenge to Cambridge's inclusionary zoning implementation has been covered by WBUR, Mass Lawyers Weekly, and Commonwealth Beacon.",
     focus: ["Acquisitions & Entitlements", "Ground-Up Development", "Zoning & Land Use Policy", "Capital Formation"],
     directLine: "(617) 778-3521",
@@ -102,13 +104,26 @@ export default function About() {
                 key={person.name}
                 className="bg-charcoal border border-border/40 overflow-hidden hover:border-gold/15 transition-all duration-500 shadow-card"
               >
-                {/* Headshot placeholder */}
-                <div className="h-56 bg-gradient-to-br from-charcoal-light to-charcoal flex items-center justify-center">
-                  <div className="w-20 h-20 rounded-full border-2 border-gold/20 flex items-center justify-center">
-                    <span className="font-display text-xl text-gold/40">
-                      {person.name.split(" ").map((n) => n[0]).join("")}
-                    </span>
-                  </div>
+                {/* Headshot */}
+                <div className="h-72 md:h-80 overflow-hidden bg-gradient-to-br from-charcoal-light to-charcoal">
+                  {"image" in person && person.image ? (
+                    <img
+                      src={person.image as string}
+                      alt={person.name}
+                      className="w-full h-full object-cover object-top"
+                      loading="lazy"
+                      width={600}
+                      height={400}
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <div className="w-20 h-20 rounded-full border-2 border-gold/20 flex items-center justify-center">
+                        <span className="font-display text-xl text-gold/40">
+                          {person.name.split(" ").map((n) => n[0]).join("")}
+                        </span>
+                      </div>
+                    </div>
+                  )}
                 </div>
                 <div className="p-8 md:p-10">
                   <h3 className="font-display text-xl md:text-2xl font-semibold text-cream mb-1">
