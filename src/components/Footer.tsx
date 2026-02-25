@@ -2,14 +2,12 @@ import { Link, useLocation } from "react-router-dom";
 import { LogIn } from "lucide-react";
 
 const navLinks = [
-  { label: "About", href: "/about" },
-  { label: "Portfolio", href: "/#portfolio" },
-  { label: "Management", href: "/management" },
-  { label: "Case Studies", href: "/case-studies" },
+  { label: "Development", href: "/#portfolio" },
   { label: "Insights", href: "/insights" },
   { label: "Press", href: "/press" },
-  { label: "Contact", href: "/contact" },
-  { label: "Sell Your Property", href: "/sell-your-property" },
+  { label: "About", href: "/about" },
+  { label: "Management", href: "/management" },
+  { label: "Direct Acquisition", href: "/sell-your-property" },
 ];
 
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
@@ -37,7 +35,7 @@ export default function Footer() {
                 Barrett &amp; Johnson
               </div>
               <div className="font-sans text-[9px] tracking-[0.3em] uppercase text-gold/60">
-                Cambridge Real Estate Developers &amp; Operators
+                Real Estate Developers &amp; Operators
               </div>
             </Link>
           </div>

@@ -41,9 +41,10 @@ export default function Press() {
               <span className="text-gold">Record</span>
             </h1>
             <p className="font-sans text-sm md:text-base leading-[1.8] text-cream-muted font-light lg:max-w-sm lg:ml-auto">
-              Two decades of development, community leadership, and policy
-              engagement across Cambridge and Greater Boston — documented in
-              public filings, institutional press, and independent reporting.
+              Others imply credibility. We have documented public record —
+              government hearings, institutional media, policy contributions,
+              and regulatory outcomes verified by independent sources across
+              two decades.
             </p>
           </div>
         </div>

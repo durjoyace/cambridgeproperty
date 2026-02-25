@@ -1,78 +1,53 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Building2, Users, Heart, Target, Handshake } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import SEOHead from "@/components/seo/SEOHead";
 import { PAGE_META } from "@/lib/seo/metadata";
 import { personSchema, breadcrumbSchema } from "@/lib/seo/schemas";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { COMPANY_STATS } from "@/lib/data/stats";
 
 const principals = [
   {
     name: "Patrick W. Barrett III",
     role: "Principal & Co-Founder",
-    bio: "Patrick is a Cambridge zoning attorney and real estate developer with 20 years of experience across Greater Boston. He developed the 907 Main Hotel — a $45 million, 67-key boutique hotel in Central Square with $37.75M in institutional financing — and authored the Central Square Overlay zoning amendments adopted by the City Council in 2017. He currently serves as Treasurer of the Central Square Business Improvement District. Patrick's active development pipeline includes the preservation and adaptive reuse of the historic Harriet Jacobs House at 17 Story Street in Harvard Square (approved 7-0 by the Cambridge Historical Commission) and a planned $57 million residential condominium on Columbia Street. His constitutional challenge to Cambridge's inclusionary zoning implementation has been covered by WBUR, Mass Lawyers Weekly, and Commonwealth Beacon.",
-    focus: ["Acquisitions & Zoning", "Hotel & Mixed-Use Development", "Policy & Entitlements", "Value-Add Strategy"],
+    credential: "Zoning Attorney · Developer · Central Square BID Treasurer",
+    bio: "Patrick is a Cambridge zoning attorney and real estate developer with 20 years of entitlement and development experience across Greater Boston. He conceived and developed the 907 Main Hotel — a $45 million, 67-key boutique hotel in Central Square with $37.75M in institutional financing — and authored the Central Square Overlay zoning amendments adopted by the City Council in 2017. His active pipeline includes the preservation and adaptive reuse of the Harriet Jacobs House at 17 Story Street (Cambridge Historical Commission approved 7-0) and a planned $57 million residential condominium on Columbia Street. Patrick's constitutional challenge to Cambridge's inclusionary zoning implementation has been covered by WBUR, Mass Lawyers Weekly, and Commonwealth Beacon.",
+    focus: ["Acquisitions & Entitlements", "Ground-Up Development", "Zoning & Land Use Policy", "Capital Formation"],
+    directLine: "(617) 778-3521",
     schema: {
       name: "Patrick W. Barrett III",
       jobTitle: "Principal & Co-Founder",
       description:
-        "Cambridge zoning attorney and real estate developer with 20 years of experience. Developed the $45M 907 Main Hotel, authored Central Square Overlay zoning, and serves as Treasurer of the Central Square BID.",
+        "Cambridge zoning attorney and real estate developer. $45M hotel developed, Central Square Overlay authored, 20 years entitlement experience. Central Square BID Treasurer.",
     },
   },
   {
     name: "Tim Johnson, CPM",
     role: "Principal & Co-Founder",
-    bio: "Tim is a Certified Property Manager (CPM) who leads Barrett & Johnson's property operations, tenant relations, and management systems. A named principal on the $37.75 million institutional financing for the 907 Main Hotel alongside Patrick, Tim brings both development-scale capital experience and day-to-day operational discipline to the firm. Since 2010, he has built an operations platform powered by AppFolio that delivers institutional-grade reporting, sub-4-hour average maintenance response times, and tenant service across every door in the portfolio. Tim's operational discipline is the backbone of B&J's ability to execute value-add strategies while maintaining tenant satisfaction.",
-    focus: ["Property Operations", "Tenant Relations", "AppFolio Systems", "Capital Projects"],
+    credential: "Certified Property Manager · Named on $37.75M Institutional Financing",
+    bio: "Tim is a Certified Property Manager (CPM) who leads Barrett & Johnson's vertically integrated operations platform. A named principal on the $37.75 million institutional financing for the 907 Main Hotel alongside Patrick, Tim brings both development-scale capital experience and day-to-day operational discipline. Since 2010, he has built an operations infrastructure powered by AppFolio that delivers institutional-grade reporting, sub-4-hour average maintenance response times, and tenant service across every door in the portfolio. Tim's operational discipline is what allows B&J to execute value-add strategies while maintaining high tenant satisfaction and retention.",
+    focus: ["Property Operations", "Tenant Relations & Retention", "AppFolio Enterprise Systems", "Capital Improvement Execution"],
     schema: {
       name: "Tim Johnson, CPM",
       jobTitle: "Principal & Co-Founder, Certified Property Manager",
       description:
-        "Certified Property Manager (CPM) and named principal on $37.75M institutional financing. Leads property operations and management systems for Barrett & Johnson's Greater Boston portfolio since 2010.",
+        "Certified Property Manager and named principal on $37.75M institutional financing. Leads vertically integrated operations across Barrett & Johnson's portfolio since 2010.",
     },
   },
 ];
 
 const timeline = [
-  { year: "2010", event: "First Cambridge acquisitions — Patrick and Tim begin acquiring residential properties in Cambridge" },
-  { year: "2015", event: "Mixed-use expansion — portfolio grows to include mixed-use assets across Greater Boston" },
-  { year: "2016", event: "907 Main Hotel — begin development of a $45M, 67-key boutique hotel in Central Square, designed by Gensler Boston" },
-  { year: "2017", event: "Central Square Overlay — Patrick authors zoning amendments adopted by the Cambridge City Council" },
-  { year: "2018", event: "AppFolio adoption — enterprise property management deployed across all doors" },
-  { year: "2019", event: "Central Square BID — Patrick joins the board, later becoming Treasurer of the $3M/year nonprofit" },
-  { year: "2019", event: "$37.75M financing — Patrick and Tim secure institutional construction financing from a NY hedge fund for 907 Main" },
-  { year: "2022", event: "Full 75-door stabilization — 63 residential, 12 retail across Cambridge and Somerville" },
-  { year: "2022", event: "BA-5 zoning petition — Patrick authors zoning amendment for housing production at 2400 Mass Ave" },
-  { year: "2025", event: "Harriet Jacobs House — 17 Story Street project approved 7-0 by Cambridge Historical Commission: 50+ homes preserving a historic African American heritage site" },
-  { year: "2025", event: "Brand launch — Barrett & Johnson unified acquisition and management platform goes live" },
-];
-
-const values = [
-  {
-    icon: Building2,
-    title: "Owner-Operated",
-    description:
-      "We own what we manage and manage what we own. No third-party conflicts, no absentee landlords — Patrick and Tim are personally invested in every property.",
-  },
-  {
-    icon: Target,
-    title: "Long-Term Conviction",
-    description:
-      "We buy to hold and improve — not to flip. Our underwriting reflects 10+ year holds, and our capital improvements reflect that commitment.",
-  },
-  {
-    icon: Users,
-    title: "Hands-On Management",
-    description:
-      "Every maintenance request, every lease renewal, every capital decision flows through our principals. Enterprise systems, personal accountability.",
-  },
-  {
-    icon: Heart,
-    title: "Community Investment",
-    description:
-      "Patrick serves as Treasurer of the Central Square Business Improvement District — a 501(c)(3) nonprofit with a $3M annual budget serving Central Square through placemaking, public safety ambassadors, and community programming. We improve neighborhoods by improving buildings and by showing up.",
-  },
+  { year: "2010", event: "First Cambridge acquisitions — Patrick and Tim begin acquiring residential properties" },
+  { year: "2015", event: "Mixed-use expansion — portfolio grows to include retail and multifamily assets" },
+  { year: "2016", event: "907 Main Hotel — begin development of $45M boutique hotel, designed by Gensler Boston" },
+  { year: "2017", event: "Central Square Overlay — Patrick authors zoning amendments adopted by Cambridge City Council" },
+  { year: "2018", event: "AppFolio deployment — enterprise property management across all doors" },
+  { year: "2019", event: "Central Square BID — Patrick joins the board, later becoming Treasurer (~$3M/year nonprofit)" },
+  { year: "2019", event: "$37.75M financing closed — institutional construction debt from NY hedge fund" },
+  { year: "2022", event: "75-door stabilization — 63 residential, 12 retail across Cambridge and Somerville" },
+  { year: "2022", event: "BA-5 zoning petition — housing production amendment at 2400 Mass Ave" },
+  { year: "2025", event: "Harriet Jacobs House approved 7-0 by Cambridge Historical Commission" },
+  { year: "2025", event: "Platform launch — unified acquisition and operations platform" },
 ];
 
 export default function About() {
@@ -86,7 +61,7 @@ export default function About() {
           ...principals.map((p) => personSchema(p.schema)),
           breadcrumbSchema([
             { name: "Home", url: "/" },
-            { name: "About Us", url: "/about" },
+            { name: "About", url: "/about" },
           ]),
         ]}
       />
@@ -97,16 +72,18 @@ export default function About() {
         <div className="container mx-auto" data-reveal>
           <div className="flex items-center gap-4 mb-8">
             <div className="divider-gold" />
-            <span className="section-label">Our Story</span>
+            <span className="section-label">About Barrett &amp; Johnson</span>
           </div>
           <div className="grid lg:grid-cols-2 gap-12 items-end">
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-cream leading-[1.1] tracking-tight">
-              Owners,
+              Principals,
               <br />
               <span className="text-gold">Not Managers</span>
             </h1>
             <p className="font-sans text-sm md:text-base leading-[1.8] text-cream-muted font-light lg:max-w-sm lg:ml-auto">
-              Barrett &amp; Johnson was founded on a simple conviction: the best property management comes from people who have their own capital at risk. We are owners first — every decision reflects that.
+              Barrett &amp; Johnson is an operator-led real estate platform built on a
+              simple thesis: the best capital stewardship comes from principals who have
+              their own equity at risk in every asset they manage.
             </p>
           </div>
         </div>
@@ -115,15 +92,9 @@ export default function About() {
       {/* Principals */}
       <section className="section-pad bg-charcoal-mid">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <div className="divider-gold" />
-              <span className="section-label">Our Principals</span>
-              <div className="divider-gold" />
-            </div>
-            <h2 className="font-display text-3xl md:text-4xl font-semibold text-cream tracking-tight">
-              Meet the Team
-            </h2>
+          <div className="flex items-center gap-4 mb-12">
+            <div className="divider-gold" />
+            <span className="section-label">Our Principals</span>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             {principals.map((person) => (
@@ -132,23 +103,34 @@ export default function About() {
                 className="bg-charcoal border border-border/40 overflow-hidden hover:border-gold/15 transition-all duration-500 shadow-card"
               >
                 {/* Headshot placeholder */}
-                <div className="h-64 bg-gradient-to-br from-charcoal-light to-charcoal flex items-center justify-center">
-                  <div className="w-24 h-24 rounded-full border-2 border-gold/20 flex items-center justify-center">
-                    <span className="font-display text-2xl text-gold/40">
+                <div className="h-56 bg-gradient-to-br from-charcoal-light to-charcoal flex items-center justify-center">
+                  <div className="w-20 h-20 rounded-full border-2 border-gold/20 flex items-center justify-center">
+                    <span className="font-display text-xl text-gold/40">
                       {person.name.split(" ").map((n) => n[0]).join("")}
                     </span>
                   </div>
                 </div>
                 <div className="p-8 md:p-10">
-                  <h3 className="font-display text-xl md:text-2xl font-semibold text-cream mb-1.5">
+                  <h3 className="font-display text-xl md:text-2xl font-semibold text-cream mb-1">
                     {person.name}
                   </h3>
-                  <p className="font-sans text-xs tracking-[0.15em] uppercase text-gold/70 mb-4">
+                  <p className="font-sans text-xs tracking-[0.1em] uppercase text-gold/70 mb-1.5">
                     {person.role}
+                  </p>
+                  <p className="font-sans text-[10px] text-cream-muted/40 mb-5">
+                    {person.credential}
                   </p>
                   <p className="font-sans text-sm text-cream-muted leading-[1.7] font-light mb-6">
                     {person.bio}
                   </p>
+                  {person.directLine && (
+                    <a
+                      href={`tel:${person.directLine.replace(/[^0-9]/g, "")}`}
+                      className="inline-flex items-center gap-2 font-sans text-xs text-gold/60 hover:text-gold transition-colors duration-300 mb-6"
+                    >
+                      Direct: {person.directLine}
+                    </a>
+                  )}
                   <div className="pt-6 border-t border-border/40">
                     <div className="font-sans text-[10px] tracking-[0.2em] uppercase text-gold/60 mb-3">
                       Areas of Focus
@@ -171,27 +153,103 @@ export default function About() {
         </div>
       </section>
 
-      {/* Timeline */}
+      {/* Community Investment — named, quantified */}
       <section className="section-pad bg-charcoal">
+        <div className="container mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+            <div>
+              <div className="flex items-center gap-4 mb-8">
+                <div className="divider-gold" />
+                <span className="section-label">Community Investment</span>
+              </div>
+              <h2 className="font-display text-3xl md:text-4xl font-semibold text-cream leading-[1.1] tracking-tight mb-6">
+                Named Commitment,
+                <br />
+                <span className="text-gold">Not Vague Values</span>
+              </h2>
+              <p className="font-sans text-sm md:text-base leading-[1.8] text-cream-muted font-light max-w-md mb-8">
+                We improve neighborhoods by improving buildings and by showing up.
+                Community investment is not a page on our website — it's a named
+                position, a fiduciary role, and an annual budget.
+              </p>
+              <Link
+                to="/press"
+                className="inline-flex items-center gap-3 font-sans text-xs tracking-[0.2em] uppercase text-gold group"
+              >
+                <span className="border-b border-gold/30 pb-1 group-hover:border-gold transition-colors duration-300">
+                  View Public Record
+                </span>
+                <ArrowRight size={14} className="group-hover:translate-x-1.5 transition-transform duration-300" />
+              </Link>
+            </div>
+            <div className="flex flex-col gap-6">
+              <div className="bg-charcoal-mid border border-border/40 p-8">
+                <h3 className="font-display text-lg font-semibold text-cream mb-1.5">
+                  Central Square Business Improvement District
+                </h3>
+                <p className="font-sans text-xs tracking-[0.1em] uppercase text-gold/60 mb-4">
+                  Board Member &amp; Treasurer — 501(c)(3) Nonprofit
+                </p>
+                <div className="grid grid-cols-2 gap-6 mb-5">
+                  <div>
+                    <div className="font-display text-2xl font-semibold text-gold mb-1">~$3M</div>
+                    <div className="font-sans text-[10px] text-cream-muted/50">Annual Budget</div>
+                  </div>
+                  <div>
+                    <div className="font-display text-2xl font-semibold text-gold mb-1">2019</div>
+                    <div className="font-sans text-[10px] text-cream-muted/50">Board Member Since</div>
+                  </div>
+                </div>
+                <p className="font-sans text-sm text-cream-muted/70 font-light leading-[1.7] mb-4">
+                  Placemaking, public safety ambassadors, and community programming
+                  serving Central Square businesses and residents.
+                </p>
+                <a
+                  href="https://www.centralsq.org/about"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 font-sans text-[10px] tracking-[0.1em] text-gold/50 hover:text-gold transition-colors"
+                >
+                  <ExternalLink size={9} /> centralsq.org
+                </a>
+              </div>
+              <div className="bg-charcoal-mid border border-border/40 p-8">
+                <h3 className="font-display text-lg font-semibold text-cream mb-1.5">
+                  Harriet Jacobs House Preservation
+                </h3>
+                <p className="font-sans text-xs tracking-[0.1em] uppercase text-gold/60 mb-4">
+                  5+ Years Community Engagement
+                </p>
+                <p className="font-sans text-sm text-cream-muted/70 font-light leading-[1.7]">
+                  Collaboration with the Jacobs Legacy Committee, Harvard Square Business
+                  Association, and Cambridge residents to preserve an African American
+                  heritage site while creating 50+ new homes including 10 affordable units.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Timeline */}
+      <section className="section-pad bg-charcoal-mid">
         <div className="container mx-auto max-w-3xl">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-4 mb-8">
               <div className="divider-gold" />
-              <span className="section-label">Our Journey</span>
+              <span className="section-label">Track Record</span>
               <div className="divider-gold" />
             </div>
             <h2 className="font-display text-3xl md:text-4xl font-semibold text-cream tracking-tight">
-              Company Timeline
+              Platform Timeline
             </h2>
           </div>
           <div className="relative">
-            {/* Vertical line */}
             <div className="absolute left-6 top-0 bottom-0 w-px bg-border/40" />
             <div className="space-y-10">
-              {timeline.map((item) => (
-                <div key={item.year} className="relative flex items-start gap-8 pl-16">
-                  {/* Dot */}
-                  <div className="absolute left-4 top-1 w-4 h-4 border border-gold/40 bg-charcoal flex items-center justify-center">
+              {timeline.map((item, i) => (
+                <div key={i} className="relative flex items-start gap-8 pl-16">
+                  <div className="absolute left-4 top-1 w-4 h-4 border border-gold/40 bg-charcoal-mid flex items-center justify-center">
                     <div className="w-1.5 h-1.5 bg-gold/60" />
                   </div>
                   <div>
@@ -205,79 +263,69 @@ export default function About() {
         </div>
       </section>
 
-      {/* Co-Invest */}
-      <section className="py-16 bg-charcoal-mid">
-        <div className="container mx-auto max-w-3xl">
-          <div className="flex items-start gap-6 bg-charcoal border border-gold/10 p-8 md:p-10">
-            <Handshake size={24} className="text-gold/50 mt-1 shrink-0" />
-            <div>
-              <h3 className="font-display text-lg font-semibold text-cream mb-3">Co-Investment</h3>
-              <p className="font-sans text-sm text-cream-muted/80 font-light leading-[1.8] mb-4">
-                Barrett & Johnson occasionally partners with aligned co-investors on select acquisitions — individuals and family offices who share our long-term, operator-first approach. If you're interested in learning more, we'd welcome the conversation.
-              </p>
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase text-gold/60 hover:text-gold transition-colors duration-300"
-              >
-                Get in Touch <ArrowRight size={12} />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Values */}
-      <section className="section-pad bg-charcoal-mid">
-        <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <div className="divider-gold" />
-              <span className="section-label">What We Stand For</span>
-              <div className="divider-gold" />
-            </div>
-            <h2 className="font-display text-3xl md:text-4xl font-semibold text-cream tracking-tight">
-              Our Values
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-6">
-            {values.map((value) => {
-              const Icon = value.icon;
-              return (
-                <div
-                  key={value.title}
-                  className="group bg-charcoal border border-border/40 p-8 md:p-10 hover:border-gold/15 transition-all duration-500 shadow-card"
-                >
-                  <div className="w-12 h-12 border border-gold/20 flex items-center justify-center mb-6 group-hover:border-gold/40 transition-colors duration-300">
-                    <Icon size={20} className="text-gold/60 group-hover:text-gold transition-colors duration-300" />
-                  </div>
-                  <h3 className="font-display text-lg font-semibold text-cream mb-3">{value.title}</h3>
-                  <p className="font-sans text-sm text-cream-muted/80 font-light leading-[1.7]">{value.description}</p>
+      {/* Co-Investment — elevated */}
+      <section className="py-20 bg-charcoal">
+        <div className="container mx-auto max-w-4xl">
+          <div className="bg-charcoal-mid border border-gold/10 p-8 md:p-12">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="font-sans text-[10px] tracking-[0.25em] uppercase text-gold/60 mb-4">
+                  Capital Partnership
                 </div>
-              );
-            })}
+                <h3 className="font-display text-2xl font-semibold text-cream mb-4 tracking-tight">
+                  Co-Investment Opportunities
+                </h3>
+                <p className="font-sans text-sm text-cream-muted/80 font-light leading-[1.8] mb-6">
+                  We partner with aligned capital — family offices, individuals, and
+                  institutional co-investors who share our long-term, operator-first
+                  thesis. Every co-investment is structured around the asset, not the
+                  vehicle. Principals invest alongside every partner.
+                </p>
+                <Link
+                  to="/sell-your-property"
+                  className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase text-gold/60 hover:text-gold transition-colors duration-300"
+                >
+                  Start a Conversation <ArrowRight size={12} />
+                </Link>
+              </div>
+              <div className="grid grid-cols-2 gap-6">
+                {[
+                  { label: "Structure", value: "JV / Pref. Equity / Co-Invest" },
+                  { label: "Check Size", value: "$5M — $50M" },
+                  { label: "Alignment", value: "Principals invest alongside" },
+                  { label: "Reporting", value: "Quarterly + audited on request" },
+                ].map((item) => (
+                  <div key={item.label}>
+                    <div className="font-sans text-xs font-medium text-cream mb-1">{item.value}</div>
+                    <div className="font-sans text-[10px] text-cream-muted/40">{item.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 bg-charcoal">
+      {/* Bottom CTA */}
+      <section className="py-20 bg-charcoal-mid">
         <div className="container mx-auto text-center max-w-2xl">
           <h2 className="font-display text-3xl md:text-4xl font-semibold text-cream mb-6 tracking-tight">
             Ready to Work Together?
           </h2>
           <p className="font-sans text-sm text-cream-muted font-light leading-[1.8] mb-10">
-            Whether you have a property to sell, a partnership opportunity, or just want to connect — we'd love to hear from you.
+            Whether you have a property to sell, a partnership opportunity, or a
+            co-investment thesis to discuss — we'd welcome the conversation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/sell-your-property"
-              className="inline-flex items-center justify-center gap-3 font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
+              className="inline-flex items-center justify-center gap-3 font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold"
             >
-              Sell Your Property <ArrowRight size={13} />
+              Submit a Property <ArrowRight size={13} />
             </Link>
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center gap-3 font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 border border-cream/20 text-cream hover:border-gold hover:text-gold transition-all duration-300 focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
+              className="inline-flex items-center justify-center gap-3 font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 border border-cream/20 text-cream hover:border-gold hover:text-gold transition-all duration-300"
             >
               Contact Us
             </Link>

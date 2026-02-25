@@ -13,15 +13,15 @@ export default function SubmitSection() {
           <div data-reveal className="lg:sticky lg:top-32">
             <div className="flex items-center gap-4 mb-8">
               <div className="divider-gold" />
-              <span className="section-label">Work With Us</span>
+              <span className="section-label">Direct Acquisition</span>
             </div>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-cream leading-[1.1] tracking-tight mb-8">
-              Partner
+              Submit a
               <br />
-              <span className="text-gold">With Us</span>
+              <span className="text-gold">Property</span>
             </h2>
             <p className="font-sans text-sm md:text-base leading-[1.8] text-cream-muted font-light mb-10 max-w-md">
-              Are you an owner considering a sale or joint venture? We are direct buyers — no brokers, no committees. Patrick and Tim review every submission personally.
+              We are direct principals — not brokers, not a fund. Patrick and Tim review every submission personally. 24-hour response time for qualified opportunities.
             </p>
 
             {/* Trust signals */}

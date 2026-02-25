@@ -1,8 +1,8 @@
 export const PAGE_META = {
   home: {
-    title: "Barrett & Johnson | Cambridge Real Estate Developers & Operators — Est. 2010",
+    title: "Barrett & Johnson | Operator-Led Real Estate — Built to Own. Est. 2010",
     description:
-      "Barrett & Johnson — Cambridge-based real estate developers and operators since 2010. 75 doors under management, $45M hotel developed, $100M+ pipeline. Multifamily, mixed-use, and hotel development across Greater Boston.",
+      "Barrett & Johnson — operator-led real estate platform. $45M ground-up development, $37.75M financing secured, $100M+ active pipeline. Multifamily, mixed-use, and hotel development across Massachusetts and select U.S. markets.",
     canonical: "/",
   },
   management: {
@@ -18,9 +18,9 @@ export const PAGE_META = {
     canonical: "/case-studies",
   },
   sellYourProperty: {
-    title: "Sell Your Property Confidentially",
+    title: "Direct Acquisition — Submit a Property | Barrett & Johnson",
     description:
-      "Submit your multifamily or mixed-use property directly to Barrett & Johnson. No brokers, no committees — Patrick and Tim review every submission personally.",
+      "Submit your multifamily or mixed-use property directly to Barrett & Johnson principals. $5M–$50M transactions, 24-hour response. No brokers, no committees, no investment committee lag.",
     canonical: "/sell-your-property",
   },
   partners: {

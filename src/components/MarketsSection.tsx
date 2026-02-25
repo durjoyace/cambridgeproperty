@@ -12,7 +12,7 @@ const markets = [
   { city: "Boston", state: "MA", type: "Watching" },
   { city: "Brookline", state: "MA", type: "Watching" },
   { city: "Medford", state: "MA", type: "Watching" },
-  { city: "Watertown", state: "MA", type: "Watching" },
+  { city: "Select U.S. Markets", state: "", type: "Watching", detail: "Expanding to entitlement-complex markets nationally" },
 ];
 
 const typeOrder: Record<string, number> = { "Home Base": 0, "Active": 1, "Watching": 2 };
@@ -36,7 +36,7 @@ export default function MarketsSection() {
             </h2>
           </div>
           <p className="font-sans text-sm md:text-base leading-[1.8] text-cream-muted font-light lg:self-end lg:max-w-sm lg:ml-auto">
-            Rooted in Cambridge, we focus on Greater Boston neighborhoods where deep local knowledge and owner-operator conviction create a structural edge.
+            Active across Massachusetts and expanding to select U.S. markets — targeting entitlement-complex geographies where deep regulatory knowledge creates structural advantages.
           </p>
         </div>
 
@@ -79,7 +79,7 @@ export default function MarketsSection() {
         </div>
 
         <p data-reveal className="font-sans text-xs text-cream-muted/40 mt-6 font-light">
-          We welcome conversations from owners across the Greater Boston area. Neighborhoods listed above represent our current focus.
+          Our thesis is replicable in any market where entitlement complexity, political capital, and direct sourcing create structural advantages over passive capital.
         </p>
       </div>
     </section>

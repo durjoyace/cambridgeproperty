@@ -38,12 +38,14 @@ export default function Insights() {
           </div>
           <div className="grid lg:grid-cols-2 gap-12 items-end">
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-cream leading-[1.1] tracking-tight">
-              Market
+              Operator
               <br />
               <span className="text-gold">Perspectives</span>
             </h1>
             <p className="font-sans text-sm md:text-base leading-[1.8] text-cream-muted font-light lg:max-w-sm lg:ml-auto">
-              Acquisition strategy, market analysis, and property management insights from two principals with 15+ years of hands-on experience in Greater Boston real estate.
+              Acquisition strategy, entitlement analysis, and operational insights
+              written by principals — not marketing teams. First-person knowledge from
+              20 years of direct execution in Greater Boston real estate.
             </p>
           </div>
         </div>

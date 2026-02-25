@@ -39,12 +39,29 @@ const portfolioItems = [
       { label: "Architect", value: "Cambridge Seven" },
     ],
   },
+  {
+    label: "Stabilized Portfolio",
+    location: "Cambridge & Somerville",
+    units: "75 Doors",
+    description:
+      "Vertically integrated ownership and operations across 63 residential units and 12 retail spaces. AppFolio-powered, sub-4-hour maintenance response, fully principal-managed since 2010.",
+    tag: "Operating Base",
+    statusBadge: "Fully Stabilized",
+    image: building2,
+    metrics: [
+      { label: "Units", value: "63 Residential · 12 Retail" },
+      { label: "Strategy", value: "Value-Add & Hold" },
+      { label: "Management", value: "Vertically Integrated" },
+    ],
+  },
 ];
 
 const stats = [
-  { value: String(COMPANY_STATS.totalDoors), label: "Doors Owned & Managed", sub: `${COMPANY_STATS.residentialUnits} Residential · ${COMPANY_STATS.retailDoors} Retail` },
-  { value: String(COMPANY_STATS.yearsInOperation), label: `Years in Greater Boston`, sub: `Founded ${COMPANY_STATS.foundingYear} · Multifamily & Mixed-Use` },
-  { value: COMPANY_STATS.ownerOperated, label: "Owner-Operated Portfolio", sub: "AppFolio-Managed Systems" },
+  { value: "$45M", label: "Ground-Up Development", sub: "907 Main — The Lark Cambridge" },
+  { value: "$37.75M", label: "Financing Secured", sub: "Institutional debt placement" },
+  { value: "75", label: "Residential & Retail Units", sub: `${COMPANY_STATS.residentialUnits} Residential · ${COMPANY_STATS.retailDoors} Retail` },
+  { value: `${COMPANY_STATS.yearsInOperation}`, label: "Years Entitlement Experience", sub: "Cambridge zoning & land use" },
+  { value: "$100M+", label: "Active Pipeline", sub: "Massachusetts & select U.S. markets" },
 ];
 
 export default function PortfolioSection() {
@@ -58,26 +75,26 @@ export default function PortfolioSection() {
           <div>
             <div className="flex items-center gap-4 mb-8">
               <div className="divider-gold" />
-              <span className="section-label">Our Portfolio</span>
+              <span className="section-label">Development Portfolio</span>
             </div>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-cream leading-[1.1] tracking-tight">
-              What We Own
+              Active
               <br />
-              <span className="text-gold">&amp; Operate</span>
+              <span className="text-gold">Development</span>
             </h2>
           </div>
           <p className="font-sans text-sm md:text-base leading-[1.8] text-cream-muted font-light lg:max-w-sm lg:ml-auto">
-            From a $45M boutique hotel to historic preservation with 50+ new homes — each project developed and operated directly by Patrick and Tim.
+            Each asset sourced directly, entitled through complex municipal process, and operated as a long-term hold. No intermediaries, no investment committee lag.
           </p>
         </div>
 
-        {/* Stats */}
-        <div data-reveal className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border/40 mb-16">
+        {/* Stats — institutional scale proof */}
+        <div data-reveal className="grid grid-cols-2 md:grid-cols-5 gap-px bg-border/40 mb-16">
           {stats.map((s, i) => (
-            <div key={i} className="bg-charcoal-mid p-10 flex flex-col">
-              <div className="font-display text-5xl md:text-6xl font-semibold text-gold mb-3 tracking-tight">{s.value}</div>
-              <div className="font-sans text-xs tracking-[0.15em] uppercase text-cream mb-1.5" dangerouslySetInnerHTML={{ __html: s.label }} />
-              <div className="font-sans text-xs text-cream-muted/60 font-light" dangerouslySetInnerHTML={{ __html: s.sub }} />
+            <div key={i} className="bg-charcoal-mid p-8 md:p-10 flex flex-col">
+              <div className="font-display text-3xl md:text-4xl font-semibold text-gold mb-3 tracking-tight">{s.value}</div>
+              <div className="font-sans text-[10px] tracking-[0.15em] uppercase text-cream mb-1.5">{s.label}</div>
+              <div className="font-sans text-[10px] text-cream-muted/50 font-light">{s.sub}</div>
             </div>
           ))}
         </div>
@@ -123,6 +140,7 @@ export default function PortfolioSection() {
                 </p>
                 {/* Performance Snapshot */}
                 {(() => {
+                  if (!("slug" in item) || !item.slug) return null;
                   const cs = caseStudies.find((c) => c.slug === item.slug);
                   if (!cs?.performanceSnapshot) return null;
                   return (
@@ -154,12 +172,21 @@ export default function PortfolioSection() {
                     </div>
                   ))}
                 </div>
-                <Link
-                  to={`/portfolio/${item.slug}`}
-                  className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase text-gold/60 hover:text-gold transition-colors duration-300"
-                >
-                  View Details <ArrowRight size={12} />
-                </Link>
+                {"slug" in item && item.slug ? (
+                  <Link
+                    to={`/portfolio/${item.slug}`}
+                    className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase text-gold/60 hover:text-gold transition-colors duration-300"
+                  >
+                    View Details <ArrowRight size={12} />
+                  </Link>
+                ) : (
+                  <Link
+                    to="/management"
+                    className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase text-gold/60 hover:text-gold transition-colors duration-300"
+                  >
+                    Operations Platform <ArrowRight size={12} />
+                  </Link>
+                )}
               </div>
             </div>
           ))}

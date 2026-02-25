@@ -88,7 +88,7 @@ export default function HeroSection() {
             style={{ opacity: 0, transform: "translateY(16px)" }}
           >
             <div className="w-12 h-px bg-gradient-to-r from-gold to-transparent" />
-            <span className="section-label">Cambridge, Massachusetts</span>
+            <span className="section-label">Est. 2010 — Cambridge &amp; Greater Boston</span>
           </div>
 
           {/* Headline */}
@@ -96,31 +96,31 @@ export default function HeroSection() {
             ref={headlineRef}
             style={{ opacity: 0, transform: "translateY(32px)" }}
           >
-            <h1 className="font-display text-[clamp(3rem,7vw,6.5rem)] font-semibold text-cream leading-[1.05] tracking-tight">
-              Owners.
+            <h1 className="font-display text-[clamp(2.8rem,6.5vw,5.5rem)] font-semibold text-cream leading-[1.08] tracking-tight">
+              Operator-Led
               <br />
-              Developers.
+              Real Estate.
               <br />
-              <span className="text-gold italic">Operators.</span>
+              <span className="text-gold italic">Built to Own.</span>
             </h1>
           </div>
 
-          {/* Philosophy line */}
+          {/* Sub + moat */}
           <div
             ref={subtextRef}
             className="mt-8"
             style={{ opacity: 0, transform: "translateY(24px)" }}
           >
-            <p className="font-sans text-sm md:text-base text-gold/80 italic tracking-wide mb-5">
-              The conviction of an operator. The patience of a long-term owner.
+            <p className="font-sans text-base md:text-lg text-cream-muted leading-[1.75] max-w-lg font-light">
+              We acquire, develop, and operate mixed-use assets in markets
+              institutional capital overlooks — with discipline shaped by two
+              decades of direct execution.
             </p>
-            <p className="font-sans text-base md:text-lg text-cream-muted leading-[1.7] max-w-lg font-light">
-              Twenty years developing, acquiring, and operating real estate
-              across Cambridge and Greater Boston — from multifamily portfolios
-              to a $45M boutique hotel. Direct buyers, long-term owners,
-              personally involved in every decision.
+            <p className="font-sans text-sm md:text-base text-gold/70 italic tracking-wide mt-5">
+              The transactions too complex or too small for funds are the
+              foundation of our platform.
             </p>
-            <div className="mt-6 flex flex-col sm:flex-row gap-4 sm:gap-8 text-cream-muted/70">
+            <div className="mt-6 flex flex-col sm:flex-row gap-4 sm:gap-8 text-cream-muted/50">
               <a href="mailto:acquisitions@barrettjohnson.com" className="font-sans text-sm font-light hover:text-gold transition-colors duration-300">
                 acquisitions@barrettjohnson.com
               </a>
@@ -141,14 +141,14 @@ export default function HeroSection() {
               onClick={() => trackEvent("cta_click", { event_label: "hero_view_portfolio" })}
               className="group inline-flex items-center justify-center font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
             >
-              View Our Portfolio
+              Partner With Us
             </a>
             <a
               href="#submit"
-              onClick={() => trackEvent("cta_click", { event_label: "hero_work_with_us" })}
+              onClick={() => trackEvent("cta_click", { event_label: "hero_submit_property" })}
               className="inline-flex items-center justify-center font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 border border-cream/20 text-cream hover:border-gold hover:text-gold transition-all duration-300 focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
             >
-              Work With Us
+              Submit a Property
             </a>
           </div>
         </div>

@@ -3,9 +3,10 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, LogIn } from "lucide-react";
 
 const navLinks = [
-  { label: "Portfolio", href: "/#portfolio" },
+  { label: "Development", href: "/#portfolio" },
+  { label: "Insights", href: "/insights" },
+  { label: "Press", href: "/press" },
   { label: "About", href: "/about" },
-  { label: "Management", href: "/management" },
 ];
 
 function NavAnchor({
@@ -78,7 +79,7 @@ export default function Navbar() {
             Barrett &amp; Johnson
           </span>
           <span className="font-sans text-[9px] tracking-[0.3em] uppercase text-gold/70 group-hover:text-gold transition-colors duration-300">
-            Cambridge Real Estate Developers &amp; Operators
+            Real Estate Developers &amp; Operators
           </span>
         </Link>
 
@@ -97,7 +98,7 @@ export default function Navbar() {
             href="/sell-your-property"
             className="font-sans text-[11px] tracking-[0.15em] uppercase px-6 py-2.5 border border-gold/40 text-gold hover:bg-gold hover:text-primary-foreground transition-all duration-300 focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
           >
-            Sell Your Property
+            Direct Acquisition
           </NavAnchor>
           <a
             href="https://barrettjohnson.appfolio.com/connect/users/sign_in"
@@ -140,7 +141,7 @@ export default function Navbar() {
             className="font-sans text-xs tracking-[0.15em] uppercase px-6 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-primary-foreground transition-all duration-300 text-center focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
             onClick={() => setMobileOpen(false)}
           >
-            Sell Your Property
+            Direct Acquisition
           </NavAnchor>
           <a
             href="https://barrettjohnson.appfolio.com/connect/users/sign_in"
