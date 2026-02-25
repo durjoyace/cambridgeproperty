@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, TrendingUp } from "lucide-react";
 import type { CaseStudy } from "@/lib/data/case-studies";
 
 interface Props {
@@ -33,7 +33,7 @@ export default function CaseStudyCard({ study }: Props) {
             {study.assetType}
           </span>
           <span className="absolute top-5 right-5 font-sans text-[9px] tracking-[0.25em] uppercase text-cream-muted/60 border border-border/40 bg-charcoal/70 backdrop-blur-sm px-3 py-1.5">
-            {study.status}
+            {study.statusDetail || study.status}
           </span>
         </div>
       )}
@@ -62,6 +62,27 @@ export default function CaseStudyCard({ study }: Props) {
             ))}
           </ul>
         </div>
+
+        {/* Performance Snapshot */}
+        {study.performanceSnapshot && (
+          <div className="mb-6 p-5 bg-charcoal border border-gold/10">
+            <div className="flex items-center gap-2 mb-4">
+              <TrendingUp size={12} className="text-gold/60" />
+              <span className="font-sans text-[9px] tracking-[0.2em] uppercase text-gold/70">Performance Snapshot</span>
+            </div>
+            <div className="grid grid-cols-3 gap-4">
+              {study.performanceSnapshot.map((pm, j) => (
+                <div key={j}>
+                  <div className="font-display text-lg font-semibold text-gold mb-1">{pm.value}</div>
+                  <div className="font-sans text-[9px] tracking-[0.1em] uppercase text-cream-muted/70 mb-0.5">{pm.label}</div>
+                  {pm.context && (
+                    <div className="font-sans text-[10px] text-cream-muted/40 font-light">{pm.context}</div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Metrics */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-border/40 mb-6">

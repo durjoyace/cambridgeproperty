@@ -1,5 +1,5 @@
 import { useParams, Link, Navigate } from "react-router-dom";
-import { ArrowLeft, ArrowRight, MapPin } from "lucide-react";
+import { ArrowLeft, ArrowRight, MapPin, TrendingUp } from "lucide-react";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import SEOHead from "@/components/seo/SEOHead";
 import { breadcrumbSchema } from "@/lib/seo/schemas";
@@ -65,6 +65,11 @@ export default function PropertyDetail() {
               <span className="font-sans text-[9px] tracking-[0.25em] uppercase text-gold border border-gold/30 px-3 py-1.5">
                 {property.assetType}
               </span>
+              {property.statusDetail && (
+                <span className="font-sans text-[9px] tracking-[0.15em] uppercase text-gold border border-gold/30 bg-gold/5 px-3 py-1.5">
+                  {property.statusDetail}
+                </span>
+              )}
               <span className="font-sans text-[9px] tracking-[0.25em] uppercase text-cream-muted/60 border border-border/40 px-3 py-1.5">
                 {property.status}
               </span>
@@ -86,6 +91,29 @@ export default function PropertyDetail() {
           </div>
         </div>
       </section>
+
+      {/* Performance Snapshot */}
+      {property.performanceSnapshot && property.performanceSnapshot.length > 0 && (
+        <section className="py-16 bg-charcoal">
+          <div className="container mx-auto max-w-3xl">
+            <div className="flex items-center gap-4 mb-8">
+              <TrendingUp size={14} className="text-gold/60" />
+              <span className="section-label">Performance Snapshot</span>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border/30">
+              {property.performanceSnapshot.map((pm, i) => (
+                <div key={i} className="bg-charcoal-mid p-8 flex flex-col items-center text-center">
+                  <div className="font-display text-3xl md:text-4xl font-semibold text-gold mb-2">{pm.value}</div>
+                  <div className="font-sans text-[10px] tracking-[0.15em] uppercase text-cream mb-1">{pm.label}</div>
+                  {pm.context && (
+                    <div className="font-sans text-xs text-cream-muted/50 font-light">{pm.context}</div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Full Description */}
       <section className="section-pad bg-charcoal">

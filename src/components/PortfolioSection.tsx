@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, TrendingUp } from "lucide-react";
 import building1 from "@/assets/building-1.jpg";
 import building2 from "@/assets/building-2.jpg";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { COMPANY_STATS } from "@/lib/data/stats";
+import { caseStudies } from "@/lib/data/case-studies";
 
 const portfolioItems = [
   {
@@ -29,18 +30,19 @@ const portfolioItems = [
     description:
       "Stabilization of commercial tenant base while repositioning residential floorplans. 63 residential and 12 retail doors under active management.",
     tag: "Mixed-Use",
+    statusBadge: "Completed Value Creation",
     image: building2,
     metrics: [
       { label: "Asset Type", value: "Res + Retail" },
       { label: "Strategy", value: "Stabilization" },
-      { label: "Status", value: "Active" },
+      { label: "Status", value: "Stabilized" },
     ],
   },
 ];
 
 const stats = [
   { value: String(COMPANY_STATS.totalDoors), label: "Doors Owned & Managed", sub: `${COMPANY_STATS.residentialUnits} Residential · ${COMPANY_STATS.retailDoors} Retail` },
-  { value: COMPANY_STATS.yearsExperience, label: "Years Combined Experience", sub: "Development & Operations" },
+  { value: String(COMPANY_STATS.yearsInOperation), label: `Years in Greater Boston`, sub: `Founded ${COMPANY_STATS.foundingYear} · Multifamily & Mixed-Use` },
   { value: COMPANY_STATS.ownerOperated, label: "Owner-Operated Portfolio", sub: "AppFolio-Managed Systems" },
 ];
 
@@ -104,13 +106,44 @@ export default function PortfolioSection() {
               </div>
               {/* Body */}
               <div className="p-8 md:p-10">
-                <div className="mb-4">
-                  <h3 className="font-display text-xl md:text-2xl font-semibold text-cream mb-1.5">{item.label}</h3>
-                  <p className="font-sans text-xs text-cream-muted/70">{item.location} · {item.units}</p>
+                <div className="mb-4 flex items-start justify-between">
+                  <div>
+                    <h3 className="font-display text-xl md:text-2xl font-semibold text-cream mb-1.5">{item.label}</h3>
+                    <p className="font-sans text-xs text-cream-muted/70">{item.location} · {item.units}</p>
+                  </div>
+                  {"statusBadge" in item && item.statusBadge && (
+                    <span className="font-sans text-[9px] tracking-[0.15em] uppercase text-gold border border-gold/30 bg-gold/5 px-3 py-1.5 shrink-0">
+                      {item.statusBadge}
+                    </span>
+                  )}
                 </div>
-                <p className="font-sans text-sm text-cream-muted leading-[1.7] font-light mb-8">
+                <p className="font-sans text-sm text-cream-muted leading-[1.7] font-light mb-6">
                   {item.description}
                 </p>
+                {/* Performance Snapshot */}
+                {(() => {
+                  const cs = caseStudies.find((c) => c.slug === item.slug);
+                  if (!cs?.performanceSnapshot) return null;
+                  return (
+                    <div className="mb-6 p-5 bg-charcoal border border-gold/10">
+                      <div className="flex items-center gap-2 mb-4">
+                        <TrendingUp size={12} className="text-gold/60" />
+                        <span className="font-sans text-[9px] tracking-[0.2em] uppercase text-gold/70">Performance Snapshot</span>
+                      </div>
+                      <div className="grid grid-cols-3 gap-4">
+                        {cs.performanceSnapshot.map((pm, j) => (
+                          <div key={j}>
+                            <div className="font-display text-lg md:text-xl font-semibold text-gold mb-1">{pm.value}</div>
+                            <div className="font-sans text-[9px] tracking-[0.1em] uppercase text-cream-muted/70 mb-0.5">{pm.label}</div>
+                            {pm.context && (
+                              <div className="font-sans text-[10px] text-cream-muted/40 font-light">{pm.context}</div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })()}
                 {/* Metrics */}
                 <div className="grid grid-cols-3 gap-4 pt-6 border-t border-border/40 mb-6">
                   {item.metrics.map((m, j) => (

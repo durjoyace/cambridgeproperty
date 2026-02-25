@@ -1,3 +1,9 @@
+export interface PerformanceMetric {
+  label: string;
+  value: string;
+  context?: string;
+}
+
 export interface CaseStudy {
   slug: string;
   title: string;
@@ -6,9 +12,11 @@ export interface CaseStudy {
   assetType: string;
   strategy: string;
   status: "Active" | "Stabilized" | "In Development";
+  statusDetail?: string;
   description: string;
   highlights: string[];
   metrics: { label: string; value: string }[];
+  performanceSnapshot?: PerformanceMetric[];
   image?: string;
   // Extended fields for property detail pages
   fullDescription?: string;
@@ -44,6 +52,11 @@ export const caseStudies: CaseStudy[] = [
       { label: "Strategy", value: "Value-Add" },
       { label: "Management", value: "AppFolio" },
     ],
+    performanceSnapshot: [
+      { label: "Maintenance Cost Reduction", value: "22%", context: "Via vendor consolidation" },
+      { label: "Rent Growth Above Basis", value: "18%", context: "Stabilized by Q4 2023" },
+      { label: "Acquisition", value: "Off-Market", context: "Direct from retiring owner" },
+    ],
     neighborhood: "East Cambridge",
     fullDescription:
       "This 24-unit Class B residential asset in East Cambridge was acquired as a value-add opportunity with significant operational upside. The previous owner had self-managed the property for over a decade, resulting in below-market rents, deferred maintenance, and no institutional systems. Barrett & Johnson's thesis centered on implementing enterprise-grade property management (AppFolio), executing a targeted unit renovation program during natural turnover, and reducing operating costs through vendor consolidation. The property benefits from excellent proximity to Kendall Square, the Red Line, and Cambridge's biotech corridor — fundamentals that support long-term rent growth and tenant demand.",
@@ -71,7 +84,8 @@ export const caseStudies: CaseStudy[] = [
     units: 18,
     assetType: "Mixed-Use (Res + Retail)",
     strategy: "Stabilization",
-    status: "Active",
+    status: "Stabilized",
+    statusDetail: "Completed Value Creation",
     description:
       "Stabilization of an 18-unit mixed-use asset comprising residential and ground-floor retail in Somerville. Strategy centered on strengthening the commercial tenant base while repositioning residential floorplans for the local market.",
     highlights: [
@@ -85,6 +99,11 @@ export const caseStudies: CaseStudy[] = [
       { label: "Asset Class", value: "Res + Retail" },
       { label: "Strategy", value: "Stabilization" },
       { label: "Retail Doors", value: "12" },
+    ],
+    performanceSnapshot: [
+      { label: "Commercial Occupancy", value: "100%", context: "From 33% at acquisition" },
+      { label: "Residential Occupancy", value: "96%", context: "Rents were 25% below market" },
+      { label: "Stabilization Timeline", value: "18 Months", context: "Q1 2021 to Q4 2022" },
     ],
     neighborhood: "Davis Square Area",
     fullDescription:

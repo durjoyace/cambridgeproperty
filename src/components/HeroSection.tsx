@@ -105,18 +105,30 @@ export default function HeroSection() {
             </h1>
           </div>
 
-          {/* Subtext */}
+          {/* Philosophy line */}
           <div
             ref={subtextRef}
             className="mt-8"
             style={{ opacity: 0, transform: "translateY(24px)" }}
           >
-            <p className="font-sans text-base md:text-lg text-cream-muted leading-[1.7] max-w-lg font-light">
-              Patrick W. Barrett III and Tim Johnson, CPM are hands-on Cambridge
-              and Boston property owners and developers — acquiring, improving,
-              and operating multifamily and mixed-use assets across Greater
-              Boston.
+            <p className="font-sans text-sm md:text-base text-gold/80 italic tracking-wide mb-5">
+              The conviction of an operator. The patience of a long-term owner.
             </p>
+            <p className="font-sans text-base md:text-lg text-cream-muted leading-[1.7] max-w-lg font-light">
+              We acquire, improve, and operate multifamily and mixed-use assets
+              across Cambridge and Greater Boston. Direct buyers, long-term
+              owners, personally involved in every decision. The market
+              institutional firms find too small is the market we built our firm
+              around.
+            </p>
+            <div className="mt-6 flex flex-col sm:flex-row gap-4 sm:gap-8 text-cream-muted/70">
+              <a href="mailto:acquisitions@barrettjohnson.com" className="font-sans text-sm font-light hover:text-gold transition-colors duration-300">
+                acquisitions@barrettjohnson.com
+              </a>
+              <a href="tel:6177783521" className="font-sans text-sm font-light hover:text-gold transition-colors duration-300">
+                (617) 778-3521
+              </a>
+            </div>
           </div>
 
           {/* CTAs */}

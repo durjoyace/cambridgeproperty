@@ -4,11 +4,14 @@ export function organizationSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
+    additionalType: "RealEstateCompany",
     name: "Barrett & Johnson",
     url: BASE_URL,
     description:
-      "Cambridge and Boston property owners and developers — acquiring, improving, and operating multifamily and mixed-use assets across Greater Boston.",
+      "Cambridge and Boston property owners and developers — acquiring, improving, and operating multifamily and mixed-use assets across Greater Boston since 2010.",
     telephone: "617-778-3521",
+    email: "acquisitions@barrettjohnson.com",
+    foundingDate: "2010",
     areaServed: "Greater Boston",
     knowsAbout: [
       "Multifamily Real Estate",
@@ -22,12 +25,15 @@ export function organizationSchema() {
 export function localBusinessSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "RealEstateAgent",
+    "@type": "LocalBusiness",
+    additionalType: "RealEstateCompany",
     name: "Barrett & Johnson",
     url: BASE_URL,
     description:
-      "Patrick W. Barrett III and Tim Johnson, CPM are Cambridge-based property owners and developers.",
+      "Cambridge-based property owners and developers — acquiring, improving, and operating multifamily and mixed-use assets across Greater Boston since 2010.",
     telephone: "617-778-3521",
+    email: "acquisitions@barrettjohnson.com",
+    foundingDate: "2010",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Cambridge",

@@ -27,7 +27,7 @@ const caseStudyFaqs = [
 
 const stats = [
   { value: String(COMPANY_STATS.totalDoors), label: "Doors Owned & Managed" },
-  { value: COMPANY_STATS.yearsExperience, label: "Years Experience" },
+  { value: String(COMPANY_STATS.yearsInOperation), label: `Years Since ${COMPANY_STATS.foundingYear}` },
   { value: COMPANY_STATS.ownerOperated, label: "Owner-Operated" },
   { value: String(COMPANY_STATS.activeCaseStudies), label: "Active Case Studies" },
 ];

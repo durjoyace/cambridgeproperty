@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Building2, Users, Heart, Target } from "lucide-react";
+import { ArrowRight, Building2, Users, Heart, Target, Handshake } from "lucide-react";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import SEOHead from "@/components/seo/SEOHead";
 import { PAGE_META } from "@/lib/seo/metadata";
 import { personSchema, breadcrumbSchema } from "@/lib/seo/schemas";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { COMPANY_STATS } from "@/lib/data/stats";
 
 const principals = [
   {
@@ -22,7 +23,7 @@ const principals = [
   {
     name: "Tim Johnson, CPM",
     role: "Principal & Co-Founder",
-    bio: "Tim is a Certified Property Manager (CPM) who leads Barrett & Johnson's property operations, tenant relations, and management systems. With 15+ years of hands-on experience, he has built an operations platform powered by AppFolio that delivers institutional-grade reporting and tenant service across every door in the portfolio. Tim's operational discipline is the backbone of B&J's ability to execute value-add strategies while maintaining tenant satisfaction.",
+    bio: `Tim is a Certified Property Manager (CPM) who leads Barrett & Johnson's property operations, tenant relations, and management systems. Since the firm's founding in 2010, he has built an operations platform powered by AppFolio that delivers institutional-grade reporting and tenant service across every door in the portfolio. Tim's operational discipline is the backbone of B&J's ability to execute value-add strategies while maintaining tenant satisfaction.`,
     focus: ["Property Operations", "Tenant Relations", "AppFolio Systems", "Vendor Management"],
     schema: {
       name: "Tim Johnson, CPM",
@@ -34,11 +35,11 @@ const principals = [
 ];
 
 const timeline = [
-  { year: "2010", event: "Patrick and Tim begin acquiring residential properties in Cambridge" },
-  { year: "2015", event: "Portfolio grows to include mixed-use assets across Greater Boston" },
-  { year: "2018", event: "Adopt AppFolio enterprise property management across all doors" },
-  { year: "2022", event: "Expand operations to 75 doors — 63 residential, 12 retail" },
-  { year: "2025", event: "Launch Barrett & Johnson brand with unified acquisition and management platform" },
+  { year: "2010", event: "First Cambridge acquisitions — Patrick and Tim begin acquiring residential properties in Cambridge" },
+  { year: "2015", event: "Mixed-use expansion — portfolio grows to include mixed-use assets across Greater Boston" },
+  { year: "2018", event: "AppFolio adoption — enterprise property management deployed across all doors" },
+  { year: "2022", event: "Full 75-door stabilization — 63 residential, 12 retail across Cambridge and Somerville" },
+  { year: "2025", event: "Brand launch — Barrett & Johnson unified acquisition and management platform goes live" },
 ];
 
 const values = [
@@ -193,6 +194,27 @@ export default function About() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Co-Invest */}
+      <section className="py-16 bg-charcoal-mid">
+        <div className="container mx-auto max-w-3xl">
+          <div className="flex items-start gap-6 bg-charcoal border border-gold/10 p-8 md:p-10">
+            <Handshake size={24} className="text-gold/50 mt-1 shrink-0" />
+            <div>
+              <h3 className="font-display text-lg font-semibold text-cream mb-3">Co-Investment</h3>
+              <p className="font-sans text-sm text-cream-muted/80 font-light leading-[1.8] mb-4">
+                Barrett & Johnson occasionally partners with aligned co-investors on select acquisitions — individuals and family offices who share our long-term, operator-first approach. If you're interested in learning more, we'd welcome the conversation.
+              </p>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase text-gold/60 hover:text-gold transition-colors duration-300"
+              >
+                Get in Touch <ArrowRight size={12} />
+              </Link>
             </div>
           </div>
         </div>

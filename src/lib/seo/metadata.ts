@@ -1,8 +1,8 @@
 export const PAGE_META = {
   home: {
-    title: "Barrett & Johnson | Cambridge Property Owners & Developers",
+    title: "Barrett & Johnson | Cambridge Property Owners & Developers — Est. 2010",
     description:
-      "Patrick W. Barrett III and Tim Johnson, CPM are Cambridge-based property owners and developers — acquiring, improving, and operating multifamily and mixed-use assets across Greater Boston.",
+      "Barrett & Johnson — Cambridge-based property owners and developers since 2010. Acquiring, improving, and operating multifamily and mixed-use assets across Greater Boston. 75 doors, 100% owner-operated.",
     canonical: "/",
   },
   management: {
@@ -30,9 +30,9 @@ export const PAGE_META = {
     canonical: "/partners",
   },
   about: {
-    title: "About Us — Our Principals & Philosophy",
+    title: "About Us — Our Principals & Philosophy | Est. 2010",
     description:
-      "Meet Patrick W. Barrett III and Tim Johnson, CPM — Cambridge-based property owners and developers with 15+ years of hands-on multifamily and mixed-use experience across Greater Boston.",
+      "Meet Patrick W. Barrett III and Tim Johnson, CPM — Cambridge-based property owners and developers since 2010. 75 doors, 100% owner-operated across Greater Boston.",
     canonical: "/about",
   },
   contact: {

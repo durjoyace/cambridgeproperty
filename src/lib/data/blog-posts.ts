@@ -7,13 +7,20 @@ export interface BlogPost {
   author: string;
   category: string;
   readTime: string;
+  image?: string;
 }
+
+// Blog post images — import from assets so Vite hashes them for cache-busting
+import blogImg1 from "@/assets/building-1.jpg";
+import blogImg2 from "@/assets/building-2.jpg";
+import blogImg3 from "@/assets/hero-bg.jpg";
 
 export const blogPosts: BlogPost[] = [
   {
     slug: "what-makes-good-value-add-multifamily-deal-greater-boston",
     title: "What Makes a Good Value-Add Multifamily Deal in Greater Boston",
     date: "2026-02-15",
+    image: blogImg1,
     excerpt:
       "Not every below-market property is a value-add opportunity. Here's how we evaluate multifamily deals in Cambridge, Somerville, and the surrounding metro — and what separates a real opportunity from a money pit.",
     author: "Patrick W. Barrett III",
@@ -63,6 +70,7 @@ export const blogPosts: BlogPost[] = [
     slug: "owner-operated-vs-third-party-management",
     title: "Owner-Operated vs. Third-Party Management: Why We Do Both",
     date: "2026-02-01",
+    image: blogImg2,
     excerpt:
       "Most property owners choose between managing themselves or hiring a third party. At Barrett & Johnson, we believe the best model combines the accountability of ownership with the systems of professional management.",
     author: "Tim Johnson, CPM",
@@ -117,6 +125,7 @@ export const blogPosts: BlogPost[] = [
     slug: "cambridge-rental-market-2026",
     title: "The Cambridge Rental Market: What Owners Need to Know in 2026",
     date: "2026-01-15",
+    image: blogImg3,
     excerpt:
       "Cambridge remains one of the strongest rental markets in the country, but 2026 brings new dynamics. Here's our read on rents, supply, regulation, and what it means for property owners.",
     author: "Patrick W. Barrett III",

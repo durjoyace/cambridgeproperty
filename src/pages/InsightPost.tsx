@@ -29,6 +29,7 @@ export default function InsightPost() {
             url: `/insights/${post.slug}`,
             datePublished: post.date,
             author: post.author,
+            ...(post.image && { image: post.image }),
           }),
           breadcrumbSchema([
             { name: "Home", url: "/" },

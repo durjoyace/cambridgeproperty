@@ -1,4 +1,4 @@
-import { CheckCircle, Shield } from "lucide-react";
+import { CheckCircle, Shield, Mail, Phone } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import PropertySubmissionForm from "@/components/forms/PropertySubmissionForm";
 
@@ -37,6 +37,19 @@ export default function SubmitSection() {
                   <span className="font-sans text-sm text-cream-muted/80 font-light">{item}</span>
                 </div>
               ))}
+            </div>
+
+            {/* Direct contact */}
+            <div className="flex flex-col gap-3 mb-10">
+              <p className="font-sans text-[10px] tracking-[0.2em] uppercase text-gold/60 mb-1">Or reach us directly</p>
+              <a href="mailto:acquisitions@barrettjohnson.com" className="flex items-center gap-3 group">
+                <Mail size={14} className="text-gold/50 group-hover:text-gold transition-colors" />
+                <span className="font-sans text-sm text-cream-muted/80 font-light group-hover:text-cream transition-colors">acquisitions@barrettjohnson.com</span>
+              </a>
+              <a href="tel:6177783521" className="flex items-center gap-3 group">
+                <Phone size={14} className="text-gold/50 group-hover:text-gold transition-colors" />
+                <span className="font-sans text-sm text-cream-muted/80 font-light group-hover:text-cream transition-colors">(617) 778-3521</span>
+              </a>
             </div>
 
             <div className="flex gap-4 items-start bg-charcoal border border-gold/10 p-6">

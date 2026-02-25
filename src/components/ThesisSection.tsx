@@ -33,15 +33,20 @@ export default function ThesisSection() {
           <div data-reveal>
             <div className="flex items-center gap-4 mb-8">
               <div className="divider-gold" />
-              <span className="section-label">Our Approach</span>
+              <span className="section-label">Our Thesis</span>
             </div>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-cream leading-[1.1] mb-8 tracking-tight">
-              How We Build
+              The Right
               <br />
-              <span className="text-gold">&amp; Operate</span>
+              <span className="text-gold">Market</span>
             </h2>
-            <p className="font-sans text-sm md:text-base leading-[1.8] text-cream-muted font-light max-w-md">
-              We are Cambridge and Boston property owners and developers with a direct, operator-led approach. Every asset we acquire is improved, managed, and held with long-term conviction.
+            <p className="font-sans text-base md:text-lg leading-[1.8] text-cream-muted font-light max-w-md mb-6">
+              It's a market too small for institutional capital and too complex
+              for passive investors. We find it exactly right.
+            </p>
+            <p className="font-sans text-sm leading-[1.8] text-cream-muted/70 font-light max-w-md">
+              Every asset we acquire is improved, managed, and held with
+              long-term conviction. Owner-operated from day one.
             </p>
           </div>
 
