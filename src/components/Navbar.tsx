@@ -6,7 +6,6 @@ const navLinks = [
   { label: "Portfolio", href: "/#portfolio" },
   { label: "About", href: "/about" },
   { label: "Management", href: "/management" },
-  { label: "Press", href: "/press" },
 ];
 
 function NavAnchor({
@@ -104,10 +103,11 @@ export default function Navbar() {
             href="https://barrettjohnson.appfolio.com/connect/users/sign_in"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-sans text-[11px] tracking-[0.15em] uppercase text-cream-muted/50 hover:text-gold transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
+            className="text-cream-muted/40 hover:text-gold transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
+            title="Resident Portal"
+            aria-label="Resident Portal — tenant login"
           >
-            <LogIn size={13} />
-            Resident Portal
+            <LogIn size={15} />
           </a>
         </nav>
 
