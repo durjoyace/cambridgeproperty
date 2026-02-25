@@ -1,8 +1,8 @@
 export const PAGE_META = {
   home: {
-    title: "Barrett & Johnson | Cambridge Property Owners & Developers — Est. 2010",
+    title: "Barrett & Johnson | Cambridge Real Estate Developers & Operators — Est. 2010",
     description:
-      "Barrett & Johnson — Cambridge-based property owners and developers since 2010. Acquiring, improving, and operating multifamily and mixed-use assets across Greater Boston. 75 doors, 100% owner-operated.",
+      "Barrett & Johnson — Cambridge-based real estate developers and operators since 2010. 75 doors under management, $45M hotel developed, $100M+ pipeline. Multifamily, mixed-use, and hotel development across Greater Boston.",
     canonical: "/",
   },
   management: {
@@ -32,7 +32,7 @@ export const PAGE_META = {
   about: {
     title: "About Us — Our Principals & Philosophy | Est. 2010",
     description:
-      "Meet Patrick W. Barrett III and Tim Johnson, CPM — Cambridge-based property owners and developers since 2010. 75 doors, 100% owner-operated across Greater Boston.",
+      "Meet Patrick W. Barrett III (zoning attorney, $45M hotel developer, Central Square BID Treasurer) and Tim Johnson, CPM — Cambridge-based developers and operators since 2010.",
     canonical: "/about",
   },
   contact: {

@@ -8,7 +8,7 @@ export function organizationSchema() {
     name: "Barrett & Johnson",
     url: BASE_URL,
     description:
-      "Cambridge and Boston property owners and developers — acquiring, improving, and operating multifamily and mixed-use assets across Greater Boston since 2010.",
+      "Cambridge-based real estate developers and operators since 2010. Multifamily, mixed-use, and hotel development across Greater Boston. 75 residential and retail doors under management, $45M hotel developed, $100M+ development pipeline.",
     telephone: "617-778-3521",
     email: "acquisitions@barrettjohnson.com",
     foundingDate: "2010",
@@ -17,7 +17,9 @@ export function organizationSchema() {
       "Multifamily Real Estate",
       "Value-Add Acquisitions",
       "Mixed-Use Properties",
+      "Hotel Development",
       "Property Management",
+      "Zoning & Entitlements",
     ],
   };
 }

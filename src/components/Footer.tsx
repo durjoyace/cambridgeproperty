@@ -36,7 +36,7 @@ export default function Footer() {
                 Barrett &amp; Johnson
               </div>
               <div className="font-sans text-[9px] tracking-[0.3em] uppercase text-gold/60">
-                Cambridge Property Owners &amp; Developers
+                Cambridge Real Estate Developers &amp; Operators
               </div>
             </Link>
           </div>

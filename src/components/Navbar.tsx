@@ -81,7 +81,7 @@ export default function Navbar() {
             Barrett &amp; Johnson
           </span>
           <span className="font-sans text-[9px] tracking-[0.3em] uppercase text-gold/70 group-hover:text-gold transition-colors duration-300">
-            Cambridge Property Owners &amp; Developers
+            Cambridge Real Estate Developers &amp; Operators
           </span>
         </Link>
 

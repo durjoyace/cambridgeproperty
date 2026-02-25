@@ -11,25 +11,25 @@ const principals = [
   {
     name: "Patrick W. Barrett III",
     role: "Principal & Co-Founder",
-    bio: "Patrick brings deep expertise in multifamily acquisitions and value-add strategy across Greater Boston. With a hands-on approach to every deal, he oversees acquisition sourcing, underwriting, capital improvements, and asset repositioning. Patrick believes in buying right, improving intelligently, and holding for the long term — a philosophy reflected in every property Barrett & Johnson owns.",
-    focus: ["Acquisitions & Underwriting", "Value-Add Strategy", "Capital Improvements", "Asset Repositioning"],
+    bio: "Patrick is a Cambridge zoning attorney and real estate developer with 20 years of experience across Greater Boston. He developed the 907 Main Hotel — a $45 million, 67-key boutique hotel in Central Square with $37.75M in institutional financing — and authored the Central Square Overlay zoning amendments adopted by the City Council in 2017. He currently serves as Treasurer of the Central Square Business Improvement District. Patrick's active development pipeline includes the preservation and adaptive reuse of the historic Harriet Jacobs House at 17 Story Street in Harvard Square (approved 7-0 by the Cambridge Historical Commission) and a planned $57 million residential condominium on Columbia Street. His constitutional challenge to Cambridge's inclusionary zoning implementation has been covered by WBUR, Mass Lawyers Weekly, and Commonwealth Beacon.",
+    focus: ["Acquisitions & Zoning", "Hotel & Mixed-Use Development", "Policy & Entitlements", "Value-Add Strategy"],
     schema: {
       name: "Patrick W. Barrett III",
       jobTitle: "Principal & Co-Founder",
       description:
-        "Cambridge-based real estate principal specializing in multifamily acquisitions and value-add strategy across Greater Boston.",
+        "Cambridge zoning attorney and real estate developer with 20 years of experience. Developed the $45M 907 Main Hotel, authored Central Square Overlay zoning, and serves as Treasurer of the Central Square BID.",
     },
   },
   {
     name: "Tim Johnson, CPM",
     role: "Principal & Co-Founder",
-    bio: `Tim is a Certified Property Manager (CPM) who leads Barrett & Johnson's property operations, tenant relations, and management systems. Since the firm's founding in 2010, he has built an operations platform powered by AppFolio that delivers institutional-grade reporting and tenant service across every door in the portfolio. Tim's operational discipline is the backbone of B&J's ability to execute value-add strategies while maintaining tenant satisfaction.`,
-    focus: ["Property Operations", "Tenant Relations", "AppFolio Systems", "Vendor Management"],
+    bio: "Tim is a Certified Property Manager (CPM) who leads Barrett & Johnson's property operations, tenant relations, and management systems. A named principal on the $37.75 million institutional financing for the 907 Main Hotel alongside Patrick, Tim brings both development-scale capital experience and day-to-day operational discipline to the firm. Since 2010, he has built an operations platform powered by AppFolio that delivers institutional-grade reporting, sub-4-hour average maintenance response times, and tenant service across every door in the portfolio. Tim's operational discipline is the backbone of B&J's ability to execute value-add strategies while maintaining tenant satisfaction.",
+    focus: ["Property Operations", "Tenant Relations", "AppFolio Systems", "Capital Projects"],
     schema: {
       name: "Tim Johnson, CPM",
       jobTitle: "Principal & Co-Founder, Certified Property Manager",
       description:
-        "Certified Property Manager (CPM) leading property operations, tenant relations, and management systems for Barrett & Johnson's Greater Boston portfolio.",
+        "Certified Property Manager (CPM) and named principal on $37.75M institutional financing. Leads property operations and management systems for Barrett & Johnson's Greater Boston portfolio since 2010.",
     },
   },
 ];
@@ -37,8 +37,14 @@ const principals = [
 const timeline = [
   { year: "2010", event: "First Cambridge acquisitions — Patrick and Tim begin acquiring residential properties in Cambridge" },
   { year: "2015", event: "Mixed-use expansion — portfolio grows to include mixed-use assets across Greater Boston" },
+  { year: "2016", event: "907 Main Hotel — begin development of a $45M, 67-key boutique hotel in Central Square, designed by Gensler Boston" },
+  { year: "2017", event: "Central Square Overlay — Patrick authors zoning amendments adopted by the Cambridge City Council" },
   { year: "2018", event: "AppFolio adoption — enterprise property management deployed across all doors" },
+  { year: "2019", event: "Central Square BID — Patrick joins the board, later becoming Treasurer of the $3M/year nonprofit" },
+  { year: "2019", event: "$37.75M financing — Patrick and Tim secure institutional construction financing from a NY hedge fund for 907 Main" },
   { year: "2022", event: "Full 75-door stabilization — 63 residential, 12 retail across Cambridge and Somerville" },
+  { year: "2022", event: "BA-5 zoning petition — Patrick authors zoning amendment for housing production at 2400 Mass Ave" },
+  { year: "2025", event: "Harriet Jacobs House — 17 Story Street project approved 7-0 by Cambridge Historical Commission: 50+ homes preserving a historic African American heritage site" },
   { year: "2025", event: "Brand launch — Barrett & Johnson unified acquisition and management platform goes live" },
 ];
 
@@ -65,7 +71,7 @@ const values = [
     icon: Heart,
     title: "Community Investment",
     description:
-      "We improve neighborhoods by improving buildings. Quality housing, responsive management, and thoughtful renovations that serve both tenants and the community.",
+      "Patrick serves as Treasurer of the Central Square Business Improvement District — a 501(c)(3) nonprofit with a $3M annual budget serving Central Square through placemaking, public safety ambassadors, and community programming. We improve neighborhoods by improving buildings and by showing up.",
   },
 ];
 

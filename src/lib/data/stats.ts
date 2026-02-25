@@ -12,8 +12,10 @@ export const COMPANY_STATS = {
   totalDoors: 75,
   residentialUnits: 63,
   retailDoors: 12,
+  hotelKeys: 67,
   foundingYear: FOUNDING_YEAR,
   yearsInOperation: getYearsInOperation(),
   ownerOperated: "100%",
   activeCaseStudies: 2,
+  developmentPipeline: "$100M+",
 } as const;
