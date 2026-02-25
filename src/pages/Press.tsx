@@ -1,4 +1,4 @@
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, CheckCircle } from "lucide-react";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import SEOHead from "@/components/seo/SEOHead";
 import { breadcrumbSchema } from "@/lib/seo/schemas";
@@ -145,6 +145,12 @@ export default function Press() {
                     <p className="font-sans text-sm text-cream-muted/70 font-light leading-[1.7] mb-3">
                       {item.description}
                     </p>
+                    {item.approval && (
+                      <div className="flex items-center gap-2 mb-3 bg-gold/5 border border-gold/15 px-4 py-2.5 inline-flex">
+                        <CheckCircle size={12} className="text-gold/70 shrink-0" />
+                        <span className="font-sans text-xs text-gold/80 font-light">{item.approval}</span>
+                      </div>
+                    )}
                     {item.sources && (
                       <div className="flex flex-wrap gap-3">
                         {item.sources.map((src) => (
