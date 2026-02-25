@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import { LogIn } from "lucide-react";
 
 const navLinks = [
   { label: "About", href: "/about" },
@@ -48,6 +49,15 @@ export default function Footer() {
                 {link.label}
               </FooterLink>
             ))}
+            <a
+              href="https://barrettjohnson.appfolio.com/connect/users/sign_in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 font-sans text-[10px] tracking-[0.15em] uppercase text-cream-muted/50 hover:text-gold transition-colors duration-300 focus-visible:text-gold focus-visible:outline-none"
+            >
+              <LogIn size={11} />
+              Resident Portal
+            </a>
           </nav>
         </div>
 

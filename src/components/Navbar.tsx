@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LogIn } from "lucide-react";
 
 const navLinks = [
   { label: "About", href: "/about" },
@@ -102,6 +102,15 @@ export default function Navbar() {
           >
             Work With Us
           </NavAnchor>
+          <a
+            href="https://barrettjohnson.appfolio.com/connect/users/sign_in"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 font-sans text-[11px] tracking-[0.15em] uppercase text-cream-muted/50 hover:text-gold transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
+          >
+            <LogIn size={13} />
+            Resident Portal
+          </a>
         </nav>
 
         {/* Mobile Menu Toggle */}
@@ -135,6 +144,16 @@ export default function Navbar() {
           >
             Submit Property
           </NavAnchor>
+          <a
+            href="https://barrettjohnson.appfolio.com/connect/users/sign_in"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 font-sans text-xs tracking-[0.15em] uppercase text-cream-muted/50 hover:text-gold transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
+            onClick={() => setMobileOpen(false)}
+          >
+            <LogIn size={14} />
+            Resident Portal
+          </a>
         </nav>
       )}
     </header>
