@@ -1,24 +1,21 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const tierDescriptions: Record<string, string> = {
-  "Home Base": "Active portfolio with multiple assets",
-  "Active": "Current acquisition targets",
-  "Greater Boston": "Markets we track and will enter selectively",
+  "Home Base": "Active portfolio, zoning expertise, and deep relationships",
+  "Active": "Current assets and acquisition targets",
+  "Watching": "Markets we track and will enter selectively",
 };
 
 const markets = [
-  { city: "Cambridge", state: "MA", type: "Home Base" },
-  { city: "Somerville", state: "MA", type: "Home Base" },
-  { city: "Boston", state: "MA", type: "Home Base" },
-  { city: "Brookline", state: "MA", type: "Active" },
-  { city: "Medford", state: "MA", type: "Active" },
-  { city: "Malden", state: "MA", type: "Active" },
-  { city: "Everett", state: "MA", type: "Greater Boston" },
-  { city: "Revere", state: "MA", type: "Greater Boston" },
-  { city: "Chelsea", state: "MA", type: "Greater Boston" },
+  { city: "Cambridge", state: "MA", type: "Home Base", detail: "Central Sq · Harvard Sq · North Cambridge" },
+  { city: "Somerville", state: "MA", type: "Active", detail: "18-unit mixed-use portfolio" },
+  { city: "Boston", state: "MA", type: "Watching" },
+  { city: "Brookline", state: "MA", type: "Watching" },
+  { city: "Medford", state: "MA", type: "Watching" },
+  { city: "Watertown", state: "MA", type: "Watching" },
 ];
 
-const typeOrder: Record<string, number> = { "Home Base": 0, "Active": 1, "Greater Boston": 2 };
+const typeOrder: Record<string, number> = { "Home Base": 0, "Active": 1, "Watching": 2 };
 
 export default function MarketsSection() {
   const sectionRef = useScrollReveal<HTMLElement>();
@@ -66,7 +63,9 @@ export default function MarketsSection() {
               <div key={i} className="bg-charcoal p-7 md:p-8 flex items-center justify-between group hover:bg-charcoal-mid transition-all duration-300">
                 <div>
                   <div className="font-display text-lg md:text-xl font-semibold text-cream group-hover:text-gold transition-colors duration-300">{m.city}</div>
-                  <div className="font-sans text-xs text-cream-muted/60 mt-0.5">{m.state}</div>
+                  <div className="font-sans text-xs text-cream-muted/60 mt-0.5">
+                    {(m as { detail?: string }).detail || m.state}
+                  </div>
                 </div>
                 <span className={`font-sans text-[9px] tracking-[0.2em] uppercase px-3 py-1.5 border transition-colors duration-300 ${
                   m.type === "Home Base"
