@@ -3,12 +3,10 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, LogIn } from "lucide-react";
 
 const navLinks = [
-  { label: "About", href: "/about" },
   { label: "Portfolio", href: "/#portfolio" },
+  { label: "About", href: "/about" },
   { label: "Management", href: "/management" },
-  { label: "Insights", href: "/insights" },
   { label: "Press", href: "/press" },
-  { label: "Sell Your Property", href: "/sell-your-property" },
 ];
 
 function NavAnchor({
@@ -100,7 +98,7 @@ export default function Navbar() {
             href="/sell-your-property"
             className="font-sans text-[11px] tracking-[0.15em] uppercase px-6 py-2.5 border border-gold/40 text-gold hover:bg-gold hover:text-primary-foreground transition-all duration-300 focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
           >
-            Work With Us
+            Sell Your Property
           </NavAnchor>
           <a
             href="https://barrettjohnson.appfolio.com/connect/users/sign_in"
@@ -142,7 +140,7 @@ export default function Navbar() {
             className="font-sans text-xs tracking-[0.15em] uppercase px-6 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-primary-foreground transition-all duration-300 text-center focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
             onClick={() => setMobileOpen(false)}
           >
-            Submit Property
+            Sell Your Property
           </NavAnchor>
           <a
             href="https://barrettjohnson.appfolio.com/connect/users/sign_in"

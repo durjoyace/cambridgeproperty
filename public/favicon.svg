@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="8" fill="#0d1117"/>
+  <text x="32" y="26" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="18" font-weight="600" fill="#d4a853" dominant-baseline="central">B&amp;J</text>
+  <line x1="14" y1="38" x2="50" y2="38" stroke="#d4a853" stroke-width="0.75" opacity="0.5"/>
+  <text x="32" y="48" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="6" font-weight="400" letter-spacing="2" fill="#d4a853" opacity="0.7" dominant-baseline="central">EST 2010</text>
+</svg>

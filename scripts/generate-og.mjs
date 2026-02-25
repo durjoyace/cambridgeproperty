@@ -1,0 +1,62 @@
+// Generate OG image as a standalone HTML file that can be screenshotted,
+// or as an SVG converted to a static PNG placeholder.
+// For now, we create a clean SVG-based OG image.
+
+import { writeFileSync } from "fs";
+import { join, dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="gold-line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#d4a853"/>
+      <stop offset="100%" stop-color="#d4a853" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Subtle border -->
+  <rect x="40" y="40" width="1120" height="550" rx="2" fill="none" stroke="#d4a853" stroke-width="0.5" opacity="0.3"/>
+
+  <!-- Gold accent line -->
+  <line x1="100" y1="240" x2="220" y2="240" stroke="url(#gold-line)" stroke-width="1.5"/>
+
+  <!-- Label -->
+  <text x="100" y="228" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" letter-spacing="4" fill="#d4a853" opacity="0.8">CAMBRIDGE, MASSACHUSETTS</text>
+
+  <!-- Company name -->
+  <text x="100" y="310" font-family="Georgia, 'Times New Roman', serif" font-size="64" font-weight="700" fill="#f0ece2">Barrett &amp; Johnson</text>
+
+  <!-- Tagline -->
+  <text x="100" y="365" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="300" letter-spacing="6" fill="#d4a853" opacity="0.7">REAL ESTATE DEVELOPERS &amp; OPERATORS</text>
+
+  <!-- Divider -->
+  <line x1="100" y1="400" x2="300" y2="400" stroke="#d4a853" stroke-width="0.75" opacity="0.4"/>
+
+  <!-- Stats -->
+  <text x="100" y="445" font-family="Georgia, 'Times New Roman', serif" font-size="20" fill="#f0ece2" opacity="0.9">Est. 2010</text>
+  <text x="100" y="470" font-family="Arial, Helvetica, sans-serif" font-size="12" letter-spacing="2" fill="#f0ece2" opacity="0.4">CAMBRIDGE &amp; GREATER BOSTON</text>
+
+  <text x="350" y="445" font-family="Georgia, 'Times New Roman', serif" font-size="20" fill="#f0ece2" opacity="0.9">75 Doors</text>
+  <text x="350" y="470" font-family="Arial, Helvetica, sans-serif" font-size="12" letter-spacing="2" fill="#f0ece2" opacity="0.4">UNDER MANAGEMENT</text>
+
+  <text x="570" y="445" font-family="Georgia, 'Times New Roman', serif" font-size="20" fill="#f0ece2" opacity="0.9">$45M Hotel</text>
+  <text x="570" y="470" font-family="Arial, Helvetica, sans-serif" font-size="12" letter-spacing="2" fill="#f0ece2" opacity="0.4">DEVELOPED</text>
+
+  <text x="800" y="445" font-family="Georgia, 'Times New Roman', serif" font-size="20" fill="#f0ece2" opacity="0.9">$100M+</text>
+  <text x="800" y="470" font-family="Arial, Helvetica, sans-serif" font-size="12" letter-spacing="2" fill="#f0ece2" opacity="0.4">PIPELINE</text>
+
+  <!-- URL -->
+  <text x="100" y="550" font-family="Arial, Helvetica, sans-serif" font-size="13" letter-spacing="3" fill="#f0ece2" opacity="0.25">BARRETTJOHNSON.COM</text>
+</svg>`;
+
+writeFileSync(join(__dirname, "..", "public", "og-image.svg"), svg);
+console.log("Generated public/og-image.svg");

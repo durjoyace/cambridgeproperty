@@ -10,7 +10,7 @@ interface SEOHeadProps {
 }
 
 const BASE_URL = "https://barrettjohnson.com";
-const DEFAULT_OG_IMAGE = "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c0e58dc0-9282-4414-a04f-5c4dc37f2341/id-preview-dd98c665--7deade66-2786-485d-97aa-9e347aeefe3f.lovable.app-1771624887118.png";
+const DEFAULT_OG_IMAGE = `${BASE_URL}/og-image.png`;
 
 export default function SEOHead({
   title,
