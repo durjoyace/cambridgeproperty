@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import patrickHeadshot from "@/assets/patrick-barrett.png";
 
 export default function CapitalAlignment() {
   const sectionRef = useScrollReveal<HTMLElement>();
@@ -26,6 +27,24 @@ export default function CapitalAlignment() {
             <p className="font-sans text-sm leading-[1.8] text-cream-muted/60 font-light max-w-md mb-10">
               We partner with aligned capital on a deal-by-deal basis. No blind pool, no fund lifecycle constraints. Every co-investment is structured around the asset, not the vehicle.
             </p>
+            {/* Principal Quote Block */}
+            <div className="flex items-start gap-5 mt-10 mb-10 p-6 bg-charcoal-mid border border-border/40">
+              <img
+                src={patrickHeadshot}
+                alt="Patrick W. Barrett III"
+                className="w-16 h-16 rounded-full object-cover object-top shrink-0 border border-gold/20"
+                width={64}
+                height={64}
+              />
+              <div>
+                <p className="font-sans text-sm text-cream-muted/80 font-light leading-[1.7] italic mb-3">
+                  "The transactions too complex or too small for funds are the foundation of our platform. We don't compete with institutional capital — we operate where it can't."
+                </p>
+                <div className="font-sans text-xs text-cream font-medium">Patrick W. Barrett III</div>
+                <div className="font-sans text-[10px] text-gold/60">Principal & Co-Founder</div>
+              </div>
+            </div>
+
             <Link
               to="/about"
               className="inline-flex items-center gap-3 font-sans text-xs tracking-[0.2em] uppercase text-gold group focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"

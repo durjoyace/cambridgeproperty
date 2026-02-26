@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { lazy, Suspense } from "react";
 import PageLayout from "@/components/layout/PageLayout";
@@ -20,6 +20,7 @@ const Insights = lazy(() => import("./pages/Insights"));
 const InsightPost = lazy(() => import("./pages/InsightPost"));
 const PropertyDetail = lazy(() => import("./pages/PropertyDetail"));
 const Press = lazy(() => import("./pages/Press"));
+const Portfolio = lazy(() => import("./pages/Portfolio"));
 
 const queryClient = new QueryClient();
 
@@ -43,8 +44,12 @@ const App = () => (
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/insights" element={<Insights />} />
                 <Route path="/insights/:slug" element={<InsightPost />} />
+                <Route path="/portfolio" element={<Portfolio />} />
                 <Route path="/portfolio/:slug" element={<PropertyDetail />} />
                 <Route path="/press" element={<Press />} />
+                <Route path="/sell" element={<Navigate to="/sell-your-property" replace />} />
+                <Route path="/acquisitions" element={<Navigate to="/sell-your-property" replace />} />
+                <Route path="/development" element={<Navigate to="/portfolio" replace />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>

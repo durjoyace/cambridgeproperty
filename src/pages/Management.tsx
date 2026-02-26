@@ -61,7 +61,7 @@ const capabilities = [
     icon: Handshake,
     title: "Vendor Network",
     description:
-      "A vetted network of contractors, architects, and service providers built over 15+ years. Competitive bidding, quality oversight, and direct principal involvement on every project.",
+      "A vetted network of contractors, architects, and service providers built since 2010. Competitive bidding, quality oversight, and direct principal involvement on every project.",
   },
   {
     icon: Shield,

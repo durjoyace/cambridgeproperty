@@ -44,7 +44,7 @@ export default function Press() {
               Others imply credibility. We have documented public record —
               government hearings, institutional media, policy contributions,
               and regulatory outcomes verified by independent sources across
-              two decades.
+              16 years of direct operation.
             </p>
           </div>
         </div>
@@ -113,7 +113,7 @@ export default function Press() {
               <div className="divider-gold" />
             </div>
             <h2 className="font-display text-3xl md:text-4xl font-semibold text-cream tracking-tight mb-4">
-              20 Years in Cambridge
+              Since 2010 in Cambridge
             </h2>
             <p className="font-sans text-sm text-cream-muted/70 font-light leading-[1.8] max-w-lg mx-auto">
               A verified timeline of development, community engagement, and

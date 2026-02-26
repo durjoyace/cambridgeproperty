@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, TrendingUp } from "lucide-react";
 import hotel907 from "@/assets/907-main.jpg";
 import building2 from "@/assets/building-2.jpg";
+import storyStreet from "@/assets/17-story-street.jpg";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { COMPANY_STATS } from "@/lib/data/stats";
 import { caseStudies } from "@/lib/data/case-studies";
@@ -32,7 +33,7 @@ const portfolioItems = [
       "Historic preservation of an African American heritage site combined with a hotel and 50+ new homes. Five years of community engagement. Cambridge Historical Commission approved 7-0 unanimous.",
     tag: "Preservation + Dev",
     statusBadge: "CHC Approved 7-0",
-    image: building2,
+    image: storyStreet,
     metrics: [
       { label: "Asset Type", value: "Hotel + Residential" },
       { label: "Strategy", value: "Preservation + Dev" },
@@ -60,7 +61,7 @@ const stats = [
   { value: "$45M", label: "Ground-Up Development", sub: "907 Main — The Lark Cambridge" },
   { value: "$37.75M", label: "Financing Secured", sub: "Institutional debt placement" },
   { value: "75", label: "Residential & Retail Units", sub: `${COMPANY_STATS.residentialUnits} Residential · ${COMPANY_STATS.retailDoors} Retail` },
-  { value: `${COMPANY_STATS.yearsInOperation}`, label: "Years Entitlement Experience", sub: "Cambridge zoning & land use" },
+  { value: `Est. ${COMPANY_STATS.foundingYear}`, label: "Founded", sub: "Cambridge & Greater Boston" },
   { value: "$100M+", label: "Active Pipeline", sub: "Massachusetts & select U.S. markets" },
 ];
 

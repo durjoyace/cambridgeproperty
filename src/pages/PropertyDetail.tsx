@@ -1,16 +1,17 @@
 import { useParams, Link, Navigate } from "react-router-dom";
-import { ArrowLeft, ArrowRight, MapPin, TrendingUp } from "lucide-react";
+import { ArrowLeft, ArrowRight, MapPin, TrendingUp, ExternalLink } from "lucide-react";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import SEOHead from "@/components/seo/SEOHead";
 import { breadcrumbSchema } from "@/lib/seo/schemas";
 import { getCaseStudyBySlug, caseStudies } from "@/lib/data/case-studies";
+import { pressItems } from "@/lib/data/press";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import hotel907 from "@/assets/907-main.jpg";
-import building2 from "@/assets/building-2.jpg";
+import storyStreet from "@/assets/17-story-street.jpg";
 
 const propertyImages: Record<string, string> = {
   "907-main": hotel907,
-  "building-2": building2,
+  "building-2": storyStreet,
 };
 
 export default function PropertyDetail() {
@@ -19,11 +20,21 @@ export default function PropertyDetail() {
   const sectionRef = useScrollReveal<HTMLElement>();
 
   if (!property) {
-    return <Navigate to="/case-studies" replace />;
+    return <Navigate to="/portfolio" replace />;
   }
 
   const otherProperties = caseStudies.filter((cs) => cs.slug !== property.slug);
   const displayMetrics = property.detailMetrics || property.metrics;
+
+  // Match press coverage to this property by keyword
+  const pressKeywords: Record<string, string[]> = {
+    "907-main-hotel": ["907 Main", "907 main", "Central Square Hotel", "boutique hotel", "37.75"],
+    "17-story-street": ["Story Street", "Harriet Jacobs", "17 Story"],
+  };
+  const keywords = slug ? pressKeywords[slug] || [] : [];
+  const relatedPress = pressItems.filter((p) =>
+    keywords.some((kw) => p.headline.includes(kw) || p.excerpt.includes(kw))
+  );
 
   return (
     <>
@@ -34,7 +45,7 @@ export default function PropertyDetail() {
         schema={[
           breadcrumbSchema([
             { name: "Home", url: "/" },
-            { name: "Portfolio", url: "/#portfolio" },
+            { name: "Portfolio", url: "/portfolio" },
             { name: property.title, url: `/portfolio/${property.slug}` },
           ]),
         ]}
@@ -60,10 +71,10 @@ export default function PropertyDetail() {
         <div className="container mx-auto" data-reveal>
           {/* Back link */}
           <Link
-            to="/case-studies"
+            to="/portfolio"
             className="inline-flex items-center gap-2 font-sans text-[10px] tracking-[0.15em] uppercase text-cream-muted/50 hover:text-gold transition-colors duration-300 mb-10"
           >
-            <ArrowLeft size={12} /> All Case Studies
+            <ArrowLeft size={12} /> All Projects
           </Link>
 
           <div className="flex items-center gap-4 mb-8">
@@ -191,6 +202,53 @@ export default function PropertyDetail() {
                 ))}
               </div>
             </div>
+          </div>
+        </section>
+      )}
+
+      {/* Press Coverage */}
+      {relatedPress.length > 0 && (
+        <section className="section-pad bg-charcoal-mid">
+          <div className="container mx-auto max-w-3xl">
+            <div className="flex items-center gap-4 mb-10">
+              <div className="divider-gold" />
+              <span className="section-label">Press Coverage</span>
+            </div>
+            <div className="flex flex-col gap-px bg-border/30">
+              {relatedPress.map((item, i) => (
+                <a
+                  key={i}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group bg-charcoal p-6 md:p-8 flex items-center justify-between hover:bg-charcoal/80 transition-all duration-300"
+                >
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="font-sans text-[9px] tracking-[0.2em] uppercase text-gold border border-gold/30 bg-gold/5 px-2.5 py-1">
+                        {item.category}
+                      </span>
+                      <span className="font-sans text-[10px] text-cream-muted/40">
+                        {item.source} · {new Date(item.date).toLocaleDateString("en-US", { month: "short", year: "numeric" })}
+                      </span>
+                    </div>
+                    <div className="font-sans text-sm text-cream font-light group-hover:text-gold transition-colors duration-300">
+                      {item.headline}
+                    </div>
+                  </div>
+                  <ExternalLink
+                    size={14}
+                    className="text-cream-muted/20 group-hover:text-gold/60 transition-colors duration-300 shrink-0 ml-4"
+                  />
+                </a>
+              ))}
+            </div>
+            <Link
+              to="/press"
+              className="inline-flex items-center gap-2 font-sans text-[10px] tracking-[0.15em] uppercase text-gold/50 hover:text-gold transition-colors duration-300 mt-6"
+            >
+              Full Press & Public Record <ArrowRight size={10} />
+            </Link>
           </div>
         </section>
       )}

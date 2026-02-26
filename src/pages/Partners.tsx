@@ -106,7 +106,7 @@ export default function Partners() {
             <span className="text-gold italic">Network</span>
           </h1>
           <p className="font-sans text-base md:text-lg text-cream-muted leading-[1.8] font-light max-w-xl mx-auto">
-            Over 15 years of hands-on ownership, Patrick and Tim have built a trusted network of contractors, architects, and service providers who understand how owner-operators work.
+            Since 2010, Patrick and Tim have built a trusted network of contractors, architects, and service providers through hands-on ownership — people who understand how owner-operators work.
           </p>
         </div>
       </section>
@@ -149,8 +149,8 @@ export default function Partners() {
                 <div className="font-sans text-[10px] tracking-[0.2em] uppercase text-cream-muted/60">Doors Serviced</div>
               </div>
               <div className="bg-charcoal border border-border/40 p-8 text-center">
-                <div className="font-display text-4xl font-semibold text-gold mb-2 tracking-tight">15+</div>
-                <div className="font-sans text-[10px] tracking-[0.2em] uppercase text-cream-muted/60">Years Experience</div>
+                <div className="font-display text-4xl font-semibold text-gold mb-2 tracking-tight">2010</div>
+                <div className="font-sans text-[10px] tracking-[0.2em] uppercase text-cream-muted/60">Founded</div>
               </div>
               <div className="bg-charcoal border border-border/40 p-8 text-center">
                 <div className="font-display text-4xl font-semibold text-gold mb-2 tracking-tight">100%</div>

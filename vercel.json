@@ -1,4 +1,9 @@
 {
+  "redirects": [
+    { "source": "/sell", "destination": "/sell-your-property", "permanent": true },
+    { "source": "/acquisitions", "destination": "/sell-your-property", "permanent": true },
+    { "source": "/development", "destination": "/portfolio", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/api/:path*", "destination": "/api/:path*" },
     { "source": "/((?!assets/).*)", "destination": "/index.html" }

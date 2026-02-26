@@ -2,7 +2,7 @@ import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import SEOHead from "@/components/seo/SEOHead";
 import PostCard from "@/components/blog/PostCard";
 import { PAGE_META } from "@/lib/seo/metadata";
-import { breadcrumbSchema, itemListSchema } from "@/lib/seo/schemas";
+import { breadcrumbSchema, itemListSchema, articleSchema } from "@/lib/seo/schemas";
 import { blogPosts } from "@/lib/data/blog-posts";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
@@ -20,6 +20,15 @@ export default function Insights() {
               url: `/insights/${p.slug}`,
               description: p.excerpt,
             }))
+          ),
+          ...blogPosts.map((p) =>
+            articleSchema({
+              title: p.title,
+              description: p.excerpt,
+              url: `/insights/${p.slug}`,
+              datePublished: p.date,
+              author: p.author,
+            })
           ),
           breadcrumbSchema([
             { name: "Home", url: "/" },
@@ -45,7 +54,8 @@ export default function Insights() {
             <p className="font-sans text-sm md:text-base leading-[1.8] text-cream-muted font-light lg:max-w-sm lg:ml-auto">
               Acquisition strategy, entitlement analysis, and operational insights
               written by principals — not marketing teams. First-person knowledge from
-              20 years of direct execution in Greater Boston real estate.
+              two decades of entitlement expertise and direct execution in Greater Boston
+              real estate.
             </p>
           </div>
         </div>

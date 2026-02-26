@@ -77,7 +77,7 @@ export const blogPosts: BlogPost[] = [
     category: "Property Management",
     readTime: "5 min read",
     body: `
-<p>In the property management world, there's a persistent debate: should owners manage their own properties, or should they hire professional third-party managers? At Barrett & Johnson, we've spent 15+ years developing a model that combines the best of both — and we think it's the reason our portfolio outperforms.</p>
+<p>In the property management world, there's a persistent debate: should owners manage their own properties, or should they hire professional third-party managers? At Barrett & Johnson, we've spent over a decade developing a model that combines the best of both — and we think it's the reason our portfolio outperforms.</p>
 
 <h2>The Problem with Pure Self-Management</h2>
 

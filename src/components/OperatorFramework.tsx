@@ -5,7 +5,7 @@ const pillars = [
     number: "01",
     title: "Direct Sourcing",
     description:
-      "We identify opportunities through principal-to-principal relationships, proprietary market intelligence, and 20 years of entitlement-zone expertise. No open-market bidding, no broker dependency.",
+      "We identify opportunities through principal-to-principal relationships, proprietary market intelligence, and Patrick's 20 years of entitlement-zone expertise. No open-market bidding, no broker dependency.",
   },
   {
     number: "02",

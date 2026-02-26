@@ -26,7 +26,7 @@ export const PAGE_META = {
   partners: {
     title: "Our Vendor Network",
     description:
-      "Barrett & Johnson's trusted network of contractors, architects, and service providers built over 15+ years of hands-on property ownership in Greater Boston.",
+      "Barrett & Johnson's trusted network of contractors, architects, and service providers built since 2010 through hands-on property ownership in Greater Boston.",
     canonical: "/partners",
   },
   about: {
@@ -40,6 +40,12 @@ export const PAGE_META = {
     description:
       "Get in touch with Barrett & Johnson — Cambridge-based property owners and developers. Reach our principals directly for acquisitions, management inquiries, or partnership opportunities.",
     canonical: "/contact",
+  },
+  portfolio: {
+    title: "Development Portfolio — Barrett & Johnson",
+    description:
+      "Barrett & Johnson's development portfolio: $45M boutique hotel, 50+ unit residential with historic preservation, and 75-door stabilized portfolio across Cambridge and Greater Boston.",
+    canonical: "/portfolio",
   },
   insights: {
     title: "Insights — Real Estate Perspectives from Barrett & Johnson",

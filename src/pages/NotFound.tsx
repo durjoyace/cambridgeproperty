@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import SEOHead from "@/components/seo/SEOHead";
 
 const helpfulLinks = [
-  { label: "View Our Portfolio", href: "/#portfolio" },
+  { label: "View Our Portfolio", href: "/portfolio" },
   { label: "Sell Your Property", href: "/sell-your-property" },
   { label: "Property Management", href: "/management" },
   { label: "Case Studies", href: "/case-studies" },

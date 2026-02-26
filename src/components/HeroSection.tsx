@@ -113,8 +113,8 @@ export default function HeroSection() {
           >
             <p className="font-sans text-base md:text-lg text-cream-muted leading-[1.75] max-w-lg font-light">
               We acquire, develop, and operate mixed-use assets in markets
-              institutional capital overlooks — with discipline shaped by two
-              decades of direct execution.
+              institutional capital overlooks — backed by 20 years of
+              entitlement expertise and a portfolio built to hold.
             </p>
             <p className="font-sans text-sm md:text-base text-gold/70 italic tracking-wide mt-5">
               The transactions too complex or too small for funds are the
@@ -137,7 +137,7 @@ export default function HeroSection() {
             style={{ opacity: 0, transform: "translateY(20px)" }}
           >
             <a
-              href="#portfolio"
+              href="/portfolio"
               onClick={() => trackEvent("cta_click", { event_label: "hero_view_portfolio" })}
               className="group inline-flex items-center justify-center font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
             >

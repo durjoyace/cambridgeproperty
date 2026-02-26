@@ -24,7 +24,7 @@ const homeFaqs = [
   },
   {
     question: "What makes Barrett & Johnson different from institutional buyers?",
-    answer: "We are direct principals — not a fund, not a REIT, not an intermediary. Patrick is a zoning attorney with 20 years of Cambridge entitlement experience. Tim is a CPM who operates every asset we own. The transactions too complex or too small for funds are the foundation of our platform. No committees, no analyst coverage — two principals who execute directly.",
+    answer: "We are direct principals — not a fund, not a REIT, not an intermediary. Patrick is a zoning attorney with 20 years of entitlement experience across Greater Boston. Tim is a CPM who has operated every asset in our portfolio since we founded the firm in 2010. The transactions too complex or too small for funds are the foundation of our platform. No committees, no analyst coverage — two principals who execute directly.",
   },
 ];
 

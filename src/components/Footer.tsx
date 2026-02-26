@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { LogIn } from "lucide-react";
 
 const navLinks = [
-  { label: "Development", href: "/#portfolio" },
+  { label: "Development", href: "/portfolio" },
   { label: "Insights", href: "/insights" },
   { label: "Press", href: "/press" },
   { label: "About", href: "/about" },
