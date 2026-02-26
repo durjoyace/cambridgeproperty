@@ -1,6 +1,7 @@
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import SEOHead from "@/components/seo/SEOHead";
 import PostCard from "@/components/blog/PostCard";
+import NewsletterCapture from "@/components/NewsletterCapture";
 import { PAGE_META } from "@/lib/seo/metadata";
 import { breadcrumbSchema, itemListSchema, articleSchema } from "@/lib/seo/schemas";
 import { blogPosts } from "@/lib/data/blog-posts";
@@ -68,6 +69,22 @@ export default function Insights() {
             {blogPosts.map((post) => (
               <PostCard key={post.slug} post={post} />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter CTA */}
+      <section className="py-16 bg-charcoal">
+        <div className="container mx-auto max-w-lg text-center">
+          <h2 className="font-display text-2xl md:text-3xl font-semibold text-cream mb-3 tracking-tight">
+            Stay Informed
+          </h2>
+          <p className="font-sans text-sm text-cream-muted/70 font-light leading-[1.7] mb-8">
+            Market analysis and acquisition insights from principals — delivered
+            when we publish, not on a schedule.
+          </p>
+          <div className="max-w-sm mx-auto">
+            <NewsletterCapture />
           </div>
         </div>
       </section>

@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import heroBg from "@/assets/907-main.jpg";
+import heroBgWebp from "@/assets/907-main.jpg?format=webp";
 import { trackEvent } from "@/components/Analytics";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -62,17 +63,19 @@ export default function HeroSection() {
 
   return (
     <section ref={sectionRef} className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background image */}
-      <img
-        ref={imageRef}
-        src={heroBg}
-        alt="907 Main — The Lark Cambridge, a 67-key boutique hotel developed by Barrett & Johnson in Central Square"
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ zIndex: 0 }}
-        fetchPriority="high"
-        width={1920}
-        height={1080}
-      />
+      {/* Background image — WebP with JPEG fallback */}
+      <picture style={{ zIndex: 0 }} className="absolute inset-0">
+        <source srcSet={heroBgWebp} type="image/webp" />
+        <img
+          ref={imageRef}
+          src={heroBg}
+          alt="907 Main — The Lark Cambridge, a 67-key boutique hotel developed by Barrett & Johnson in Central Square"
+          className="absolute inset-0 w-full h-full object-cover"
+          fetchPriority="high"
+          width={1920}
+          height={1080}
+        />
+      </picture>
 
       {/* Gradient overlays for text readability */}
       <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" style={{ zIndex: 1 }} />

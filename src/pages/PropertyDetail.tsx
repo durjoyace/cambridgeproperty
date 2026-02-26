@@ -147,6 +147,28 @@ export default function PropertyDetail() {
         </section>
       )}
 
+      {/* Video Tour */}
+      {property.videoUrl && (
+        <section className="py-16 bg-charcoal">
+          <div className="container mx-auto max-w-3xl">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="divider-gold" />
+              <span className="section-label">Video Tour</span>
+            </div>
+            <div className="relative w-full aspect-video bg-charcoal-mid border border-border/40 overflow-hidden">
+              <iframe
+                src={property.videoUrl}
+                title={`${property.title} — Video Tour`}
+                className="absolute inset-0 w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Full Description */}
       <section className="section-pad bg-charcoal">
         <div className="container mx-auto max-w-3xl">

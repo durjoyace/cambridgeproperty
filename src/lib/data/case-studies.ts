@@ -23,6 +23,7 @@ export interface CaseStudy {
   timeline?: { date: string; event: string }[];
   detailMetrics?: { label: string; value: string }[];
   neighborhood?: string;
+  videoUrl?: string; // YouTube or Vimeo embed URL
 }
 
 export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {

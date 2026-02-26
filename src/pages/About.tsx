@@ -6,6 +6,7 @@ import { PAGE_META } from "@/lib/seo/metadata";
 import { personSchema, breadcrumbSchema } from "@/lib/seo/schemas";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import patrickHeadshot from "@/assets/patrick-barrett.png";
+import timPlaceholder from "@/assets/tim-johnson-placeholder.svg";
 
 const principals = [
   {
@@ -27,6 +28,7 @@ const principals = [
     name: "Tim Johnson, CPM",
     role: "Principal & Co-Founder",
     credential: "Certified Property Manager · Named on $37.75M Institutional Financing",
+    image: timPlaceholder,
     bio: "Tim is a Certified Property Manager (CPM) who leads Barrett & Johnson's vertically integrated operations platform. A named principal on the $37.75 million institutional financing for the 907 Main Hotel alongside Patrick, Tim brings both development-scale capital experience and day-to-day operational discipline. Since 2010, he has built an operations infrastructure powered by AppFolio that delivers institutional-grade reporting, sub-4-hour average maintenance response times, and tenant service across every door in the portfolio. Tim's operational discipline is what allows B&J to execute value-add strategies while maintaining high tenant satisfaction and retention.",
     focus: ["Property Operations", "Tenant Relations & Retention", "AppFolio Enterprise Systems", "Capital Improvement Execution"],
     schema: {

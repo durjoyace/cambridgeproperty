@@ -123,6 +123,31 @@ export default function Contact() {
           </div>
         </div>
       </section>
+
+      {/* Map */}
+      <section className="bg-charcoal">
+        <div className="container mx-auto">
+          <div className="flex items-center gap-4 mb-8 pt-16">
+            <div className="divider-gold" />
+            <span className="section-label">Our Market</span>
+          </div>
+          <p className="font-sans text-sm text-cream-muted/70 font-light leading-[1.7] mb-8 max-w-lg">
+            Based in Cambridge, operating across Greater Boston. Our portfolio
+            spans Central Square, Harvard Square, and Somerville.
+          </p>
+        </div>
+        <div className="w-full h-80 md:h-96 relative overflow-hidden">
+          <iframe
+            title="Barrett & Johnson — Cambridge, MA"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47161.58692722656!2d-71.13!3d42.375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e370a5cb30cc5f%3A0xc53a8e6489686c87!2sCambridge%2C%20MA!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+            className="w-full h-full border-0 grayscale contrast-125 opacity-80"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
+          <div className="absolute inset-0 pointer-events-none border-t border-b border-gold/10" />
+        </div>
+      </section>
     </>
   );
 }

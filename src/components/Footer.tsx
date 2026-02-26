@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { LogIn } from "lucide-react";
+import NewsletterCapture from "@/components/NewsletterCapture";
 
 const navLinks = [
   { label: "Development", href: "/portfolio" },
@@ -59,13 +60,20 @@ export default function Footer() {
           </nav>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-border/20 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <p className="font-sans text-xs text-cream-muted/30 font-light">
-            &copy; 2026 Patrick W. Barrett III &amp; Tim Johnson, CPM. All rights reserved.
-          </p>
-          <p className="font-sans text-xs text-cream-muted/30 font-light">
-            All submissions are confidential and encrypted.
-          </p>
+        <div className="mt-12 pt-8 border-t border-border/20">
+          <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8 mb-8">
+            <div className="w-full md:max-w-xs">
+              <NewsletterCapture />
+            </div>
+          </div>
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <p className="font-sans text-xs text-cream-muted/30 font-light">
+              &copy; 2026 Patrick W. Barrett III &amp; Tim Johnson, CPM. All rights reserved.
+            </p>
+            <p className="font-sans text-xs text-cream-muted/30 font-light">
+              All submissions are confidential and encrypted.
+            </p>
+          </div>
         </div>
       </div>
     </footer>

@@ -2,6 +2,7 @@ import HeroSection from "@/components/HeroSection";
 import PortfolioSection from "@/components/PortfolioSection";
 import OperatorFramework from "@/components/OperatorFramework";
 import CapitalAlignment from "@/components/CapitalAlignment";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import PressProof from "@/components/PressProof";
 import SubmitSection from "@/components/SubmitSection";
 import FAQSection from "@/components/FAQSection";
@@ -43,6 +44,8 @@ const Index = () => {
       <OperatorFramework />
       {/* 4. Capital Alignment */}
       <CapitalAlignment />
+      {/* 4.5. Social Proof */}
+      <TestimonialsSection label="What Partners & Tenants Say" />
       {/* 5. Public Record */}
       <PressProof />
       {/* 6. Acquisition Channel */}
