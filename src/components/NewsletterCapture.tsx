@@ -38,7 +38,7 @@ export default function NewsletterCapture() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-      <label htmlFor="newsletter-email" className="font-sans text-[10px] tracking-[0.2em] uppercase text-cream-muted/40">
+      <label htmlFor="newsletter-email" className="font-sans text-[10px] tracking-[0.2em] uppercase text-cream-muted/60">
         Market Insights — Direct to Your Inbox
       </label>
       <div className="flex gap-0">
@@ -50,7 +50,7 @@ export default function NewsletterCapture() {
           placeholder="you@email.com"
           required
           aria-label="Email address for newsletter"
-          className="flex-1 bg-charcoal-mid border border-border/40 border-r-0 px-4 py-3 font-sans text-xs text-cream placeholder:text-cream-muted/30 focus:border-gold/40 focus:outline-none transition-colors duration-300"
+          className="flex-1 bg-charcoal-mid border border-border/40 border-r-0 px-4 py-3 font-sans text-xs text-cream placeholder:text-cream-muted/40 focus:border-gold/40 focus:outline-none transition-colors duration-300"
         />
         <button
           type="submit"

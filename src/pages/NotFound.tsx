@@ -40,7 +40,7 @@ const NotFound = () => {
           </Link>
 
           <div className="mt-12 pt-8 border-t border-border/20">
-            <p className="font-sans text-[10px] tracking-[0.2em] uppercase text-cream-muted/40 mb-4">
+            <p className="font-sans text-[10px] tracking-[0.2em] uppercase text-cream-muted/60 mb-4">
               Or try one of these pages
             </p>
             <div className="flex flex-wrap justify-center gap-4">

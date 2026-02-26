@@ -250,7 +250,7 @@ export default function PropertyDetail() {
                       <span className="font-sans text-[9px] tracking-[0.2em] uppercase text-gold border border-gold/30 bg-gold/5 px-2.5 py-1">
                         {item.category}
                       </span>
-                      <span className="font-sans text-[10px] text-cream-muted/40">
+                      <span className="font-sans text-[10px] text-cream-muted/60">
                         {item.source} · {new Date(item.date).toLocaleDateString("en-US", { month: "short", year: "numeric" })}
                       </span>
                     </div>
@@ -260,14 +260,14 @@ export default function PropertyDetail() {
                   </div>
                   <ExternalLink
                     size={14}
-                    className="text-cream-muted/20 group-hover:text-gold/60 transition-colors duration-300 shrink-0 ml-4"
+                    className="text-cream-muted/40 group-hover:text-gold/60 transition-colors duration-300 shrink-0 ml-4"
                   />
                 </a>
               ))}
             </div>
             <Link
               to="/press"
-              className="inline-flex items-center gap-2 font-sans text-[10px] tracking-[0.15em] uppercase text-gold/50 hover:text-gold transition-colors duration-300 mt-6"
+              className="inline-flex items-center gap-2 font-sans text-[10px] tracking-[0.15em] uppercase text-gold/70 hover:text-gold transition-colors duration-300 mt-6"
             >
               Full Press & Public Record <ArrowRight size={10} />
             </Link>

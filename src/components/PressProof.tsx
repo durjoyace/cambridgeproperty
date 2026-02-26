@@ -70,13 +70,13 @@ export default function PressProof() {
                       <span className="font-sans text-[9px] tracking-[0.2em] uppercase text-gold border border-gold/30 bg-gold/5 px-2.5 py-1">
                         {item.type}
                       </span>
-                      <span className="font-sans text-[10px] text-cream-muted/40">{item.source}</span>
+                      <span className="font-sans text-[10px] text-cream-muted/60">{item.source}</span>
                     </div>
                     <div className="font-sans text-sm text-cream font-light group-hover:text-gold transition-colors duration-300">
                       {item.title}
                     </div>
                   </div>
-                  <ExternalLink size={14} className="text-cream-muted/20 group-hover:text-gold/60 transition-colors duration-300 shrink-0 ml-4" />
+                  <ExternalLink size={14} className="text-cream-muted/40 group-hover:text-gold/60 transition-colors duration-300 shrink-0 ml-4" />
                 </div>
               ))}
             </div>

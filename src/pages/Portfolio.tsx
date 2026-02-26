@@ -165,7 +165,7 @@ export default function Portfolio() {
                                 {pm.label}
                               </div>
                               {pm.context && (
-                                <div className="font-sans text-[10px] text-cream-muted/40 font-light">
+                                <div className="font-sans text-[10px] text-cream-muted/60 font-light">
                                   {pm.context}
                                 </div>
                               )}

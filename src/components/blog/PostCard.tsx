@@ -44,7 +44,7 @@ export default function PostCard({ post }: Props) {
               day: "numeric",
             })}
           </time>
-          <span className="text-cream-muted/20">|</span>
+          <span className="text-cream-muted/40">|</span>
           <span className="font-sans text-[10px] tracking-[0.15em] uppercase text-cream-muted/50 flex items-center gap-1">
             <Clock size={10} /> {post.readTime}
           </span>

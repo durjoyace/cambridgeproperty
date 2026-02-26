@@ -114,7 +114,7 @@ export default function PropertySubmissionForm({ variant = "inline" }: Props) {
   };
 
   const inputCls = (err?: string) =>
-    `bg-charcoal border ${err ? "border-destructive/60" : "border-border/60 focus:border-gold/40"} text-cream font-sans text-sm px-5 py-4 focus:outline-none transition-all duration-300 placeholder:text-cream-muted/30 w-full`;
+    `bg-charcoal border ${err ? "border-destructive/60" : "border-border/60 focus:border-gold/40"} text-cream font-sans text-sm px-5 py-4 focus:outline-none transition-all duration-300 placeholder:text-cream-muted/40 w-full`;
 
   const labelCls = "font-sans text-[10px] tracking-[0.2em] uppercase text-cream-muted/70 block mb-2";
 
@@ -135,10 +135,10 @@ export default function PropertySubmissionForm({ variant = "inline" }: Props) {
                 : ""
             }`}
           >
-            <div className={`font-sans text-[9px] tracking-[0.25em] uppercase mb-1 transition-colors duration-300 ${i <= step || submitted ? "text-gold" : "text-cream-muted/25"}`}>
+            <div className={`font-sans text-[9px] tracking-[0.25em] uppercase mb-1 transition-colors duration-300 ${i <= step || submitted ? "text-gold" : "text-cream-muted/40"}`}>
               Step {i + 1}
             </div>
-            <div className={`font-sans text-xs transition-colors duration-300 ${i <= step || submitted ? "text-cream" : "text-cream-muted/25"}`}>
+            <div className={`font-sans text-xs transition-colors duration-300 ${i <= step || submitted ? "text-cream" : "text-cream-muted/40"}`}>
               {s.label}
             </div>
           </div>

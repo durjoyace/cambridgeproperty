@@ -76,7 +76,7 @@ export default function CaseStudyCard({ study }: Props) {
                   <div className="font-display text-lg font-semibold text-gold mb-1">{pm.value}</div>
                   <div className="font-sans text-[9px] tracking-[0.1em] uppercase text-cream-muted/70 mb-0.5">{pm.label}</div>
                   {pm.context && (
-                    <div className="font-sans text-[10px] text-cream-muted/40 font-light">{pm.context}</div>
+                    <div className="font-sans text-[10px] text-cream-muted/60 font-light">{pm.context}</div>
                   )}
                 </div>
               ))}

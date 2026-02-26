@@ -67,10 +67,10 @@ export default function Footer() {
             </div>
           </div>
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-            <p className="font-sans text-xs text-cream-muted/30 font-light">
+            <p className="font-sans text-xs text-cream-muted/50 font-light">
               &copy; 2026 Patrick W. Barrett III &amp; Tim Johnson, CPM. All rights reserved.
             </p>
-            <p className="font-sans text-xs text-cream-muted/30 font-light">
+            <p className="font-sans text-xs text-cream-muted/50 font-light">
               All submissions are confidential and encrypted.
             </p>
           </div>

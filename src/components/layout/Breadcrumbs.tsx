@@ -29,7 +29,7 @@ export default function Breadcrumbs() {
           </li>
           {segments.map((segment, i) => (
             <li key={segment} className="flex items-center gap-2">
-              <ChevronRight size={10} className="text-cream-muted/30" />
+              <ChevronRight size={10} className="text-cream-muted/50" />
               {i === segments.length - 1 ? (
                 <span className="text-gold">{labelMap[segment] || segment}</span>
               ) : (

@@ -60,7 +60,7 @@ export default function InsightPost() {
             </h1>
             <div className="flex items-center gap-4 text-cream-muted/50">
               <span className="font-sans text-xs">{post.author}</span>
-              <span className="text-cream-muted/20">|</span>
+              <span className="text-cream-muted/40">|</span>
               <time className="font-sans text-xs">
                 {new Date(post.date).toLocaleDateString("en-US", {
                   year: "numeric",
@@ -68,7 +68,7 @@ export default function InsightPost() {
                   day: "numeric",
                 })}
               </time>
-              <span className="text-cream-muted/20">|</span>
+              <span className="text-cream-muted/40">|</span>
               <span className="font-sans text-xs flex items-center gap-1">
                 <Clock size={11} /> {post.readTime}
               </span>

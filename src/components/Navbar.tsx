@@ -104,7 +104,7 @@ export default function Navbar() {
             href="https://barrettjohnson.appfolio.com/connect/users/sign_in"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-cream-muted/40 hover:text-gold transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
+            className="text-cream-muted/60 hover:text-gold transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
             title="Resident Portal"
             aria-label="Resident Portal — tenant login"
           >

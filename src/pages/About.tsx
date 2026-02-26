@@ -134,7 +134,7 @@ export default function About() {
                   <p className="font-sans text-xs tracking-[0.1em] uppercase text-gold/70 mb-1.5">
                     {person.role}
                   </p>
-                  <p className="font-sans text-[10px] text-cream-muted/40 mb-5">
+                  <p className="font-sans text-[10px] text-cream-muted/60 mb-5">
                     {person.credential}
                   </p>
                   <p className="font-sans text-sm text-cream-muted leading-[1.7] font-light mb-6">
@@ -225,7 +225,7 @@ export default function About() {
                   href="https://www.centralsq.org/about"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 font-sans text-[10px] tracking-[0.1em] text-gold/50 hover:text-gold transition-colors"
+                  className="inline-flex items-center gap-1.5 font-sans text-[10px] tracking-[0.1em] text-gold/70 hover:text-gold transition-colors"
                 >
                   <ExternalLink size={9} /> centralsq.org
                 </a>
@@ -314,7 +314,7 @@ export default function About() {
                 ].map((item) => (
                   <div key={item.label}>
                     <div className="font-sans text-xs font-medium text-cream mb-1">{item.value}</div>
-                    <div className="font-sans text-[10px] text-cream-muted/40">{item.label}</div>
+                    <div className="font-sans text-[10px] text-cream-muted/60">{item.label}</div>
                   </div>
                 ))}
               </div>

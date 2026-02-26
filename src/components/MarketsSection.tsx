@@ -70,7 +70,7 @@ export default function MarketsSection() {
                 <span className={`font-sans text-[9px] tracking-[0.2em] uppercase px-3 py-1.5 border transition-colors duration-300 ${
                   m.type === "Home Base"
                     ? "border-gold/40 text-gold"
-                    : "border-border/60 text-cream-muted/40 group-hover:border-border group-hover:text-cream-muted/60"
+                    : "border-border/60 text-cream-muted/60 group-hover:border-border group-hover:text-cream-muted/80"
                 }`}>
                   {m.type}
                 </span>
@@ -78,7 +78,7 @@ export default function MarketsSection() {
             ))}
         </div>
 
-        <p data-reveal className="font-sans text-xs text-cream-muted/40 mt-6 font-light">
+        <p data-reveal className="font-sans text-xs text-cream-muted/60 mt-6 font-light">
           Our thesis is replicable in any market where entitlement complexity, political capital, and direct sourcing create structural advantages over passive capital.
         </p>
       </div>

@@ -76,7 +76,7 @@ export default function Press() {
                     >
                       {item.category}
                     </span>
-                    <span className="font-sans text-[10px] text-cream-muted/40">
+                    <span className="font-sans text-[10px] text-cream-muted/60">
                       {new Date(item.date).toLocaleDateString("en-US", {
                         year: "numeric",
                         month: "short",
@@ -85,7 +85,7 @@ export default function Press() {
                   </div>
                   <ExternalLink
                     size={12}
-                    className="text-cream-muted/30 group-hover:text-gold/60 transition-colors"
+                    className="text-cream-muted/50 group-hover:text-gold/60 transition-colors"
                   />
                 </div>
                 <h3 className="font-display text-lg font-semibold text-cream mb-2 group-hover:text-gold transition-colors duration-300 leading-tight">
@@ -160,7 +160,7 @@ export default function Press() {
                             href={src.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 font-sans text-[10px] tracking-[0.1em] text-gold/50 hover:text-gold border border-gold/15 hover:border-gold/30 px-3 py-1.5 transition-colors duration-300"
+                            className="inline-flex items-center gap-1.5 font-sans text-[10px] tracking-[0.1em] text-gold/70 hover:text-gold border border-gold/30 hover:border-gold/50 px-3 py-1.5 transition-colors duration-300"
                           >
                             <ExternalLink size={9} />
                             {src.label}
@@ -200,7 +200,7 @@ export default function Press() {
                 href="https://www.centralsq.org/about"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 font-sans text-[10px] tracking-[0.1em] text-gold/50 hover:text-gold transition-colors"
+                className="inline-flex items-center gap-1.5 font-sans text-[10px] tracking-[0.1em] text-gold/70 hover:text-gold transition-colors"
               >
                 <ExternalLink size={9} /> centralsq.org
               </a>
@@ -222,7 +222,7 @@ export default function Press() {
                 href="https://pioneerlegal.org"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 font-sans text-[10px] tracking-[0.1em] text-gold/50 hover:text-gold transition-colors"
+                className="inline-flex items-center gap-1.5 font-sans text-[10px] tracking-[0.1em] text-gold/70 hover:text-gold transition-colors"
               >
                 <ExternalLink size={9} /> pioneerlegal.org
               </a>

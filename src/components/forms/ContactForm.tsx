@@ -51,7 +51,7 @@ export default function ContactForm() {
   };
 
   const inputCls = (err?: string) =>
-    `bg-charcoal border ${err ? "border-destructive/60" : "border-border/60 focus:border-gold/40"} text-cream font-sans text-sm px-5 py-4 focus:outline-none transition-all duration-300 placeholder:text-cream-muted/30 w-full`;
+    `bg-charcoal border ${err ? "border-destructive/60" : "border-border/60 focus:border-gold/40"} text-cream font-sans text-sm px-5 py-4 focus:outline-none transition-all duration-300 placeholder:text-cream-muted/40 w-full`;
 
   const labelCls = "font-sans text-[10px] tracking-[0.2em] uppercase text-cream-muted/70 block mb-2";
 

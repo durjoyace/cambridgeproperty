@@ -121,7 +121,7 @@ export default function SellYourProperty() {
                       <div className="font-sans text-sm text-cream font-medium group-hover:text-gold transition-colors">
                         (617) 778-3521
                       </div>
-                      <div className="font-sans text-[10px] text-cream-muted/40">
+                      <div className="font-sans text-[10px] text-cream-muted/60">
                         Patrick W. Barrett III — Direct Line
                       </div>
                     </div>
@@ -134,7 +134,7 @@ export default function SellYourProperty() {
                       <div className="font-sans text-sm text-cream font-medium group-hover:text-gold transition-colors">
                         acquisitions@barrettjohnson.com
                       </div>
-                      <div className="font-sans text-[10px] text-cream-muted/40">
+                      <div className="font-sans text-[10px] text-cream-muted/60">
                         Reviewed by principals only
                       </div>
                     </div>
