@@ -1,100 +1,107 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import patrickHeadshot from "@/assets/patrick-barrett.png";
 
+/**
+ * "Who we serve" from the founding doc. Family offices and HNW principals,
+ * direct exposure, deal-by-deal, GP capital in every transaction.
+ * Ink background — the sober terms-page treatment from the deck.
+ */
 export default function CapitalAlignment() {
   const sectionRef = useScrollReveal<HTMLElement>();
 
   return (
-    <section className="relative section-pad bg-charcoal overflow-hidden" ref={sectionRef}>
-      <div className="container mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-          {/* Left — narrative */}
-          <div data-reveal>
-            <div className="flex items-center gap-4 mb-8">
-              <div className="divider-gold" />
-              <span className="section-label">Capital Partnership</span>
-            </div>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-cream leading-[1.1] tracking-tight mb-8">
-              Why B&amp;J
-              <br />
-              <span className="text-gold">Instead of a Fund</span>
-            </h2>
-            <p className="font-sans text-base md:text-lg leading-[1.8] text-cream-muted font-light mb-6 max-w-md">
-              The market institutional firms find too small is the market we built our platform around. Complex entitlement zones, sub-$50M transactions, and regulatory environments that require principal-level involvement — not analyst coverage.
-            </p>
-            <p className="font-sans text-sm leading-[1.8] text-cream-muted/60 font-light max-w-md mb-10">
-              We partner with aligned capital on a deal-by-deal basis. No blind pool, no fund lifecycle constraints. Every co-investment is structured around the asset, not the vehicle.
-            </p>
-            {/* Principal Quote Block */}
-            <div className="flex items-start gap-5 mt-10 mb-10 p-6 bg-charcoal-mid border border-border/40">
-              <img
-                src={patrickHeadshot}
-                alt="Patrick W. Barrett III"
-                className="w-16 h-16 rounded-full object-cover object-top shrink-0 border border-gold/20"
-                width={64}
-                height={64}
-              />
-              <div>
-                <p className="font-sans text-sm text-cream-muted/80 font-light leading-[1.7] italic mb-3">
-                  "The transactions too complex or too small for funds are the foundation of our platform. We don't compete with institutional capital — we operate where it can't."
-                </p>
-                <div className="font-sans text-xs text-cream font-medium">Patrick W. Barrett III</div>
-                <div className="font-sans text-[10px] text-gold/60">Principal & Co-Founder</div>
+    <section
+      className="relative bg-ink py-24 md:py-32 overflow-hidden"
+      ref={sectionRef}
+    >
+      <div className="container mx-auto px-6 md:px-12">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex items-center justify-between mb-12" data-reveal>
+            <span className="font-serif italic text-2xl md:text-3xl text-brass-light">IV</span>
+            <div className="text-right font-sans text-[10px] tracking-[0.28em] uppercase text-paper/55">
+              <div>Alignment</div>
+              <div className="font-serif italic tracking-normal normal-case text-[13px] mt-1 text-paper/65">
+                Who we serve &amp; how we work
               </div>
             </div>
-
-            <Link
-              to="/about"
-              className="inline-flex items-center gap-3 font-sans text-xs tracking-[0.2em] uppercase text-gold group focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
-            >
-              <span className="border-b border-gold/30 pb-1 group-hover:border-gold transition-colors duration-300">
-                About Our Principals
-              </span>
-              <ArrowRight size={14} className="group-hover:translate-x-1.5 transition-transform duration-300" />
-            </Link>
           </div>
+          <div className="h-px w-full bg-paper/20 mb-16" />
 
-          {/* Right — structure + governance signals */}
-          <div data-reveal className="flex flex-col gap-6 lg:pt-4">
-            {/* Partnership structure */}
-            <div className="bg-charcoal-mid border border-border/40 p-8">
-              <div className="font-sans text-[10px] tracking-[0.25em] uppercase text-gold/60 mb-5">
-                Partnership Structure
-              </div>
-              <div className="flex flex-col gap-4">
-                {[
-                  { label: "Asset Types", value: "Multifamily, Mixed-Use, Urban Retail, Hotel" },
-                  { label: "Geography", value: "Massachusetts & select U.S. markets" },
-                  { label: "Check Size", value: "$5M — $50M per transaction" },
-                  { label: "Structure", value: "JV, Preferred Equity, or Direct Co-Investment" },
-                  { label: "Alignment", value: "Principals invest alongside every partner" },
-                ].map((item) => (
-                  <div key={item.label} className="flex items-baseline gap-4 py-3 border-b border-border/30 last:border-b-0">
-                    <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-cream-muted/50 w-28 shrink-0">
-                      {item.label}
-                    </span>
-                    <span className="font-sans text-sm text-cream font-light">
-                      {item.value}
-                    </span>
-                  </div>
-                ))}
-              </div>
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-start" data-reveal>
+            {/* Left — narrative */}
+            <div>
+              <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-paper/55 mb-6">
+                Who We Serve
+              </p>
+              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-[1.18] text-paper mb-8">
+                Deal-by-deal syndication.
+                <br />
+                <em className="text-brass-light font-serif italic">Readable terms.</em>
+                <br />
+                GP capital in every transaction.
+              </h2>
+              <p className="font-sans text-base md:text-lg leading-[1.8] text-paper/75 font-light mb-6">
+                We work with family offices, high-net-worth principals, and
+                institutional capital seeking direct exposure to real estate
+                alongside a small, aligned operator.
+              </p>
+              <p className="font-sans text-sm md:text-base leading-[1.8] text-paper/60 font-light">
+                We don't raise blind pools. We don't collect assets to grow AUM. We
+                underwrite each deal on its own terms, bring it to investors who have
+                earned the right to see it, and walk if the math doesn't work.
+              </p>
+              <Link
+                to="/capital"
+                className="mt-10 inline-flex items-center gap-3 font-sans text-[11px] tracking-[0.24em] uppercase text-paper border-b border-paper/30 pb-1 hover:border-brass-light hover:text-brass-light transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-brass-light/60 focus-visible:outline-none"
+              >
+                Meet Thane &amp; Reeve Capital
+                <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
 
-            {/* Governance signal */}
-            <div className="bg-charcoal-mid border border-gold/10 p-8">
-              <div className="font-sans text-[10px] tracking-[0.25em] uppercase text-gold/60 mb-4">
-                Institutional Discipline
-              </div>
-              <p className="font-sans text-sm text-cream-muted leading-[1.7] font-light">
-                Quarterly investor reporting. Audited financials on request. AppFolio-powered operational transparency. Every acquisition underwritten with institutional-grade stress testing — because the discipline of a fiduciary doesn't require the bureaucracy of a fund.
+            {/* Right — terms table */}
+            <div className="border border-paper/15">
+              <TermRow label="Structure" value="Deal-by-deal LP/GP" />
+              <TermRow label="Preferred Return" value="LP preferred · waterfall terms" />
+              <TermRow label="Asset Mgmt. Fee" value="Transparent · asset-level" />
+              <TermRow label="GP Commitment" value="Meaningful · every deal" />
+              <TermRow label="Hold Period" value="5–10 years · asset-dependent" />
+              <TermRow label="Reporting" value="Quarterly · audited annually" last />
+              <p className="p-6 md:p-8 font-serif italic text-sm text-paper/65 leading-[1.75]">
+                Every deal closes on its own documents. No blind pool, no
+                cross-collateralization, no surprise capital calls. The GP invests
+                meaningful personal capital in every transaction.
               </p>
             </div>
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function TermRow({
+  label,
+  value,
+  last = false,
+}: {
+  label: string;
+  value: string;
+  last?: boolean;
+}) {
+  return (
+    <div
+      className={`flex items-center justify-between gap-6 px-6 md:px-8 py-4 md:py-5 ${
+        last ? "" : "border-b border-paper/10"
+      }`}
+    >
+      <span className="font-sans text-[10px] tracking-[0.28em] uppercase text-paper/55">
+        {label}
+      </span>
+      <span className="font-serif italic text-sm md:text-base text-paper text-right">
+        {value}
+      </span>
+    </div>
   );
 }

@@ -1,196 +1,188 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, TrendingUp } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import hotel907 from "@/assets/907-main.jpg";
 import building2 from "@/assets/building-2.jpg";
 import storyStreet from "@/assets/17-story-street.jpg";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { COMPANY_STATS } from "@/lib/data/stats";
-import { caseStudies } from "@/lib/data/case-studies";
 
 const portfolioItems = [
   {
     slug: "907-main-hotel",
     label: "907 Main — The Lark Cambridge",
     location: "Central Square, Cambridge",
-    units: "67 Keys",
+    units: "67 keys",
     description:
-      "Ground-up development of a $45M boutique luxury hotel — designed by Gensler Boston, LEED-certifiable, $37.75M institutional financing. Now operating as The Lark Cambridge.",
-    tag: "Hotel",
-    statusBadge: "Completed Development",
+      "Ground-up boutique hotel developed through Cambridge's complex entitlement process. $37.75M institutional financing, designed by Gensler Boston, now operating as The Lark Cambridge.",
+    tag: "Development",
     image: hotel907,
-    metrics: [
-      { label: "Asset Type", value: "Boutique Hotel" },
-      { label: "Strategy", value: "Ground-Up Development" },
-      { label: "Architect", value: "Gensler Boston" },
-    ],
   },
   {
     slug: "17-story-street",
     label: "17 Story Street — Harriet Jacobs House",
     location: "Harvard Square, Cambridge",
-    units: "50+ Homes",
+    units: "50+ homes",
     description:
-      "Historic preservation of an African American heritage site combined with a hotel and 50+ new homes. Five years of community engagement. Cambridge Historical Commission approved 7-0 unanimous.",
-    tag: "Preservation + Dev",
-    statusBadge: "CHC Approved 7-0",
+      "Historic preservation of a significant African American heritage site paired with new residential construction. Cambridge Historical Commission approved 7–0 after five years of community work.",
+    tag: "Preservation + Development",
     image: storyStreet,
-    metrics: [
-      { label: "Asset Type", value: "Hotel + Residential" },
-      { label: "Strategy", value: "Preservation + Dev" },
-      { label: "Architect", value: "Cambridge Seven" },
-    ],
   },
   {
+    slug: undefined,
     label: "Stabilized Portfolio",
     location: "Cambridge & Somerville",
-    units: "75 Doors",
+    units: "75 doors",
     description:
-      "Vertically integrated ownership and operations across 63 residential units and 12 retail spaces. AppFolio-powered, sub-4-hour maintenance response, fully principal-managed since 2010.",
-    tag: "Operating Base",
-    statusBadge: "Fully Stabilized",
+      "Vertically-integrated ownership and operations across 63 residential units and 12 retail spaces — the operating base that Thane & Reeve Management runs in-house.",
+    tag: "Held · Managed",
     image: building2,
-    metrics: [
-      { label: "Units", value: "63 Residential · 12 Retail" },
-      { label: "Strategy", value: "Value-Add & Hold" },
-      { label: "Management", value: "Vertically Integrated" },
-    ],
   },
 ];
 
-const stats = [
-  { value: "$45M", label: "Ground-Up Development", sub: "907 Main — The Lark Cambridge" },
-  { value: "$37.75M", label: "Financing Secured", sub: "Institutional debt placement" },
-  { value: "75", label: "Residential & Retail Units", sub: `${COMPANY_STATS.residentialUnits} Residential · ${COMPANY_STATS.retailDoors} Retail` },
-  { value: `Est. ${COMPANY_STATS.foundingYear}`, label: "Founded", sub: "Cambridge & Greater Boston" },
-  { value: "$100M+", label: "Active Pipeline", sub: "Massachusetts & select U.S. markets" },
+const trackRecord = [
+  {
+    value: "Fifteen years",
+    label: "Principal experience",
+    sub: "Institutional operating + asset management",
+  },
+  {
+    value: "Boston–NYC",
+    label: "Primary corridor",
+    sub: "Northeast markets operated",
+  },
+  {
+    value: "Vertical",
+    label: "Model",
+    sub: "Acquire · Develop · Manage · Report",
+  },
+  {
+    value: "Est. MMXXVI",
+    label: "Firm founded",
+    sub: "Operating under one roof",
+  },
 ];
 
 export default function PortfolioSection() {
   const sectionRef = useScrollReveal<HTMLElement>();
 
   return (
-    <section id="portfolio" className="relative section-pad bg-charcoal overflow-hidden" ref={sectionRef}>
-      <div className="container mx-auto">
-        {/* Header */}
-        <div data-reveal className="grid lg:grid-cols-2 gap-12 mb-20 items-end">
-          <div>
-            <div className="flex items-center gap-4 mb-8">
-              <div className="divider-gold" />
-              <span className="section-label">Development Portfolio</span>
+    <section
+      id="portfolio"
+      className="relative bg-paper py-24 md:py-32 overflow-hidden"
+      ref={sectionRef}
+    >
+      <div className="container mx-auto px-6 md:px-12">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="flex items-center justify-between mb-12" data-reveal>
+            <span className="font-serif italic text-2xl md:text-3xl text-brass">VI</span>
+            <div className="text-right font-sans text-[10px] tracking-[0.28em] uppercase text-ink/55">
+              <div>Portfolio</div>
+              <div className="font-serif italic tracking-normal normal-case text-[13px] mt-1 text-ink/65">
+                Held &amp; managed
+              </div>
             </div>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-cream leading-[1.1] tracking-tight">
-              Active
-              <br />
-              <span className="text-gold">Development</span>
-            </h2>
           </div>
-          <p className="font-sans text-sm md:text-base leading-[1.8] text-cream-muted font-light lg:max-w-sm lg:ml-auto">
-            Each asset sourced directly, entitled through complex municipal process, and operated as a long-term hold. No intermediaries, no investment committee lag.
-          </p>
-        </div>
+          <div className="h-px w-full bg-ink/20 mb-16" />
 
-        {/* Stats — institutional scale proof */}
-        <div data-reveal className="grid grid-cols-2 md:grid-cols-5 gap-px bg-border/40 mb-16">
-          {stats.map((s, i) => (
-            <div key={i} className="bg-charcoal-mid p-8 md:p-10 flex flex-col">
-              <div className="font-display text-3xl md:text-4xl font-semibold text-gold mb-3 tracking-tight">{s.value}</div>
-              <div className="font-sans text-[10px] tracking-[0.15em] uppercase text-cream mb-1.5">{s.label}</div>
-              <div className="font-sans text-[10px] text-cream-muted/50 font-light">{s.sub}</div>
-            </div>
-          ))}
-        </div>
+          {/* Heading + subtitle */}
+          <div className="mb-16 max-w-4xl" data-reveal>
+            <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-ink/55 mb-6">
+              Portfolio · Track record
+            </p>
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-[1.18] text-ink tracking-tight mb-6">
+              Fifteen years of institutional operating experience, reshaped into a single firm.
+            </h2>
+            <p className="font-sans text-base md:text-lg leading-[1.8] text-ink/70 font-light max-w-2xl">
+              A curated list, not a funnel. Each asset has been underwritten to the
+              firm's standard and is held to justify its place in the portfolio.
+            </p>
+          </div>
 
-        {/* Portfolio cards */}
-        <div data-reveal className="grid lg:grid-cols-2 gap-8">
-          {portfolioItems.map((item, i) => (
-            <div
-              key={i}
-              className="group bg-charcoal-mid border border-border/40 overflow-hidden hover:border-gold/15 transition-all duration-500 shadow-card"
-            >
-              {/* Image */}
-              <div className="relative h-64 md:h-72 overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.label}
-                  className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-[1.2s] ease-out"
-                  loading="lazy"
-                  width={600}
-                  height={400}
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal-mid via-charcoal-mid/20 to-transparent" />
-                <span className="absolute top-5 left-5 font-sans text-[9px] tracking-[0.25em] uppercase text-gold border border-gold/30 bg-charcoal/70 backdrop-blur-sm px-3 py-1.5">
-                  {item.tag}
-                </span>
+          {/* Track record strip */}
+          <div
+            data-reveal
+            className="grid grid-cols-2 md:grid-cols-4 gap-px bg-ink/10 border border-ink/10 mb-20"
+          >
+            {trackRecord.map((s) => (
+              <div key={s.label} className="bg-paper p-6 md:p-8 flex flex-col">
+                <div className="font-serif text-2xl md:text-3xl text-ink mb-3 tracking-tight">
+                  {s.value}
+                </div>
+                <div className="font-sans text-[10px] tracking-[0.22em] uppercase text-ink/65 mb-1.5">
+                  {s.label}
+                </div>
+                <div className="font-sans text-[11px] text-ink/50 font-light leading-snug">
+                  {s.sub}
+                </div>
               </div>
-              {/* Body */}
-              <div className="p-8 md:p-10">
-                <div className="mb-4 flex items-start justify-between">
-                  <div>
-                    <h3 className="font-display text-xl md:text-2xl font-semibold text-cream mb-1.5">{item.label}</h3>
-                    <p className="font-sans text-xs text-cream-muted/70">{item.location} · {item.units}</p>
+            ))}
+          </div>
+
+          {/* Portfolio cards */}
+          <div className="grid md:grid-cols-3 gap-8" data-reveal>
+            {portfolioItems.map((item, i) => {
+              const inner = (
+                <>
+                  <div className="relative h-56 overflow-hidden mb-5 bg-paper-warm">
+                    <img
+                      src={item.image}
+                      alt={item.label}
+                      className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700 ease-out"
+                      loading="lazy"
+                      width={600}
+                      height={400}
+                      sizes="(min-width: 768px) 33vw, 100vw"
+                    />
                   </div>
-                  {"statusBadge" in item && item.statusBadge && (
-                    <span className="font-sans text-[9px] tracking-[0.15em] uppercase text-gold border border-gold/30 bg-gold/5 px-3 py-1.5 shrink-0">
-                      {item.statusBadge}
+                  <div className="flex items-start justify-between gap-3 mb-3">
+                    <span className="font-sans text-[9px] tracking-[0.24em] uppercase text-brass">
+                      {item.tag}
                     </span>
-                  )}
-                </div>
-                <p className="font-sans text-sm text-cream-muted leading-[1.7] font-light mb-6">
-                  {item.description}
-                </p>
-                {/* Performance Snapshot */}
-                {(() => {
-                  if (!("slug" in item) || !item.slug) return null;
-                  const cs = caseStudies.find((c) => c.slug === item.slug);
-                  if (!cs?.performanceSnapshot) return null;
-                  return (
-                    <div className="mb-6 p-5 bg-charcoal border border-gold/10">
-                      <div className="flex items-center gap-2 mb-4">
-                        <TrendingUp size={12} className="text-gold/60" />
-                        <span className="font-sans text-[9px] tracking-[0.2em] uppercase text-gold/70">Performance Snapshot</span>
-                      </div>
-                      <div className="grid grid-cols-3 gap-4">
-                        {cs.performanceSnapshot.map((pm, j) => (
-                          <div key={j}>
-                            <div className="font-display text-lg md:text-xl font-semibold text-gold mb-1">{pm.value}</div>
-                            <div className="font-sans text-[9px] tracking-[0.1em] uppercase text-cream-muted/70 mb-0.5">{pm.label}</div>
-                            {pm.context && (
-                              <div className="font-sans text-[10px] text-cream-muted/60 font-light">{pm.context}</div>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  );
-                })()}
-                {/* Metrics */}
-                <div className="grid grid-cols-3 gap-4 pt-6 border-t border-border/40 mb-6">
-                  {item.metrics.map((m, j) => (
-                    <div key={j}>
-                      <div className="font-sans text-[9px] tracking-[0.2em] uppercase text-gold/60 mb-1.5">{m.label}</div>
-                      <div className="font-sans text-xs text-cream font-light">{m.value}</div>
-                    </div>
-                  ))}
-                </div>
-                {"slug" in item && item.slug ? (
+                    <ArrowUpRight
+                      size={16}
+                      className="text-ink/30 group-hover:text-brass transition-colors duration-300"
+                    />
+                  </div>
+                  <h3 className="font-serif text-xl md:text-2xl text-ink mb-1 tracking-tight leading-snug">
+                    {item.label}
+                  </h3>
+                  <p className="font-sans text-xs text-ink/55 mb-4">
+                    {item.location} · {item.units}
+                  </p>
+                  <p className="font-sans text-sm text-ink/70 leading-[1.7] font-light">
+                    {item.description}
+                  </p>
+                </>
+              );
+
+              if (item.slug) {
+                return (
                   <Link
+                    key={i}
                     to={`/portfolio/${item.slug}`}
-                    className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase text-gold/60 hover:text-gold transition-colors duration-300"
+                    className="group block focus-visible:outline-none"
                   >
-                    View Details <ArrowRight size={12} />
+                    {inner}
                   </Link>
-                ) : (
-                  <Link
-                    to="/management"
-                    className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase text-gold/60 hover:text-gold transition-colors duration-300"
-                  >
-                    Operations Platform <ArrowRight size={12} />
-                  </Link>
-                )}
-              </div>
-            </div>
-          ))}
+                );
+              }
+              return (
+                <div key={i} className="group">
+                  {inner}
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="mt-12 text-center" data-reveal>
+            <Link
+              to="/portfolio"
+              className="inline-flex items-center gap-3 font-sans text-[11px] tracking-[0.24em] uppercase text-ink border-b border-ink/30 pb-1 hover:border-brass hover:text-brass transition-colors duration-300"
+            >
+              View full portfolio
+              <ArrowUpRight size={13} />
+            </Link>
+          </div>
         </div>
       </div>
     </section>
