@@ -71,6 +71,18 @@
     --sidebar-ring: 42 65% 58%;
 
     --error: 0 65% 55%;
+
+    /* ————————————————————————————————————— */
+    /* THANE & REEVE brand tokens (Paper / Ink / Brass) */
+    /* Values from Founding Document v2 — hex-matched to HSL. */
+    /* ————————————————————————————————————— */
+    --ink: 180 4% 9%;            /* #161814 */
+    --ink-muted: 60 2% 27%;      /* ~neutral ink at reduced weight */
+    --paper: 40 27% 93%;         /* #F2EFE7 */
+    --paper-warm: 40 22% 88%;    /* slightly deeper paper for sections */
+    --brass: 38 35% 33%;         /* #836634 */
+    --brass-light: 38 28% 50%;
+    --brass-dark: 38 40% 22%;
   }
 }
 
@@ -104,11 +116,30 @@
 
 @layer utilities {
   .font-display {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Fraunces', 'Playfair Display', serif;
   }
   .font-sans {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter Tight', 'Inter', sans-serif;
   }
+  .font-serif {
+    font-family: 'Fraunces', 'Playfair Display', serif;
+  }
+
+  /* THANE & REEVE brand utilities */
+  .text-ink { color: hsl(var(--ink)); }
+  .text-paper { color: hsl(var(--paper)); }
+  .text-brass { color: hsl(var(--brass)); }
+  .bg-ink { background-color: hsl(var(--ink)); }
+  .bg-paper { background-color: hsl(var(--paper)); }
+  .bg-paper-warm { background-color: hsl(var(--paper-warm)); }
+  .bg-brass { background-color: hsl(var(--brass)); }
+  .border-ink { border-color: hsl(var(--ink)); }
+  .border-brass { border-color: hsl(var(--brass)); }
+  .border-paper { border-color: hsl(var(--paper)); }
+
+  /* Wordmark letter-spacing — matches the .16em spacing in the deck */
+  .tracking-wordmark { letter-spacing: 0.16em; }
+  .tracking-eyebrow { letter-spacing: 0.22em; }
   .text-gold {
     color: hsl(var(--gold));
   }

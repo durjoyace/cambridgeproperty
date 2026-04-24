@@ -12,10 +12,24 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Playfair Display", "serif"],
-        sans: ["Inter", "sans-serif"],
+        display: ["Fraunces", "serif"],
+        sans: ["Inter Tight", "Inter", "sans-serif"],
+        serif: ["Fraunces", "serif"],
       },
       colors: {
+        ink: {
+          DEFAULT: "hsl(var(--ink))",
+          muted: "hsl(var(--ink-muted))",
+        },
+        paper: {
+          DEFAULT: "hsl(var(--paper))",
+          warm: "hsl(var(--paper-warm))",
+        },
+        brass: {
+          DEFAULT: "hsl(var(--brass))",
+          light: "hsl(var(--brass-light))",
+          dark: "hsl(var(--brass-dark))",
+        },
         error: "hsl(var(--error))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

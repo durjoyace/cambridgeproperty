@@ -1,73 +1,42 @@
-# Welcome to your Lovable project
+# Thane &amp; Reeve
 
-## Project info
+**Real Property · Northeast · Est. MMXXVI**
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+*Land held. Land managed.*
 
-## How can I edit this code?
+A Northeast real estate firm organized around the refusal to separate ownership
+from operations. Thane &amp; Reeve acquires, develops, and manages institutional-quality
+property through three divisions — **Capital**, **Development**, and **Management** —
+operated under one balance sheet and one accountable team.
 
-There are several ways of editing your application.
+This repository is the marketing site for the firm. See
+`.planning/` for phase-by-phase work tracking and the founding document
+for brand, positioning, and voice.
 
-**Use Lovable**
+## Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+- Vite + React + TypeScript
+- Tailwind CSS + shadcn/ui
+- Deployed on Vercel (with Node/Edge serverless routes under `/api`)
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+## Local development
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+npm install
+npm run dev      # http://localhost:5173
+npm run build    # production build
+npm run test     # vitest
+npm run lint     # eslint
 ```
 
-**Edit a file directly in GitHub**
+## Brand primitives
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- `src/components/brand/Wordmark.tsx` — primary THANE &amp; REEVE wordmark
+- `src/components/brand/Ampersand.tsx` — italic ampersand seal with brass rule
+- Palette tokens: `--ink` `#161814`, `--paper` `#F2EFE7`, `--brass` `#836634`
+- Type: Fraunces (display, italic) + Inter Tight (body, light)
 
-**Use GitHub Codespaces**
+## Partners
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- **Patrick Barrett** — Founder &amp; Managing Partner
+- **Timothy Johnson** — Partner
