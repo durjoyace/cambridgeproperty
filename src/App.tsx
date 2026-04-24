@@ -10,6 +10,8 @@ import Analytics from "@/components/Analytics";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
+const Capital = lazy(() => import("./pages/Capital"));
+const Development = lazy(() => import("./pages/Development"));
 const Management = lazy(() => import("./pages/Management"));
 const CaseStudies = lazy(() => import("./pages/CaseStudies"));
 const SellYourProperty = lazy(() => import("./pages/SellYourProperty"));
@@ -36,6 +38,8 @@ const App = () => (
             <Suspense fallback={<div className="min-h-screen bg-background" />}>
               <Routes>
                 <Route path="/" element={<Index />} />
+                <Route path="/capital" element={<Capital />} />
+                <Route path="/development" element={<Development />} />
                 <Route path="/management" element={<Management />} />
                 <Route path="/case-studies" element={<CaseStudies />} />
                 <Route path="/sell-your-property" element={<SellYourProperty />} />
@@ -48,8 +52,7 @@ const App = () => (
                 <Route path="/portfolio/:slug" element={<PropertyDetail />} />
                 <Route path="/press" element={<Press />} />
                 <Route path="/sell" element={<Navigate to="/sell-your-property" replace />} />
-                <Route path="/acquisitions" element={<Navigate to="/sell-your-property" replace />} />
-                <Route path="/development" element={<Navigate to="/portfolio" replace />} />
+                <Route path="/acquisitions" element={<Navigate to="/capital" replace />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
