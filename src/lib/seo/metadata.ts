@@ -1,56 +1,68 @@
 export const PAGE_META = {
   home: {
-    title: "Barrett & Johnson | Operator-Led Real Estate — Built to Own. Est. 2010",
+    title: "Thane & Reeve — Real Property · Northeast",
     description:
-      "Barrett & Johnson — operator-led real estate platform. $45M ground-up development, $37.75M financing secured, $100M+ active pipeline. Multifamily, mixed-use, and hotel development across Massachusetts and select U.S. markets.",
+      "Thane & Reeve is a Northeast real estate firm that refuses to separate ownership from operations. We acquire, develop, and manage institutional-quality property across Boston and the Northeast corridor. Land held. Land managed.",
     canonical: "/",
   },
-  management: {
-    title: "Property Management",
+  capital: {
+    title: "Thane & Reeve Capital — Acquisitions & Syndications",
     description:
-      "Barrett & Johnson manages 75 doors across Cambridge and Greater Boston — 63 residential and 12 retail units powered by AppFolio enterprise systems.",
+      "Thane & Reeve Capital is the deal-making arm: we source, underwrite, structure, and syndicate real estate investments alongside family offices, high-net-worth principals, and institutional capital. Deal-by-deal. No blind pools.",
+    canonical: "/capital",
+  },
+  development: {
+    title: "Thane & Reeve Development — Ground-Up & Entitlement-First",
+    description:
+      "Thane & Reeve Development builds what we intend to hold. Entitlement-first, off-market sourcing, purpose-built rental, specialty commercial, and selective adaptive reuse across the Northeast.",
+    canonical: "/development",
+  },
+  management: {
+    title: "Thane & Reeve Management — Asset & Property Operations",
+    description:
+      "Thane & Reeve Management runs everything the firm owns. Asset management, property operations, leasing strategy, capital planning, and investor reporting — because most underperformance in real estate is operational, not strategic.",
     canonical: "/management",
   },
   caseStudies: {
-    title: "Case Studies",
+    title: "Case Studies — Thane & Reeve",
     description:
-      "Explore Barrett & Johnson's multifamily and mixed-use acquisition track record across Greater Boston — value-add strategies, stabilization, and hands-on operations.",
+      "Selected underwriting, positioning, and lease-up work from Thane & Reeve's Northeast portfolio — value-add strategies, stabilization, and hands-on operations across multifamily, mixed-use, and specialty commercial.",
     canonical: "/case-studies",
   },
   sellYourProperty: {
-    title: "Direct Acquisition — Submit a Property | Barrett & Johnson",
+    title: "Direct Acquisition — Submit a Property | Thane & Reeve",
     description:
-      "Submit your multifamily or mixed-use property directly to Barrett & Johnson principals. $5M–$50M transactions, 24-hour response. No brokers, no committees, no investment committee lag.",
+      "Submit your multifamily, mixed-use, or specialty commercial property directly to Thane & Reeve principals. Deal-by-deal underwriting, 24-hour response. No brokers, no blind pools, no investment-committee lag.",
     canonical: "/sell-your-property",
   },
   partners: {
-    title: "Our Vendor Network",
+    title: "Vendor Network — Thane & Reeve",
     description:
-      "Barrett & Johnson's trusted network of contractors, architects, and service providers built since 2010 through hands-on property ownership in Greater Boston.",
+      "Thane & Reeve's trusted network of contractors, architects, consultants, and service providers — built through direct ownership and operation of institutional-quality property in the Northeast.",
     canonical: "/partners",
   },
   about: {
-    title: "About Us — Our Principals & Philosophy | Est. 2010",
+    title: "About Thane & Reeve — Land held. Land managed.",
     description:
-      "Meet Patrick W. Barrett III (zoning attorney, $45M hotel developer, Central Square BID Treasurer) and Tim Johnson, CPM — Cambridge-based developers and operators since 2010.",
+      "Thane & Reeve is built on a thousand-year-old idea: that the ownership of land and the discipline to run it well are two halves of the same job. Founded in 2026 by Patrick Barrett and Timothy Johnson.",
     canonical: "/about",
   },
   contact: {
-    title: "Contact Barrett & Johnson",
+    title: "Contact — Thane & Reeve",
     description:
-      "Get in touch with Barrett & Johnson — Cambridge-based property owners and developers. Reach our principals directly for acquisitions, management inquiries, or partnership opportunities.",
+      "Reach Thane & Reeve directly. Boston-based Northeast real estate firm. Patrick Barrett, Founder & Managing Partner. Timothy Johnson, Partner.",
     canonical: "/contact",
   },
   portfolio: {
-    title: "Development Portfolio — Barrett & Johnson",
+    title: "Portfolio — Thane & Reeve",
     description:
-      "Barrett & Johnson's development portfolio: $45M boutique hotel, 50+ unit residential with historic preservation, and 75-door stabilized portfolio across Cambridge and Greater Boston.",
+      "The property Thane & Reeve owns and operates across the Northeast. A curated list, not a funnel — every asset has to justify its place.",
     canonical: "/portfolio",
   },
   insights: {
-    title: "Insights — Real Estate Perspectives from Barrett & Johnson",
+    title: "LP Letters & Insights — Thane & Reeve",
     description:
-      "Market analysis, acquisition strategy, and property management insights from Cambridge-based owners and operators Patrick W. Barrett III and Tim Johnson, CPM.",
+      "Quarterly correspondence and occasional field notes from Thane & Reeve. Short, direct, and willing to say the uncomfortable thing — written to partners, not to a compliance file.",
     canonical: "/insights",
   },
 } as const;

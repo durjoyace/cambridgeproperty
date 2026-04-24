@@ -1,25 +1,33 @@
-const BASE_URL = "https://barrettjohnson.com";
+const BASE_URL = "https://thaneandreeve.com";
+const FIRM_NAME = "Thane & Reeve";
 
 export function organizationSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
     additionalType: "RealEstateCompany",
-    name: "Barrett & Johnson",
+    name: FIRM_NAME,
+    legalName: "Thane & Reeve Holdings LLC",
     url: BASE_URL,
     description:
-      "Cambridge-based real estate developers and operators since 2010. Multifamily, mixed-use, and hotel development across Greater Boston. 75 residential and retail doors under management, $45M hotel developed, $100M+ development pipeline.",
-    telephone: "617-778-3521",
-    email: "acquisitions@barrettjohnson.com",
-    foundingDate: "2010",
-    areaServed: "Greater Boston",
+      "Thane & Reeve is a Northeast real estate firm that acquires, develops, and manages institutional-quality property. Organized around the refusal to separate ownership from operations. Three divisions: Capital, Development, Management.",
+    email: "contact@thaneandreeve.com",
+    foundingDate: "2026",
+    founder: [
+      { "@type": "Person", name: "Patrick Barrett", jobTitle: "Founder & Managing Partner" },
+      { "@type": "Person", name: "Timothy Johnson", jobTitle: "Partner" },
+    ],
+    areaServed: "Northeast United States",
+    slogan: "Land held. Land managed.",
     knowsAbout: [
+      "Real Estate Acquisitions",
+      "Real Estate Syndications",
+      "Ground-Up Development",
+      "Mixed-Use Development",
       "Multifamily Real Estate",
-      "Value-Add Acquisitions",
-      "Mixed-Use Properties",
-      "Hotel Development",
+      "Asset Management",
       "Property Management",
-      "Zoning & Entitlements",
+      "Entitlements & Zoning",
     ],
   };
 }
@@ -29,16 +37,16 @@ export function localBusinessSchema() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     additionalType: "RealEstateCompany",
-    name: "Barrett & Johnson",
+    name: FIRM_NAME,
+    legalName: "Thane & Reeve Holdings LLC",
     url: BASE_URL,
     description:
-      "Cambridge-based property owners and developers — acquiring, improving, and operating multifamily and mixed-use assets across Greater Boston since 2010.",
-    telephone: "617-778-3521",
-    email: "acquisitions@barrettjohnson.com",
-    foundingDate: "2010",
+      "Thane & Reeve — a Northeast real estate firm. Boston-based, operating across the Boston–NYC corridor. Acquisitions, development, and management under one accountable roof.",
+    email: "contact@thaneandreeve.com",
+    foundingDate: "2026",
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Cambridge",
+      addressLocality: "Boston",
       addressRegion: "MA",
       addressCountry: "US",
     },
@@ -46,10 +54,10 @@ export function localBusinessSchema() {
       "@type": "GeoCircle",
       geoMidpoint: {
         "@type": "GeoCoordinates",
-        latitude: 42.3736,
-        longitude: -71.1097,
+        latitude: 42.3601,
+        longitude: -71.0589,
       },
-      geoRadius: "50000",
+      geoRadius: "400000",
     },
   };
 }
@@ -82,11 +90,7 @@ export function breadcrumbSchema(items: { name: string; url: string }[]) {
   };
 }
 
-export function serviceSchema(
-  name: string,
-  description: string,
-  url: string
-) {
+export function serviceSchema(name: string, description: string, url: string) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -112,13 +116,14 @@ export function personSchema(person: {
     url: person.url || BASE_URL,
     worksFor: {
       "@type": "Organization",
-      name: "Barrett & Johnson",
+      name: FIRM_NAME,
       url: BASE_URL,
     },
     knowsAbout: [
-      "Multifamily Real Estate",
-      "Property Management",
-      "Value-Add Acquisitions",
+      "Real Estate Acquisitions",
+      "Ground-Up Development",
+      "Asset Management",
+      "Property Operations",
     ],
   };
 }
@@ -144,7 +149,7 @@ export function articleSchema(article: {
     },
     publisher: {
       "@type": "Organization",
-      name: "Barrett & Johnson",
+      name: FIRM_NAME,
       url: BASE_URL,
     },
     ...(article.image && { image: article.image }),
@@ -155,21 +160,20 @@ export function contactPointSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Barrett & Johnson",
+    name: FIRM_NAME,
     url: BASE_URL,
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "617-778-3521",
-      email: "acquisitions@barrettjohnson.com",
+      email: "contact@thaneandreeve.com",
       contactType: "sales",
-      areaServed: "Greater Boston",
+      areaServed: "Northeast United States",
       availableLanguage: "English",
     },
   };
 }
 
 export function itemListSchema(
-  items: { name: string; url: string; description?: string }[]
+  items: { name: string; url: string; description?: string }[],
 ) {
   return {
     "@context": "https://schema.org",

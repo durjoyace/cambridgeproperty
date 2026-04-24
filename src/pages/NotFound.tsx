@@ -2,12 +2,14 @@ import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import SEOHead from "@/components/seo/SEOHead";
+import { Wordmark } from "@/components/brand/Wordmark";
 
 const helpfulLinks = [
-  { label: "View Our Portfolio", href: "/portfolio" },
-  { label: "Sell Your Property", href: "/sell-your-property" },
-  { label: "Property Management", href: "/management" },
-  { label: "Case Studies", href: "/case-studies" },
+  { label: "Capital", href: "/capital" },
+  { label: "Development", href: "/development" },
+  { label: "Management", href: "/management" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "About", href: "/about" },
 ];
 
 const NotFound = () => {
@@ -20,35 +22,39 @@ const NotFound = () => {
   return (
     <>
       <SEOHead
-        title="Page Not Found | Barrett & Johnson"
+        title="Page Not Found | Thane & Reeve"
         description="The page you're looking for doesn't exist or has been moved."
       />
-      <div className="min-h-screen flex items-center justify-center bg-charcoal">
+      <div className="min-h-screen flex items-center justify-center bg-paper">
         <div className="text-center max-w-md mx-auto px-6">
-          <div className="font-display text-8xl md:text-9xl font-semibold text-gold/15 mb-6 tracking-tight">404</div>
-          <h1 className="font-display text-2xl md:text-3xl font-semibold text-cream mb-4 tracking-tight">
-            Page Not Found
+          <div className="mb-10">
+            <Wordmark size="sm" tone="ink" />
+          </div>
+          <div className="font-serif italic text-7xl md:text-8xl text-brass/60 mb-6">IV·0·IV</div>
+          <h1 className="font-serif text-2xl md:text-3xl text-ink mb-4 tracking-tight">
+            This page is not held.
           </h1>
-          <p className="font-sans text-sm text-cream-muted/70 font-light leading-[1.7] mb-10">
-            The page you're looking for doesn't exist or has been moved.
+          <p className="font-sans text-sm text-ink/60 font-light leading-[1.7] mb-10">
+            The address you're looking for isn't part of the portfolio. Return to
+            the main page or visit one of our divisions below.
           </p>
           <Link
             to="/"
-            className="inline-flex items-center gap-3 font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
+            className="inline-flex items-center gap-3 font-sans text-[11px] tracking-[0.22em] uppercase px-10 py-4 bg-ink text-paper hover:bg-brass transition-all duration-300 focus-visible:ring-2 focus-visible:ring-brass/60 focus-visible:outline-none"
           >
-            Return Home <ArrowRight size={13} />
+            Return home <ArrowRight size={13} />
           </Link>
 
-          <div className="mt-12 pt-8 border-t border-border/20">
-            <p className="font-sans text-[10px] tracking-[0.2em] uppercase text-cream-muted/60 mb-4">
-              Or try one of these pages
+          <div className="mt-12 pt-8 border-t border-ink/10">
+            <p className="font-sans text-[10px] tracking-[0.22em] uppercase text-ink/55 mb-4">
+              Or visit a division
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               {helpfulLinks.map((link) => (
                 <Link
                   key={link.href}
                   to={link.href}
-                  className="font-sans text-xs text-cream-muted/50 hover:text-gold transition-colors duration-300 focus-visible:text-gold focus-visible:outline-none"
+                  className="font-sans text-xs text-ink/55 hover:text-brass transition-colors duration-300 focus-visible:text-brass focus-visible:outline-none"
                 >
                   {link.label}
                 </Link>

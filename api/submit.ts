@@ -47,8 +47,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const resend = new Resend(process.env.RESEND_API_KEY!);
     await resend.emails.send({
-      from: "Barrett & Johnson <notifications@barrettjohnson.com>",
-      to: process.env.NOTIFICATION_EMAIL || "acquisitions@barrettjohnson.com",
+      from: "Thane & Reeve <notifications@thaneandreeve.com>",
+      to: process.env.NOTIFICATION_EMAIL || "acquisitions@thaneandreeve.com",
       subject: `New Property Submission: ${data.unitCount}-unit ${data.assetType} in ${data.market}, ${data.state}`,
       html: `
         <h2>New Property Submission</h2>
@@ -68,37 +68,37 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     // Send confirmation email to submitter
     await resend.emails.send({
-      from: "Barrett & Johnson <notifications@barrettjohnson.com>",
+      from: "Thane & Reeve <notifications@thaneandreeve.com>",
       to: data.email,
-      subject: "We've Received Your Property Submission — Barrett & Johnson",
+      subject: "We've received your property submission — Thane & Reeve",
       html: `
-        <div style="font-family:'Helvetica Neue',Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;">
-          <div style="background:#1a1d23;padding:32px 24px;text-align:center;">
-            <h1 style="color:#d4a855;font-size:22px;font-weight:600;margin:0;letter-spacing:1px;">Barrett &amp; Johnson</h1>
-            <p style="color:#a0a0a0;font-size:11px;letter-spacing:3px;text-transform:uppercase;margin:8px 0 0;">Cambridge Property Owners &amp; Developers</p>
+        <div style="font-family:Georgia,'Times New Roman',serif;max-width:600px;margin:0 auto;color:#161814;background:#F2EFE7;">
+          <div style="background:#161814;padding:40px 32px;text-align:center;">
+            <h1 style="color:#F2EFE7;font-size:26px;font-weight:400;margin:0;letter-spacing:4px;font-family:Georgia,'Times New Roman',serif;">THANE <span style="color:#836634;font-style:italic;">&amp;</span> REEVE</h1>
+            <p style="color:#F2EFE7;opacity:0.6;font-size:10px;letter-spacing:4px;text-transform:uppercase;margin:10px 0 0;font-family:Arial,sans-serif;">Real Property · Northeast</p>
           </div>
-          <div style="padding:32px 24px;">
-            <p style="font-size:16px;line-height:1.7;margin:0 0 20px;">Dear ${data.ownerName},</p>
-            <p style="font-size:15px;line-height:1.7;margin:0 0 20px;">Thank you for submitting your property to Barrett &amp; Johnson. Our principals — Patrick W. Barrett III and Tim Johnson, CPM — will personally review your submission and be in touch within <strong>48 business hours</strong>.</p>
-            <div style="background:#f8f7f5;border-left:3px solid #d4a855;padding:20px 24px;margin:24px 0;">
-              <p style="font-size:12px;text-transform:uppercase;letter-spacing:2px;color:#888;margin:0 0 12px;">Your Submission Summary</p>
-              <table style="width:100%;border-collapse:collapse;">
-                <tr><td style="padding:6px 0;font-size:13px;color:#666;">Asset Type</td><td style="padding:6px 0;font-size:13px;font-weight:600;text-align:right;">${data.assetType}</td></tr>
-                <tr><td style="padding:6px 0;font-size:13px;color:#666;">Units</td><td style="padding:6px 0;font-size:13px;font-weight:600;text-align:right;">${data.unitCount}</td></tr>
-                <tr><td style="padding:6px 0;font-size:13px;color:#666;">Market</td><td style="padding:6px 0;font-size:13px;font-weight:600;text-align:right;">${data.market}, ${data.state}</td></tr>
-                <tr><td style="padding:6px 0;font-size:13px;color:#666;">Deal Structure</td><td style="padding:6px 0;font-size:13px;font-weight:600;text-align:right;">${data.dealStructure}</td></tr>
+          <div style="padding:36px 32px;background:#F2EFE7;">
+            <p style="font-size:15px;line-height:1.7;margin:0 0 20px;font-family:Georgia,serif;">Dear ${data.ownerName},</p>
+            <p style="font-size:15px;line-height:1.8;margin:0 0 20px;font-family:Georgia,serif;">Thank you for submitting your property to Thane &amp; Reeve. Patrick Barrett and Timothy Johnson will review your submission personally and be in touch within <strong>48 business hours</strong>.</p>
+            <div style="background:#E8E4D9;border-left:2px solid #836634;padding:20px 24px;margin:28px 0;">
+              <p style="font-size:10px;text-transform:uppercase;letter-spacing:3px;color:#161814;opacity:0.6;margin:0 0 14px;font-family:Arial,sans-serif;">Your submission</p>
+              <table style="width:100%;border-collapse:collapse;font-family:Georgia,serif;">
+                <tr><td style="padding:6px 0;font-size:13px;color:#161814;opacity:0.6;">Asset type</td><td style="padding:6px 0;font-size:13px;font-weight:600;text-align:right;">${data.assetType}</td></tr>
+                <tr><td style="padding:6px 0;font-size:13px;color:#161814;opacity:0.6;">Units</td><td style="padding:6px 0;font-size:13px;font-weight:600;text-align:right;">${data.unitCount}</td></tr>
+                <tr><td style="padding:6px 0;font-size:13px;color:#161814;opacity:0.6;">Market</td><td style="padding:6px 0;font-size:13px;font-weight:600;text-align:right;">${data.market}, ${data.state}</td></tr>
+                <tr><td style="padding:6px 0;font-size:13px;color:#161814;opacity:0.6;">Deal structure</td><td style="padding:6px 0;font-size:13px;font-weight:600;text-align:right;">${data.dealStructure}</td></tr>
               </table>
             </div>
-            <p style="font-size:14px;line-height:1.7;color:#555;margin:24px 0 8px;"><strong>What happens next:</strong></p>
-            <ol style="font-size:14px;line-height:1.8;color:#555;padding-left:20px;margin:0 0 24px;">
-              <li>Patrick and Tim review your submission personally</li>
-              <li>If there's a fit, we'll schedule a confidential conversation</li>
-              <li>You'll hear from us within 48 business hours either way</li>
+            <p style="font-size:14px;line-height:1.8;color:#161814;margin:24px 0 8px;font-family:Georgia,serif;"><strong>What happens next:</strong></p>
+            <ol style="font-size:14px;line-height:1.9;color:#161814;padding-left:20px;margin:0 0 24px;font-family:Georgia,serif;">
+              <li>We underwrite your property to the firm's standard</li>
+              <li>If there's a fit, we schedule a confidential conversation</li>
+              <li>You hear back from us within 48 business hours either way</li>
             </ol>
-            <p style="font-size:14px;line-height:1.7;color:#555;">Questions in the meantime? Reach us at <a href="mailto:acquisitions@barrettjohnson.com" style="color:#d4a855;">acquisitions@barrettjohnson.com</a> or <a href="tel:6177783521" style="color:#d4a855;">617-778-3521</a>.</p>
+            <p style="font-size:14px;line-height:1.7;color:#161814;font-family:Georgia,serif;">Questions in the meantime? Reach us at <a href="mailto:acquisitions@thaneandreeve.com" style="color:#836634;">acquisitions@thaneandreeve.com</a>.</p>
           </div>
-          <div style="background:#f8f7f5;padding:20px 24px;text-align:center;border-top:1px solid #e8e5e0;">
-            <p style="font-size:11px;color:#999;margin:0;">Barrett &amp; Johnson &middot; Cambridge, MA &middot; barrettjohnson.com</p>
+          <div style="background:#161814;padding:20px 24px;text-align:center;">
+            <p style="font-size:10px;color:#F2EFE7;opacity:0.55;margin:0;letter-spacing:3px;text-transform:uppercase;font-family:Arial,sans-serif;">Thane &amp; Reeve Holdings LLC · Boston · thaneandreeve.com</p>
           </div>
         </div>
       `,

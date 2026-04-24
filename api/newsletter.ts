@@ -32,8 +32,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     // Notify principals
     const resend = new Resend(process.env.RESEND_API_KEY!);
     await resend.emails.send({
-      from: "Barrett & Johnson <notifications@barrettjohnson.com>",
-      to: process.env.NOTIFICATION_EMAIL || "acquisitions@barrettjohnson.com",
+      from: "Thane & Reeve <notifications@thaneandreeve.com>",
+      to: process.env.NOTIFICATION_EMAIL || "acquisitions@thaneandreeve.com",
       subject: `New Newsletter Subscriber: ${email}`,
       html: `<p>New newsletter subscriber: <strong>${email}</strong></p><p>Subscribed at ${new Date().toISOString()}</p>`,
     });

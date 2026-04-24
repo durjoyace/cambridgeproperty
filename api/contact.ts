@@ -27,8 +27,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     const resend = new Resend(process.env.RESEND_API_KEY!);
     await resend.emails.send({
-      from: "Barrett & Johnson <notifications@barrettjohnson.com>",
-      to: process.env.NOTIFICATION_EMAIL || "acquisitions@barrettjohnson.com",
+      from: "Thane & Reeve <notifications@thaneandreeve.com>",
+      to: process.env.NOTIFICATION_EMAIL || "contact@thaneandreeve.com",
       subject: `Contact Form: ${data.subject}`,
       html: `
         <h2>New Contact Form Submission</h2>

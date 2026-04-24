@@ -5,84 +5,85 @@
 
 @layer base {
   :root {
-    /* Core palette — deep charcoal + warm gold */
-    --background: 220 15% 8%;
-    --foreground: 40 15% 92%;
-
-    --card: 220 12% 11%;
-    --card-foreground: 40 15% 92%;
-
-    --popover: 220 12% 11%;
-    --popover-foreground: 40 15% 92%;
-
-    /* Gold accent */
-    --primary: 42 65% 58%;
-    --primary-foreground: 220 15% 8%;
-
-    --secondary: 220 10% 16%;
-    --secondary-foreground: 40 15% 85%;
-
-    --muted: 220 10% 14%;
-    --muted-foreground: 40 10% 55%;
-
-    --accent: 42 65% 58%;
-    --accent-foreground: 220 15% 8%;
-
-    --destructive: 0 62.8% 50%;
-    --destructive-foreground: 40 15% 92%;
-
-    --border: 220 10% 20%;
-    --input: 220 10% 18%;
-    --ring: 42 65% 58%;
-
-    --radius: 0.25rem;
-
-    /* Custom tokens */
-    --gold: 42 65% 58%;
-    --gold-light: 42 70% 72%;
-    --gold-dark: 38 60% 40%;
-    --charcoal: 220 15% 8%;
-    --charcoal-mid: 220 12% 11%;
-    --charcoal-light: 220 10% 18%;
-    --cream: 40 20% 94%;
-    --cream-muted: 40 12% 72%;
-
-    --gradient-hero: linear-gradient(
-      to bottom,
-      hsl(220 15% 8% / 0.1) 0%,
-      hsl(220 15% 8% / 0.6) 50%,
-      hsl(220 15% 8% / 1) 100%
-    );
-    --gradient-gold: linear-gradient(135deg, hsl(42 65% 58%), hsl(38 60% 45%));
-    --gradient-section: linear-gradient(180deg, hsl(220 15% 8%) 0%, hsl(220 12% 11%) 100%);
-    --gradient-radial: radial-gradient(ellipse at 50% 0%, hsl(42 65% 58% / 0.04) 0%, transparent 60%);
-
-    --shadow-gold: 0 4px 24px hsl(42 65% 58% / 0.18);
-    --shadow-card: 0 2px 20px hsl(220 15% 4% / 0.6);
-    --shadow-elevated: 0 8px 40px hsl(220 15% 4% / 0.4), 0 0 0 1px hsl(220 10% 20% / 0.5);
-
-    --sidebar-background: 220 15% 8%;
-    --sidebar-foreground: 40 15% 92%;
-    --sidebar-primary: 42 65% 58%;
-    --sidebar-primary-foreground: 220 15% 8%;
-    --sidebar-accent: 220 10% 16%;
-    --sidebar-accent-foreground: 40 15% 92%;
-    --sidebar-border: 220 10% 20%;
-    --sidebar-ring: 42 65% 58%;
-
-    --error: 0 65% 55%;
-
     /* ————————————————————————————————————— */
-    /* THANE & REEVE brand tokens (Paper / Ink / Brass) */
-    /* Values from Founding Document v2 — hex-matched to HSL. */
+    /* THANE & REEVE — Paper / Ink / Brass    */
+    /* Canonical tokens from Founding Doc v2. */
     /* ————————————————————————————————————— */
     --ink: 180 4% 9%;            /* #161814 */
-    --ink-muted: 60 2% 27%;      /* ~neutral ink at reduced weight */
+    --ink-muted: 60 2% 27%;
     --paper: 40 27% 93%;         /* #F2EFE7 */
-    --paper-warm: 40 22% 88%;    /* slightly deeper paper for sections */
+    --paper-warm: 40 22% 88%;
     --brass: 38 35% 33%;         /* #836634 */
     --brass-light: 38 28% 50%;
     --brass-dark: 38 40% 22%;
+
+    /* Core shadcn palette — Paper default. */
+    --background: 40 27% 93%;
+    --foreground: 180 4% 9%;
+
+    --card: 40 27% 93%;
+    --card-foreground: 180 4% 9%;
+
+    --popover: 40 27% 93%;
+    --popover-foreground: 180 4% 9%;
+
+    --primary: 180 4% 9%;
+    --primary-foreground: 40 27% 93%;
+
+    --secondary: 40 22% 88%;
+    --secondary-foreground: 180 4% 9%;
+
+    --muted: 40 22% 88%;
+    --muted-foreground: 60 2% 38%;
+
+    --accent: 38 35% 33%;
+    --accent-foreground: 40 27% 93%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 40 27% 93%;
+
+    --border: 180 4% 9% / 0.12;
+    --input: 180 4% 9% / 0.16;
+    --ring: 38 35% 33%;
+
+    --radius: 0.125rem;
+
+    /* Legacy alias tokens — repointed into the new brand system so
+       existing `bg-charcoal`, `text-gold`, `text-cream` classnames
+       carry sensible semantics until individual pages are rewritten. */
+    --gold: 38 35% 33%;          /* → brass */
+    --gold-light: 38 28% 50%;
+    --gold-dark: 38 40% 22%;
+    --charcoal: 180 4% 9%;       /* → ink */
+    --charcoal-mid: 180 4% 14%;
+    --charcoal-light: 180 4% 20%;
+    --cream: 40 27% 93%;         /* → paper */
+    --cream-muted: 60 2% 38%;
+
+    --gradient-hero: linear-gradient(
+      to bottom,
+      hsl(40 27% 93% / 0) 0%,
+      hsl(40 27% 93% / 0.4) 50%,
+      hsl(40 27% 93% / 1) 100%
+    );
+    --gradient-gold: linear-gradient(135deg, hsl(38 35% 33%), hsl(38 40% 22%));
+    --gradient-section: linear-gradient(180deg, hsl(40 27% 93%) 0%, hsl(40 22% 88%) 100%);
+    --gradient-radial: radial-gradient(ellipse at 50% 0%, hsl(38 35% 33% / 0.06) 0%, transparent 60%);
+
+    --shadow-gold: 0 4px 24px hsl(38 35% 33% / 0.15);
+    --shadow-card: 0 1px 2px hsl(180 4% 9% / 0.04), 0 1px 1px hsl(180 4% 9% / 0.06);
+    --shadow-elevated: 0 2px 8px hsl(180 4% 9% / 0.06), 0 0 0 1px hsl(180 4% 9% / 0.08);
+
+    --sidebar-background: 40 27% 93%;
+    --sidebar-foreground: 180 4% 9%;
+    --sidebar-primary: 38 35% 33%;
+    --sidebar-primary-foreground: 40 27% 93%;
+    --sidebar-accent: 40 22% 88%;
+    --sidebar-accent-foreground: 180 4% 9%;
+    --sidebar-border: 180 4% 9% / 0.12;
+    --sidebar-ring: 38 35% 33%;
+
+    --error: 0 65% 55%;
   }
 }
 
@@ -97,20 +98,22 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
+    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-weight: 300;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Fraunces', 'Playfair Display', serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
   }
 
-  /* Selection color */
+  /* Selection — brass on paper */
   ::selection {
-    background: hsl(var(--gold) / 0.2);
-    color: hsl(var(--cream));
+    background: hsl(var(--brass) / 0.2);
+    color: hsl(var(--ink));
   }
 }
 

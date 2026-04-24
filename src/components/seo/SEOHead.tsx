@@ -9,7 +9,7 @@ interface SEOHeadProps {
   schema?: object | object[];
 }
 
-const BASE_URL = "https://barrettjohnson.com";
+const BASE_URL = "https://thaneandreeve.com";
 const DEFAULT_OG_IMAGE = `${BASE_URL}/og-image.png`;
 
 export default function SEOHead({
@@ -20,7 +20,7 @@ export default function SEOHead({
   ogType = "website",
   schema,
 }: SEOHeadProps) {
-  const fullTitle = title.includes("Barrett") ? title : `${title} | Barrett & Johnson`;
+  const fullTitle = title.includes("Thane") ? title : `${title} | Thane & Reeve`;
   const canonicalUrl = canonical ? `${BASE_URL}${canonical}` : undefined;
 
   const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
