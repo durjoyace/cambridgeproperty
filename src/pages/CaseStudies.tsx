@@ -8,28 +8,30 @@ import { caseStudies } from "@/lib/data/case-studies";
 import { PAGE_META } from "@/lib/seo/metadata";
 import { itemListSchema, breadcrumbSchema, faqSchema } from "@/lib/seo/schemas";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { COMPANY_STATS } from "@/lib/data/stats";
 
 const caseStudyFaqs = [
   {
-    question: "What is your acquisition strategy?",
-    answer: "We target multifamily, mixed-use, and urban retail assets in the $5M–$50M range across entitlement-complex markets. Every asset is underwritten to hold — basis discipline and downside protection before pursuing upside through operational improvements and entitlement value creation.",
+    question: "What is the firm's acquisition strategy?",
+    answer:
+      "We target multifamily, mixed-use, urban retail, and specialty commercial across the Northeast, and we underwrite to hold. Basis discipline and downside protection come first; upside is earned through operational improvements and entitlement value creation.",
   },
   {
-    question: "What size properties do you target?",
-    answer: "15–150 units, with flexibility for strategic portfolios. This range allows us to apply our vertically integrated, principal-led approach while achieving meaningful operational economies.",
+    question: "What size deals does the firm underwrite?",
+    answer:
+      "Generally $5M–$75M of equity, with flexibility for strategic portfolios. This size range is where our vertically-integrated, principal-led approach compounds — small enough to be underwritten personally, large enough for meaningful operational economics.",
   },
   {
-    question: "How do you create value?",
-    answer: "Three vectors: operational alpha (sub-4-hour maintenance, tenant retention, AppFolio enterprise systems), entitlement value creation (zoning expertise, regulatory navigation, political capital), and disciplined capital improvements targeted to unlock embedded rent growth.",
+    question: "How does Thane & Reeve create value?",
+    answer:
+      "Three vectors. Operational alpha — in-house management, sub-four-hour maintenance response, institutional reporting. Entitlement value creation — zoning, regulatory navigation, and the political capital to see a development through. Disciplined capital improvements — targeted capex to unlock embedded rent growth.",
   },
 ];
 
 const stats = [
-  { value: "$45M", label: "Ground-Up Development" },
-  { value: "$37.75M", label: "Financing Secured" },
-  { value: String(COMPANY_STATS.totalDoors), label: "Doors Owned & Operated" },
-  { value: "$100M+", label: "Active Pipeline" },
+  { value: "$45M", label: "Ground-up development" },
+  { value: "$37.75M", label: "Institutional financing" },
+  { value: "75+", label: "Doors held &amp; managed" },
+  { value: "Active", label: "Pipeline in Northeast" },
 ];
 
 export default function CaseStudies() {
@@ -45,11 +47,11 @@ export default function CaseStudies() {
               name: cs.title,
               url: `/portfolio/${cs.slug}`,
               description: cs.description,
-            }))
+            })),
           ),
           breadcrumbSchema([
             { name: "Home", url: "/" },
-            { name: "Development Portfolio", url: "/case-studies" },
+            { name: "Case Studies", url: "/case-studies" },
           ]),
           faqSchema(caseStudyFaqs),
         ]}
@@ -57,44 +59,58 @@ export default function CaseStudies() {
       <Breadcrumbs />
 
       {/* Hero */}
-      <section className="pt-8 pb-20 bg-charcoal" ref={sectionRef}>
-        <div className="container mx-auto" data-reveal>
-          <div className="flex items-center gap-4 mb-8">
-            <div className="divider-gold" />
-            <span className="section-label">Development Portfolio</span>
+      <section className="pt-24 md:pt-32 pb-20 bg-paper" ref={sectionRef}>
+        <div className="container mx-auto px-6 md:px-12" data-reveal>
+          <div className="flex items-center justify-between mb-12">
+            <span className="font-serif italic text-2xl md:text-3xl text-brass">XIII</span>
+            <div className="text-right font-sans text-[10px] tracking-[0.28em] uppercase text-ink/55">
+              <div>Case Studies</div>
+              <div className="font-serif italic tracking-normal normal-case text-[13px] mt-1 text-ink/65">
+                Selected work, written up
+              </div>
+            </div>
           </div>
-          <div className="grid lg:grid-cols-2 gap-12 items-end">
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-cream leading-[1.1] tracking-tight">
-              Active
-              <br />
-              <span className="text-gold">Development</span>
+          <div className="h-px w-full bg-ink/20 mb-16" />
+
+          <div className="max-w-4xl">
+            <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-ink/55 mb-6">
+              Selected work
+            </p>
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.12] text-ink tracking-tight mb-6">
+              The underwriting, the execution, the judgment call.
             </h1>
-            <p className="font-sans text-sm md:text-base leading-[1.8] text-cream-muted font-light lg:max-w-sm lg:ml-auto">
-              Each asset sourced directly, entitled through complex municipal process,
-              and operated as a long-term hold. No intermediaries, no investment
-              committee lag.
+            <p className="font-sans text-lg md:text-xl leading-[1.7] text-ink/70 font-light max-w-2xl">
+              These are the decisions we'd be proud to be judged on later. Each
+              asset sourced directly, entitled through complex municipal process,
+              and operated as a long-term hold.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="bg-charcoal-mid">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border/40">
+      {/* Stats band */}
+      <section className="bg-paper">
+        <div className="container mx-auto px-6 md:px-12 max-w-6xl">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-ink/10 border border-ink/10">
             {stats.map((s, i) => (
-              <div key={i} className="bg-charcoal-mid p-8 md:p-10 text-center">
-                <div className="font-display text-3xl md:text-4xl font-semibold text-gold mb-2 tracking-tight">{s.value}</div>
-                <div className="font-sans text-[10px] tracking-[0.15em] uppercase text-cream-muted/60">{s.label}</div>
+              <div key={i} className="bg-paper p-8 md:p-10 text-center">
+                <div
+                  className="font-serif text-2xl md:text-3xl text-ink mb-2 tracking-tight"
+                  dangerouslySetInnerHTML={{ __html: s.value }}
+                />
+                <div
+                  className="font-sans text-[10px] tracking-[0.22em] uppercase text-ink/55"
+                  dangerouslySetInnerHTML={{ __html: s.label }}
+                />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Case Study Cards */}
-      <section className="section-pad bg-charcoal">
-        <div className="container mx-auto">
+      {/* Case studies */}
+      <section className="bg-paper-warm py-24 md:py-32">
+        <div className="container mx-auto px-6 md:px-12 max-w-6xl">
           <div className="grid lg:grid-cols-2 gap-8">
             {caseStudies.map((study) => (
               <CaseStudyCard key={study.slug} study={study} />
@@ -104,23 +120,23 @@ export default function CaseStudies() {
       </section>
 
       {/* FAQ */}
-      <FAQSection faqs={caseStudyFaqs} label="Investment Strategy" />
+      <FAQSection faqs={caseStudyFaqs} label="Investment strategy" title="Questions from partners" />
 
       {/* CTA */}
-      <section className="py-20 bg-charcoal-mid">
-        <div className="container mx-auto text-center max-w-2xl">
-          <h2 className="font-display text-3xl md:text-4xl font-semibold text-cream mb-6 tracking-tight">
-            Have an Opportunity?
+      <section className="py-20 md:py-28 bg-ink">
+        <div className="container mx-auto px-6 md:px-12 text-center max-w-2xl">
+          <h2 className="font-serif text-3xl md:text-4xl text-paper mb-6 tracking-tight">
+            Have a deal to bring?
           </h2>
-          <p className="font-sans text-sm text-cream-muted font-light leading-[1.8] mb-10">
-            We move fast on opportunities that match our thesis. Submit a property
-            directly to our principals — 24-hour response for qualified opportunities.
+          <p className="font-serif italic text-paper/75 text-lg leading-[1.7] mb-10">
+            We move quickly on opportunities that match the thesis. Submit
+            directly to the partners — 48-hour response, yes or no.
           </p>
           <Link
             to="/sell-your-property"
-            className="inline-flex items-center gap-3 font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold"
+            className="inline-flex items-center gap-3 font-sans text-[11px] tracking-[0.24em] uppercase px-10 py-4 bg-paper text-ink hover:bg-brass hover:text-paper transition-colors duration-300"
           >
-            Direct Acquisition <ArrowRight size={13} />
+            Direct acquisition <ArrowRight size={13} />
           </Link>
         </div>
       </section>

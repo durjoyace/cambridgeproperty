@@ -6,78 +6,38 @@ import { breadcrumbSchema } from "@/lib/seo/schemas";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const vendorCategories = [
-  {
-    name: "General Contractors",
-    description: "Full-scope renovation and construction for multifamily and mixed-use assets.",
-  },
-  {
-    name: "Architects",
-    description: "Design and permitting for unit renovations, additions, and common area upgrades.",
-  },
-  {
-    name: "Plumbing",
-    description: "Emergency service, repiping, and fixture upgrades across our portfolio.",
-  },
-  {
-    name: "Electrical",
-    description: "Panel upgrades, code compliance, and EV charging infrastructure.",
-  },
-  {
-    name: "HVAC",
-    description: "System installation, seasonal maintenance, and energy-efficiency retrofits.",
-  },
-  {
-    name: "Legal",
-    description: "Real estate transactions, landlord-tenant law, and regulatory compliance.",
-  },
-  {
-    name: "Insurance",
-    description: "Property and liability coverage tailored to multifamily portfolios.",
-  },
-  {
-    name: "Environmental",
-    description: "Lead paint, asbestos, and environmental assessments for acquisitions.",
-  },
+  { name: "General contractors", description: "Full-scope renovation and construction for multifamily and mixed-use." },
+  { name: "Architects", description: "Design and permitting across unit renovations, additions, and common areas." },
+  { name: "Plumbing", description: "Emergency service, repiping, and fixture upgrades across the portfolio." },
+  { name: "Electrical", description: "Panel upgrades, code compliance, and EV-charging infrastructure." },
+  { name: "HVAC", description: "System installation, seasonal maintenance, and efficiency retrofits." },
+  { name: "Legal", description: "Real estate transactions, landlord-tenant, and regulatory compliance." },
+  { name: "Insurance", description: "Property and liability coverage tailored to multifamily portfolios." },
+  { name: "Environmental", description: "Lead, asbestos, and Phase I / II assessments for acquisitions." },
 ];
 
 const partnerBenefits = [
-  "Access to a 75-door portfolio with consistent project volume",
-  "Long-term relationships — not one-off projects",
-  "Professional billing and prompt payment",
-  "Direct communication with ownership — no layers of management",
+  "Consistent project volume across a held portfolio",
+  "Long-term relationships — not one-off work orders",
+  "Professional billing, prompt payment",
+  "Direct access to ownership — no layers in between",
 ];
 
 const partnerCriteria = [
-  "Licensed and insured in the Commonwealth of Massachusetts",
-  "Greater Boston service area availability",
+  "Licensed and insured in the Commonwealth",
+  "Northeast service-area availability",
   "Competitive pricing with transparent estimates",
   "Responsive communication and reliable scheduling",
 ];
 
 const howItWorks = [
-  {
-    step: "01",
-    title: "Apply",
-    description: "Send us your company info, license details, and areas of specialization.",
-  },
-  {
-    step: "02",
-    title: "Qualify",
-    description: "We verify credentials, check references, and assess fit with our portfolio needs.",
-  },
-  {
-    step: "03",
-    title: "Get Projects",
-    description: "Approved vendors are added to our preferred network and receive project opportunities.",
-  },
+  { step: "i.", title: "Introduce", description: "Send company info, license details, and areas of specialization." },
+  { step: "ii.", title: "Qualify", description: "We verify credentials, check references, and assess fit with the portfolio." },
+  { step: "iii.", title: "Engage", description: "Approved vendors enter the preferred network and receive opportunities." },
 ];
 
 export default function Partners() {
   const heroRef = useScrollReveal<HTMLElement>();
-  const benefitsRef = useScrollReveal<HTMLElement>();
-  const criteriaRef = useScrollReveal<HTMLElement>();
-  const categoriesRef = useScrollReveal<HTMLElement>();
-  const processRef = useScrollReveal<HTMLElement>();
 
   return (
     <>
@@ -86,152 +46,155 @@ export default function Partners() {
         schema={[
           breadcrumbSchema([
             { name: "Home", url: "/" },
-            { name: "Our Partners", url: "/partners" },
+            { name: "Vendor Network", url: "/partners" },
           ]),
         ]}
       />
       <Breadcrumbs />
 
       {/* Hero */}
-      <section className="pt-8 pb-20 bg-charcoal" ref={heroRef}>
-        <div className="container mx-auto text-center max-w-3xl" data-reveal>
-          <div className="flex items-center justify-center gap-4 mb-8">
-            <div className="divider-gold" />
-            <span className="section-label">Service Network</span>
-            <div className="divider-gold" />
+      <section className="pt-24 md:pt-32 pb-20 bg-paper" ref={heroRef}>
+        <div className="container mx-auto px-6 md:px-12" data-reveal>
+          <div className="flex items-center justify-between mb-12">
+            <span className="font-serif italic text-2xl md:text-3xl text-brass">X</span>
+            <div className="text-right font-sans text-[10px] tracking-[0.28em] uppercase text-ink/55">
+              <div>Vendor Network</div>
+              <div className="font-serif italic tracking-normal normal-case text-[13px] mt-1 text-ink/65">
+                Service partners
+              </div>
+            </div>
           </div>
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-cream leading-[1.1] tracking-tight mb-6">
-            Our Vendor
-            <br />
-            <span className="text-gold italic">Network</span>
-          </h1>
-          <p className="font-sans text-base md:text-lg text-cream-muted leading-[1.8] font-light max-w-xl mx-auto">
-            Since 2010, Patrick and Tim have built a trusted network of contractors, architects, and service providers through hands-on ownership — people who understand how owner-operators work.
-          </p>
+          <div className="h-px w-full bg-ink/20 mb-16" />
+
+          <div className="max-w-4xl">
+            <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-ink/55 mb-6">
+              The firm's vendor network
+            </p>
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.12] text-ink tracking-tight mb-6">
+              The people we call when the building needs something done.
+            </h1>
+            <p className="font-sans text-lg md:text-xl leading-[1.7] text-ink/70 font-light max-w-2xl">
+              Thane &amp; Reeve Management runs the firm's portfolio in-house. The
+              vendor network behind it — contractors, architects, trades, and
+              professional services — has been assembled over fifteen years of
+              direct ownership.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Why Partner With Us */}
-      <section className="section-pad bg-charcoal-mid" ref={benefitsRef}>
-        <div className="container mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            <div data-reveal>
-              <div className="flex items-center gap-4 mb-8">
-                <div className="divider-gold" />
-                <span className="section-label">Benefits</span>
-              </div>
-              <h2 className="font-display text-3xl md:text-4xl font-semibold text-cream leading-[1.1] tracking-tight mb-6">
-                Why Partner
-                <br />
-                <span className="text-gold">With Us</span>
+      {/* Benefits */}
+      <section className="bg-paper-warm py-24 md:py-32">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-start">
+            <div>
+              <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-brass mb-6">
+                Why work with us
+              </p>
+              <h2 className="font-serif text-3xl md:text-4xl text-ink mb-6 tracking-tight leading-[1.2]">
+                A held portfolio. A stable call list.
               </h2>
-              <p className="font-sans text-sm md:text-base leading-[1.8] text-cream-muted font-light max-w-md mb-8">
-                Barrett & Johnson is a hands-on ownership group — not a management company with thousands of units and revolving vendor lists. Our partners get consistent, predictable work with direct access to ownership.
+              <p className="font-sans text-base leading-[1.8] text-ink/70 font-light mb-8 max-w-md">
+                Thane &amp; Reeve is a hands-on ownership group — not a management
+                company with thousands of revolving-door units. Our vendors get
+                consistent, predictable work with direct access to the principals.
               </p>
               <div className="flex flex-col gap-4">
-                {partnerBenefits.map((benefit) => (
-                  <div key={benefit} className="flex items-start gap-3">
-                    <CheckCircle size={14} className="text-gold/60 shrink-0 mt-0.5" />
-                    <span className="font-sans text-sm text-cream-muted/80 font-light">{benefit}</span>
+                {partnerBenefits.map((b) => (
+                  <div key={b} className="flex items-start gap-3">
+                    <CheckCircle size={14} className="text-brass shrink-0 mt-1" />
+                    <span className="font-sans text-sm text-ink/75 font-light">{b}</span>
                   </div>
                 ))}
               </div>
             </div>
-
-            {/* Stats display */}
-            <div data-reveal className="grid grid-cols-2 gap-4">
-              <div className="bg-charcoal border border-border/40 p-8 text-center">
-                <div className="font-display text-4xl font-semibold text-gold mb-2 tracking-tight">8</div>
-                <div className="font-sans text-[10px] tracking-[0.2em] uppercase text-cream-muted/60">Vendor Categories</div>
-              </div>
-              <div className="bg-charcoal border border-border/40 p-8 text-center">
-                <div className="font-display text-4xl font-semibold text-gold mb-2 tracking-tight">75</div>
-                <div className="font-sans text-[10px] tracking-[0.2em] uppercase text-cream-muted/60">Doors Serviced</div>
-              </div>
-              <div className="bg-charcoal border border-border/40 p-8 text-center">
-                <div className="font-display text-4xl font-semibold text-gold mb-2 tracking-tight">2010</div>
-                <div className="font-sans text-[10px] tracking-[0.2em] uppercase text-cream-muted/60">Founded</div>
-              </div>
-              <div className="bg-charcoal border border-border/40 p-8 text-center">
-                <div className="font-display text-4xl font-semibold text-gold mb-2 tracking-tight">100%</div>
-                <div className="font-sans text-[10px] tracking-[0.2em] uppercase text-cream-muted/60">Owner-Operated</div>
-              </div>
+            <div className="grid grid-cols-2 gap-px bg-ink/10 border border-ink/10">
+              {[
+                { value: "75+", label: "Doors serviced" },
+                { value: "8", label: "Vendor categories" },
+                { value: "15 yrs", label: "Operating history" },
+                { value: "100%", label: "In-house management" },
+              ].map((s) => (
+                <div key={s.label} className="bg-paper p-8 text-center">
+                  <div className="font-serif text-3xl text-ink mb-2 tracking-tight">{s.value}</div>
+                  <div className="font-sans text-[10px] tracking-[0.22em] uppercase text-ink/55">
+                    {s.label}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Partner Criteria */}
-      <section className="py-24 bg-charcoal" ref={criteriaRef}>
-        <div className="container mx-auto max-w-3xl text-center" data-reveal>
-          <div className="flex items-center justify-center gap-4 mb-8">
-            <div className="divider-gold" />
-            <span className="section-label">Requirements</span>
-            <div className="divider-gold" />
-          </div>
-          <h2 className="font-display text-3xl md:text-4xl font-semibold text-cream tracking-tight mb-6">
-            What We Look For
-          </h2>
-          <p className="font-sans text-sm md:text-base text-cream-muted font-light leading-[1.8] mb-10 max-w-xl mx-auto">
-            We hold our partners to the same standards we hold ourselves. Quality work, clear communication, and reliability are non-negotiable.
+      {/* Criteria */}
+      <section className="bg-paper py-24 md:py-32">
+        <div className="container mx-auto px-6 md:px-12 max-w-5xl">
+          <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-brass mb-6">
+            What we look for
           </p>
-          <div className="grid sm:grid-cols-2 gap-4 text-left">
-            {partnerCriteria.map((criterion) => (
-              <div key={criterion} className="flex items-start gap-3 bg-charcoal-mid border border-border/40 p-5">
-                <CheckCircle size={14} className="text-gold/60 shrink-0 mt-0.5" />
-                <span className="font-sans text-sm text-cream-muted/80 font-light">{criterion}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Vendor Categories */}
-      <section className="section-pad bg-charcoal-mid" ref={categoriesRef}>
-        <div className="container mx-auto">
-          <div className="text-center mb-16" data-reveal>
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <div className="divider-gold" />
-              <span className="section-label">Specializations</span>
-              <div className="divider-gold" />
-            </div>
-            <h2 className="font-display text-3xl md:text-4xl font-semibold text-cream tracking-tight">
-              Vendor Categories
-            </h2>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4" data-reveal>
-            {vendorCategories.map((category) => (
+          <h2 className="font-serif text-3xl md:text-4xl text-ink tracking-tight mb-10 leading-[1.2]">
+            We hold our vendors to the standard we hold ourselves.
+          </h2>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {partnerCriteria.map((c) => (
               <div
-                key={category.name}
-                className="bg-charcoal border border-border/40 p-6 md:p-8 hover:border-gold/15 transition-all duration-300"
+                key={c}
+                className="flex items-start gap-3 bg-paper-warm border-l-2 border-brass p-5"
               >
-                <div className="font-sans text-xs tracking-[0.15em] uppercase text-cream mb-2">{category.name}</div>
-                <p className="font-sans text-xs text-cream-muted/60 font-light leading-relaxed">{category.description}</p>
+                <CheckCircle size={14} className="text-brass shrink-0 mt-1" />
+                <span className="font-serif italic text-ink/85 text-base">{c}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="py-24 bg-charcoal" ref={processRef}>
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-16" data-reveal>
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <div className="divider-gold" />
-              <span className="section-label">Process</span>
-              <div className="divider-gold" />
-            </div>
-            <h2 className="font-display text-3xl md:text-4xl font-semibold text-cream tracking-tight">
-              How It Works
+      {/* Vendor categories */}
+      <section className="bg-paper-warm py-24 md:py-32">
+        <div className="container mx-auto px-6 md:px-12 max-w-6xl">
+          <div className="mb-14">
+            <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-brass mb-4">
+              Specializations
+            </p>
+            <h2 className="font-serif text-3xl md:text-4xl text-ink tracking-tight leading-[1.2]">
+              Vendor categories.
             </h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-6" data-reveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-ink/10 border border-ink/10">
+            {vendorCategories.map((c) => (
+              <div key={c.name} className="bg-paper p-6 md:p-8">
+                <div className="font-serif text-lg md:text-xl text-ink mb-3 tracking-tight">
+                  {c.name}
+                </div>
+                <p className="font-sans text-sm text-ink/65 font-light leading-[1.7]">
+                  {c.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section className="bg-paper py-24 md:py-32">
+        <div className="container mx-auto px-6 md:px-12 max-w-5xl">
+          <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-brass mb-6">
+            How it works
+          </p>
+          <h2 className="font-serif text-3xl md:text-4xl text-ink tracking-tight mb-12 leading-[1.2]">
+            Three steps — intentionally simple.
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
             {howItWorks.map((item) => (
-              <div key={item.step} className="bg-charcoal-mid border border-border/40 p-8 md:p-10">
-                <div className="font-display text-5xl font-semibold text-gold/10 mb-4 tracking-tight">{item.step}</div>
-                <h3 className="font-display text-lg font-semibold text-cream mb-3">{item.title}</h3>
-                <p className="font-sans text-sm text-cream-muted/80 font-light leading-[1.7]">{item.description}</p>
+              <div key={item.step} className="bg-paper-warm p-8 md:p-10 border border-ink/10">
+                <div className="font-serif italic text-3xl text-brass mb-5">{item.step}</div>
+                <h3 className="font-serif text-xl md:text-2xl text-ink mb-4 tracking-tight">
+                  {item.title}
+                </h3>
+                <p className="font-sans text-sm text-ink/70 font-light leading-[1.75]">
+                  {item.description}
+                </p>
               </div>
             ))}
           </div>
@@ -239,19 +202,20 @@ export default function Partners() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-charcoal-mid">
-        <div className="container mx-auto text-center max-w-2xl">
-          <h2 className="font-display text-3xl md:text-4xl font-semibold text-cream mb-6 tracking-tight">
-            Join Our Network
+      <section className="py-20 md:py-28 bg-ink">
+        <div className="container mx-auto px-6 md:px-12 text-center max-w-2xl">
+          <h2 className="font-serif text-3xl md:text-4xl text-paper mb-6 tracking-tight">
+            Join the network.
           </h2>
-          <p className="font-sans text-sm text-cream-muted font-light leading-[1.8] mb-10">
-            Are you a contractor, architect, or service provider who works with multifamily properties in Greater Boston? We're always looking to expand our trusted vendor network.
+          <p className="font-serif italic text-paper/75 text-lg leading-[1.7] mb-10">
+            Contractor, architect, or service provider across the Northeast? We are
+            always open to quality additions.
           </p>
           <a
-            href="mailto:partners@barrettjohnson.com"
-            className="inline-flex items-center gap-3 font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
+            href="mailto:partners@thaneandreeve.com"
+            className="inline-flex items-center gap-3 font-sans text-[11px] tracking-[0.24em] uppercase px-10 py-4 bg-paper text-ink hover:bg-brass hover:text-paper transition-colors duration-300"
           >
-            Apply to Partner <ArrowRight size={13} />
+            Apply to partner <ArrowRight size={13} />
           </a>
         </div>
       </section>

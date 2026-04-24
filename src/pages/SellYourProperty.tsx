@@ -1,4 +1,4 @@
-import { CheckCircle, Phone, Mail, ArrowRight } from "lucide-react";
+import { CheckCircle, Mail, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import SEOHead from "@/components/seo/SEOHead";
@@ -10,34 +10,39 @@ import { faqSchema, breadcrumbSchema } from "@/lib/seo/schemas";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const acquisitionCriteria = [
-  { label: "Asset Type", value: "Multifamily, Mixed-Use, Urban Retail, Hotel" },
-  { label: "Geography", value: "Cambridge, Somerville, Inner Greater Boston — expanding to select U.S. markets" },
-  { label: "Transaction Size", value: "$5M — $50M" },
-  { label: "Unit Count", value: "15 — 150 units, with flexibility for strategic portfolios" },
-  { label: "Structure", value: "Direct buyer. No investment committee, no intermediary approval" },
-  { label: "Response Time", value: "24 hours for qualified opportunities" },
+  { label: "Asset type", value: "Multifamily · mixed-use · urban retail · specialty commercial" },
+  { label: "Geography", value: "Boston–NYC corridor, with particular focus on Massachusetts and Rhode Island" },
+  { label: "Transaction size", value: "$5M – $75M equity, flexible for strategic portfolios" },
+  { label: "Strategy", value: "Stabilized, value-add, adaptive reuse, recapitalization, sale-leaseback" },
+  { label: "Structure", value: "Direct buyer. Deal-by-deal. GP capital in every transaction" },
+  { label: "Response", value: "48 business hours, yes or no" },
 ];
 
 const faqs = [
   {
     question: "Who reviews my submission?",
-    answer: "Every submission is reviewed personally by Patrick W. Barrett III and Tim Johnson, CPM — the principals of Barrett & Johnson. No analysts, no brokers, no committees.",
+    answer:
+      "Every submission is read by a principal — Patrick Barrett or Timothy Johnson. No analysts, no brokers, no investment committee lag.",
   },
   {
     question: "Is my information confidential?",
-    answer: "Absolutely. Your property details are shared only with our principals. We never list, broker, or disclose your information to third parties.",
+    answer:
+      "Yes. Submissions go to the principals only. We never list, broker, forward, or aggregate property information. Your file is held with the same discretion we would want for our own property.",
   },
   {
-    question: "What types of properties do you acquire?",
-    answer: "Multifamily, mixed-use, urban retail, and hotel assets in the $5M–$50M range. We consider both stabilized and value-add opportunities in entitlement-complex markets where direct sourcing and political capital create structural advantages.",
+    question: "What are you actually buying?",
+    answer:
+      "Multifamily, mixed-use, urban retail, selective adaptive reuse, and specialty commercial (self-storage, last-mile industrial). We consider both stabilized and value-add opportunities, and we weight toward deals where the numbers are disciplined and the basis is right.",
   },
   {
-    question: "How quickly will I receive a response?",
-    answer: "24 hours for opportunities that meet our acquisition criteria. For properties that match, we typically schedule a principal-to-principal conversation within the first week.",
+    question: "How quickly do you move?",
+    answer:
+      "48 business hours to a yes or no. For deals that match, we schedule a principal-to-principal conversation within the first week. We underwrite quickly because we're not waiting on a committee.",
   },
   {
-    question: "Do I need a broker to work with you?",
-    answer: "No. We are direct principals and prefer working directly with owners. This eliminates broker fees and allows for a more efficient, confidential process. We can also work with your broker if one is already engaged.",
+    question: "Do I need a broker?",
+    answer:
+      "No. We prefer working directly with owners — it eliminates broker fees and keeps the process confidential. If you already have a broker engaged, we will work through them.",
   },
 ];
 
@@ -59,106 +64,111 @@ export default function SellYourProperty() {
       <Breadcrumbs />
 
       {/* Hero */}
-      <section className="pt-8 pb-20 bg-charcoal" ref={sectionRef}>
-        <div className="container mx-auto" data-reveal>
-          <div className="flex items-center gap-4 mb-8">
-            <div className="divider-gold" />
-            <span className="section-label">Direct Acquisition</span>
+      <section className="pt-24 md:pt-32 pb-20 bg-paper" ref={sectionRef}>
+        <div className="container mx-auto px-6 md:px-12" data-reveal>
+          <div className="flex items-center justify-between mb-12">
+            <span className="font-serif italic text-2xl md:text-3xl text-brass">IX</span>
+            <div className="text-right font-sans text-[10px] tracking-[0.28em] uppercase text-ink/55">
+              <div>Direct Acquisition</div>
+              <div className="font-serif italic tracking-normal normal-case text-[13px] mt-1 text-ink/65">
+                Submit a property
+              </div>
+            </div>
           </div>
-          <div className="grid lg:grid-cols-2 gap-12 items-end">
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-cream leading-[1.1] tracking-tight">
-              Submit a
+          <div className="h-px w-full bg-ink/20 mb-16" />
+
+          <div className="max-w-4xl">
+            <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-ink/55 mb-6">
+              Direct Acquisition
+            </p>
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.12] text-ink tracking-tight mb-6">
+              Submit a property.
               <br />
-              <span className="text-gold italic">Property</span>
+              <em className="text-brass font-serif italic">We will read it.</em>
             </h1>
-            <p className="font-sans text-sm md:text-base leading-[1.8] text-cream-muted font-light lg:max-w-sm lg:ml-auto">
-              We are direct principals — not a fund, not a broker. Patrick and Tim
-              evaluate every opportunity personally and respond within 24 hours.
-              No committees, no approval chains.
+            <p className="font-sans text-lg md:text-xl leading-[1.7] text-ink/70 font-light max-w-2xl">
+              Thane &amp; Reeve buys direct. No committees, no investment-committee lag,
+              no brokers unless you want one. Principals evaluate every opportunity
+              personally.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Acquisition Criteria Table */}
-      <section className="section-pad bg-charcoal-mid">
-        <div className="container mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-            {/* Left — criteria */}
+      {/* Criteria + form */}
+      <section className="bg-paper-warm py-24 md:py-32">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 lg:gap-20 items-start">
             <div>
-              <h2 className="font-display text-2xl md:text-3xl font-semibold text-cream mb-3 tracking-tight">
-                Our Acquisition Criteria
+              <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-brass mb-6">
+                Our criteria
+              </p>
+              <h2 className="font-serif text-3xl md:text-4xl text-ink mb-4 tracking-tight leading-[1.2]">
+                What we underwrite.
               </h2>
-              <p className="font-sans text-sm text-cream-muted/60 font-light leading-[1.7] mb-10 max-w-md">
-                We move fast on opportunities that match our thesis. If your property
-                fits the parameters below, expect a direct conversation with a principal.
+              <p className="font-sans text-base text-ink/65 leading-[1.75] font-light mb-10 max-w-md">
+                We move fast on opportunities that match the thesis. If your property
+                fits the parameters below, expect a direct conversation with a
+                principal.
               </p>
 
-              <div className="flex flex-col gap-px bg-border/30 mb-10">
+              <div className="border-t border-ink/15 mb-10">
                 {acquisitionCriteria.map((item) => (
-                  <div key={item.label} className="bg-charcoal p-6 flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6">
-                    <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-gold/60 w-32 shrink-0">
+                  <div
+                    key={item.label}
+                    className="border-b border-ink/15 py-5 flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6"
+                  >
+                    <span className="font-sans text-[10px] tracking-[0.22em] uppercase text-ink/55 w-36 shrink-0">
                       {item.label}
                     </span>
-                    <span className="font-sans text-sm text-cream font-light leading-[1.6]">
+                    <span className="font-serif italic text-ink/85 text-base leading-[1.6]">
                       {item.value}
                     </span>
                   </div>
                 ))}
               </div>
 
-              {/* Direct contact — Patrick's phone prominent */}
-              <div className="bg-charcoal border border-gold/15 p-8">
-                <div className="font-sans text-[10px] tracking-[0.25em] uppercase text-gold/60 mb-5">
-                  Reach a Principal Directly
-                </div>
-                <div className="flex flex-col gap-4">
-                  <a href="tel:6177783521" className="flex items-center gap-4 group">
-                    <div className="w-10 h-10 border border-gold/20 flex items-center justify-center group-hover:border-gold/40 transition-colors">
-                      <Phone size={16} className="text-gold/60 group-hover:text-gold transition-colors" />
+              <div className="bg-paper border-l-2 border-brass p-6">
+                <p className="font-sans text-[10px] tracking-[0.24em] uppercase text-brass mb-4">
+                  Reach a principal
+                </p>
+                <a
+                  href="mailto:acquisitions@thaneandreeve.com"
+                  className="flex items-center gap-4 group"
+                >
+                  <Mail size={16} className="text-brass" />
+                  <div>
+                    <div className="font-serif italic text-ink text-lg group-hover:text-brass transition-colors">
+                      acquisitions@thaneandreeve.com
                     </div>
-                    <div>
-                      <div className="font-sans text-sm text-cream font-medium group-hover:text-gold transition-colors">
-                        (617) 778-3521
-                      </div>
-                      <div className="font-sans text-[10px] text-cream-muted/60">
-                        Patrick W. Barrett III — Direct Line
-                      </div>
+                    <div className="font-sans text-[10px] tracking-[0.2em] uppercase text-ink/55">
+                      Read only by the partners
                     </div>
-                  </a>
-                  <a href="mailto:acquisitions@barrettjohnson.com" className="flex items-center gap-4 group">
-                    <div className="w-10 h-10 border border-gold/20 flex items-center justify-center group-hover:border-gold/40 transition-colors">
-                      <Mail size={16} className="text-gold/60 group-hover:text-gold transition-colors" />
-                    </div>
-                    <div>
-                      <div className="font-sans text-sm text-cream font-medium group-hover:text-gold transition-colors">
-                        acquisitions@barrettjohnson.com
-                      </div>
-                      <div className="font-sans text-[10px] text-cream-muted/60">
-                        Reviewed by principals only
-                      </div>
-                    </div>
-                  </a>
-                </div>
+                  </div>
+                </a>
               </div>
             </div>
 
-            {/* Right — Form */}
             <div>
               <div className="mb-8">
-                <h2 className="font-display text-2xl md:text-3xl font-semibold text-cream mb-3 tracking-tight">
-                  Confidential Submission
+                <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-brass mb-6">
+                  Confidential submission
+                </p>
+                <h2 className="font-serif text-3xl md:text-4xl text-ink mb-6 tracking-tight leading-[1.2]">
+                  Bring the property.
                 </h2>
                 <div className="flex flex-col gap-3 mb-6">
                   {[
-                    "Reviewed exclusively by Patrick and Tim",
-                    "All submissions encrypted and confidential",
-                    "No obligation — no broker fees",
-                    "24-hour response for qualified opportunities",
+                    "Read only by Patrick and Timothy",
+                    "Encrypted in transit, never forwarded",
+                    "No obligation, no broker fees",
+                    "48-hour response — yes or no",
                   ].map((item) => (
                     <div key={item} className="flex items-center gap-3">
-                      <CheckCircle size={12} className="text-gold/50 shrink-0" />
-                      <span className="font-sans text-xs text-cream-muted/60 font-light">{item}</span>
+                      <CheckCircle size={14} className="text-brass shrink-0" />
+                      <span className="font-sans text-sm text-ink/70 font-light">
+                        {item}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -172,26 +182,24 @@ export default function SellYourProperty() {
         </div>
       </section>
 
-      {/* FAQ */}
       <FAQSection
         faqs={faqs}
-        title="Acquisition FAQ"
-        label="Common Questions"
+        title="Questions from owners"
+        label="Acquisition FAQ"
       />
 
       {/* Bottom CTA */}
-      <section className="py-20 bg-charcoal">
-        <div className="container mx-auto text-center max-w-2xl">
-          <p className="font-sans text-sm text-cream-muted/50 font-light leading-[1.8] mb-8">
-            Barrett & Johnson takes confidentiality seriously. All property submissions
-            are reviewed exclusively by our principals. Your information is never shared
-            with brokers, listed publicly, or disclosed to third parties.
+      <section className="py-20 bg-ink">
+        <div className="container mx-auto px-6 md:px-12 text-center max-w-2xl">
+          <p className="font-serif italic text-lg text-paper/75 leading-[1.7] mb-8">
+            Thane &amp; Reeve takes confidentiality seriously. Property submissions are
+            read by the partners only — never listed, never forwarded.
           </p>
           <Link
             to="/about"
-            className="inline-flex items-center gap-3 font-sans text-xs tracking-[0.2em] uppercase text-gold/60 hover:text-gold transition-colors duration-300"
+            className="inline-flex items-center gap-3 font-sans text-[11px] tracking-[0.22em] uppercase text-paper border-b border-paper/30 pb-1 hover:border-brass-light hover:text-brass-light transition-colors duration-300"
           >
-            About Our Principals <ArrowRight size={12} />
+            About the partners <ArrowRight size={13} />
           </Link>
         </div>
       </section>

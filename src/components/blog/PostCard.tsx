@@ -25,8 +25,8 @@ export default function PostCard({ post }: Props) {
           />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-charcoal-light to-charcoal flex items-center justify-center">
-            <span className="font-display text-6xl font-semibold text-gold/[0.06] tracking-tight select-none">
-              B&J
+            <span className="font-serif italic text-7xl text-brass/20 select-none">
+              &amp;
             </span>
           </div>
         )}
