@@ -29,7 +29,7 @@ export default function FAQSection({
       <div className="container mx-auto px-6 md:px-12">
         <div className="max-w-3xl mx-auto">
           <div className="mb-16" data-reveal>
-            <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-ink/55 mb-4">
+            <p className="font-serif italic text-base md:text-lg text-brass mb-4">
               {label}
             </p>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-ink leading-[1.2] tracking-tight">

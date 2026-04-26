@@ -4,6 +4,7 @@ import SEOHead from "@/components/seo/SEOHead";
 import { PAGE_META } from "@/lib/seo/metadata";
 import { breadcrumbSchema } from "@/lib/seo/schemas";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { PageHeader } from "@/components/brand/PageHeader";
 
 const vendorCategories = [
   { name: "General contractors", description: "Full-scope renovation and construction for multifamily and mixed-use." },
@@ -55,19 +56,10 @@ export default function Partners() {
       {/* Hero */}
       <section className="pt-24 md:pt-32 pb-20 bg-paper" ref={heroRef}>
         <div className="container mx-auto px-6 md:px-12" data-reveal>
-          <div className="flex items-center justify-between mb-12">
-            <span className="font-serif italic text-2xl md:text-3xl text-brass">X</span>
-            <div className="text-right font-sans text-[10px] tracking-[0.28em] uppercase text-ink/55">
-              <div>Vendor Network</div>
-              <div className="font-serif italic tracking-normal normal-case text-[13px] mt-1 text-ink/65">
-                Service partners
-              </div>
-            </div>
-          </div>
-          <div className="h-px w-full bg-ink/20 mb-16" />
+          <PageHeader label="Vendor Network" descriptor="Service partners" />
 
           <div className="max-w-4xl">
-            <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-ink/55 mb-6">
+            <p className="font-serif italic text-base md:text-lg text-brass mb-6">
               The firm's vendor network
             </p>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.12] text-ink tracking-tight mb-6">

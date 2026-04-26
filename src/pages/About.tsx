@@ -9,6 +9,7 @@ import patrickHeadshot from "@/assets/patrick-barrett.png";
 import timPlaceholder from "@/assets/tim-johnson-placeholder.svg";
 import { Wordmark } from "@/components/brand/Wordmark";
 import { Ampersand } from "@/components/brand/Ampersand";
+import { PageHeader } from "@/components/brand/PageHeader";
 
 const principals = [
   {
@@ -71,16 +72,7 @@ export default function About() {
       {/* Hero — About page from the founding doc */}
       <section className="pt-24 md:pt-32 pb-20 md:pb-28 bg-paper" ref={sectionRef}>
         <div className="container mx-auto px-6 md:px-12" data-reveal>
-          <div className="flex items-center justify-between mb-12">
-            <span className="font-serif italic text-2xl md:text-3xl text-brass">I</span>
-            <div className="text-right font-sans text-[10px] tracking-[0.28em] uppercase text-ink/55">
-              <div>The About Page</div>
-              <div className="font-serif italic tracking-normal normal-case text-[13px] mt-1 text-ink/65">
-                Website copy · long form
-              </div>
-            </div>
-          </div>
-          <div className="h-px w-full bg-ink/20 mb-16" />
+          <PageHeader label="About" descriptor="The firm, in the founder's voice" />
 
           <div className="max-w-4xl mx-auto text-center">
             <Wordmark size="xl" tone="ink" sealed />

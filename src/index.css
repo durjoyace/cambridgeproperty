@@ -13,9 +13,9 @@
     --ink-muted: 60 2% 27%;
     --paper: 40 27% 93%;         /* #F2EFE7 */
     --paper-warm: 40 22% 88%;
-    --brass: 38 35% 33%;         /* #836634 */
-    --brass-light: 38 28% 50%;
-    --brass-dark: 38 40% 22%;
+    --brass: 38 43% 36%;         /* #836634 — exact match */
+    --brass-light: 38 36% 52%;
+    --brass-dark: 38 48% 24%;
 
     /* Core shadcn palette — Paper default. */
     --background: 40 27% 93%;
@@ -36,7 +36,7 @@
     --muted: 40 22% 88%;
     --muted-foreground: 60 2% 38%;
 
-    --accent: 38 35% 33%;
+    --accent: 38 43% 36%;
     --accent-foreground: 40 27% 93%;
 
     --destructive: 0 62.8% 50%;
@@ -44,16 +44,16 @@
 
     --border: 180 4% 9% / 0.12;
     --input: 180 4% 9% / 0.16;
-    --ring: 38 35% 33%;
+    --ring: 38 43% 36%;
 
     --radius: 0.125rem;
 
     /* Legacy alias tokens — repointed into the new brand system so
        existing `bg-charcoal`, `text-gold`, `text-cream` classnames
        carry sensible semantics until individual pages are rewritten. */
-    --gold: 38 35% 33%;          /* → brass */
-    --gold-light: 38 28% 50%;
-    --gold-dark: 38 40% 22%;
+    --gold: 38 43% 36%;          /* → brass */
+    --gold-light: 38 36% 52%;
+    --gold-dark: 38 48% 24%;
     --charcoal: 180 4% 9%;       /* → ink */
     --charcoal-mid: 180 4% 14%;
     --charcoal-light: 180 4% 20%;
@@ -66,22 +66,22 @@
       hsl(40 27% 93% / 0.4) 50%,
       hsl(40 27% 93% / 1) 100%
     );
-    --gradient-gold: linear-gradient(135deg, hsl(38 35% 33%), hsl(38 40% 22%));
+    --gradient-gold: linear-gradient(135deg, hsl(38 43% 36%), hsl(38 48% 24%));
     --gradient-section: linear-gradient(180deg, hsl(40 27% 93%) 0%, hsl(40 22% 88%) 100%);
-    --gradient-radial: radial-gradient(ellipse at 50% 0%, hsl(38 35% 33% / 0.06) 0%, transparent 60%);
+    --gradient-radial: radial-gradient(ellipse at 50% 0%, hsl(38 43% 36% / 0.06) 0%, transparent 60%);
 
-    --shadow-gold: 0 4px 24px hsl(38 35% 33% / 0.15);
+    --shadow-gold: 0 4px 24px hsl(38 43% 36% / 0.15);
     --shadow-card: 0 1px 2px hsl(180 4% 9% / 0.04), 0 1px 1px hsl(180 4% 9% / 0.06);
     --shadow-elevated: 0 2px 8px hsl(180 4% 9% / 0.06), 0 0 0 1px hsl(180 4% 9% / 0.08);
 
     --sidebar-background: 40 27% 93%;
     --sidebar-foreground: 180 4% 9%;
-    --sidebar-primary: 38 35% 33%;
+    --sidebar-primary: 38 43% 36%;
     --sidebar-primary-foreground: 40 27% 93%;
     --sidebar-accent: 40 22% 88%;
     --sidebar-accent-foreground: 180 4% 9%;
     --sidebar-border: 180 4% 9% / 0.12;
-    --sidebar-ring: 38 35% 33%;
+    --sidebar-ring: 38 43% 36%;
 
     --error: 0 65% 55%;
   }

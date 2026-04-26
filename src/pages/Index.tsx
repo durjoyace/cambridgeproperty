@@ -49,19 +49,12 @@ const Index = () => {
         {...PAGE_META.home}
         schema={[organizationSchema(), localBusinessSchema(), faqSchema(homeFaqs)]}
       />
-      {/* I. The wordmark, the tagline, the thesis */}
       <HeroSection />
-      {/* II. Our thesis, in one sentence */}
       <ThesisSection />
-      {/* III. Three disciplines, one balance sheet */}
       <OperatorFramework />
-      {/* IV. Portfolio + track record */}
       <PortfolioSection />
-      {/* V. Alignment — who we serve, how we structure */}
       <CapitalAlignment />
-      {/* VI. Direct acquisition */}
       <SubmitSection />
-      {/* VII. Questions from partners */}
       <FAQSection faqs={homeFaqs} />
     </>
   );

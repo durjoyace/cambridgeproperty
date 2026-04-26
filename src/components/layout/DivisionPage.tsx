@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import { DivisionLockup } from "@/components/brand/DivisionLockup";
 import { Wordmark } from "@/components/brand/Wordmark";
+import { PageHeader } from "@/components/brand/PageHeader";
 
 export type DivisionPageContent = {
   division: "Capital" | "Development" | "Management";
@@ -40,26 +41,11 @@ export default function DivisionPage({ content }: { content: DivisionPageContent
         }`}
       >
         <div className="container mx-auto px-6 md:px-12">
-          <div className="flex items-center justify-between mb-12">
-            <span className={`font-serif italic text-2xl md:text-3xl ${isInk ? "text-brass-light" : "text-brass"}`}>
-              III
-            </span>
-            <div
-              className={`text-right font-sans text-[10px] tracking-[0.28em] uppercase ${
-                isInk ? "text-paper/55" : "text-ink/55"
-              }`}
-            >
-              <div>The Division</div>
-              <div
-                className={`font-serif italic tracking-normal normal-case text-[13px] mt-1 ${
-                  isInk ? "text-paper/65" : "text-ink/65"
-                }`}
-              >
-                {content.division} — Sub-brand identity
-              </div>
-            </div>
-          </div>
-          <div className={`h-px w-full mb-16 ${isInk ? "bg-paper/20" : "bg-ink/20"}`} />
+          <PageHeader
+            label="The Divisions"
+            descriptor={`${content.division} — sub-brand identity`}
+            tone={content.tone}
+          />
 
           <div className="flex justify-center">
             <DivisionLockup
@@ -75,8 +61,12 @@ export default function DivisionPage({ content }: { content: DivisionPageContent
       <section className="bg-paper py-24 md:py-32">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-4xl mx-auto">
-            <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-ink/55 mb-8">
-              Division · 0{content.division === "Capital" ? "1" : content.division === "Development" ? "2" : "3"}
+            <p className="font-serif italic text-base md:text-lg text-brass mb-6">
+              {content.division === "Capital"
+                ? "The deal-making arm"
+                : content.division === "Development"
+                ? "The build arm"
+                : "The operating arm"}
             </p>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-[1.2] text-ink tracking-tight mb-10">
               {content.thesis}

@@ -6,6 +6,7 @@ import { PAGE_META } from "@/lib/seo/metadata";
 import { breadcrumbSchema, itemListSchema, articleSchema } from "@/lib/seo/schemas";
 import { blogPosts } from "@/lib/data/blog-posts";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { PageHeader } from "@/components/brand/PageHeader";
 
 export default function Insights() {
   const sectionRef = useScrollReveal<HTMLElement>();
@@ -42,19 +43,13 @@ export default function Insights() {
       {/* Hero */}
       <section className="pt-24 md:pt-32 pb-20 bg-paper" ref={sectionRef}>
         <div className="container mx-auto px-6 md:px-12" data-reveal>
-          <div className="flex items-center justify-between mb-12">
-            <span className="font-serif italic text-2xl md:text-3xl text-brass">XII</span>
-            <div className="text-right font-sans text-[10px] tracking-[0.28em] uppercase text-ink/55">
-              <div>Insights</div>
-              <div className="font-serif italic tracking-normal normal-case text-[13px] mt-1 text-ink/65">
-                Field notes &amp; LP correspondence
-              </div>
-            </div>
-          </div>
-          <div className="h-px w-full bg-ink/20 mb-16" />
+          <PageHeader
+            label="Insights"
+            descriptor="Field notes &amp; LP correspondence"
+          />
 
           <div className="max-w-4xl">
-            <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-ink/55 mb-6">
+            <p className="font-serif italic text-base md:text-lg text-brass mb-6">
               Letters &amp; field notes
             </p>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.12] text-ink tracking-tight mb-6">

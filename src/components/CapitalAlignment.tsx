@@ -17,22 +17,11 @@ export default function CapitalAlignment() {
     >
       <div className="container mx-auto px-6 md:px-12">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-center justify-between mb-12" data-reveal>
-            <span className="font-serif italic text-2xl md:text-3xl text-brass-light">IV</span>
-            <div className="text-right font-sans text-[10px] tracking-[0.28em] uppercase text-paper/55">
-              <div>Alignment</div>
-              <div className="font-serif italic tracking-normal normal-case text-[13px] mt-1 text-paper/65">
-                Who we serve &amp; how we work
-              </div>
-            </div>
-          </div>
-          <div className="h-px w-full bg-paper/20 mb-16" />
-
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-start" data-reveal>
             {/* Left — narrative */}
             <div>
-              <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-paper/55 mb-6">
-                Who We Serve
+              <p className="font-serif italic text-base md:text-lg text-brass-light mb-6">
+                Who we serve
               </p>
               <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-[1.18] text-paper mb-8">
                 Deal-by-deal syndication.

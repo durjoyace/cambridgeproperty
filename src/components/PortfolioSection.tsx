@@ -72,22 +72,10 @@ export default function PortfolioSection() {
     >
       <div className="container mx-auto px-6 md:px-12">
         <div className="max-w-6xl mx-auto">
-          {/* Header */}
-          <div className="flex items-center justify-between mb-12" data-reveal>
-            <span className="font-serif italic text-2xl md:text-3xl text-brass">VI</span>
-            <div className="text-right font-sans text-[10px] tracking-[0.28em] uppercase text-ink/55">
-              <div>Portfolio</div>
-              <div className="font-serif italic tracking-normal normal-case text-[13px] mt-1 text-ink/65">
-                Held &amp; managed
-              </div>
-            </div>
-          </div>
-          <div className="h-px w-full bg-ink/20 mb-16" />
-
           {/* Heading + subtitle */}
           <div className="mb-16 max-w-4xl" data-reveal>
-            <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-ink/55 mb-6">
-              Portfolio · Track record
+            <p className="font-serif italic text-base md:text-lg text-brass mb-6">
+              Portfolio &amp; track record
             </p>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-[1.18] text-ink tracking-tight mb-6">
               Fifteen years of institutional operating experience, reshaped into a single firm.

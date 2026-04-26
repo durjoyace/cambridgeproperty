@@ -39,19 +39,8 @@ export default function OperatorFramework() {
       <div className="container mx-auto px-6 md:px-12">
         {/* Header */}
         <div className="max-w-5xl mx-auto" data-reveal>
-          <div className="flex items-center justify-between mb-12">
-            <span className="font-serif italic text-2xl md:text-3xl text-brass">III</span>
-            <div className="text-right font-sans text-[10px] tracking-[0.28em] uppercase text-ink/55">
-              <div>Strategy</div>
-              <div className="font-serif italic tracking-normal normal-case text-[13px] mt-1 text-ink/65">
-                What we actually do
-              </div>
-            </div>
-          </div>
-          <div className="h-px w-full bg-ink/20 mb-16" />
-
-          <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-ink/55 mb-6">
-            What We Actually Do
+          <p className="font-serif italic text-base md:text-lg text-brass mb-6">
+            What we actually do
           </p>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-[1.2] text-ink max-w-3xl mb-4">
             Three disciplines, one balance sheet, one team underwriting every decision.
