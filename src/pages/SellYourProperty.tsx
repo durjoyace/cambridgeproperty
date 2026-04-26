@@ -81,7 +81,7 @@ export default function SellYourProperty() {
               <br />
               <em className="text-brass font-serif italic">We will read it.</em>
             </h1>
-            <p className="font-sans text-lg md:text-xl leading-[1.7] text-ink/70 font-light max-w-2xl">
+            <p className="font-serif text-lg md:text-xl leading-[1.7] text-ink/85 max-w-2xl">
               Thane &amp; Reeve buys direct. No committees, no investment-committee lag,
               no brokers unless you want one. Principals evaluate every opportunity
               personally.
@@ -101,7 +101,7 @@ export default function SellYourProperty() {
               <h2 className="font-serif text-3xl md:text-4xl text-ink mb-4 tracking-tight leading-[1.2]">
                 What we underwrite.
               </h2>
-              <p className="font-sans text-base text-ink/65 leading-[1.75] font-light mb-10 max-w-md">
+              <p className="font-serif text-lg text-ink/85 leading-[1.7] mb-10 max-w-md">
                 We move fast on opportunities that match the thesis. If your property
                 fits the parameters below, expect a direct conversation with a
                 principal.

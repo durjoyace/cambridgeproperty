@@ -30,12 +30,12 @@ export default function CapitalAlignment() {
                 <br />
                 GP capital in every transaction.
               </h2>
-              <p className="font-sans text-base md:text-lg leading-[1.8] text-paper/75 font-light mb-6">
+              <p className="font-serif text-lg md:text-xl leading-[1.7] text-paper/85 mb-6">
                 We work with family offices, high-net-worth principals, and
                 institutional capital seeking direct exposure to real estate
                 alongside a small, aligned operator.
               </p>
-              <p className="font-sans text-sm md:text-base leading-[1.8] text-paper/60 font-light">
+              <p className="font-serif text-base md:text-lg leading-[1.7] text-paper/70">
                 We don't raise blind pools. We don't collect assets to grow AUM. We
                 underwrite each deal on its own terms, bring it to investors who have
                 earned the right to see it, and walk if the math doesn't work.

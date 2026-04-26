@@ -9,7 +9,6 @@ import patrickHeadshot from "@/assets/patrick-barrett.png";
 import timPlaceholder from "@/assets/tim-johnson-placeholder.svg";
 import { Wordmark } from "@/components/brand/Wordmark";
 import { Ampersand } from "@/components/brand/Ampersand";
-import { PageHeader } from "@/components/brand/PageHeader";
 import { PullQuote } from "@/components/brand/PullQuote";
 
 const principals = [
@@ -73,8 +72,6 @@ export default function About() {
       {/* Hero — About page from the founding doc */}
       <section className="pt-24 md:pt-32 pb-20 md:pb-28 bg-paper" ref={sectionRef}>
         <div className="container mx-auto px-6 md:px-12" data-reveal>
-          <PageHeader label="About" descriptor="The firm, in the founder's voice" />
-
           <div className="max-w-4xl mx-auto text-center">
             <Wordmark size="xl" tone="ink" />
             <p className="mt-8 font-serif italic text-xl md:text-2xl text-ink/80">
@@ -202,7 +199,7 @@ export default function About() {
                 <h3 className="font-serif text-xl md:text-2xl text-ink mb-4 tracking-tight">
                   {c.title}
                 </h3>
-                <p className="font-sans text-sm md:text-base leading-[1.75] text-ink/70 font-light">
+                <p className="font-serif text-base md:text-lg leading-[1.65] text-ink/80">
                   {c.body}
                 </p>
               </div>
@@ -309,7 +306,7 @@ export default function About() {
                     <p className="font-serif italic text-sm text-ink/60 mb-6">
                       {person.credential}
                     </p>
-                    <p className="font-sans text-sm md:text-base text-ink/75 leading-[1.8] font-light mb-8">
+                    <p className="font-serif text-base md:text-lg text-ink/85 leading-[1.7] mb-8">
                       {person.bio}
                     </p>
                     <div className="pt-6 border-t border-ink/10">
@@ -342,7 +339,7 @@ export default function About() {
           <p className="mt-8 font-serif italic text-2xl md:text-3xl text-paper/90 leading-[1.4]">
             Land held. Land managed.
           </p>
-          <p className="mt-6 font-sans text-base leading-[1.8] text-paper/65 font-light max-w-xl mx-auto">
+          <p className="mt-6 font-serif text-lg leading-[1.7] text-paper/80 max-w-xl mx-auto">
             Whether you have a property to bring to us, a co-investment thesis to
             discuss, or want to walk an asset, our line and our door are open.
           </p>

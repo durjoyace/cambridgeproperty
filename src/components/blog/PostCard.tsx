@@ -50,7 +50,7 @@ export default function PostCard({ post }: Props) {
         <h3 className="font-serif text-xl text-ink mb-3 group-hover:text-brass transition-colors duration-300 leading-snug tracking-tight">
           {post.title}
         </h3>
-        <p className="font-sans text-sm text-ink/70 leading-[1.7] font-light mb-6 line-clamp-3">
+        <p className="font-serif text-sm text-ink/80 leading-[1.65] mb-6 line-clamp-3">
           {post.excerpt}
         </p>
         <div className="flex items-center justify-between pt-5 border-t border-ink/10">

@@ -80,7 +80,7 @@ export default function PortfolioSection() {
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-[1.18] text-ink tracking-tight mb-6">
               Fifteen years of institutional operating experience, reshaped into a single firm.
             </h2>
-            <p className="font-sans text-base md:text-lg leading-[1.8] text-ink/70 font-light max-w-2xl">
+            <p className="font-serif text-lg md:text-xl leading-[1.7] text-ink/85 max-w-2xl">
               A curated list, not a funnel. Each asset has been underwritten to the
               firm's standard and is held to justify its place in the portfolio.
             </p>
@@ -137,7 +137,7 @@ export default function PortfolioSection() {
                   <p className="font-sans text-xs text-ink/55 mb-4">
                     {item.location} · {item.units}
                   </p>
-                  <p className="font-sans text-sm text-ink/70 leading-[1.7] font-light">
+                  <p className="font-serif text-base text-ink/80 leading-[1.65]">
                     {item.description}
                   </p>
                 </>

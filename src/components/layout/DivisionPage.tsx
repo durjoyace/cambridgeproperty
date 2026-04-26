@@ -3,7 +3,6 @@ import { ArrowRight } from "lucide-react";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import { DivisionLockup } from "@/components/brand/DivisionLockup";
 import { Wordmark } from "@/components/brand/Wordmark";
-import { PageHeader } from "@/components/brand/PageHeader";
 
 export type DivisionPageContent = {
   division: "Capital" | "Development" | "Management";
@@ -41,12 +40,6 @@ export default function DivisionPage({ content }: { content: DivisionPageContent
         }`}
       >
         <div className="container mx-auto px-6 md:px-12">
-          <PageHeader
-            label="The Divisions"
-            descriptor={`${content.division} — sub-brand identity`}
-            tone={content.tone}
-          />
-
           <div className="flex justify-center">
             <DivisionLockup
               division={content.division}
@@ -71,7 +64,7 @@ export default function DivisionPage({ content }: { content: DivisionPageContent
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-[1.2] text-ink tracking-tight mb-10">
               {content.thesis}
             </h2>
-            <div className="space-y-6 font-sans text-base md:text-lg leading-[1.85] text-ink/75 font-light max-w-3xl">
+            <div className="space-y-6 font-serif text-lg md:text-xl leading-[1.7] text-ink/85 max-w-3xl">
               {content.narrative.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}

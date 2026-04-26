@@ -65,7 +65,7 @@ export default function Partners() {
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.12] text-ink tracking-tight mb-6">
               The people we call when the building needs something done.
             </h1>
-            <p className="font-sans text-lg md:text-xl leading-[1.7] text-ink/70 font-light max-w-2xl">
+            <p className="font-serif text-lg md:text-xl leading-[1.7] text-ink/85 max-w-2xl">
               Thane &amp; Reeve Management runs the firm's portfolio in-house. The
               vendor network behind it — contractors, architects, trades, and
               professional services — has been assembled over fifteen years of
@@ -86,7 +86,7 @@ export default function Partners() {
               <h2 className="font-serif text-3xl md:text-4xl text-ink mb-6 tracking-tight leading-[1.2]">
                 A held portfolio. A stable call list.
               </h2>
-              <p className="font-sans text-base leading-[1.8] text-ink/70 font-light mb-8 max-w-md">
+              <p className="font-serif text-lg leading-[1.7] text-ink/85 mb-8 max-w-md">
                 Thane &amp; Reeve is a hands-on ownership group — not a management
                 company with thousands of revolving-door units. Our vendors get
                 consistent, predictable work with direct access to the principals.

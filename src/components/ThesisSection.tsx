@@ -27,7 +27,7 @@ export default function ThesisSection() {
 
         {/* Substantiation */}
         <div className="max-w-3xl mx-auto mt-14 lg:ml-[8.5rem] xl:ml-[12rem]" data-reveal>
-          <p className="font-sans text-base md:text-lg leading-[1.8] text-ink/70 font-light">
+          <p className="font-serif text-lg md:text-xl leading-[1.7] text-ink/85">
             Most of the industry is structured around specialization: capital allocators
             who don't operate, developers who don't hold, managers who don't own. Thane
             &amp; Reeve is deliberately vertical, deliberately flexible, and deliberately

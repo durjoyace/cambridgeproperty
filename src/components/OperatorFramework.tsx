@@ -66,7 +66,7 @@ export default function OperatorFramework() {
               <h3 className="font-serif text-2xl md:text-3xl text-ink mb-5 tracking-tight">
                 {d.title}
               </h3>
-              <p className="font-sans text-sm md:text-base leading-[1.75] text-ink/70 font-light mb-6">
+              <p className="font-serif text-base md:text-lg leading-[1.65] text-ink/80 mb-6">
                 {d.lead}
               </p>
               <p className="font-serif italic text-sm text-brass border-t border-ink/10 pt-5">

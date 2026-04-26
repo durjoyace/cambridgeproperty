@@ -41,7 +41,7 @@ export default function Press() {
               <br />
               <em className="text-brass font-serif italic">We have the record.</em>
             </h1>
-            <p className="font-sans text-lg md:text-xl leading-[1.7] text-ink/70 font-light max-w-2xl">
+            <p className="font-serif text-lg md:text-xl leading-[1.7] text-ink/85 max-w-2xl">
               Public hearings, institutional media, zoning filings, and regulatory
               outcomes — verifiable across fifteen years of the principals' direct
               operation in Cambridge and Greater Boston, now consolidated under

@@ -85,7 +85,7 @@ export default function Portfolio() {
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.12] text-ink tracking-tight mb-6">
               A curated list, not a funnel.
             </h1>
-            <p className="font-sans text-lg md:text-xl leading-[1.7] text-ink/70 font-light max-w-2xl">
+            <p className="font-serif text-lg md:text-xl leading-[1.7] text-ink/85 max-w-2xl">
               Every asset below has been underwritten to the firm's standard and
               held to justify its place. We would close any of them tomorrow.
             </p>
@@ -144,7 +144,7 @@ export default function Portfolio() {
                       {cs.neighborhood ? ` — ${cs.neighborhood}` : ""}
                     </p>
 
-                    <p className="font-sans text-sm md:text-base text-ink/75 leading-[1.8] font-light mb-8">
+                    <p className="font-serif text-base md:text-lg text-ink/85 leading-[1.7] mb-8">
                       {cs.description}
                     </p>
 

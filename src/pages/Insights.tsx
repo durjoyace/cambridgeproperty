@@ -55,7 +55,7 @@ export default function Insights() {
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.12] text-ink tracking-tight mb-6">
               Short, direct, and willing to say the uncomfortable thing.
             </h1>
-            <p className="font-sans text-lg md:text-xl leading-[1.7] text-ink/70 font-light max-w-2xl">
+            <p className="font-serif text-lg md:text-xl leading-[1.7] text-ink/85 max-w-2xl">
               Our quarterly correspondence sets the voice for every letter that
               follows. Most LP letters read like press releases — ours read like a
               partner writing to another partner.

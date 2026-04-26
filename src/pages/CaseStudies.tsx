@@ -74,7 +74,7 @@ export default function CaseStudies() {
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.12] text-ink tracking-tight mb-6">
               The underwriting, the execution, the judgment call.
             </h1>
-            <p className="font-sans text-lg md:text-xl leading-[1.7] text-ink/70 font-light max-w-2xl">
+            <p className="font-serif text-lg md:text-xl leading-[1.7] text-ink/85 max-w-2xl">
               These are the decisions we'd be proud to be judged on later. Each
               asset sourced directly, entitled through complex municipal process,
               and operated as a long-term hold.

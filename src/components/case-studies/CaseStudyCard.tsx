@@ -48,7 +48,7 @@ export default function CaseStudyCard({ study }: Props) {
             {study.location} &middot; {study.units} units &middot; {study.strategy}
           </p>
         </div>
-        <p className="font-sans text-sm text-ink/70 leading-[1.7] font-light mb-6">
+        <p className="font-serif text-sm text-ink/80 leading-[1.65] mb-6">
           {study.description}
         </p>
 
