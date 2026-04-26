@@ -40,44 +40,50 @@ export default function FounderLetter() {
           >
             <p>
               <span className="font-serif text-[2.6em] leading-[0.85] float-left mr-3 mt-1 text-ink font-normal tracking-tight">
-                E
+                M
               </span>
-              very fund I joined out of law school taught me the same thing,
-              and it took me fifteen years to disagree with it. The thing was
-              specialization &mdash; the idea that a real estate firm should
-              pick a side of the table. Be a capital allocator, or be a
-              developer, or be a manager. Don&rsquo;t try to do all three.
+              ost of my career has been spent on the unglamorous side of
+              real estate &mdash; first as a Cambridge zoning attorney, then
+              negotiating Central Square&rsquo;s overlay amendments through
+              the City Council in 2017, then through five years of
+              hearings, conditions, and neighborhood meetings before a
+              single wall was drawn at 907 Main. The work that decides
+              whether a project happens is rarely the work that gets
+              celebrated.
             </p>
             <p>
-              The argument was always efficiency. Specialists scale.
-              Specialists are legible to LPs. Specialists are easier to
-              underwrite. I worked inside firms that won on this argument and
-              I respected what they did. But I left because I came to believe
-              the argument was wrong about{" "}
+              What I noticed in those rooms, year after year, was that the
+              firms making the strongest case for a project &mdash; the
+              firms a city wanted to hand entitlement to &mdash; were
+              almost never the firms still operating the building five
+              years later. Capital teams traded the project to developers,
+              developers traded it to managers, managers reported up to
+              limited partners who had moved on. By the time someone was
+              actually accountable for occupancy and capex, the
+              underwriting was three teams old and nobody believed in it
+              anymore. The operating work is where returns are{" "}
               <em className="text-brass not-italic font-serif italic">
-                what produces returns.
+                made or lost.
               </em>
             </p>
             <p>
-              What I saw, over and over, was that the deals that worked were
-              the deals where one team was on the wire from acquisition
-              through year ten. The deals that didn&rsquo;t work were the
-              ones where the originator handed the asset off, the developer
-              handed it off again, and by the time someone was actually
-              accountable for occupancy and capex, the underwriting was three
-              teams old and nobody believed in it anymore. The operating work
-              is where returns are made or lost. Not the closing dinner.
+              So we built 907 Main the other way around. We held the
+              entitlement, the financing, the construction, and the
+              operating under one roof. One team on the wire from the
+              first hearing through the day the doors opened. The hotel
+              opened in 2024 as The Lark Cambridge. We still own and run
+              it.
             </p>
             <p>
-              So Thane &amp; Reeve is built around the opposite premise.
-              Three disciplines &mdash; Capital, Development, Management
-              &mdash; under one accountable roof. We acquire what we are
-              willing to operate. We develop what we intend to hold. We
-              manage everything we own, in&#8209;house, on systems we
-              control. We raise on a deal&#8209;by&#8209;deal basis from a
-              closed list of investors who have earned the right to see our
-              work. We invest meaningful personal capital in every
-              transaction, because if the math doesn&rsquo;t work for us it
+              Thane &amp; Reeve is built on that premise. Three disciplines
+              &mdash; Capital, Development, Management &mdash; under one
+              accountable roof. We acquire what we are willing to operate.
+              We develop what we intend to hold. We manage everything we
+              own, in&#8209;house, on systems we control. We raise on a
+              deal&#8209;by&#8209;deal basis from a closed list of
+              investors who have earned the right to see our work. We
+              invest meaningful personal capital in every transaction,
+              because if the math doesn&rsquo;t work for us it
               shouldn&rsquo;t work for you.
             </p>
             <p className="font-serif italic text-ink">

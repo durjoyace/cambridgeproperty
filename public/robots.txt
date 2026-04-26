@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://barrettjohnson.com/sitemap.xml
+Sitemap: https://thaneandreeve.com/sitemap.xml

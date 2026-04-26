@@ -5,7 +5,7 @@ import SEOHead from "@/components/seo/SEOHead";
 import { PAGE_META } from "@/lib/seo/metadata";
 import { personSchema, breadcrumbSchema } from "@/lib/seo/schemas";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import patrickHeadshot from "@/assets/patrick-barrett.png";
+import patrickHeadshot from "@/assets/patrick-barrett.jpg";
 import timPlaceholder from "@/assets/tim-johnson-placeholder.svg";
 import { Wordmark } from "@/components/brand/Wordmark";
 import { Ampersand } from "@/components/brand/Ampersand";

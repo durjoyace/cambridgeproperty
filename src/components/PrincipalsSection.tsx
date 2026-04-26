@@ -1,18 +1,15 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import patrickHeadshot from "@/assets/patrick-barrett.png";
+import patrickHeadshot from "@/assets/patrick-barrett.jpg";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 /**
- * Editorial principal spread for the home page. Patrick carries the
- * portrait at editorial scale; Timothy Johnson is referenced in the
- * supporting paragraph beneath the hairline. The two-up portrait grid
- * returns when Tim's editorial portrait is commissioned.
- *
- * Two co-equal portrait slots with one of them empty is a louder signal
- * than one good portrait and a sentence — so for now, the firm is
- * announced by its founder, with its operating partner credited in the
- * voice an annual report would use.
+ * Editorial principal spread for the home page. Both partners shown at
+ * parity. Patrick carries a real photograph; Tim is rendered as a
+ * deliberate typographic plate (his initials in display Fraunces inside
+ * an editorial frame) until a real portrait is commissioned. The plate
+ * reads as institutional restraint, the way a quarterly report would
+ * leave a chair set for the partner who is travelling.
  */
 export default function PrincipalsSection() {
   const sectionRef = useScrollReveal<HTMLElement>();
@@ -45,10 +42,11 @@ export default function PrincipalsSection() {
 
           <div className="h-px w-full bg-ink/20 mb-14 md:mb-20" data-reveal-rule />
 
-          {/* Patrick — editorial portrait at scale */}
-          <article className="grid md:grid-cols-12 gap-10 md:gap-14" data-reveal>
-            <div className="md:col-span-6 lg:col-span-5">
-              <figure className="relative aspect-[4/5] overflow-hidden bg-ink/10">
+          {/* Two-up principal grid */}
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16">
+            {/* Patrick — real portrait */}
+            <article data-reveal>
+              <figure className="relative aspect-[4/5] overflow-hidden bg-ink/10 mb-6">
                 <img
                   src={patrickHeadshot}
                   alt="Patrick Barrett, Founder and Managing Partner of Thane & Reeve"
@@ -58,78 +56,99 @@ export default function PrincipalsSection() {
                   height={1000}
                 />
               </figure>
-              <figcaption className="mt-4 flex items-baseline justify-between font-sans text-[10px] tracking-[0.28em] uppercase text-ink/55">
+              <figcaption className="mb-6 flex items-baseline justify-between font-sans text-[10px] tracking-[0.28em] uppercase text-ink/55">
                 <span>Portrait &middot; Boston, MMXXVI</span>
                 <span className="font-serif italic tracking-normal normal-case text-sm text-ink/65">
                   Plate №&thinsp;01
                 </span>
               </figcaption>
-            </div>
-
-            <div className="md:col-span-6 lg:col-span-7 lg:pl-6">
-              <p className="font-sans text-[10px] tracking-[0.28em] uppercase text-brass mb-5">
+              <p className="font-sans text-[10px] tracking-[0.28em] uppercase text-brass mb-4">
                 Founder &amp; Managing Partner
               </p>
-              <h3 className="font-serif text-4xl md:text-5xl lg:text-6xl text-ink tracking-tight leading-[1.02] mb-5">
+              <h3 className="font-serif text-3xl md:text-4xl text-ink tracking-tight leading-[1.05] mb-4">
                 Patrick Barrett
               </h3>
-              <p className="font-serif italic text-ink/65 text-base md:text-lg mb-8 leading-snug">
+              <p className="font-serif italic text-ink/65 text-sm md:text-base mb-6 leading-snug">
                 Cambridge zoning attorney &middot; developer &middot;
                 Investment Committee chair
               </p>
-              <div className="h-px w-16 bg-brass mb-8" />
-              <p className="font-serif text-lg md:text-xl leading-[1.7] text-ink/85 mb-7">
-                Originated and developed the $45M, 67&#8209;key 907 Main hotel
-                through one of the most complex entitlement processes in the
-                country. Authored the Central Square Overlay zoning amendments
-                adopted by the Cambridge City Council in 2017. Led 17 Story
-                Street to unanimous approval before the Cambridge Historical
-                Commission.
+              <div className="h-px w-12 bg-brass mb-6" />
+              <p className="font-serif text-base md:text-lg leading-[1.7] text-ink/85 mb-6">
+                Originated and developed the $45M, 67&#8209;key 907 Main
+                hotel through one of the most complex entitlement processes
+                in the country. Authored the Central Square Overlay zoning
+                amendments adopted by the Cambridge City Council in 2017.
+                Led 17 Story Street to unanimous approval before the
+                Cambridge Historical Commission.
               </p>
-              <p className="font-serif text-lg md:text-xl leading-[1.7] text-ink/85 mb-10">
-                Most real estate firms are organized around the deal &mdash;
-                origination teams hunt, capital teams raise, and the property
-                becomes someone else&rsquo;s problem after the closing dinner.
-                Patrick&rsquo;s firm is built the other way around: the team
-                that holds the asset at year seven is the team that bought it
-                at year one.
+              <p className="font-serif italic text-base md:text-lg leading-[1.55] text-ink/85 border-l-[1.5px] border-brass pl-5">
+                The operating work is where real returns are made &mdash;
+                or lost.
               </p>
-              <p className="font-serif italic text-lg md:text-xl leading-[1.55] text-ink/85 border-l-[1.5px] border-brass pl-6">
-                The operating work is where real returns are made &mdash; or
-                lost.
-              </p>
-            </div>
-          </article>
+            </article>
 
-          {/* Operating partner — Tim, inline with full credibility */}
-          <div
-            className="mt-16 md:mt-20 pt-10 border-t border-ink/15 grid md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-start"
-            data-reveal
-          >
-            <p className="font-sans text-[10px] tracking-[0.32em] uppercase text-brass whitespace-nowrap">
-              Operating Partner
-            </p>
-            <div>
-              <h3 className="font-serif text-2xl md:text-3xl text-ink tracking-tight leading-snug mb-4">
-                <span className="text-ink">Timothy Johnson, CPM</span>
-                <span className="font-serif italic text-ink/65 text-base md:text-lg ml-3 whitespace-nowrap">
-                  &mdash; Partner
+            {/* Tim — typographic plate (real portrait pending) */}
+            <article data-reveal>
+              <figure className="relative aspect-[4/5] overflow-hidden bg-paper border border-ink/15 mb-6 flex items-center justify-center">
+                <div className="absolute top-6 left-6 right-6 flex items-start justify-between">
+                  <span className="font-sans text-[9px] tracking-[0.32em] uppercase text-ink/45">
+                    Portrait, sittings &mdash; 2026
+                  </span>
+                  <span className="font-serif italic text-ink/45 text-xs">
+                    in studio
+                  </span>
+                </div>
+                <div className="text-center">
+                  <span className="font-serif font-normal text-ink tracking-wordmark text-7xl md:text-8xl leading-none">
+                    TJ
+                  </span>
+                  <div className="mt-6 mx-auto h-px w-16 bg-brass" />
+                  <p className="mt-6 font-serif italic text-ink/60 text-sm md:text-base">
+                    Timothy Johnson
+                  </p>
+                </div>
+                <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+                  <span className="font-sans text-[9px] tracking-[0.32em] uppercase text-ink/40">
+                    Plate held
+                  </span>
+                  <span className="font-sans text-[9px] tracking-[0.32em] uppercase text-ink/40">
+                    Tim Johnson &middot; CPM
+                  </span>
+                </div>
+              </figure>
+              <figcaption className="mb-6 flex items-baseline justify-between font-sans text-[10px] tracking-[0.28em] uppercase text-ink/55">
+                <span>Plate held &middot; sittings 2026</span>
+                <span className="font-serif italic tracking-normal normal-case text-sm text-ink/65">
+                  Plate №&thinsp;02
                 </span>
-              </h3>
-              <p className="font-serif text-base md:text-lg leading-[1.7] text-ink/80 max-w-3xl">
-                Certified Property Manager and named principal on the $37.75M
-                institutional construction financing for 907 Main. Tim runs
-                Thane &amp; Reeve Management &mdash; asset strategy, property
-                operations, leasing, capital planning, and quarterly investor
-                reporting across the firm&rsquo;s portfolio. The reeve&rsquo;s
-                work is held in&#8209;house, on systems the firm controls, by
-                the same team that signs the underwriting.
+              </figcaption>
+              <p className="font-sans text-[10px] tracking-[0.28em] uppercase text-brass mb-4">
+                Partner &middot; CPM
               </p>
-            </div>
+              <h3 className="font-serif text-3xl md:text-4xl text-ink tracking-tight leading-[1.05] mb-4">
+                Timothy Johnson
+              </h3>
+              <p className="font-serif italic text-ink/65 text-sm md:text-base mb-6 leading-snug">
+                Certified Property Manager &middot; named principal on
+                $37.75M institutional construction financing
+              </p>
+              <div className="h-px w-12 bg-brass mb-6" />
+              <p className="font-serif text-base md:text-lg leading-[1.7] text-ink/85 mb-6">
+                Runs Thane &amp; Reeve Management: asset strategy, property
+                operations, leasing, capital planning, and quarterly
+                investor reporting across the firm&rsquo;s portfolio. The
+                team that holds the asset at year seven is the team that
+                bought it at year one.
+              </p>
+              <p className="font-serif italic text-base md:text-lg leading-[1.55] text-ink/85 border-l-[1.5px] border-brass pl-5">
+                Most underperformance in real estate is operational, not
+                strategic.
+              </p>
+            </article>
           </div>
 
-          {/* Footer */}
-          <div className="mt-14 md:mt-16 pt-8 border-t border-ink/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+          {/* Footer rule */}
+          <div className="mt-16 md:mt-20 pt-10 border-t border-ink/15 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
             <p className="font-serif italic text-ink/65 text-sm md:text-base max-w-xl">
               The firm is deliberately small. Two senior decisions per
               investment. Personal capital in every transaction.
