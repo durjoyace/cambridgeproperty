@@ -22,13 +22,14 @@ const sizeMap: Record<NonNullable<WordmarkProps["size"]>, string> = {
 };
 
 const ampSizeMap: Record<NonNullable<WordmarkProps["size"]>, string> = {
-  // Italic Fraunces & sits at cap-height in the PDF — same size as the
-  // surrounding caps. We use a relative em scale instead of a stepped
-  // size so the proportion is identical at every responsive breakpoint.
-  sm: "text-[1em]",
-  md: "text-[1em]",
-  lg: "text-[1em]",
-  xl: "text-[1em]",
+  // Italic Fraunces & sits at cap-height in the PDF — but the italic glyph
+  // at 1em renders visually ~55% the height of the upright caps because
+  // its bounding box is x-height-anchored, not cap-height-anchored. We
+  // scale up with a relative em so the proportion holds across breakpoints.
+  sm: "text-[1.55em]",
+  md: "text-[1.55em]",
+  lg: "text-[1.6em]",
+  xl: "text-[1.65em]",
 };
 
 /**
