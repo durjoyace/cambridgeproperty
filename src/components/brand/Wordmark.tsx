@@ -22,14 +22,14 @@ const sizeMap: Record<NonNullable<WordmarkProps["size"]>, string> = {
 };
 
 const ampSizeMap: Record<NonNullable<WordmarkProps["size"]>, string> = {
-  // Italic Fraunces & sits at cap-height in the PDF — but the italic glyph
-  // at 1em renders visually ~55% the height of the upright caps because
-  // its bounding box is x-height-anchored, not cap-height-anchored. We
-  // scale up with a relative em so the proportion holds across breakpoints.
-  sm: "text-[1.55em]",
-  md: "text-[1.55em]",
-  lg: "text-[1.6em]",
-  xl: "text-[1.65em]",
+  // Founding-doc spec: & visually at cap-height of THANE/REEVE — top of
+  // loop at the cap-line, swash tail just past baseline. Italic Fraunces
+  // glyph draws roughly at x-height of its em-box, so a small uplift
+  // brings it into proportion. Tuned empirically against the brand bible.
+  sm: "text-[1.15em]",
+  md: "text-[1.15em]",
+  lg: "text-[1.18em]",
+  xl: "text-[1.2em]",
 };
 
 /**
