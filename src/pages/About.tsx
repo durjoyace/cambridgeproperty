@@ -75,7 +75,7 @@ export default function About() {
           <PageHeader label="About" descriptor="The firm, in the founder's voice" />
 
           <div className="max-w-4xl mx-auto text-center">
-            <Wordmark size="xl" tone="ink" sealed />
+            <Wordmark size="xl" tone="ink" />
             <p className="mt-8 font-serif italic text-xl md:text-2xl text-ink/80">
               Land held. Land managed.
             </p>
@@ -261,8 +261,8 @@ export default function About() {
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-6xl mx-auto">
             <div className="mb-16" data-reveal>
-              <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-ink/55 mb-6">
-                The Partners
+              <p className="font-serif italic text-base md:text-lg text-brass mb-6">
+                The partners
               </p>
               <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-ink tracking-tight max-w-3xl">
                 A deliberately small senior team, staffed from the operating side of the industry.
@@ -324,7 +324,7 @@ export default function About() {
       {/* Bottom CTA */}
       <section className="py-20 md:py-28 bg-ink">
         <div className="container mx-auto px-6 md:px-12 text-center max-w-3xl">
-          <Wordmark size="md" tone="paper" sealed />
+          <Wordmark size="md" tone="paper" />
           <p className="mt-8 font-serif italic text-2xl md:text-3xl text-paper/90 leading-[1.4]">
             Land held. Land managed.
           </p>

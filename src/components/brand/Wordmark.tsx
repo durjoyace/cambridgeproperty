@@ -3,16 +3,15 @@ import { Ampersand } from "./Ampersand";
 
 type WordmarkProps = {
   className?: string;
-  /** Layout variant. "horizontal" = THANE & REEVE on one line. "stacked" = three lines. */
+  /** Layout variant. "horizontal" = THANE & REEVE on one line.
+   *  "stacked" = three lines (used in calling-card and footer-mark contexts). */
   variant?: "horizontal" | "stacked";
-  /** Visual size. Controls the serif cap height only. */
+  /** Visual size — controls the serif cap height. */
   size?: "sm" | "md" | "lg" | "xl";
-  /** Show "REAL PROPERTY" tagline beneath. */
+  /** Show "REAL PROPERTY" tagline beneath the mark. */
   withTagline?: boolean;
-  /** Foreground color. Defaults to ink (for paper surfaces). */
+  /** Foreground color of the THANE / REEVE words. The ampersand is always brass. */
   tone?: "ink" | "paper" | "brass";
-  /** Seal treatment on the ampersand. */
-  sealed?: boolean;
 };
 
 const sizeMap: Record<NonNullable<WordmarkProps["size"]>, string> = {
@@ -22,10 +21,24 @@ const sizeMap: Record<NonNullable<WordmarkProps["size"]>, string> = {
   xl: "text-5xl md:text-7xl lg:text-8xl",
 };
 
+const ampSizeMap: Record<NonNullable<WordmarkProps["size"]>, string> = {
+  // Italic Fraunces & sits at cap-height in the PDF — same size as the
+  // surrounding caps. We use a relative em scale instead of a stepped
+  // size so the proportion is identical at every responsive breakpoint.
+  sm: "text-[1em]",
+  md: "text-[1em]",
+  lg: "text-[1em]",
+  xl: "text-[1em]",
+};
+
 /**
  * Primary THANE & REEVE wordmark.
- * Fraunces display caps, letter-spaced, with an italic brass ampersand.
- * Matches the primary horizontal and stacked lockups in the founding document.
+ * Fraunces display caps, letter-spaced, with an italic brass ampersand
+ * sitting between the two words at full optical weight. Mirrors the
+ * primary horizontal lockup from the founding document.
+ *
+ * The wordmark itself never carries the seal underline — that treatment
+ * is reserved for the standalone <Ampersand sealed /> mark.
  */
 export function Wordmark({
   className,
@@ -33,7 +46,6 @@ export function Wordmark({
   size = "md",
   withTagline = false,
   tone = "ink",
-  sealed = false,
 }: WordmarkProps) {
   const toneClass =
     tone === "paper" ? "text-paper" : tone === "brass" ? "text-brass" : "text-ink";
@@ -42,16 +54,23 @@ export function Wordmark({
     tone === "paper" ? "text-paper/70" : "text-ink/60";
 
   const baseWord = cn(
-    "font-serif font-normal tracking-wordmark uppercase",
+    "font-serif font-normal tracking-wordmark uppercase leading-none",
     toneClass,
-    sizeMap[size],
   );
 
   if (variant === "stacked") {
     return (
-      <span className={cn("inline-flex flex-col items-center leading-[1.1]", className)}>
+      <span
+        className={cn(
+          "inline-flex flex-col items-center gap-2",
+          sizeMap[size],
+          className,
+        )}
+      >
         <span className={baseWord}>Thane</span>
-        <Ampersand className={cn(sizeMap[size])} sealed={sealed} />
+        <span className={ampSizeMap[size]}>
+          <Ampersand />
+        </span>
         <span className={baseWord}>Reeve</span>
         {withTagline && (
           <span
@@ -68,16 +87,24 @@ export function Wordmark({
   }
 
   return (
-    <span className={cn("inline-flex flex-col items-center leading-[1.1]", className)}>
-      <span className="inline-flex items-baseline gap-[0.35em]">
+    <span
+      className={cn(
+        "inline-flex flex-col items-center",
+        sizeMap[size],
+        className,
+      )}
+    >
+      <span className="inline-flex items-baseline gap-[0.5em]">
         <span className={baseWord}>Thane</span>
-        <Ampersand className={sizeMap[size]} sealed={sealed} />
+        <span className={cn(ampSizeMap[size])}>
+          <Ampersand />
+        </span>
         <span className={baseWord}>Reeve</span>
       </span>
       {withTagline && (
         <span
           className={cn(
-            "mt-3 font-sans text-[0.55em] tracking-eyebrow uppercase",
+            "mt-4 font-sans text-[0.55em] tracking-eyebrow uppercase",
             taglineToneClass,
           )}
         >

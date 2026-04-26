@@ -164,7 +164,7 @@ export default function DivisionPage({ content }: { content: DivisionPageContent
       {/* Footer wordmark seal */}
       <section className="bg-ink py-14">
         <div className="container mx-auto px-6 md:px-12 text-center">
-          <Wordmark size="sm" tone="paper" sealed withTagline />
+          <Wordmark size="sm" tone="paper" withTagline />
         </div>
       </section>
     </>

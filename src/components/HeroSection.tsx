@@ -80,7 +80,7 @@ export default function HeroSection() {
                 For the Partners
               </span>
             </div>
-            <Wordmark size="xl" tone="ink" sealed />
+            <Wordmark size="xl" tone="ink" />
           </div>
 
           <div

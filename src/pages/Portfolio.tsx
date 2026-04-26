@@ -205,8 +205,8 @@ export default function Portfolio() {
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-6xl mx-auto">
             <div className="mb-12">
-              <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-ink/55 mb-4">
-                Active Pipeline — deals we are working
+              <p className="font-serif italic text-base md:text-lg text-brass mb-4">
+                Active pipeline — deals we are working
               </p>
               <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-[1.15] text-ink tracking-tight max-w-3xl">
                 A curated list, not a funnel. Each of these has been underwritten to

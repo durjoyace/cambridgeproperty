@@ -2,31 +2,54 @@ import { cn } from "@/lib/utils";
 
 type AmpersandProps = {
   className?: string;
-  /** Underline the glyph with a 2pt brass rule — the "seal" treatment. */
+  /** Render the seal treatment — adds a 2pt brass underline beneath the
+   *  glyph. Reserved for the standalone seal mark (favicon, embossing,
+   *  mark-only lockup). The wordmark itself never carries the underline. */
   sealed?: boolean;
-  /** Override the color. Defaults to brass. */
+  /** Override the color. Defaults to brass per founding-doc spec. */
   tone?: "brass" | "ink" | "paper";
 };
 
 /**
- * THANE & REEVE ampersand mark.
- * Italic Fraunces glyph — "not punctuation, the entire business."
- * Pair with a short brass underline to produce the seal treatment used
- * in the primary wordmark and on the seal-only lockup.
+ * THANE & REEVE ampersand glyph.
+ * Italic Fraunces — "not punctuation, the entire business."
+ * Renders inline with surrounding letterforms. The optional sealed
+ * treatment adds the 2pt brass underline used on the seal mark.
  */
 export function Ampersand({ className, sealed, tone = "brass" }: AmpersandProps) {
   const toneClass =
     tone === "ink" ? "text-ink" : tone === "paper" ? "text-paper" : "text-brass";
 
-  return (
-    <span className={cn("relative inline-flex flex-col items-center leading-none", className)}>
-      <span className={cn("font-serif italic font-normal", toneClass)}>&amp;</span>
-      {sealed && (
+  if (sealed) {
+    return (
+      <span
+        className={cn(
+          "relative inline-flex flex-col items-center leading-none",
+          className,
+        )}
+      >
+        <span
+          className={cn("font-serif italic font-normal leading-none", toneClass)}
+        >
+          &amp;
+        </span>
         <span
           aria-hidden
-          className="mt-[0.18em] block h-[2px] w-[0.6em] bg-brass"
+          className="mt-[0.18em] block h-[2px] w-[0.55em] bg-brass"
         />
+      </span>
+    );
+  }
+
+  return (
+    <span
+      className={cn(
+        "font-serif italic font-normal leading-none align-baseline",
+        toneClass,
+        className,
       )}
+    >
+      &amp;
     </span>
   );
 }

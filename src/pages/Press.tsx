@@ -54,7 +54,7 @@ export default function Press() {
       {/* Coverage */}
       <section className="bg-paper-warm py-24 md:py-32">
         <div className="container mx-auto px-6 md:px-12 max-w-6xl">
-          <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-brass mb-4">
+          <p className="font-serif italic text-base md:text-lg text-brass mb-4">
             Coverage
           </p>
           <h2 className="font-serif text-3xl md:text-4xl text-ink tracking-tight mb-12 leading-[1.2]">
@@ -106,7 +106,7 @@ export default function Press() {
       <section className="bg-paper py-24 md:py-32">
         <div className="container mx-auto px-6 md:px-12 max-w-3xl">
           <div className="mb-16">
-            <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-brass mb-4">
+            <p className="font-serif italic text-base md:text-lg text-brass mb-4">
               Principal's track record
             </p>
             <h2 className="font-serif text-3xl md:text-4xl text-ink tracking-tight mb-4 leading-[1.2]">
@@ -174,7 +174,7 @@ export default function Press() {
       {/* Affiliations */}
       <section className="bg-paper-warm py-20 md:py-24">
         <div className="container mx-auto px-6 md:px-12 max-w-5xl">
-          <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-brass mb-4">
+          <p className="font-serif italic text-base md:text-lg text-brass mb-4">
             Community &amp; affiliations
           </p>
           <h2 className="font-serif text-3xl md:text-4xl text-ink tracking-tight mb-10 leading-[1.2]">

@@ -80,7 +80,7 @@ export default function Partners() {
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-start">
             <div>
-              <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-brass mb-6">
+              <p className="font-serif italic text-base md:text-lg text-brass mb-6">
                 Why work with us
               </p>
               <h2 className="font-serif text-3xl md:text-4xl text-ink mb-6 tracking-tight leading-[1.2]">
@@ -122,7 +122,7 @@ export default function Partners() {
       {/* Criteria */}
       <section className="bg-paper py-24 md:py-32">
         <div className="container mx-auto px-6 md:px-12 max-w-5xl">
-          <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-brass mb-6">
+          <p className="font-serif italic text-base md:text-lg text-brass mb-6">
             What we look for
           </p>
           <h2 className="font-serif text-3xl md:text-4xl text-ink tracking-tight mb-10 leading-[1.2]">
@@ -146,7 +146,7 @@ export default function Partners() {
       <section className="bg-paper-warm py-24 md:py-32">
         <div className="container mx-auto px-6 md:px-12 max-w-6xl">
           <div className="mb-14">
-            <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-brass mb-4">
+            <p className="font-serif italic text-base md:text-lg text-brass mb-4">
               Specializations
             </p>
             <h2 className="font-serif text-3xl md:text-4xl text-ink tracking-tight leading-[1.2]">
@@ -171,7 +171,7 @@ export default function Partners() {
       {/* How it works */}
       <section className="bg-paper py-24 md:py-32">
         <div className="container mx-auto px-6 md:px-12 max-w-5xl">
-          <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-brass mb-6">
+          <p className="font-serif italic text-base md:text-lg text-brass mb-6">
             How it works
           </p>
           <h2 className="font-serif text-3xl md:text-4xl text-ink tracking-tight mb-12 leading-[1.2]">
