@@ -23,11 +23,11 @@ export const blogPosts: BlogPost[] = [
     image: blogImg1,
     excerpt:
       "Not every below-market property is a value-add opportunity. Here's how we evaluate multifamily deals in Cambridge, Somerville, and the surrounding metro — and what separates a real opportunity from a money pit.",
-    author: "Patrick W. Barrett III",
+    author: "Patrick Barrett",
     category: "Acquisition Strategy",
     readTime: "6 min read",
     body: `
-<p>The Greater Boston multifamily market is one of the most competitive in the country. With institutional capital flooding into the metro, every off-market deal gets scrutinized by dozens of buyers before it ever hits a listing. So when we evaluate a potential value-add acquisition at Barrett & Johnson, we're looking for a very specific set of characteristics that most buyers overlook.</p>
+<p>The Greater Boston multifamily market is one of the most competitive in the country. With institutional capital flooding into the metro, every off-market deal gets scrutinized by dozens of buyers before it ever hits a listing. So when we evaluate a potential value-add acquisition at Thane &amp; Reeve, we're looking for a very specific set of characteristics that most buyers overlook.</p>
 
 <h2>Start with the Basis, Not the Upside</h2>
 
@@ -72,12 +72,12 @@ export const blogPosts: BlogPost[] = [
     date: "2026-02-01",
     image: blogImg2,
     excerpt:
-      "Most property owners choose between managing themselves or hiring a third party. At Barrett & Johnson, we believe the best model combines the accountability of ownership with the systems of professional management.",
-    author: "Tim Johnson, CPM",
+      "Most property owners choose between managing themselves or hiring a third party. At Thane &amp; Reeve, we believe the best model combines the accountability of ownership with the systems of professional management.",
+    author: "Timothy Johnson",
     category: "Property Management",
     readTime: "5 min read",
     body: `
-<p>In the property management world, there's a persistent debate: should owners manage their own properties, or should they hire professional third-party managers? At Barrett & Johnson, we've spent over a decade developing a model that combines the best of both — and we think it's the reason our portfolio outperforms.</p>
+<p>In the property management world, there's a persistent debate: should owners manage their own properties, or should they hire professional third-party managers? At Thane &amp; Reeve, we've spent over a decade developing a model that combines the best of both — and we think it's the reason our portfolio outperforms.</p>
 
 <h2>The Problem with Pure Self-Management</h2>
 
@@ -103,7 +103,7 @@ export const blogPosts: BlogPost[] = [
 
 <h2>Our Model: Owner-Operated + Enterprise Systems</h2>
 
-<p>At Barrett & Johnson, we are the owners and the managers. Patrick and Tim are personally involved in every acquisition, every capital decision, and every operational issue. But we run our operations on AppFolio — the same enterprise property management platform used by the largest operators in the country.</p>
+<p>At Thane &amp; Reeve, we are the owners and the managers. Patrick and Tim are personally involved in every acquisition, every capital decision, and every operational issue. But we run our operations on AppFolio — the same enterprise property management platform used by the largest operators in the country.</p>
 
 <p>This gives us:</p>
 
@@ -128,7 +128,7 @@ export const blogPosts: BlogPost[] = [
     image: blogImg3,
     excerpt:
       "Cambridge remains one of the strongest rental markets in the country, but 2026 brings new dynamics. Here's our read on rents, supply, regulation, and what it means for property owners.",
-    author: "Patrick W. Barrett III",
+    author: "Patrick Barrett",
     category: "Market Analysis",
     readTime: "7 min read",
     body: `

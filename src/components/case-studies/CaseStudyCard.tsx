@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, TrendingUp } from "lucide-react";
+import { ArrowUpRight, TrendingUp } from "lucide-react";
 import type { CaseStudy } from "@/lib/data/case-studies";
 
 interface Props {
@@ -8,10 +8,9 @@ interface Props {
 
 export default function CaseStudyCard({ study }: Props) {
   return (
-    <div className="group bg-charcoal-mid border border-border/40 overflow-hidden hover:border-gold/15 transition-all duration-500 shadow-card">
-      {/* Image or placeholder */}
+    <div className="group bg-paper border border-ink/10 overflow-hidden hover:border-ink/25 transition-all duration-500">
       {study.image ? (
-        <div className="relative h-64 md:h-72 overflow-hidden">
+        <div className="relative h-64 md:h-72 overflow-hidden bg-paper-warm">
           <img
             src={study.image}
             alt={study.title}
@@ -21,62 +20,73 @@ export default function CaseStudyCard({ study }: Props) {
             height={400}
             sizes="(min-width: 1024px) 50vw, 100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal-mid via-charcoal-mid/20 to-transparent" />
-        </div>
-      ) : (
-        <div className="relative h-48 bg-gradient-to-br from-charcoal-light to-charcoal flex items-center justify-center">
-          <div className="text-center">
-            <div className="font-display text-4xl font-semibold text-gold/10 tracking-tight">{study.units}</div>
-            <div className="font-sans text-[9px] tracking-[0.3em] uppercase text-gold/25 mt-1">Units</div>
-          </div>
-          <span className="absolute top-5 left-5 font-sans text-[9px] tracking-[0.25em] uppercase text-gold border border-gold/30 bg-charcoal/70 backdrop-blur-sm px-3 py-1.5">
+          <span className="absolute top-5 left-5 font-sans text-[9px] tracking-[0.22em] uppercase text-ink bg-paper/90 backdrop-blur-sm px-3 py-1.5 border border-ink/15">
             {study.assetType}
           </span>
-          <span className="absolute top-5 right-5 font-sans text-[9px] tracking-[0.25em] uppercase text-cream-muted/60 border border-border/40 bg-charcoal/70 backdrop-blur-sm px-3 py-1.5">
+        </div>
+      ) : (
+        <div className="relative h-48 bg-paper-warm flex items-center justify-center">
+          <div className="text-center">
+            <div className="font-serif text-4xl text-brass/40 tracking-tight">{study.units}</div>
+            <div className="font-sans text-[9px] tracking-[0.3em] uppercase text-ink/40 mt-1">Units</div>
+          </div>
+          <span className="absolute top-5 left-5 font-sans text-[9px] tracking-[0.22em] uppercase text-ink bg-paper/90 backdrop-blur-sm px-3 py-1.5 border border-ink/15">
+            {study.assetType}
+          </span>
+          <span className="absolute top-5 right-5 font-sans text-[9px] tracking-[0.22em] uppercase text-brass border border-brass/30 bg-paper/90 backdrop-blur-sm px-3 py-1.5">
             {study.statusDetail || study.status}
           </span>
         </div>
       )}
 
-      {/* Body */}
       <div className="p-8 md:p-10">
         <div className="mb-4">
-          <h3 className="font-display text-xl md:text-2xl font-semibold text-cream mb-1.5">{study.title}</h3>
-          <p className="font-sans text-xs text-cream-muted/70">
-            {study.location} &middot; {study.units} Units &middot; {study.strategy}
+          <h3 className="font-serif text-xl md:text-2xl text-ink mb-2 tracking-tight leading-snug">
+            {study.title}
+          </h3>
+          <p className="font-sans text-xs text-ink/55">
+            {study.location} &middot; {study.units} units &middot; {study.strategy}
           </p>
         </div>
-        <p className="font-sans text-sm text-cream-muted leading-[1.7] font-light mb-6">
+        <p className="font-sans text-sm text-ink/70 leading-[1.7] font-light mb-6">
           {study.description}
         </p>
 
-        {/* Highlights */}
         <div className="mb-8">
-          <div className="font-sans text-[10px] tracking-[0.2em] uppercase text-gold/60 mb-3">Key Highlights</div>
+          <div className="font-sans text-[10px] tracking-[0.22em] uppercase text-brass mb-3">
+            Key highlights
+          </div>
           <ul className="space-y-2">
             {study.highlights.map((h, i) => (
               <li key={i} className="flex items-start gap-2">
-                <div className="w-1 h-1 rounded-full bg-gold/40 mt-2 shrink-0" />
-                <span className="font-sans text-xs text-cream-muted/80 font-light leading-relaxed">{h}</span>
+                <span className="text-brass mt-1.5 select-none" aria-hidden>&bull;</span>
+                <span className="font-sans text-sm text-ink/75 font-light leading-relaxed">{h}</span>
               </li>
             ))}
           </ul>
         </div>
 
-        {/* Performance Snapshot */}
         {study.performanceSnapshot && (
-          <div className="mb-6 p-5 bg-charcoal border border-gold/10">
+          <div className="mb-6 p-5 bg-paper-warm border-l-2 border-brass">
             <div className="flex items-center gap-2 mb-4">
-              <TrendingUp size={12} className="text-gold/60" />
-              <span className="font-sans text-[9px] tracking-[0.2em] uppercase text-gold/70">Performance Snapshot</span>
+              <TrendingUp size={12} className="text-brass" />
+              <span className="font-sans text-[9px] tracking-[0.22em] uppercase text-brass">
+                Performance snapshot
+              </span>
             </div>
             <div className="grid grid-cols-3 gap-4">
               {study.performanceSnapshot.map((pm, j) => (
                 <div key={j}>
-                  <div className="font-display text-lg font-semibold text-gold mb-1">{pm.value}</div>
-                  <div className="font-sans text-[9px] tracking-[0.1em] uppercase text-cream-muted/70 mb-0.5">{pm.label}</div>
+                  <div className="font-serif text-lg md:text-xl text-ink mb-1 tracking-tight">
+                    {pm.value}
+                  </div>
+                  <div className="font-sans text-[9px] tracking-[0.12em] uppercase text-ink/55 mb-0.5">
+                    {pm.label}
+                  </div>
                   {pm.context && (
-                    <div className="font-sans text-[10px] text-cream-muted/60 font-light">{pm.context}</div>
+                    <div className="font-sans text-[10px] text-ink/55 font-light">
+                      {pm.context}
+                    </div>
                   )}
                 </div>
               ))}
@@ -84,21 +94,22 @@ export default function CaseStudyCard({ study }: Props) {
           </div>
         )}
 
-        {/* Metrics */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-border/40 mb-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-ink/15 mb-6">
           {study.metrics.map((m, j) => (
             <div key={j}>
-              <div className="font-sans text-[9px] tracking-[0.2em] uppercase text-gold/60 mb-1.5">{m.label}</div>
-              <div className="font-sans text-xs text-cream font-light">{m.value}</div>
+              <div className="font-sans text-[9px] tracking-[0.22em] uppercase text-ink/55 mb-1.5">
+                {m.label}
+              </div>
+              <div className="font-serif italic text-sm text-ink/85">{m.value}</div>
             </div>
           ))}
         </div>
 
         <Link
           to={`/portfolio/${study.slug}`}
-          className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase text-gold/60 hover:text-gold transition-colors duration-300"
+          className="inline-flex items-center gap-2 font-sans text-[11px] tracking-[0.22em] uppercase text-ink border-b border-ink/30 pb-1 hover:border-brass hover:text-brass transition-colors duration-300"
         >
-          View Details <ArrowRight size={12} />
+          Read the case <ArrowUpRight size={13} />
         </Link>
       </div>
     </div>

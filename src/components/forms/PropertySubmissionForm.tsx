@@ -114,56 +114,70 @@ export default function PropertySubmissionForm({ variant = "inline" }: Props) {
   };
 
   const inputCls = (err?: string) =>
-    `bg-charcoal border ${err ? "border-destructive/60" : "border-border/60 focus:border-gold/40"} text-cream font-sans text-sm px-5 py-4 focus:outline-none transition-all duration-300 placeholder:text-cream-muted/40 w-full`;
+    `bg-paper border-b ${
+      err ? "border-destructive/60" : "border-ink/25 focus:border-brass"
+    } text-ink font-sans text-base px-0 py-3 focus:outline-none transition-colors duration-300 placeholder:text-ink/35 w-full`;
 
-  const labelCls = "font-sans text-[10px] tracking-[0.2em] uppercase text-cream-muted/70 block mb-2";
+  const labelCls =
+    "font-sans text-[10px] tracking-[0.24em] uppercase text-ink/55 block mb-2";
 
   const isFullPage = variant === "full";
 
   return (
-    <div className={`bg-charcoal border border-border/40 shadow-elevated ${isFullPage ? "max-w-2xl mx-auto" : ""}`}>
-      {/* Step indicators */}
-      <div className="flex border-b border-border/40">
-        {STEPS.map((s, i) => (
-          <div
-            key={i}
-            className={`flex-1 px-4 py-5 text-center border-r last:border-r-0 border-border/40 transition-all duration-300 ${
-              i === step && !submitted
-                ? "bg-charcoal-mid border-b-2 border-b-gold"
-                : i < step || submitted
-                ? "bg-charcoal-mid/50"
-                : ""
-            }`}
-          >
-            <div className={`font-sans text-[9px] tracking-[0.25em] uppercase mb-1 transition-colors duration-300 ${i <= step || submitted ? "text-gold" : "text-cream-muted/40"}`}>
-              Step {i + 1}
+    <div
+      className={`bg-paper border border-ink/10 ${isFullPage ? "max-w-2xl mx-auto" : ""}`}
+    >
+      {/* Step indicators — roman numerals on paper */}
+      <div className="flex border-b border-ink/10">
+        {STEPS.map((s, i) => {
+          const active = i === step && !submitted;
+          const past = i < step || submitted;
+          return (
+            <div
+              key={i}
+              className={`flex-1 px-4 py-5 text-center border-r last:border-r-0 border-ink/10 transition-all duration-300 ${
+                active ? "bg-paper border-b-2 border-b-brass" : past ? "bg-paper-warm/50" : "bg-paper-warm/20"
+              }`}
+            >
+              <div
+                className={`font-serif italic text-base mb-1 transition-colors duration-300 ${
+                  past || active ? "text-brass" : "text-ink/30"
+                }`}
+              >
+                {["i.", "ii.", "iii."][i]}
+              </div>
+              <div
+                className={`font-sans text-[10px] tracking-[0.2em] uppercase transition-colors duration-300 ${
+                  past || active ? "text-ink/80" : "text-ink/40"
+                }`}
+              >
+                {s.label}
+              </div>
             </div>
-            <div className={`font-sans text-xs transition-colors duration-300 ${i <= step || submitted ? "text-cream" : "text-cream-muted/40"}`}>
-              {s.label}
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       <div className="p-8 md:p-10">
         {submitted ? (
           <div className="py-14 text-center">
-            <div className="w-16 h-16 border border-gold/20 flex items-center justify-center mx-auto mb-6">
-              <CheckCircle size={24} className="text-gold" />
-            </div>
-            <p className="font-display text-2xl text-cream mb-4 tracking-tight">Submission Received</p>
-            <p className="font-sans text-sm text-cream-muted font-light max-w-xs mx-auto leading-[1.7]">
-              Our principals will review your property and be in touch within 48 business hours.
+            <CheckCircle size={28} className="text-brass mx-auto mb-6" />
+            <p className="font-serif text-2xl text-ink mb-4 tracking-tight">Submission received.</p>
+            <p className="font-sans text-sm text-ink/65 font-light max-w-xs mx-auto leading-[1.75]">
+              The partners will review your property and be in touch within 48
+              business hours — yes or no.
             </p>
           </div>
         ) : submitError ? (
           <div className="py-14 text-center">
-            <div className="w-16 h-16 border border-destructive/20 flex items-center justify-center mx-auto mb-6">
-              <AlertCircle size={24} className="text-destructive" />
-            </div>
-            <p className="font-display text-2xl text-cream mb-4 tracking-tight">Something Went Wrong</p>
-            <p className="font-sans text-sm text-cream-muted font-light max-w-xs mx-auto leading-[1.7] mb-8">
-              Your submission couldn't be processed. Please try again or contact us directly at 617-778-3521.
+            <AlertCircle size={24} className="text-destructive mx-auto mb-6" />
+            <p className="font-serif text-2xl text-ink mb-4 tracking-tight">Something went wrong.</p>
+            <p className="font-sans text-sm text-ink/65 font-light max-w-xs mx-auto leading-[1.75] mb-8">
+              Your submission couldn't be processed. Try again, or write to{" "}
+              <a href="mailto:acquisitions@thaneandreeve.com" className="text-brass">
+                acquisitions@thaneandreeve.com
+              </a>
+              .
             </p>
             <button
               type="button"
@@ -174,16 +188,16 @@ export default function PropertySubmissionForm({ variant = "inline" }: Props) {
                   unitCount: parseInt(form.unitCount, 10) || 0,
                 });
               }}
-              className="font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
+              className="font-sans text-[11px] tracking-[0.24em] uppercase px-10 py-4 bg-ink text-paper hover:bg-brass transition-colors duration-300"
             >
-              {mutation.isPending ? "Retrying..." : "Try Again"}
+              {mutation.isPending ? "Retrying…" : "Try again"}
             </button>
           </div>
         ) : (
           <form onSubmit={handleSubmit} noValidate>
             {step === 0 && (
               <div className="flex flex-col gap-6">
-                <h3 className="font-display text-xl font-semibold text-cream mb-2">Property Information</h3>
+                <h3 className="font-serif text-2xl text-ink mb-2 tracking-tight">Property information</h3>
                 <div>
                   <label htmlFor="assetType" className={labelCls}>Asset Type *</label>
                   <select
@@ -226,7 +240,7 @@ export default function PropertySubmissionForm({ variant = "inline" }: Props) {
                 </div>
                 <button
                   type="button" onClick={next}
-                  className="mt-3 font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold flex items-center justify-center gap-2 focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
+                  className="mt-3 font-sans text-[11px] tracking-[0.24em] uppercase px-10 py-4 bg-ink text-paper hover:bg-brass transition-colors duration-300 flex items-center justify-center gap-2 focus-visible:ring-2 focus-visible:ring-brass/60 focus-visible:outline-none self-start"
                 >
                   Continue <ArrowRight size={13} />
                 </button>
@@ -235,7 +249,7 @@ export default function PropertySubmissionForm({ variant = "inline" }: Props) {
 
             {step === 1 && (
               <div className="flex flex-col gap-6">
-                <h3 className="font-display text-xl font-semibold text-cream mb-2">Market Details</h3>
+                <h3 className="font-serif text-2xl text-ink mb-2 tracking-tight">Market details</h3>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="market" className={labelCls}>City / Market *</label>
@@ -282,13 +296,13 @@ export default function PropertySubmissionForm({ variant = "inline" }: Props) {
                 <div className="flex gap-4 mt-3">
                   <button
                     type="button" onClick={() => setStep(0)}
-                    className="font-sans text-xs tracking-[0.2em] uppercase px-8 py-5 border border-border/60 text-cream-muted hover:border-gold/20 hover:text-cream transition-all duration-300 focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
+                    className="font-sans text-[11px] tracking-[0.24em] uppercase px-8 py-4 border border-ink/25 text-ink/70 hover:border-ink hover:text-ink transition-all duration-300 focus-visible:ring-2 focus-visible:ring-brass/60 focus-visible:outline-none"
                   >
                     Back
                   </button>
                   <button
                     type="button" onClick={next}
-                    className="flex-1 font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold flex items-center justify-center gap-2 focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
+                    className="flex-1 font-sans text-[11px] tracking-[0.24em] uppercase px-10 py-4 bg-ink text-paper hover:bg-brass transition-colors duration-300 flex items-center justify-center gap-2 focus-visible:ring-2 focus-visible:ring-brass/60 focus-visible:outline-none"
                   >
                     Continue <ArrowRight size={13} />
                   </button>
@@ -298,7 +312,7 @@ export default function PropertySubmissionForm({ variant = "inline" }: Props) {
 
             {step === 2 && (
               <div className="flex flex-col gap-6">
-                <h3 className="font-display text-xl font-semibold text-cream mb-2">Contact Information</h3>
+                <h3 className="font-serif text-2xl text-ink mb-2 tracking-tight">Contact</h3>
                 <div>
                   <label htmlFor="ownerName" className={labelCls}>Owner / Representative Name *</label>
                   <input
@@ -352,17 +366,17 @@ export default function PropertySubmissionForm({ variant = "inline" }: Props) {
                 <div className="flex gap-4 mt-3">
                   <button
                     type="button" onClick={() => setStep(1)}
-                    className="font-sans text-xs tracking-[0.2em] uppercase px-8 py-5 border border-border/60 text-cream-muted hover:border-gold/20 hover:text-cream transition-all duration-300 focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
+                    className="font-sans text-[11px] tracking-[0.24em] uppercase px-8 py-4 border border-ink/25 text-ink/70 hover:border-ink hover:text-ink transition-all duration-300 focus-visible:ring-2 focus-visible:ring-brass/60 focus-visible:outline-none"
                   >
                     Back
                   </button>
                   <button
                     type="submit"
                     disabled={mutation.isPending}
-                    className="flex-1 font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold flex items-center justify-center gap-2 disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
+                    className="flex-1 font-sans text-[11px] tracking-[0.24em] uppercase px-10 py-4 bg-ink text-paper hover:bg-brass transition-colors duration-300 flex items-center justify-center gap-2 disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-brass/60 focus-visible:outline-none"
                   >
                     <Shield size={13} />
-                    {mutation.isPending ? "Submitting..." : "Submit Securely"}
+                    {mutation.isPending ? "Submitting…" : "Submit confidentially"}
                   </button>
                 </div>
               </div>

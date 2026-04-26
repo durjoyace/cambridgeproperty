@@ -92,7 +92,7 @@ export const publicRecord: MilestoneItem[] = [
     year: "2010",
     title: "First Cambridge Acquisitions",
     description:
-      "Patrick Barrett and Tim Johnson begin acquiring residential properties in Cambridge, establishing the foundation for what becomes Barrett & Johnson.",
+      "Patrick Barrett and Timothy Johnson begin acquiring residential properties in Cambridge — the foundation for the operating platform later consolidated under Thane & Reeve.",
   },
   {
     year: "2015",
@@ -200,7 +200,7 @@ export const publicRecord: MilestoneItem[] = [
     year: "2022",
     title: "75-Door Portfolio Stabilization",
     description:
-      "Barrett & Johnson reaches full stabilization across 75 doors — 63 residential and 12 retail — with 100% owner-operated management on AppFolio.",
+      "Patrick and Tim's portfolio reaches full stabilization across 75 doors — 63 residential and 12 retail — with 100% owner-operated management on AppFolio. This portfolio is now held under Thane & Reeve Management.",
   },
   {
     year: "2025",
