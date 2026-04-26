@@ -55,7 +55,7 @@ export function PageHeader({
           )}
         </div>
       </div>
-      <div className={cn("mt-5 h-px w-full", ruleTone)} />
+      <div className={cn("mt-5 h-px w-full", ruleTone)} data-reveal-rule />
     </div>
   );
 }

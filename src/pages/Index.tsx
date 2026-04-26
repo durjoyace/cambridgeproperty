@@ -8,6 +8,7 @@ import FAQSection from "@/components/FAQSection";
 import SEOHead from "@/components/seo/SEOHead";
 import { PAGE_META } from "@/lib/seo/metadata";
 import { organizationSchema, localBusinessSchema, faqSchema } from "@/lib/seo/schemas";
+import { PullQuote } from "@/components/brand/PullQuote";
 
 const homeFaqs = [
   {
@@ -51,6 +52,16 @@ const Index = () => {
       />
       <HeroSection />
       <ThesisSection />
+      <section className="bg-paper-warm py-16 md:py-24">
+        <div className="container mx-auto px-6 md:px-12">
+          <PullQuote attribution="Founding document, §01">
+            The ampersand is{" "}
+            <em className="not-italic font-serif">not a flourish.</em>
+            <br />
+            It is the promise that ownership and stewardship never get uncoupled.
+          </PullQuote>
+        </div>
+      </section>
       <OperatorFramework />
       <PortfolioSection />
       <CapitalAlignment />

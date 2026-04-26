@@ -81,7 +81,7 @@ export default function Navbar() {
             <NavAnchor
               key={link.href}
               href={link.href}
-              className="relative font-sans text-[11px] tracking-[0.18em] uppercase text-ink/65 hover:text-ink transition-colors duration-300 after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-px after:bg-brass hover:after:w-full after:transition-all after:duration-300 focus-visible:ring-2 focus-visible:ring-brass/60 focus-visible:outline-none"
+              className="link-rule font-sans text-[11px] tracking-[0.18em] uppercase text-ink/65 hover:text-ink transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-brass/60 focus-visible:outline-none"
             >
               {link.label}
             </NavAnchor>

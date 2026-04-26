@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Wordmark } from "@/components/brand/Wordmark";
+import { Ampersand } from "@/components/brand/Ampersand";
 import { trackEvent } from "@/components/Analytics";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -11,35 +11,78 @@ gsap.registerPlugin(ScrollTrigger);
  * Editorial paper-on-ink treatment from the founding document's
  * About Page composition: header rules, centered wordmark, italic
  * tagline, thesis paragraph, quiet CTAs.
+ *
+ * The wordmark itself is composed inline (rather than via <Wordmark />)
+ * so each of THANE / & / REEVE can be targeted by GSAP and revealed in
+ * a staggered sequence — the brand reading itself onto the page.
  */
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
-  const wordmarkRef = useRef<HTMLDivElement>(null);
+  const headerRuleRef = useRef<HTMLDivElement>(null);
+  const eyebrowRef = useRef<HTMLDivElement>(null);
+  const thaneRef = useRef<HTMLSpanElement>(null);
+  const ampRef = useRef<HTMLSpanElement>(null);
+  const reeveRef = useRef<HTMLSpanElement>(null);
   const taglineRef = useRef<HTMLDivElement>(null);
   const thesisRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const footerRef = useRef<HTMLDivElement>(null);
+  const footerRuleRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!sectionRef.current) return;
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+    const fadeTargets = [
+      headerRef.current,
+      eyebrowRef.current,
+      thaneRef.current,
+      ampRef.current,
+      reeveRef.current,
+      taglineRef.current,
+      thesisRef.current,
+      ctaRef.current,
+      footerRef.current,
+    ].filter(Boolean) as HTMLElement[];
+
     if (prefersReduced) {
-      gsap.set([headerRef.current, wordmarkRef.current, taglineRef.current, thesisRef.current, ctaRef.current], {
-        opacity: 1,
-        y: 0,
-      });
+      gsap.set(fadeTargets, { opacity: 1, y: 0 });
+      headerRuleRef.current?.classList.add("is-revealed");
+      footerRuleRef.current?.classList.add("is-revealed");
       return;
     }
 
-    const tl = gsap.timeline({ delay: 0.15 });
-    tl.to(headerRef.current, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 0)
-      .to(wordmarkRef.current, { opacity: 1, y: 0, duration: 1.1, ease: "power3.out" }, 0.15)
-      .to(taglineRef.current, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, 0.55)
-      .to(thesisRef.current, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, 0.75)
-      .to(ctaRef.current, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 0.95);
+    // Pre-set initial state
+    gsap.set(fadeTargets, { opacity: 0, y: 18 });
+    gsap.set([thaneRef.current, ampRef.current, reeveRef.current], {
+      opacity: 0,
+      y: 28,
+    });
+    gsap.set(ampRef.current, { rotationZ: -3, transformOrigin: "center" });
+
+    const tl = gsap.timeline({ delay: 0.2 });
+
+    tl
+      .to(headerRef.current, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 0)
+      .add(() => headerRuleRef.current?.classList.add("is-revealed"), 0.05)
+      .to(eyebrowRef.current, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 0.4)
+      // The wordmark reads in: THANE → & → REEVE.
+      .to(thaneRef.current, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, 0.55)
+      .to(
+        ampRef.current,
+        { opacity: 1, y: 0, rotationZ: 0, duration: 1.0, ease: "power3.out" },
+        0.85,
+      )
+      .to(reeveRef.current, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, 1.0)
+      .to(taglineRef.current, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 1.45)
+      .to(thesisRef.current, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 1.65)
+      .to(ctaRef.current, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 1.85)
+      .to(footerRef.current, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 1.95)
+      .add(() => footerRuleRef.current?.classList.add("is-revealed"), 2.0);
 
     return () => {
+      tl.kill();
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, []);
@@ -52,8 +95,7 @@ export default function HeroSection() {
       {/* Top editorial rule + meta */}
       <div
         ref={headerRef}
-        className="absolute top-0 inset-x-0 pt-20 md:pt-24 px-6 md:px-12 opacity-0"
-        style={{ transform: "translateY(-8px)" }}
+        className="absolute top-0 inset-x-0 pt-20 md:pt-24 px-6 md:px-12"
       >
         <div className="container mx-auto">
           <div className="flex items-center justify-between font-sans text-[10px] tracking-[0.28em] uppercase text-ink/55">
@@ -63,31 +105,45 @@ export default function HeroSection() {
             </span>
             <span>Real Property · Northeast</span>
           </div>
-          <div className="mt-4 h-px w-full bg-ink/20" />
+          <div
+            ref={headerRuleRef}
+            data-reveal-rule
+            className="mt-4 h-px w-full bg-ink/20"
+          />
         </div>
       </div>
 
       {/* Centered wordmark + tagline block */}
       <div className="relative container mx-auto px-6 md:px-12 pt-28 md:pt-32 pb-20">
         <div className="max-w-4xl mx-auto text-center">
-          <div
-            ref={wordmarkRef}
-            className="opacity-0"
-            style={{ transform: "translateY(24px)" }}
-          >
-            <div className="mb-3">
-              <span className="font-sans text-[10px] tracking-[0.32em] uppercase text-ink/55">
-                For the Partners
-              </span>
-            </div>
-            <Wordmark size="xl" tone="ink" />
+          <div ref={eyebrowRef} className="mb-3">
+            <span className="font-sans text-[10px] tracking-[0.32em] uppercase text-ink/55">
+              For the Partners
+            </span>
           </div>
 
-          <div
-            ref={taglineRef}
-            className="mt-10 opacity-0"
-            style={{ transform: "translateY(16px)" }}
-          >
+          {/* Wordmark — composed inline so each part can stagger in. */}
+          <div className="inline-flex flex-col items-center text-5xl md:text-7xl lg:text-8xl">
+            <span className="inline-flex items-baseline gap-[0.5em]">
+              <span
+                ref={thaneRef}
+                className="font-serif font-normal tracking-wordmark uppercase leading-none text-ink"
+              >
+                Thane
+              </span>
+              <span ref={ampRef} className="text-[1em] inline-block">
+                <Ampersand />
+              </span>
+              <span
+                ref={reeveRef}
+                className="font-serif font-normal tracking-wordmark uppercase leading-none text-ink"
+              >
+                Reeve
+              </span>
+            </span>
+          </div>
+
+          <div ref={taglineRef} className="mt-10">
             <div className="flex items-center justify-center gap-5">
               <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-ink/55">
                 Real Property
@@ -102,11 +158,7 @@ export default function HeroSection() {
             </p>
           </div>
 
-          <div
-            ref={thesisRef}
-            className="mt-14 max-w-2xl mx-auto opacity-0"
-            style={{ transform: "translateY(20px)" }}
-          >
+          <div ref={thesisRef} className="mt-14 max-w-2xl mx-auto">
             <p className="font-serif text-lg md:text-xl leading-[1.6] text-ink/80">
               A real estate firm built on a thousand-year-old idea: that{" "}
               <em className="text-brass">the ownership of land</em> and{" "}
@@ -117,8 +169,7 @@ export default function HeroSection() {
 
           <div
             ref={ctaRef}
-            className="mt-12 flex flex-col sm:flex-row gap-4 justify-center opacity-0"
-            style={{ transform: "translateY(16px)" }}
+            className="mt-12 flex flex-col sm:flex-row gap-4 justify-center"
           >
             <a
               href="/about"
@@ -139,9 +190,16 @@ export default function HeroSection() {
       </div>
 
       {/* Bottom editorial footer rule */}
-      <div className="absolute bottom-0 inset-x-0 pb-10 px-6 md:px-12">
+      <div
+        ref={footerRef}
+        className="absolute bottom-0 inset-x-0 pb-10 px-6 md:px-12"
+      >
         <div className="container mx-auto">
-          <div className="h-px w-full bg-ink/15 mb-4" />
+          <div
+            ref={footerRuleRef}
+            data-reveal-rule
+            className="h-px w-full bg-ink/15 mb-4"
+          />
           <div className="flex items-center justify-between font-sans text-[10px] tracking-[0.28em] uppercase text-ink/50">
             <span>Thane &amp; Reeve Holdings LLC</span>
             <span className="hidden sm:inline font-serif italic tracking-normal normal-case text-[12px] text-ink/60">

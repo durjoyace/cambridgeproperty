@@ -18,28 +18,36 @@ export function useScrollReveal<T extends HTMLElement>(opts: ScrollRevealOptions
     if (!ref.current) return;
 
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const children = ref.current.querySelectorAll("[data-reveal]");
-    const targets = children.length > 0 ? children : [ref.current];
+    const revealChildren = ref.current.querySelectorAll<HTMLElement>("[data-reveal]");
+    const ruleChildren = ref.current.querySelectorAll<HTMLElement>("[data-reveal-rule]");
+
+    const fadeTargets = revealChildren.length > 0 ? revealChildren : [ref.current];
 
     if (prefersReducedMotion) {
-      gsap.set(targets, { opacity: 1, y: 0 });
+      gsap.set(fadeTargets, { opacity: 1, y: 0 });
+      ruleChildren.forEach((el) => el.classList.add("is-revealed"));
       return;
     }
 
-    gsap.set(targets, { opacity: 0, y: opts.y ?? 40 });
+    gsap.set(fadeTargets, { opacity: 0, y: opts.y ?? 40 });
 
     const trigger = ScrollTrigger.create({
       trigger: ref.current,
       start: "top 85%",
       once: true,
       onEnter: () => {
-        gsap.to(targets, {
+        gsap.to(fadeTargets, {
           opacity: 1,
           y: 0,
           duration: opts.duration ?? 0.8,
           stagger: opts.stagger ?? 0.15,
           ease: "power3.out",
           delay: opts.delay ?? 0,
+        });
+        ruleChildren.forEach((el, i) => {
+          // Stagger the rule reveals by a slow tick so multiple hairlines
+          // in the same section don't snap in lockstep.
+          window.setTimeout(() => el.classList.add("is-revealed"), 120 + i * 80);
         });
       },
     });

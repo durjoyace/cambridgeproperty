@@ -3,6 +3,7 @@ import FAQSection from "@/components/FAQSection";
 import { PAGE_META } from "@/lib/seo/metadata";
 import { serviceSchema, breadcrumbSchema, faqSchema } from "@/lib/seo/schemas";
 import DivisionPage, { DivisionPageContent } from "@/components/layout/DivisionPage";
+import { PullQuote } from "@/components/brand/PullQuote";
 
 const content: DivisionPageContent = {
   division: "Management",
@@ -77,6 +78,14 @@ export default function Management() {
         ]}
       />
       <DivisionPage content={content} />
+      <section className="bg-paper-warm py-16 md:py-20">
+        <div className="container mx-auto px-6 md:px-12">
+          <PullQuote attribution="House view, T&R Management">
+            The team that holds the asset at year seven is{" "}
+            <em className="not-italic font-serif">the team that bought it at year one.</em>
+          </PullQuote>
+        </div>
+      </section>
       <FAQSection faqs={managementFaqs} label="Operations" title="Questions from owners & partners" />
     </>
   );

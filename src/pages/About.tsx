@@ -10,6 +10,7 @@ import timPlaceholder from "@/assets/tim-johnson-placeholder.svg";
 import { Wordmark } from "@/components/brand/Wordmark";
 import { Ampersand } from "@/components/brand/Ampersand";
 import { PageHeader } from "@/components/brand/PageHeader";
+import { PullQuote } from "@/components/brand/PullQuote";
 
 const principals = [
   {
@@ -167,6 +168,13 @@ export default function About() {
             </div>
           </div>
 
+          <PullQuote attribution="Founding document, §02">
+            We will walk from deals that other firms will do.
+            <br />
+            We will not chase a cycle.{" "}
+            <em className="not-italic font-serif">We will not index.</em>
+          </PullQuote>
+
           {/* Three cards */}
           <div className="max-w-5xl mx-auto mt-16 grid md:grid-cols-3 gap-px bg-ink/10 border border-ink/10">
             {[
@@ -260,6 +268,12 @@ export default function About() {
       <section className="bg-paper-warm py-24 md:py-32">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-6xl mx-auto">
+            <PullQuote attribution="Patrick Barrett · Founder">
+              The operating work is{" "}
+              <em className="not-italic font-serif">where real returns are made</em>{" "}
+              — or lost.
+            </PullQuote>
+
             <div className="mb-16" data-reveal>
               <p className="font-serif italic text-base md:text-lg text-brass mb-6">
                 The partners
