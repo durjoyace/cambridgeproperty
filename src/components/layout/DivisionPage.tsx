@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import { DivisionLockup } from "@/components/brand/DivisionLockup";
 import { Wordmark } from "@/components/brand/Wordmark";
+import { ArchitecturalFigure } from "@/components/brand/ArchitecturalFigure";
 
 export type DivisionPageContent = {
   division: "Capital" | "Development" | "Management";
@@ -24,6 +25,15 @@ export type DivisionPageContent = {
   };
   /** Sister division callouts for the footer. */
   sisters: { division: string; href: string; tag: string }[];
+  /** Optional architectural figure rendered between hero and narrative —
+   *  the firm's evidence, photographed. */
+  figure?: {
+    src: string;
+    alt: string;
+    caption: string;
+    context: string;
+    plate?: string;
+  };
 };
 
 export default function DivisionPage({ content }: { content: DivisionPageContent }) {
@@ -49,6 +59,17 @@ export default function DivisionPage({ content }: { content: DivisionPageContent
           </div>
         </div>
       </section>
+
+      {/* Architectural figure — the firm's evidence, photographed */}
+      {content.figure && (
+        <ArchitecturalFigure
+          src={content.figure.src}
+          alt={content.figure.alt}
+          caption={content.figure.caption}
+          context={content.figure.context}
+          plate={content.figure.plate}
+        />
+      )}
 
       {/* Thesis + narrative */}
       <section className="bg-paper py-24 md:py-32">

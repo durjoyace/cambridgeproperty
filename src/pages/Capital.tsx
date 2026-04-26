@@ -2,6 +2,7 @@ import SEOHead from "@/components/seo/SEOHead";
 import { PAGE_META } from "@/lib/seo/metadata";
 import { breadcrumbSchema, serviceSchema } from "@/lib/seo/schemas";
 import DivisionPage, { DivisionPageContent } from "@/components/layout/DivisionPage";
+import hotel907 from "@/assets/907-main.jpg";
 
 const content: DivisionPageContent = {
   division: "Capital",
@@ -24,13 +25,21 @@ const content: DivisionPageContent = {
   ],
   head: {
     title: "Patrick Barrett",
-    role: "Managing Partner",
+    role: "Founder & Managing Partner",
     email: "capital@thaneandreeve.com",
   },
   sisters: [
     { division: "Development", href: "/development", tag: "Ground-up · entitlement-first" },
     { division: "Management", href: "/management", tag: "Asset & property operations" },
   ],
+  figure: {
+    src: hotel907,
+    alt: "907 Main — The Lark Cambridge, Thane & Reeve Capital flagship transaction",
+    caption: "907 Main — The Lark Cambridge",
+    context:
+      "Central Square · 67 keys · $45M ground-up · $37.75M institutional debt · 2024",
+    plate: "Plate III.",
+  },
 };
 
 export default function Capital() {

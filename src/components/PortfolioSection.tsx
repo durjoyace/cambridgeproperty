@@ -40,24 +40,24 @@ const portfolioItems = [
 
 const trackRecord = [
   {
-    value: "Fifteen years",
-    label: "Principal experience",
-    sub: "Institutional operating + asset management",
+    value: "$45M",
+    label: "Capital developed",
+    sub: "907 Main · ground-up boutique hotel",
   },
   {
-    value: "Boston–NYC",
+    value: "$37.75M",
+    label: "Institutional financing",
+    sub: "Construction debt closed on principal balance sheet",
+  },
+  {
+    value: "192",
+    label: "Units owned & operated",
+    sub: "Cambridge & Somerville · in-house management",
+  },
+  {
+    value: "Boston · NYC",
     label: "Primary corridor",
-    sub: "Northeast markets operated",
-  },
-  {
-    value: "Vertical",
-    label: "Model",
-    sub: "Acquire · Develop · Manage · Report",
-  },
-  {
-    value: "Est. MMXXVI",
-    label: "Firm founded",
-    sub: "Operating under one roof",
+    sub: "Northeast markets, fifteen years operated",
   },
 ];
 
@@ -86,24 +86,37 @@ export default function PortfolioSection() {
             </p>
           </div>
 
-          {/* Track record strip */}
-          <div
-            data-reveal
-            className="grid grid-cols-2 md:grid-cols-4 gap-px bg-ink/10 border border-ink/10 mb-20"
-          >
-            {trackRecord.map((s) => (
-              <div key={s.label} className="bg-paper p-6 md:p-8 flex flex-col">
-                <div className="font-serif text-2xl md:text-3xl text-ink mb-3 tracking-tight">
-                  {s.value}
+          {/* Track record — institutional figures */}
+          <div className="mb-20" data-reveal>
+            <div className="flex items-baseline justify-between mb-8">
+              <p className="font-sans text-[10px] tracking-[0.28em] uppercase text-brass">
+                The record, in figures
+              </p>
+              <p className="font-serif italic text-ink/55 text-sm">
+                Verified · current
+              </p>
+            </div>
+            <div className="h-px w-full bg-ink/20 mb-10" data-reveal-rule />
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10 md:gap-y-0 md:gap-x-10">
+              {trackRecord.map((s, i) => (
+                <div
+                  key={s.label}
+                  className={`flex flex-col ${
+                    i > 0 ? "md:border-l md:border-ink/15 md:pl-10" : ""
+                  }`}
+                >
+                  <div className="font-serif text-4xl md:text-5xl lg:text-6xl text-ink leading-none tracking-tight mb-5">
+                    {s.value}
+                  </div>
+                  <div className="font-sans text-[10px] tracking-[0.24em] uppercase text-ink/65 mb-2">
+                    {s.label}
+                  </div>
+                  <div className="font-serif italic text-ink/55 text-sm leading-snug">
+                    {s.sub}
+                  </div>
                 </div>
-                <div className="font-sans text-[10px] tracking-[0.22em] uppercase text-ink/65 mb-1.5">
-                  {s.label}
-                </div>
-                <div className="font-sans text-[11px] text-ink/50 font-light leading-snug">
-                  {s.sub}
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
           {/* Portfolio cards */}
