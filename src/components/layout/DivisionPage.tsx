@@ -1,9 +1,21 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
-import { DivisionLockup } from "@/components/brand/DivisionLockup";
 import { Wordmark } from "@/components/brand/Wordmark";
+import { Ampersand } from "@/components/brand/Ampersand";
 import { ArchitecturalFigure } from "@/components/brand/ArchitecturalFigure";
+
+const PLATE_BY_DIVISION: Record<string, string> = {
+  Capital: "I.",
+  Development: "II.",
+  Management: "III.",
+};
+
+const ARM_BY_DIVISION: Record<string, string> = {
+  Capital: "The deal-making arm",
+  Development: "The build arm",
+  Management: "The operating arm",
+};
 
 export type DivisionPageContent = {
   division: "Capital" | "Development" | "Management";
@@ -38,24 +50,121 @@ export type DivisionPageContent = {
 
 export default function DivisionPage({ content }: { content: DivisionPageContent }) {
   const isInk = content.tone === "ink";
+  const plate = PLATE_BY_DIVISION[content.division] ?? "";
+  const arm = ARM_BY_DIVISION[content.division] ?? "";
+
+  // Tone-aware classes — kept verbose so each line reads at a glance
+  const t = {
+    bg: isInk ? "bg-ink" : "bg-paper-warm",
+    label: isInk ? "text-paper/55" : "text-ink/55",
+    labelSoft: isInk ? "text-paper/40" : "text-ink/45",
+    italic: isInk ? "text-paper/70" : "text-ink/70",
+    italicSoft: isInk ? "text-paper/55" : "text-ink/55",
+    rule: isInk ? "bg-paper/20" : "bg-ink/20",
+    ruleSoft: isInk ? "bg-paper/12" : "bg-ink/12",
+    brass: isInk ? "text-brass-light" : "text-brass",
+    brassRule: isInk ? "bg-brass-light" : "bg-brass",
+    title: isInk ? "text-paper" : "text-ink",
+    body: isInk ? "text-paper/85" : "text-ink/85",
+    parentMark: isInk ? "text-paper/65" : "text-ink/70",
+  };
 
   return (
     <>
       <Breadcrumbs />
 
-      {/* Hero lockup */}
-      <section
-        className={`pt-24 md:pt-32 pb-20 md:pb-28 ${
-          isInk ? "bg-ink" : "bg-paper-warm"
-        }`}
-      >
+      {/* Hero — editorial chapter opener */}
+      <section className={`relative pt-20 md:pt-24 pb-16 md:pb-20 overflow-hidden ${t.bg}`}>
         <div className="container mx-auto px-6 md:px-12">
-          <div className="flex justify-center">
-            <DivisionLockup
-              division={content.division}
-              subtitle={content.subtitle}
-              tone={content.tone}
-            />
+          {/* Top meta strip */}
+          <div className={`flex items-center justify-between font-sans text-[10px] tracking-[0.28em] uppercase ${t.label}`}>
+            <span>The Divisions &middot; Sub-brand identity</span>
+            <span className={`hidden md:inline font-serif italic tracking-normal normal-case text-[13px] ${t.italic}`}>
+              Founding Document &middot; §{plate.toLowerCase().replace(".", "")}
+            </span>
+            <span>Plate {plate}</span>
+          </div>
+          <div className={`mt-4 h-px w-full ${t.rule}`} data-reveal-rule />
+
+          {/* Main chapter spread */}
+          <div className="mt-16 md:mt-24 grid grid-cols-12 gap-y-12 md:gap-x-8 lg:gap-x-12 items-start">
+            {/* Left column — plate numeral + parent mark */}
+            <div className="col-span-12 md:col-span-3 lg:col-span-3">
+              <div
+                className={`font-serif italic ${t.brass} leading-[0.85] tracking-tight text-[5.5rem] md:text-[6rem] lg:text-[8rem]`}
+                aria-hidden
+              >
+                {plate}
+              </div>
+              <div className={`mt-10 md:mt-12 inline-flex items-baseline gap-[0.4em] font-serif tracking-wordmark uppercase text-[11px] md:text-xs ${t.parentMark}`}>
+                <span>Thane</span>
+                <Ampersand className="text-[11px] md:text-xs" />
+                <span>Reeve</span>
+              </div>
+              <p className={`mt-2 font-serif italic text-sm ${t.italicSoft}`}>
+                The parent firm
+              </p>
+            </div>
+
+            {/* Center column — division wordmark + descriptor */}
+            <div className="col-span-12 md:col-span-6 lg:col-span-6">
+              <h1
+                className={`font-serif font-normal tracking-tight leading-[0.92] text-[3.5rem] md:text-[5.5rem] lg:text-[7rem] xl:text-[8rem] ${t.title}`}
+              >
+                {content.division}
+              </h1>
+              <div className={`mt-8 h-px w-24 md:w-28 ${t.brassRule}`} />
+              <p className={`mt-8 font-serif italic text-xl md:text-2xl lg:text-[1.7rem] leading-[1.35] max-w-xl ${t.body}`}>
+                {content.subtitle}
+              </p>
+            </div>
+
+            {/* Right column — marginalia */}
+            <div className="col-span-12 md:col-span-3 lg:col-span-3 md:pl-2">
+              <div className="md:border-l md:border-ink/0 md:pl-6 lg:pl-8 relative">
+                <div
+                  aria-hidden
+                  className={`hidden md:block absolute top-1 left-0 w-px h-12 ${t.brassRule}`}
+                />
+                <p className={`font-sans text-[10px] tracking-[0.32em] uppercase mb-3 ${t.label}`}>
+                  Sub-brand identity
+                </p>
+                <p className={`font-serif italic text-base md:text-lg ${t.brass} leading-snug mb-8`}>
+                  {arm}
+                </p>
+                <p className={`font-serif text-base md:text-lg ${t.body} leading-[1.55] mb-6`}>
+                  Held under one accountable roof with{" "}
+                  <em className={`not-italic font-serif italic ${t.brass}`}>
+                    {content.sisters[0].division}
+                  </em>{" "}
+                  and{" "}
+                  <em className={`not-italic font-serif italic ${t.brass}`}>
+                    {content.sisters[1].division}.
+                  </em>
+                </p>
+                <div className={`h-px w-full ${t.ruleSoft} mb-6`} />
+                <p className={`font-serif italic text-sm ${t.italicSoft} leading-relaxed`}>
+                  Boston &middot; NYC corridor
+                  <br />
+                  Established MMXXVI
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom meta strip */}
+          <div className={`mt-16 md:mt-24 h-px w-full ${t.ruleSoft}`} data-reveal-rule />
+          <div className={`mt-5 flex items-center justify-between font-sans text-[10px] tracking-[0.28em] uppercase ${t.labelSoft}`}>
+            <span>Thane &amp; Reeve {content.division}</span>
+            <span className={`hidden md:inline font-serif italic tracking-normal normal-case text-sm ${t.italicSoft}`}>
+              Three disciplines &middot; one balance sheet
+            </span>
+            <a
+              href={`mailto:${content.head.email}`}
+              className={`hover:${t.brass} transition-colors`}
+            >
+              {content.head.email}
+            </a>
           </div>
         </div>
       </section>
