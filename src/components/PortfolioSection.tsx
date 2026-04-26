@@ -93,10 +93,18 @@ export default function PortfolioSection() {
                 The record, in figures
               </p>
               <p className="font-serif italic text-ink/55 text-sm">
-                Verified · current
+                Verified &middot; current
               </p>
             </div>
             <div className="h-px w-full bg-ink/20 mb-10" data-reveal-rule />
+            <p className="font-serif text-2xl md:text-3xl lg:text-4xl leading-[1.25] text-ink tracking-tight max-w-4xl mb-12 md:mb-14">
+              <span className="text-ink">$82.75M deployed</span> across one
+              ground&#8209;up development, one preservation project, and a
+              192&#8209;door operating portfolio.{" "}
+              <span className="italic text-ink/70">
+                Two principals on the wire for every transaction.
+              </span>
+            </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10 md:gap-y-0 md:gap-x-10">
               {trackRecord.map((s, i) => (
                 <div

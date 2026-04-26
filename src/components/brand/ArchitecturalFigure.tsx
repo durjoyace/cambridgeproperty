@@ -51,7 +51,7 @@ export function ArchitecturalFigure({
         <img
           src={src}
           alt={alt}
-          className="w-full h-full object-cover grayscale-[0.18] contrast-[1.02] saturate-[0.85]"
+          className="w-full h-full object-cover grayscale contrast-[1.08] brightness-[0.95]"
           loading="lazy"
         />
         {/* Editorial vignette — barely there, anchors caption marginalia */}

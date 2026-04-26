@@ -1,5 +1,6 @@
 import HeroSection from "@/components/HeroSection";
 import ThesisSection from "@/components/ThesisSection";
+import FounderLetter from "@/components/FounderLetter";
 import OperatorFramework from "@/components/OperatorFramework";
 import PortfolioSection from "@/components/PortfolioSection";
 import PrincipalsSection from "@/components/PrincipalsSection";
@@ -12,7 +13,6 @@ import { organizationSchema, localBusinessSchema, faqSchema } from "@/lib/seo/sc
 import { PullQuote } from "@/components/brand/PullQuote";
 import { ArchitecturalFigure } from "@/components/brand/ArchitecturalFigure";
 import hotel907 from "@/assets/907-main.jpg";
-import storyStreet from "@/assets/17-story-street.jpg";
 
 const homeFaqs = [
   {
@@ -55,7 +55,7 @@ const Index = () => {
         schema={[organizationSchema(), localBusinessSchema(), faqSchema(homeFaqs)]}
       />
       <HeroSection />
-      <ThesisSection />
+      <FounderLetter />
       <ArchitecturalFigure
         src={hotel907}
         alt="907 Main — The Lark Cambridge, ground-up boutique hotel in Central Square"
@@ -63,6 +63,7 @@ const Index = () => {
         caption="907 Main &mdash; The Lark Cambridge"
         context="Central Square &middot; 67 keys &middot; $45M ground-up &middot; designed by Gensler Boston &middot; 2024"
       />
+      <ThesisSection />
       <section className="bg-paper-warm py-16 md:py-24">
         <div className="container mx-auto px-6 md:px-12">
           <PullQuote attribution="Founding document, §01">
@@ -75,14 +76,6 @@ const Index = () => {
       </section>
       <OperatorFramework />
       <PrincipalsSection />
-      <ArchitecturalFigure
-        src={storyStreet}
-        alt="17 Story Street — Harriet Jacobs House, Harvard Square historic preservation"
-        plate="Plate II."
-        caption="17 Story Street &mdash; Harriet Jacobs House"
-        context="Harvard Square &middot; 50+ homes &middot; preservation paired with new construction &middot; Cambridge Historical Commission, 7&ndash;0"
-        height="scenic"
-      />
       <PortfolioSection />
       <CapitalAlignment />
       <SubmitSection />
