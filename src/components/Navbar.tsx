@@ -76,7 +76,7 @@ export default function Navbar() {
           <Wordmark size="sm" tone="ink" />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8 lg:gap-10">
+        <nav className="hidden lg:flex items-center gap-8 lg:gap-10">
           {navLinks.map((link) => (
             <NavAnchor
               key={link.href}
@@ -105,7 +105,7 @@ export default function Navbar() {
         </nav>
 
         <button
-          className="md:hidden text-ink/70 hover:text-brass transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-brass/60 focus-visible:outline-none"
+          className="lg:hidden text-ink/70 hover:text-brass transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-brass/60 focus-visible:outline-none"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
@@ -117,7 +117,7 @@ export default function Navbar() {
       {mobileOpen && (
         <nav
           aria-label="Mobile navigation"
-          className="md:hidden bg-paper/95 backdrop-blur-xl border-t border-ink/10 px-6 py-8 flex flex-col gap-6"
+          className="lg:hidden bg-paper/95 backdrop-blur-xl border-t border-ink/10 px-6 py-8 flex flex-col gap-6"
         >
           {navLinks.map((link) => (
             <NavAnchor

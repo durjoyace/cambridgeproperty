@@ -87,9 +87,9 @@ export default function DivisionPage({ content }: { content: DivisionPageContent
           <div className={`mt-4 h-px w-full ${t.rule}`} data-reveal-rule />
 
           {/* Main chapter spread */}
-          <div className="mt-16 md:mt-24 grid grid-cols-12 gap-y-12 md:gap-x-8 lg:gap-x-12 items-start">
+          <div className="mt-16 md:mt-24 grid grid-cols-12 gap-y-12 lg:gap-x-12 items-start">
             {/* Left column — plate numeral + parent mark */}
-            <div className="col-span-12 md:col-span-3 lg:col-span-3">
+            <div className="col-span-12 lg:col-span-3">
               <div
                 className={`font-serif italic ${t.brass} leading-[0.85] tracking-tight text-[5.5rem] md:text-[6rem] lg:text-[8rem]`}
                 aria-hidden
@@ -107,7 +107,7 @@ export default function DivisionPage({ content }: { content: DivisionPageContent
             </div>
 
             {/* Center column — division wordmark + descriptor */}
-            <div className="col-span-12 md:col-span-6 lg:col-span-6">
+            <div className="col-span-12 lg:col-span-6">
               <h1
                 className={`font-serif font-normal tracking-tight leading-[0.92] text-[3.5rem] md:text-[5.5rem] lg:text-[7rem] xl:text-[8rem] ${t.title}`}
               >
@@ -120,11 +120,11 @@ export default function DivisionPage({ content }: { content: DivisionPageContent
             </div>
 
             {/* Right column — marginalia */}
-            <div className="col-span-12 md:col-span-3 lg:col-span-3 md:pl-2">
-              <div className="md:border-l md:border-ink/0 md:pl-6 lg:pl-8 relative">
+            <div className="col-span-12 lg:col-span-3">
+              <div className="lg:pl-8 relative">
                 <div
                   aria-hidden
-                  className={`hidden md:block absolute top-1 left-0 w-px h-12 ${t.brassRule}`}
+                  className={`hidden lg:block absolute top-1 left-0 w-px h-12 ${t.brassRule}`}
                 />
                 <p className={`font-sans text-[10px] tracking-[0.32em] uppercase mb-3 ${t.label}`}>
                   Sub-brand identity

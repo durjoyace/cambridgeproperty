@@ -34,7 +34,7 @@ const NotFound = () => {
           <h1 className="font-serif text-2xl md:text-3xl text-ink mb-4 tracking-tight">
             This page is not held.
           </h1>
-          <p className="font-sans text-sm text-ink/60 font-light leading-[1.7] mb-10">
+          <p className="font-serif text-base text-ink/75 leading-[1.7] mb-10">
             The address you're looking for isn't part of the portfolio. Return to
             the main page or visit one of our divisions below.
           </p>
