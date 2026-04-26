@@ -12,13 +12,25 @@ type AmpersandProps = {
 
 /**
  * THANE & REEVE ampersand glyph.
- * Italic Fraunces — "not punctuation, the entire business."
+ * Italic EB Garamond — "not punctuation, the entire business."
+ * The brand-bible spec body text reads "Set in italic Garamond" — the
+ * classic Et-ligature form is what matches the founding-doc page 3 lockup
+ * (Fraunces italic & has a more modern, less calligraphic shape). EB
+ * Garamond is the Google-Fonts revival of Garamont's 16th-century cuts.
+ *
  * Renders inline with surrounding letterforms. The optional sealed
  * treatment adds the 2pt brass underline used on the seal mark.
  */
 export function Ampersand({ className, sealed, tone = "brass" }: AmpersandProps) {
   const toneClass =
     tone === "ink" ? "text-ink" : tone === "paper" ? "text-paper" : "text-brass";
+
+  // EB Garamond italic — classic Et-ligature ampersand.
+  // Style declared inline so it overrides the project-level font-serif
+  // chain (Fraunces) for the ampersand specifically.
+  const garamondStyle = {
+    fontFamily: '"EB Garamond", "Adobe Garamond Pro", Garamond, serif',
+  } as const;
 
   if (sealed) {
     return (
@@ -29,7 +41,8 @@ export function Ampersand({ className, sealed, tone = "brass" }: AmpersandProps)
         )}
       >
         <span
-          className={cn("font-serif italic font-normal leading-none", toneClass)}
+          className={cn("italic font-normal leading-none", toneClass)}
+          style={garamondStyle}
         >
           &amp;
         </span>
@@ -44,10 +57,11 @@ export function Ampersand({ className, sealed, tone = "brass" }: AmpersandProps)
   return (
     <span
       className={cn(
-        "font-serif italic font-normal leading-none align-baseline",
+        "italic font-normal leading-none align-baseline",
         toneClass,
         className,
       )}
+      style={garamondStyle}
     >
       &amp;
     </span>
