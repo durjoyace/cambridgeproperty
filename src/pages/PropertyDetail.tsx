@@ -14,6 +14,15 @@ const propertyImages: Record<string, string> = {
   "building-2": storyStreet,
 };
 
+/** Sans tracked-caps brass eyebrow — the consistent section marker. */
+function Kicker({ children }: { children: React.ReactNode }) {
+  return (
+    <p className="font-sans text-[10px] tracking-[0.28em] uppercase text-brass mb-8">
+      {children}
+    </p>
+  );
+}
+
 export default function PropertyDetail() {
   const { slug } = useParams<{ slug: string }>();
   const property = slug ? getCaseStudyBySlug(slug) : undefined;
@@ -52,9 +61,9 @@ export default function PropertyDetail() {
       />
       <Breadcrumbs />
 
-      {/* Hero Image */}
+      {/* Hero image */}
       {property.image && propertyImages[property.image] && (
-        <div className="relative h-72 md:h-96 lg:h-[28rem] overflow-hidden">
+        <div className="relative h-72 md:h-96 lg:h-[28rem] overflow-hidden bg-paper-warm">
           <img
             src={propertyImages[property.image]}
             alt={property.title}
@@ -62,47 +71,45 @@ export default function PropertyDetail() {
             width={1200}
             height={600}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-paper via-paper/30 to-transparent" />
         </div>
       )}
 
       {/* Hero */}
-      <section className={`${property.image ? "pt-12" : "pt-8"} pb-20 bg-charcoal`} ref={sectionRef}>
-        <div className="container mx-auto" data-reveal>
+      <section className={`${property.image ? "pt-10 md:pt-12" : "pt-8"} pb-16 md:pb-20 bg-paper`} ref={sectionRef}>
+        <div className="container mx-auto px-6 md:px-12 max-w-6xl" data-reveal>
           {/* Back link */}
           <Link
             to="/portfolio"
-            className="inline-flex items-center gap-2 font-sans text-[10px] tracking-[0.15em] uppercase text-cream-muted/50 hover:text-gold transition-colors duration-300 mb-10"
+            className="inline-flex items-center gap-2 font-sans text-[10px] tracking-[0.2em] uppercase text-ink/55 hover:text-brass transition-colors duration-300 mb-10 focus-visible:ring-2 focus-visible:ring-brass/60 focus-visible:outline-none"
           >
-            <ArrowLeft size={12} /> All Projects
+            <ArrowLeft size={12} /> All projects
           </Link>
 
-          <div className="flex items-center gap-4 mb-8">
-            <div className="divider-gold" />
-            <span className="section-label">{property.strategy}</span>
-          </div>
-          <div className="grid lg:grid-cols-2 gap-12 items-end">
+          <Kicker>{property.strategy}</Kicker>
+
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-end">
             <div>
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-cream leading-[1.1] tracking-tight mb-4">
+              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-ink leading-[1.1] tracking-tight mb-4">
                 {property.title}
               </h1>
-              <div className="flex items-center gap-2 text-cream-muted/60">
-                <MapPin size={14} className="text-gold/60" />
+              <div className="flex items-center gap-2 text-ink/60">
+                <MapPin size={14} className="text-brass" />
                 <span className="font-sans text-sm font-light">
                   {property.location} {property.neighborhood ? `— ${property.neighborhood}` : ""}
                 </span>
               </div>
             </div>
             <div className="flex flex-wrap gap-3 lg:justify-end">
-              <span className="font-sans text-[9px] tracking-[0.25em] uppercase text-gold border border-gold/30 px-3 py-1.5">
+              <span className="font-sans text-[9px] tracking-[0.24em] uppercase text-brass border border-brass/30 px-3 py-1.5">
                 {property.assetType}
               </span>
               {property.statusDetail && (
-                <span className="font-sans text-[9px] tracking-[0.15em] uppercase text-gold border border-gold/30 bg-gold/5 px-3 py-1.5">
+                <span className="font-sans text-[9px] tracking-[0.16em] uppercase text-brass border border-brass/30 bg-brass/5 px-3 py-1.5">
                   {property.statusDetail}
                 </span>
               )}
-              <span className="font-sans text-[9px] tracking-[0.25em] uppercase text-cream-muted/60 border border-border/40 px-3 py-1.5">
+              <span className="font-sans text-[9px] tracking-[0.24em] uppercase text-ink/55 border border-ink/15 px-3 py-1.5">
                 {property.status}
               </span>
             </div>
@@ -110,35 +117,35 @@ export default function PropertyDetail() {
         </div>
       </section>
 
-      {/* Metrics Grid */}
-      <section className="bg-charcoal-mid">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-border/40">
+      {/* Metrics ribbon */}
+      <section className="bg-paper">
+        <div className="container mx-auto px-6 md:px-12 max-w-6xl">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-ink/10 border border-ink/10">
             {displayMetrics.map((m, i) => (
-              <div key={i} className="bg-charcoal-mid p-6 md:p-8 flex flex-col items-center text-center">
-                <div className="font-sans text-[9px] tracking-[0.2em] uppercase text-gold/60 mb-2">{m.label}</div>
-                <div className="font-sans text-sm text-cream font-light">{m.value}</div>
+              <div key={i} className="bg-paper p-6 md:p-8 flex flex-col items-center text-center">
+                <div className="font-sans text-[9px] tracking-[0.2em] uppercase text-brass mb-2">{m.label}</div>
+                <div className="font-serif italic text-sm text-ink/85">{m.value}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Performance Snapshot */}
+      {/* Performance snapshot */}
       {property.performanceSnapshot && property.performanceSnapshot.length > 0 && (
-        <section className="py-16 bg-charcoal">
-          <div className="container mx-auto max-w-3xl">
-            <div className="flex items-center gap-4 mb-8">
-              <TrendingUp size={14} className="text-gold/60" />
-              <span className="section-label">Performance Snapshot</span>
+        <section className="py-20 md:py-24 bg-paper-warm">
+          <div className="container mx-auto px-6 md:px-12 max-w-3xl">
+            <div className="flex items-center gap-3 mb-8">
+              <TrendingUp size={14} className="text-brass" />
+              <span className="font-sans text-[10px] tracking-[0.28em] uppercase text-brass">Performance snapshot</span>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border/30">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-ink/10 border border-ink/10">
               {property.performanceSnapshot.map((pm, i) => (
-                <div key={i} className="bg-charcoal-mid p-8 flex flex-col items-center text-center">
-                  <div className="font-display text-3xl md:text-4xl font-semibold text-gold mb-2">{pm.value}</div>
-                  <div className="font-sans text-[10px] tracking-[0.15em] uppercase text-cream mb-1">{pm.label}</div>
+                <div key={i} className="bg-paper-warm p-8 flex flex-col items-center text-center">
+                  <div className="font-serif text-3xl md:text-4xl text-ink mb-2 tracking-tight">{pm.value}</div>
+                  <div className="font-sans text-[10px] tracking-[0.15em] uppercase text-ink/70 mb-1">{pm.label}</div>
                   {pm.context && (
-                    <div className="font-sans text-xs text-cream-muted/50 font-light">{pm.context}</div>
+                    <div className="font-sans text-xs text-ink/55 font-light">{pm.context}</div>
                   )}
                 </div>
               ))}
@@ -147,18 +154,15 @@ export default function PropertyDetail() {
         </section>
       )}
 
-      {/* Video Tour */}
+      {/* Video tour */}
       {property.videoUrl && (
-        <section className="py-16 bg-charcoal">
-          <div className="container mx-auto max-w-3xl">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="divider-gold" />
-              <span className="section-label">Video Tour</span>
-            </div>
-            <div className="relative w-full aspect-video bg-charcoal-mid border border-border/40 overflow-hidden">
+        <section className="py-16 md:py-20 bg-paper">
+          <div className="container mx-auto px-6 md:px-12 max-w-3xl">
+            <Kicker>Video tour</Kicker>
+            <div className="relative w-full aspect-video bg-paper-warm border border-ink/10 overflow-hidden">
               <iframe
                 src={property.videoUrl}
-                title={`${property.title} — Video Tour`}
+                title={`${property.title} — video tour`}
                 className="absolute inset-0 w-full h-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -169,31 +173,25 @@ export default function PropertyDetail() {
         </section>
       )}
 
-      {/* Full Description */}
-      <section className="section-pad bg-charcoal">
-        <div className="container mx-auto max-w-3xl">
-          <div className="flex items-center gap-4 mb-8">
-            <div className="divider-gold" />
-            <span className="section-label">Overview</span>
-          </div>
-          <p className="font-sans text-sm md:text-base text-cream-muted leading-[1.8] font-light">
+      {/* Overview */}
+      <section className="py-20 md:py-24 bg-paper">
+        <div className="container mx-auto px-6 md:px-12 max-w-3xl">
+          <Kicker>Overview</Kicker>
+          <p className="font-serif text-lg md:text-xl text-ink/85 leading-[1.7]">
             {property.fullDescription || property.description}
           </p>
         </div>
       </section>
 
       {/* Highlights */}
-      <section className="py-24 bg-charcoal-mid">
-        <div className="container mx-auto max-w-3xl">
-          <div className="flex items-center gap-4 mb-10">
-            <div className="divider-gold" />
-            <span className="section-label">Key Highlights</span>
-          </div>
+      <section className="py-24 md:py-28 bg-paper-warm">
+        <div className="container mx-auto px-6 md:px-12 max-w-3xl">
+          <Kicker>Key highlights</Kicker>
           <div className="grid md:grid-cols-2 gap-4">
             {property.highlights.map((h, i) => (
-              <div key={i} className="flex items-start gap-3 bg-charcoal border border-border/40 p-6">
-                <div className="w-1.5 h-1.5 rounded-full bg-gold/50 mt-2 shrink-0" />
-                <span className="font-sans text-sm text-cream-muted font-light leading-relaxed">{h}</span>
+              <div key={i} className="flex items-start gap-3 bg-paper border border-ink/10 p-6">
+                <span className="text-brass mt-1.5 select-none shrink-0" aria-hidden>&bull;</span>
+                <span className="font-sans text-sm text-ink/75 font-light leading-relaxed">{h}</span>
               </div>
             ))}
           </div>
@@ -202,23 +200,20 @@ export default function PropertyDetail() {
 
       {/* Timeline */}
       {property.timeline && property.timeline.length > 0 && (
-        <section className="section-pad bg-charcoal">
-          <div className="container mx-auto max-w-3xl">
-            <div className="flex items-center gap-4 mb-10">
-              <div className="divider-gold" />
-              <span className="section-label">Execution Timeline</span>
-            </div>
+        <section className="py-24 md:py-28 bg-paper">
+          <div className="container mx-auto px-6 md:px-12 max-w-3xl">
+            <Kicker>Execution timeline</Kicker>
             <div className="relative">
-              <div className="absolute left-6 top-0 bottom-0 w-px bg-border/40" />
+              <div className="absolute left-6 top-0 bottom-0 w-px bg-ink/15" />
               <div className="space-y-8">
                 {property.timeline.map((item, i) => (
                   <div key={i} className="relative flex items-start gap-8 pl-16">
-                    <div className="absolute left-4 top-1 w-4 h-4 border border-gold/40 bg-charcoal flex items-center justify-center">
-                      <div className="w-1.5 h-1.5 bg-gold/60" />
+                    <div className="absolute left-4 top-1 w-4 h-4 border border-brass/40 bg-paper flex items-center justify-center">
+                      <div className="w-1.5 h-1.5 bg-brass" />
                     </div>
                     <div>
-                      <div className="font-sans text-xs tracking-[0.15em] uppercase text-gold mb-1">{item.date}</div>
-                      <p className="font-sans text-sm text-cream-muted font-light leading-[1.7]">{item.event}</p>
+                      <div className="font-sans text-xs tracking-[0.15em] uppercase text-brass mb-1">{item.date}</div>
+                      <p className="font-sans text-sm text-ink/75 font-light leading-[1.7]">{item.event}</p>
                     </div>
                   </div>
                 ))}
@@ -228,94 +223,91 @@ export default function PropertyDetail() {
         </section>
       )}
 
-      {/* Press Coverage */}
+      {/* Press coverage */}
       {relatedPress.length > 0 && (
-        <section className="section-pad bg-charcoal-mid">
-          <div className="container mx-auto max-w-3xl">
-            <div className="flex items-center gap-4 mb-10">
-              <div className="divider-gold" />
-              <span className="section-label">Press Coverage</span>
-            </div>
-            <div className="flex flex-col gap-px bg-border/30">
+        <section className="py-24 md:py-28 bg-paper-warm">
+          <div className="container mx-auto px-6 md:px-12 max-w-3xl">
+            <Kicker>Press coverage</Kicker>
+            <div className="flex flex-col gap-px bg-ink/10 border border-ink/10">
               {relatedPress.map((item, i) => (
                 <a
                   key={i}
                   href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group bg-charcoal p-6 md:p-8 flex items-center justify-between hover:bg-charcoal/80 transition-all duration-300"
+                  className="group bg-paper p-6 md:p-8 flex items-center justify-between hover:bg-paper-warm transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-brass/60 focus-visible:outline-none"
                 >
                   <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="font-sans text-[9px] tracking-[0.2em] uppercase text-gold border border-gold/30 bg-gold/5 px-2.5 py-1">
+                    <div className="flex items-center gap-3 mb-2 flex-wrap">
+                      <span className="font-sans text-[9px] tracking-[0.2em] uppercase text-brass border border-brass/30 bg-brass/5 px-2.5 py-1">
                         {item.category}
                       </span>
-                      <span className="font-sans text-[10px] text-cream-muted/60">
+                      <span className="font-sans text-[10px] text-ink/55">
                         {item.source} · {new Date(item.date).toLocaleDateString("en-US", { month: "short", year: "numeric" })}
                       </span>
                     </div>
-                    <div className="font-sans text-sm text-cream font-light group-hover:text-gold transition-colors duration-300">
+                    <div className="font-serif text-base md:text-lg text-ink group-hover:text-brass transition-colors duration-300">
                       {item.headline}
                     </div>
                   </div>
                   <ExternalLink
                     size={14}
-                    className="text-cream-muted/40 group-hover:text-gold/60 transition-colors duration-300 shrink-0 ml-4"
+                    className="text-ink/40 group-hover:text-brass transition-colors duration-300 shrink-0 ml-4"
                   />
                 </a>
               ))}
             </div>
             <Link
               to="/press"
-              className="inline-flex items-center gap-2 font-sans text-[10px] tracking-[0.15em] uppercase text-gold/70 hover:text-gold transition-colors duration-300 mt-6"
+              className="inline-flex items-center gap-2 font-sans text-[10px] tracking-[0.2em] uppercase text-ink border-b border-ink/30 pb-1 mt-8 hover:border-brass hover:text-brass transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-brass/60 focus-visible:outline-none"
             >
-              Full Press & Public Record <ArrowRight size={10} />
+              Full press &amp; public record <ArrowRight size={11} />
             </Link>
           </div>
         </section>
       )}
 
       {/* CTA */}
-      <section className="py-24 bg-charcoal-mid">
-        <div className="container mx-auto text-center max-w-2xl">
-          <h2 className="font-display text-3xl md:text-4xl font-semibold text-cream mb-6 tracking-tight">
-            Have a Similar Property?
+      <section className="py-20 md:py-28 bg-ink">
+        <div className="container mx-auto px-6 md:px-12 text-center max-w-2xl">
+          <h2 className="font-serif text-3xl md:text-4xl text-paper mb-6 tracking-tight">
+            Have a similar property?
           </h2>
-          <p className="font-sans text-sm text-cream-muted font-light leading-[1.8] mb-10">
-            If you own a multifamily or mixed-use asset in Greater Boston, our principals would like to hear from you.
+          <p className="font-serif italic text-paper/70 text-lg leading-[1.7] mb-10">
+            If you own a multifamily or mixed-use asset in Greater Boston, our
+            principals would like to hear from you.
           </p>
           <Link
             to="/sell-your-property"
-            className="inline-flex items-center gap-3 font-sans text-xs tracking-[0.2em] uppercase px-10 py-5 bg-gold text-primary-foreground font-medium hover:bg-gold-light transition-all duration-300 shadow-gold focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:outline-none"
+            className="inline-flex items-center gap-3 font-sans text-[11px] tracking-[0.24em] uppercase px-10 py-4 bg-paper text-ink hover:bg-brass hover:text-paper transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-brass/60 focus-visible:outline-none"
           >
-            Submit Your Property <ArrowRight size={13} />
+            Submit a property <ArrowRight size={13} />
           </Link>
         </div>
       </section>
 
-      {/* Other Properties */}
+      {/* Other properties */}
       {otherProperties.length > 0 && (
-        <section className="section-pad bg-charcoal">
-          <div className="container mx-auto max-w-3xl">
-            <div className="flex items-center gap-4 mb-10">
-              <div className="divider-gold" />
-              <span className="section-label">More from Our Portfolio</span>
-            </div>
+        <section className="py-24 md:py-28 bg-paper">
+          <div className="container mx-auto px-6 md:px-12 max-w-3xl">
+            <p className="font-serif italic text-base md:text-lg text-brass mb-10">
+              More from our portfolio
+            </p>
             <div className="grid md:grid-cols-2 gap-6">
               {otherProperties.map((cs) => (
                 <Link
                   key={cs.slug}
                   to={`/portfolio/${cs.slug}`}
-                  className="group bg-charcoal-mid border border-border/40 p-8 hover:border-gold/15 transition-all duration-500 shadow-card block"
+                  className="group block bg-paper border border-ink/10 p-8 hover:border-ink/25 transition-all duration-500 focus-visible:ring-2 focus-visible:ring-brass/60 focus-visible:outline-none"
                 >
-                  <span className="font-sans text-[9px] tracking-[0.25em] uppercase text-gold/60 mb-3 block">
+                  <span className="font-sans text-[9px] tracking-[0.24em] uppercase text-brass mb-3 block">
                     {cs.assetType}
                   </span>
-                  <h3 className="font-display text-lg font-semibold text-cream mb-2 group-hover:text-gold transition-colors duration-300">
+                  <h3 className="font-serif text-lg md:text-xl text-ink mb-2 group-hover:text-brass transition-colors duration-300 leading-snug">
                     {cs.title}
                   </h3>
-                  <p className="font-sans text-xs text-cream-muted/60 font-light">
-                    {cs.location} &middot; {cs.units} Units &middot; {cs.strategy}
+                  <p className="font-sans text-xs text-ink/55 font-light">
+                    {cs.location} &middot; {cs.units} units &middot; {cs.strategy}
                   </p>
                 </Link>
               ))}
