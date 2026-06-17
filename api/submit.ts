@@ -46,7 +46,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     `;
 
     const resend = new Resend(process.env.RESEND_API_KEY!);
-    await resend.emails.send({
+    const { error: notifyError } = await resend.emails.send({
       from: "Thane & Reeve <notifications@thaneandreeve.com>",
       to: process.env.NOTIFICATION_EMAIL || "acquisitions@thaneandreeve.com",
       subject: `New Property Submission: ${data.unitCount}-unit ${data.assetType} in ${data.market}, ${data.state}`,
@@ -65,9 +65,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         </table>
       `,
     });
+    // Resend SDK resolves with { error } instead of throwing on a delivery
+    // failure (e.g. unverified sender domain). The submission is already
+    // persisted, so we log loudly for Vercel logs but still return success.
+    if (notifyError) {
+      console.error("Property submission: partner notification email failed", notifyError);
+    }
 
     // Send confirmation email to submitter
-    await resend.emails.send({
+    const { error: confirmError } = await resend.emails.send({
       from: "Thane & Reeve <notifications@thaneandreeve.com>",
       to: data.email,
       subject: "We've received your property submission — Thane & Reeve",
@@ -103,6 +109,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         </div>
       `,
     });
+    if (confirmError) {
+      console.error("Property submission: submitter confirmation email failed", confirmError);
+    }
 
     return res.status(200).json({ success: true });
   } catch (error) {

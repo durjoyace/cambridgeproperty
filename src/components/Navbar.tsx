@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, LogIn } from "lucide-react";
 import { Wordmark } from "@/components/brand/Wordmark";
+import { RESIDENT_PORTAL_URL } from "@/lib/constants";
 
 const navLinks = [
   { label: "Capital", href: "/capital" },
@@ -93,7 +94,7 @@ export default function Navbar() {
             Direct Acquisition
           </NavAnchor>
           <a
-            href="https://barrettjohnson.appfolio.com/connect/users/sign_in"
+            href={RESIDENT_PORTAL_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="text-ink/45 hover:text-brass transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-brass/60 focus-visible:outline-none"
@@ -137,7 +138,7 @@ export default function Navbar() {
             Direct Acquisition
           </NavAnchor>
           <a
-            href="https://barrettjohnson.appfolio.com/connect/users/sign_in"
+            href={RESIDENT_PORTAL_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 font-sans text-xs tracking-[0.18em] uppercase text-ink/55 hover:text-brass transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-brass/60 focus-visible:outline-none"

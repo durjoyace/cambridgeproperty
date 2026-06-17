@@ -31,12 +31,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     // Notify principals
     const resend = new Resend(process.env.RESEND_API_KEY!);
-    await resend.emails.send({
+    const { error: notifyError } = await resend.emails.send({
       from: "Thane & Reeve <notifications@thaneandreeve.com>",
       to: process.env.NOTIFICATION_EMAIL || "acquisitions@thaneandreeve.com",
       subject: `New Newsletter Subscriber: ${email}`,
       html: `<p>New newsletter subscriber: <strong>${email}</strong></p><p>Subscribed at ${new Date().toISOString()}</p>`,
     });
+    // Subscriber is already persisted; log delivery failures (e.g. unverified
+    // sender domain) without failing the request — Resend resolves with
+    // { error } rather than throwing.
+    if (notifyError) {
+      console.error("Newsletter: subscriber notification email failed", notifyError);
+    }
 
     return res.status(200).json({ success: true });
   } catch (error) {

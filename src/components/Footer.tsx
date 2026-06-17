@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { LogIn } from "lucide-react";
 import NewsletterCapture from "@/components/NewsletterCapture";
 import { Wordmark } from "@/components/brand/Wordmark";
+import { RESIDENT_PORTAL_URL } from "@/lib/constants";
 
 const navLinks = [
   { label: "Capital", href: "/capital" },
@@ -54,7 +55,7 @@ export default function Footer() {
               </FooterLink>
             ))}
             <a
-              href="https://barrettjohnson.appfolio.com/connect/users/sign_in"
+              href={RESIDENT_PORTAL_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 font-sans text-[10px] tracking-[0.18em] uppercase text-paper/55 hover:text-paper transition-colors duration-300 focus-visible:text-paper focus-visible:outline-none"
