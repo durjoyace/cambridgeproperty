@@ -26,7 +26,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   try {
     const resend = new Resend(process.env.RESEND_API_KEY!);
-    await resend.emails.send({
+    const { error: notifyError } = await resend.emails.send({
       from: "Thane & Reeve <notifications@thaneandreeve.com>",
       to: process.env.NOTIFICATION_EMAIL || "contact@thaneandreeve.com",
       subject: `Contact Form: ${data.subject}`,
@@ -40,6 +40,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         </table>
       `,
     });
+    // Resend resolves with { error } rather than throwing on a delivery
+    // failure (e.g. unverified sender domain); log it without 500-ing.
+    if (notifyError) {
+      console.error("Contact form: notification email failed", notifyError);
+    }
 
     return res.status(200).json({ success: true });
   } catch (error) {
