@@ -1,3 +1,7 @@
+// Case-study images — import from assets so Vite hashes them for cache-busting
+import hotel907 from "@/assets/907-main.jpg";
+import storyStreet from "@/assets/17-story-street.jpg";
+
 export interface PerformanceMetric {
   label: string;
   value: string;
@@ -40,7 +44,7 @@ export const caseStudies: CaseStudy[] = [
     strategy: "Ground-Up Development",
     status: "Stabilized",
     statusDetail: "Completed Development",
-    image: "907-main",
+    image: hotel907,
     description:
       "Ground-up development of a 67-key boutique luxury hotel in Central Square — a $45M project designed by Gensler Boston with LEED-certifiable standards. Secured $37.75M institutional financing. Now operating as The Lark Cambridge.",
     highlights: [
@@ -90,7 +94,7 @@ export const caseStudies: CaseStudy[] = [
     strategy: "Historic Preservation + Development",
     status: "In Development",
     statusDetail: "CHC Approved 7-0",
-    image: "building-2",
+    image: storyStreet,
     description:
       "Preservation of the historic Harriet Jacobs House — an African American heritage site — combined with a new hotel and 50+ homes including 10 affordable units. Five years of community engagement with the Jacobs Legacy Committee, Harvard Square Business Association, and Cambridge residents. Designed by Cambridge Seven.",
     highlights: [
