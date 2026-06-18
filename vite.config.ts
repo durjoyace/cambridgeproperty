@@ -30,7 +30,6 @@ export default defineConfig(({ mode }) => ({
           "vendor-react": ["react", "react-dom", "react-router-dom"],
           "vendor-ui": ["react-helmet-async", "@radix-ui/react-accordion", "@radix-ui/react-toast", "@radix-ui/react-tooltip"],
           "vendor-gsap": ["gsap", "gsap/ScrollTrigger"],
-          "vendor-charts": ["recharts"],
         },
       },
     },
