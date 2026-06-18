@@ -1,8 +1,8 @@
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import hotel907 from "@/assets/907-main.jpg";
+import heroAvif from "@/assets/907-main.jpg?w=768;1280;1920&format=avif&as=srcset";
+import heroWebp from "@/assets/907-main.jpg?w=768;1280;1920&format=webp&as=srcset";
+import heroFallback from "@/assets/907-main.jpg?w=1280&as=url";
 import { trackEvent } from "@/components/Analytics";
 
 /**
@@ -16,62 +16,28 @@ import { trackEvent } from "@/components/Analytics";
  * The photograph (907 Main / The Lark Cambridge) is graded to near-archival
  * black-and-white with a dark gradient anchoring the lower third for text
  * legibility — the field a firm operates on, not a brand poster.
+ *
+ * Performance: the photograph is the LCP element — served as AVIF/WebP with
+ * fetchPriority="high" so it paints fast. Copy is visible by default with a
+ * lightweight CSS entrance (no JS/GSAP on the critical path), so nothing the
+ * crawler or the user sees is gated behind a script.
  */
 export default function HeroSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const metaRef = useRef<HTMLDivElement>(null);
-  const ruleRef = useRef<HTMLDivElement>(null);
-  const eyebrowRef = useRef<HTMLDivElement>(null);
-  const headlineRef = useRef<HTMLHeadingElement>(null);
-  const standfirstRef = useRef<HTMLParagraphElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
-  const captionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!sectionRef.current) return;
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const targets = [
-      metaRef.current,
-      eyebrowRef.current,
-      headlineRef.current,
-      standfirstRef.current,
-      ctaRef.current,
-      captionRef.current,
-    ].filter(Boolean) as HTMLElement[];
-
-    if (prefersReduced) {
-      gsap.set(targets, { opacity: 1, y: 0 });
-      ruleRef.current?.classList.add("is-revealed");
-      return;
-    }
-
-    gsap.set(targets, { opacity: 0, y: 18 });
-    const tl = gsap.timeline({ delay: 0.25 });
-    tl.to(metaRef.current, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 0)
-      .add(() => ruleRef.current?.classList.add("is-revealed"), 0.05)
-      .to(eyebrowRef.current, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 0.4)
-      .to(headlineRef.current, { opacity: 1, y: 0, duration: 1.0, ease: "power3.out" }, 0.55)
-      .to(standfirstRef.current, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 1.0)
-      .to(ctaRef.current, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 1.25)
-      .to(captionRef.current, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 1.4);
-
-    return () => {
-      tl.kill();
-    };
-  }, []);
-
   return (
-    <section
-      ref={sectionRef}
-      className="relative min-h-screen flex flex-col overflow-hidden bg-ink"
-    >
-      {/* Photograph — full bleed, archival B&W grade */}
-      <img
-        src={hotel907}
-        alt=""
-        aria-hidden
-        className="absolute inset-0 w-full h-full object-cover grayscale contrast-[1.08] brightness-[0.78]"
-      />
+    <section className="relative min-h-screen flex flex-col overflow-hidden bg-ink">
+      {/* Photograph — full bleed, archival B&W grade. LCP element. */}
+      <picture>
+        <source type="image/avif" srcSet={heroAvif} sizes="100vw" />
+        <source type="image/webp" srcSet={heroWebp} sizes="100vw" />
+        <img
+          src={heroFallback}
+          alt=""
+          aria-hidden
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 w-full h-full object-cover grayscale contrast-[1.08] brightness-[0.78]"
+        />
+      </picture>
 
       {/* Tonal anchor — dark from the bottom for text legibility */}
       <div
@@ -85,10 +51,7 @@ export default function HeroSection() {
       />
 
       {/* Top editorial meta strip */}
-      <div
-        ref={metaRef}
-        className="relative pt-20 md:pt-24 px-6 md:px-12"
-      >
+      <div className="hero-enter relative pt-20 md:pt-24 px-6 md:px-12">
         <div className="container mx-auto">
           <div className="flex items-center justify-between font-sans text-[10px] tracking-[0.28em] uppercase text-paper/70">
             <span>Founding Document &middot; MMXXVI</span>
@@ -97,35 +60,25 @@ export default function HeroSection() {
             </span>
             <span>Est. MMXXVI</span>
           </div>
-          <div
-            ref={ruleRef}
-            data-reveal-rule
-            className="mt-4 h-px w-full bg-paper/25"
-          />
+          <div className="mt-4 h-px w-full bg-paper/25" />
         </div>
       </div>
 
       {/* Argument block — anchored to lower third */}
-      <div className="relative flex-1 flex items-end pb-20 md:pb-28 px-6 md:px-12">
+      <div className="hero-enter hero-enter-delayed relative flex-1 flex items-end pb-20 md:pb-28 px-6 md:px-12">
         <div className="container mx-auto">
           <div className="max-w-4xl">
-            <div ref={eyebrowRef} className="mb-6 flex items-center gap-4">
+            <div className="mb-6 flex items-center gap-4">
               <span className="h-px w-10 bg-brass-light" />
               <span className="font-sans text-[10px] tracking-[0.32em] uppercase text-brass-light">
                 Thane &amp; Reeve &middot; Real Property
               </span>
             </div>
-            <h1
-              ref={headlineRef}
-              className="font-serif text-paper text-4xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight"
-            >
+            <h1 className="font-serif text-paper text-4xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight">
               Most real estate firms separate ownership from operations.{" "}
               <span className="italic text-brass-light">We refuse to.</span>
             </h1>
-            <p
-              ref={standfirstRef}
-              className="mt-10 max-w-2xl font-serif text-lg md:text-xl leading-[1.65] text-paper/85"
-            >
+            <p className="mt-10 max-w-2xl font-serif text-lg md:text-xl leading-[1.65] text-paper/85">
               A Boston-based firm organized around three disciplines &mdash;
               Capital, Development, Management &mdash; held under one
               accountable roof. Two principals.{" "}
@@ -133,10 +86,7 @@ export default function HeroSection() {
               <span className="text-paper">192 doors.</span> Personal capital
               in every transaction.
             </p>
-            <div
-              ref={ctaRef}
-              className="mt-12 flex flex-col sm:flex-row gap-4"
-            >
+            <div className="mt-12 flex flex-col sm:flex-row gap-4">
               <Link
                 to="/about"
                 onClick={() => trackEvent("cta_click", { event_label: "hero_about" })}
@@ -156,10 +106,7 @@ export default function HeroSection() {
           </div>
 
           {/* Photograph attribution — bottom-right marginalia */}
-          <div
-            ref={captionRef}
-            className="mt-16 md:mt-20 pt-6 border-t border-paper/15 flex items-end justify-between text-paper/55"
-          >
+          <div className="mt-16 md:mt-20 pt-6 border-t border-paper/15 flex items-end justify-between text-paper/55">
             <span className="font-sans text-[10px] tracking-[0.28em] uppercase">
               Photographed &middot; 907 Main
             </span>
