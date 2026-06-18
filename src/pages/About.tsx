@@ -17,7 +17,7 @@ const principals = [
     role: "Founder & Managing Partner",
     credential: "Cambridge zoning attorney · developer · Investment Committee chair",
     image: patrickHeadshot,
-    bio: "Patrick spent fifteen years on the operating and development side of real estate before he spent a day structuring capital. That order matters. He originated and developed the $45 million, 67-key 907 Main hotel in Central Square through one of the most complex entitlement processes in the country, authored the Central Square Overlay zoning amendments adopted by the Cambridge City Council in 2017, and led the 17 Story Street preservation project to unanimous Historical Commission approval. Most real estate firms are organized around the deal — origination teams hunt, capital teams raise, and the property becomes someone else's problem after the closing dinner. Patrick's view, formed over fifteen years of being the person who inherited those closing dinners, is that the operating work is where real returns are made or lost, and that a firm should be built in a way that keeps ownership and operations under one accountable roof.",
+    bio: "Patrick spent twenty years on the operating and development side of real estate before he spent a day structuring capital. That order matters. He originated and developed the $45 million, 67-key 907 Main hotel in Central Square through one of the most complex entitlement processes in the country, authored the Central Square Overlay zoning amendments adopted by the Cambridge City Council in 2017, and led the 17 Story Street preservation project to unanimous Historical Commission approval. Most real estate firms are organized around the deal — origination teams hunt, capital teams raise, and the property becomes someone else's problem after the closing dinner. Patrick's view, formed over twenty years of being the person who inherited those closing dinners, is that the operating work is where real returns are made or lost, and that a firm should be built in a way that keeps ownership and operations under one accountable roof.",
     focus: [
       "Acquisitions & underwriting",
       "Entitlement-led development",
@@ -244,7 +244,7 @@ export default function About() {
             <div className="font-serif text-lg md:text-xl leading-[1.8] text-ink/85 space-y-6">
               <p>
                 Thane <Ampersand className="text-[0.85em]" /> Reeve was founded in 2026 by
-                Patrick Barrett. The firm operates through three divisions:{" "}
+                Patrick Barrett and Timothy Johnson. The firm operates through three divisions:{" "}
                 <em className="text-brass">Thane <Ampersand className="text-[0.85em]" /> Reeve Capital</em>{" "}
                 (acquisitions and syndication),{" "}
                 <em className="text-brass">Thane <Ampersand className="text-[0.85em]" /> Reeve Development</em>{" "}

@@ -8,7 +8,9 @@ declare global {
   }
 }
 
-const GA_ID = "G-XXXXXXXXX"; // Replace with actual GA4 Measurement ID
+// Set VITE_GA_MEASUREMENT_ID in the Vercel project (Production) to activate
+// analytics. Left unset, no gtag script is injected and tracking no-ops.
+const GA_ID = import.meta.env.VITE_GA_MEASUREMENT_ID as string | undefined;
 
 export function trackEvent(eventName: string, params?: Record<string, string>) {
   if (typeof window.gtag === "function") {
@@ -21,7 +23,7 @@ export default function Analytics() {
 
   // Inject GA4 script on mount
   useEffect(() => {
-    if (document.getElementById("ga4-script")) return;
+    if (!GA_ID || document.getElementById("ga4-script")) return;
 
     const script = document.createElement("script");
     script.id = "ga4-script";

@@ -68,7 +68,7 @@ export default function Partners() {
             <p className="font-serif text-lg md:text-xl leading-[1.7] text-ink/85 max-w-2xl">
               Thane &amp; Reeve Management runs the firm's portfolio in-house. The
               vendor network behind it — contractors, architects, trades, and
-              professional services — has been assembled over fifteen years of
+              professional services — has been assembled over twenty years of
               direct ownership.
             </p>
           </div>
@@ -104,7 +104,7 @@ export default function Partners() {
               {[
                 { value: "75+", label: "Doors serviced" },
                 { value: "8", label: "Vendor categories" },
-                { value: "15 yrs", label: "Operating history" },
+                { value: "20 yrs", label: "Operating history" },
                 { value: "100%", label: "In-house management" },
               ].map((s) => (
                 <div key={s.label} className="bg-paper p-8 text-center">

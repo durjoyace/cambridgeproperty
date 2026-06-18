@@ -43,7 +43,7 @@ export default function Press() {
             </h1>
             <p className="font-serif text-lg md:text-xl leading-[1.7] text-ink/85 max-w-2xl">
               Public hearings, institutional media, zoning filings, and regulatory
-              outcomes — verifiable across fifteen years of the principals' direct
+              outcomes — verifiable across twenty years of the principals' direct
               operation in Cambridge and Greater Boston, now consolidated under
               Thane &amp; Reeve.
             </p>

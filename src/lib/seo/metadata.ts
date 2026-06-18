@@ -32,7 +32,7 @@ export const PAGE_META = {
   sellYourProperty: {
     title: "Direct Acquisition — Submit a Property | Thane & Reeve",
     description:
-      "Submit your multifamily, mixed-use, or specialty commercial property directly to Thane & Reeve principals. Deal-by-deal underwriting, 24-hour response. No brokers, no blind pools, no investment-committee lag.",
+      "Submit your multifamily, mixed-use, or specialty commercial property directly to Thane & Reeve principals. Deal-by-deal underwriting, 48-hour response. No brokers, no blind pools, no investment-committee lag.",
     canonical: "/sell-your-property",
   },
   partners: {

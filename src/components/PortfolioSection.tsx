@@ -51,13 +51,13 @@ const trackRecord = [
   },
   {
     value: "192",
-    label: "Units owned & operated",
-    sub: "Cambridge & Somerville · in-house management",
+    label: "Doors & keys, portfolio-wide",
+    sub: "Across development, preservation & operations",
   },
   {
     value: "Boston · NYC",
     label: "Primary corridor",
-    sub: "Northeast markets, fifteen years operated",
+    sub: "Northeast markets, twenty years operated",
   },
 ];
 
@@ -78,7 +78,7 @@ export default function PortfolioSection() {
               Portfolio &amp; track record
             </p>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-[1.18] text-ink tracking-tight mb-6">
-              Fifteen years of institutional operating experience, reshaped into a single firm.
+              Twenty years of institutional operating experience, reshaped into a single firm.
             </h2>
             <p className="font-serif text-lg md:text-xl leading-[1.7] text-ink/85 max-w-2xl">
               A curated list, not a funnel. Each asset has been underwritten to the
@@ -100,7 +100,7 @@ export default function PortfolioSection() {
             <p className="font-serif text-2xl md:text-3xl lg:text-4xl leading-[1.25] text-ink tracking-tight max-w-4xl mb-12 md:mb-14">
               <span className="text-ink">$82.75M deployed</span> across one
               ground&#8209;up development, one preservation project, and a
-              192&#8209;door operating portfolio.{" "}
+              75&#8209;door stabilized operating base.{" "}
               <span className="italic text-ink/70">
                 Two principals on the wire for every transaction.
               </span>

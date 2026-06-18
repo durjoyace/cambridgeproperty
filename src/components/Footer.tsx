@@ -10,9 +10,12 @@ const navLinks = [
   { label: "Management", href: "/management" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "About", href: "/about" },
+  { label: "Case Studies", href: "/case-studies" },
   { label: "Press", href: "/press" },
   { label: "Insights", href: "/insights" },
+  { label: "Partners", href: "/partners" },
   { label: "Direct Acquisition", href: "/sell-your-property" },
+  { label: "Contact", href: "/contact" },
 ];
 
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
