@@ -38,7 +38,7 @@ const homeFaqs = [
   {
     question: "Who are the principals?",
     answer:
-      "Patrick Barrett (Founder & Managing Partner) and Timothy Johnson (Partner). Between them: twenty years of institutional operating and asset management experience, reshaped into a single firm. Based in Boston, operating across the Boston–NYC corridor.",
+      "Patrick Barrett (Founder & Managing Partner) and Timothy Johnson (Co-Founder & Partner). Between them: twenty years of institutional operating and asset management experience, reshaped into a single firm. Based in Boston, operating across the Boston–NYC corridor.",
   },
   {
     question: "How do I bring you a property?",

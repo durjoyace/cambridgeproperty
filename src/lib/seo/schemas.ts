@@ -15,7 +15,7 @@ export function organizationSchema() {
     foundingDate: "2026",
     founder: [
       { "@type": "Person", name: "Patrick Barrett", jobTitle: "Founder & Managing Partner" },
-      { "@type": "Person", name: "Timothy Johnson", jobTitle: "Partner" },
+      { "@type": "Person", name: "Timothy Johnson", jobTitle: "Co-Founder & Partner" },
     ],
     areaServed: "Northeast United States",
     slogan: "Land held. Land managed.",
