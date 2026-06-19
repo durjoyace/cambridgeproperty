@@ -40,7 +40,7 @@ export function ArchitecturalFigure({
   const isInk = tone === "ink";
   const sectionBg = isInk ? "bg-ink" : "bg-paper";
   const ruleTone = isInk ? "bg-paper/30" : "bg-ink/25";
-  const labelTone = isInk ? "text-paper/55" : "text-ink/55";
+  const labelTone = isInk ? "text-paper/55" : "text-ink/65";
   const titleTone = isInk ? "text-paper" : "text-ink";
   const contextTone = isInk ? "text-paper/75" : "text-ink/75";
   const heightCls = height === "tall" ? "h-[68vh] md:h-[78vh]" : "h-[48vh] md:h-[56vh]";
@@ -87,14 +87,14 @@ export function ArchitecturalFigure({
           <div className={cn("hidden md:block h-px w-10", ruleTone)} />
         </div>
         <div>
-          <h3
+          <p
             className={cn(
               "font-serif text-xl md:text-2xl tracking-tight leading-snug",
               titleTone,
             )}
           >
             {caption}
-          </h3>
+          </p>
           <p
             className={cn(
               "mt-2 font-serif italic text-sm md:text-base",

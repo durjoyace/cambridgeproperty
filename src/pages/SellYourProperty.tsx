@@ -113,7 +113,7 @@ export default function SellYourProperty() {
                     key={item.label}
                     className="border-b border-ink/15 py-5 flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6"
                   >
-                    <span className="font-sans text-[10px] tracking-[0.22em] uppercase text-ink/55 w-36 shrink-0">
+                    <span className="font-sans text-[10px] tracking-[0.22em] uppercase text-ink/65 w-36 shrink-0">
                       {item.label}
                     </span>
                     <span className="font-serif italic text-ink/85 text-base leading-[1.6]">
@@ -131,12 +131,12 @@ export default function SellYourProperty() {
                   href="mailto:acquisitions@thaneandreeve.com"
                   className="flex items-center gap-4 group"
                 >
-                  <Mail size={16} className="text-brass" />
-                  <div>
-                    <div className="font-serif italic text-ink text-lg group-hover:text-brass transition-colors">
+                  <Mail size={16} className="text-brass shrink-0" />
+                  <div className="min-w-0">
+                    <div className="font-serif italic text-ink text-lg group-hover:text-brass transition-colors break-words">
                       acquisitions@thaneandreeve.com
                     </div>
-                    <div className="font-sans text-[10px] tracking-[0.2em] uppercase text-ink/55">
+                    <div className="font-sans text-[10px] tracking-[0.2em] uppercase text-ink/65">
                       Read only by the partners
                     </div>
                   </div>

@@ -47,7 +47,7 @@ export default function SubmitSection() {
               </div>
 
               <div className="flex flex-col gap-3 mb-10">
-                <p className="font-sans text-[10px] tracking-[0.28em] uppercase text-ink/55 mb-1">
+                <p className="font-sans text-[10px] tracking-[0.28em] uppercase text-ink/65 mb-1">
                   Or reach us directly
                 </p>
                 <a

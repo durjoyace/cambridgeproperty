@@ -34,7 +34,7 @@ export default function PostCard({ post }: Props) {
         </span>
       </div>
       <div className="p-7 md:p-8">
-        <div className="flex items-center gap-4 mb-4 font-sans text-[10px] tracking-[0.2em] uppercase text-ink/55">
+        <div className="flex items-center gap-4 mb-4 font-sans text-[10px] tracking-[0.2em] uppercase text-ink/65">
           <time>
             {new Date(post.date).toLocaleDateString("en-US", {
               year: "numeric",
@@ -55,7 +55,7 @@ export default function PostCard({ post }: Props) {
         </p>
         <div className="flex items-center justify-between pt-5 border-t border-ink/10">
           <span className="font-serif italic text-sm text-ink/65">{post.author}</span>
-          <span className="font-sans text-[10px] tracking-[0.22em] uppercase text-ink/55 group-hover:text-brass transition-colors duration-300 flex items-center gap-1.5">
+          <span className="font-sans text-[10px] tracking-[0.22em] uppercase text-ink/65 group-hover:text-brass transition-colors duration-300 flex items-center gap-1.5">
             Read <ArrowUpRight size={12} />
           </span>
         </div>

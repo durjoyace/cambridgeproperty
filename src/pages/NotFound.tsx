@@ -46,7 +46,7 @@ const NotFound = () => {
           </Link>
 
           <div className="mt-12 pt-8 border-t border-ink/10">
-            <p className="font-sans text-[10px] tracking-[0.22em] uppercase text-ink/55 mb-4">
+            <p className="font-sans text-[10px] tracking-[0.22em] uppercase text-ink/65 mb-4">
               Or visit a division
             </p>
             <div className="flex flex-wrap justify-center gap-4">
@@ -54,7 +54,7 @@ const NotFound = () => {
                 <Link
                   key={link.href}
                   to={link.href}
-                  className="font-sans text-xs text-ink/55 hover:text-brass transition-colors duration-300 focus-visible:text-brass focus-visible:outline-none"
+                  className="font-sans text-xs text-ink/65 hover:text-brass transition-colors duration-300 focus-visible:text-brass focus-visible:outline-none"
                 >
                   {link.label}
                 </Link>

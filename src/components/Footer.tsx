@@ -10,9 +10,12 @@ const navLinks = [
   { label: "Management", href: "/management" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "About", href: "/about" },
+  { label: "Case Studies", href: "/case-studies" },
   { label: "Press", href: "/press" },
   { label: "Insights", href: "/insights" },
+  { label: "Partners", href: "/partners" },
   { label: "Direct Acquisition", href: "/sell-your-property" },
+  { label: "Contact", href: "/contact" },
 ];
 
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
@@ -44,7 +47,7 @@ export default function Footer() {
     <footer className="bg-ink py-16 md:py-20">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
-          <Link to="/" className="block" aria-label="Thane &amp; Reeve — home">
+          <Link to="/" className="block">
             <Wordmark size="sm" tone="paper" withTagline />
           </Link>
 

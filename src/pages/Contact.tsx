@@ -100,10 +100,10 @@ export default function Contact() {
                     <div className="flex items-start gap-5 py-5 border-b border-ink/15">
                       <Icon size={16} className="text-brass mt-1 shrink-0" />
                       <div>
-                        <div className="font-sans text-[10px] tracking-[0.22em] uppercase text-ink/55 mb-1">
+                        <div className="font-sans text-[10px] tracking-[0.22em] uppercase text-ink/65 mb-1">
                           {info.label}
                         </div>
-                        <div className="font-serif italic text-ink/85">{info.value}</div>
+                        <div className="font-serif italic text-ink/85 break-words">{info.value}</div>
                       </div>
                     </div>
                   );
@@ -138,7 +138,7 @@ export default function Contact() {
             Based in Boston. Operating across the Boston–NYC corridor, with
             underwriting from Providence to the Hudson Valley.
           </p>
-          <div className="mt-10 flex items-center justify-center gap-8 font-sans text-[10px] tracking-[0.3em] uppercase text-paper/55">
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-8 gap-y-3 font-sans text-[10px] tracking-[0.3em] uppercase text-paper/55">
             <span>Boston</span>
             <span className="h-1 w-1 rounded-full bg-brass" />
             <span>Cambridge</span>

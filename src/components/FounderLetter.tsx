@@ -26,7 +26,7 @@ export default function FounderLetter() {
             <p className="font-sans text-[10px] tracking-[0.32em] uppercase text-brass">
               A note from the founder
             </p>
-            <p className="font-serif italic text-ink/55 text-sm">
+            <p className="font-serif italic text-ink/65 text-sm">
               Boston &middot; MMXXVI
             </p>
           </div>
@@ -102,11 +102,11 @@ export default function FounderLetter() {
               >
                 Patrick Barrett
               </p>
-              <p className="mt-3 font-sans text-[10px] tracking-[0.28em] uppercase text-ink/55">
+              <p className="mt-3 font-sans text-[10px] tracking-[0.28em] uppercase text-ink/65">
                 Founder &amp; Managing Partner &middot; Thane &amp; Reeve
               </p>
             </div>
-            <p className="font-serif italic text-ink/55 text-sm md:text-base max-w-xs sm:text-right">
+            <p className="font-serif italic text-ink/65 text-sm md:text-base max-w-xs sm:text-right">
               Cambridge zoning attorney &middot; developer &middot;
               Investment Committee chair
             </p>

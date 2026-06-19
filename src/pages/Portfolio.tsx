@@ -128,7 +128,7 @@ export default function Portfolio() {
                           {cs.statusDetail}
                         </span>
                       )}
-                      <span className="font-sans text-[9px] tracking-[0.24em] uppercase text-ink/55 border border-ink/15 px-3 py-1.5">
+                      <span className="font-sans text-[9px] tracking-[0.24em] uppercase text-ink/65 border border-ink/15 px-3 py-1.5">
                         {cs.status}
                       </span>
                       <span className="ml-auto font-serif italic text-brass text-lg">
@@ -139,7 +139,7 @@ export default function Portfolio() {
                     <h2 className="font-serif text-2xl md:text-3xl text-ink mb-2 tracking-tight leading-tight">
                       {cs.title}
                     </h2>
-                    <p className="font-sans text-xs text-ink/55 mb-6">
+                    <p className="font-sans text-xs text-ink/65 mb-6">
                       {cs.location}
                       {cs.neighborhood ? ` — ${cs.neighborhood}` : ""}
                     </p>
@@ -159,11 +159,11 @@ export default function Portfolio() {
                               <div className="font-serif text-xl md:text-2xl text-ink mb-1">
                                 {pm.value}
                               </div>
-                              <div className="font-sans text-[9px] tracking-[0.12em] uppercase text-ink/55 mb-0.5">
+                              <div className="font-sans text-[9px] tracking-[0.12em] uppercase text-ink/65 mb-0.5">
                                 {pm.label}
                               </div>
                               {pm.context && (
-                                <div className="font-sans text-[10px] text-ink/55 font-light">
+                                <div className="font-sans text-[10px] text-ink/65 font-light">
                                   {pm.context}
                                 </div>
                               )}
@@ -176,7 +176,7 @@ export default function Portfolio() {
                     <div className="grid grid-cols-3 gap-4 pt-6 border-t border-ink/15 mb-8">
                       {cs.metrics.map((m, j) => (
                         <div key={j}>
-                          <div className="font-sans text-[9px] tracking-[0.22em] uppercase text-ink/55 mb-1.5">
+                          <div className="font-sans text-[9px] tracking-[0.22em] uppercase text-ink/65 mb-1.5">
                             {m.label}
                           </div>
                           <div className="font-serif italic text-sm text-ink/85">
@@ -215,7 +215,7 @@ export default function Portfolio() {
             </div>
 
             <div className="border-t border-ink/20">
-              <div className="grid grid-cols-12 gap-4 py-4 border-b border-ink/15 font-sans text-[10px] tracking-[0.24em] uppercase text-ink/55">
+              <div className="grid grid-cols-12 gap-4 py-4 border-b border-ink/15 font-sans text-[10px] tracking-[0.24em] uppercase text-ink/65">
                 <div className="col-span-1">№</div>
                 <div className="col-span-5">Opportunity</div>
                 <div className="col-span-3">Strategy</div>
@@ -231,7 +231,7 @@ export default function Portfolio() {
                     <div className="font-serif italic text-ink text-base md:text-lg">
                       {p.label}
                     </div>
-                    <div className="font-sans text-[10px] tracking-[0.2em] uppercase text-ink/55 mt-1">
+                    <div className="font-sans text-[10px] tracking-[0.2em] uppercase text-ink/65 mt-1">
                       {p.market}
                     </div>
                   </div>

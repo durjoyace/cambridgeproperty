@@ -81,7 +81,7 @@ export default function PropertyDetail() {
           {/* Back link */}
           <Link
             to="/portfolio"
-            className="inline-flex items-center gap-2 font-sans text-[10px] tracking-[0.2em] uppercase text-ink/55 hover:text-brass transition-colors duration-300 mb-10 focus-visible:ring-2 focus-visible:ring-brass/60 focus-visible:outline-none"
+            className="inline-flex items-center gap-2 font-sans text-[10px] tracking-[0.2em] uppercase text-ink/65 hover:text-brass transition-colors duration-300 mb-10 focus-visible:ring-2 focus-visible:ring-brass/60 focus-visible:outline-none"
           >
             <ArrowLeft size={12} /> All projects
           </Link>
@@ -109,7 +109,7 @@ export default function PropertyDetail() {
                   {property.statusDetail}
                 </span>
               )}
-              <span className="font-sans text-[9px] tracking-[0.24em] uppercase text-ink/55 border border-ink/15 px-3 py-1.5">
+              <span className="font-sans text-[9px] tracking-[0.24em] uppercase text-ink/65 border border-ink/15 px-3 py-1.5">
                 {property.status}
               </span>
             </div>
@@ -145,7 +145,7 @@ export default function PropertyDetail() {
                   <div className="font-serif text-3xl md:text-4xl text-ink mb-2 tracking-tight">{pm.value}</div>
                   <div className="font-sans text-[10px] tracking-[0.15em] uppercase text-ink/70 mb-1">{pm.label}</div>
                   {pm.context && (
-                    <div className="font-sans text-xs text-ink/55 font-light">{pm.context}</div>
+                    <div className="font-sans text-xs text-ink/65 font-light">{pm.context}</div>
                   )}
                 </div>
               ))}
@@ -242,7 +242,7 @@ export default function PropertyDetail() {
                       <span className="font-sans text-[9px] tracking-[0.2em] uppercase text-brass border border-brass/30 bg-brass/5 px-2.5 py-1">
                         {item.category}
                       </span>
-                      <span className="font-sans text-[10px] text-ink/55">
+                      <span className="font-sans text-[10px] text-ink/65">
                         {item.source} · {new Date(item.date).toLocaleDateString("en-US", { month: "short", year: "numeric" })}
                       </span>
                     </div>
@@ -306,7 +306,7 @@ export default function PropertyDetail() {
                   <h3 className="font-serif text-lg md:text-xl text-ink mb-2 group-hover:text-brass transition-colors duration-300 leading-snug">
                     {cs.title}
                   </h3>
-                  <p className="font-sans text-xs text-ink/55 font-light">
+                  <p className="font-sans text-xs text-ink/65 font-light">
                     {cs.location} &middot; {cs.units} units &middot; {cs.strategy}
                   </p>
                 </Link>

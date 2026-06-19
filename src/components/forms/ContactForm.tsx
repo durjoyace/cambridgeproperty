@@ -53,10 +53,10 @@ export default function ContactForm() {
   const inputCls = (err?: string) =>
     `bg-paper border-b ${
       err ? "border-destructive/60" : "border-ink/25 focus:border-brass"
-    } text-ink font-sans text-base px-0 py-3 focus:outline-none transition-colors duration-300 placeholder:text-ink/35 w-full`;
+    } text-ink font-sans text-base px-0 py-3 focus:outline-none transition-colors duration-300 placeholder:text-ink/50 w-full`;
 
   const labelCls =
-    "font-sans text-[10px] tracking-[0.24em] uppercase text-ink/55 block mb-2";
+    "font-sans text-[10px] tracking-[0.24em] uppercase text-ink/65 block mb-2";
 
   if (status === "success") {
     return (
@@ -101,9 +101,9 @@ export default function ContactForm() {
   return (
     <div className="bg-paper border border-ink/10">
       <div className="p-8 md:p-10">
-        <h3 className="font-serif text-2xl text-ink mb-8 tracking-tight">
+        <h2 className="font-serif text-2xl text-ink mb-8 tracking-tight">
           Write a note.
-        </h3>
+        </h2>
         <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>

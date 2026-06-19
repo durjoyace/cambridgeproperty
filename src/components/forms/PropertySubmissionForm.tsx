@@ -116,10 +116,10 @@ export default function PropertySubmissionForm({ variant = "inline" }: Props) {
   const inputCls = (err?: string) =>
     `bg-paper border-b ${
       err ? "border-destructive/60" : "border-ink/25 focus:border-brass"
-    } text-ink font-sans text-base px-0 py-3 focus:outline-none transition-colors duration-300 placeholder:text-ink/35 w-full`;
+    } text-ink font-sans text-base px-0 py-3 focus:outline-none transition-colors duration-300 placeholder:text-ink/50 w-full`;
 
   const labelCls =
-    "font-sans text-[10px] tracking-[0.24em] uppercase text-ink/55 block mb-2";
+    "font-sans text-[10px] tracking-[0.24em] uppercase text-ink/65 block mb-2";
 
   const isFullPage = variant === "full";
 

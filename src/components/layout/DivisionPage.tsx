@@ -56,10 +56,10 @@ export default function DivisionPage({ content }: { content: DivisionPageContent
   // Tone-aware classes — kept verbose so each line reads at a glance
   const t = {
     bg: isInk ? "bg-ink" : "bg-paper-warm",
-    label: isInk ? "text-paper/55" : "text-ink/55",
+    label: isInk ? "text-paper/55" : "text-ink/65",
     labelSoft: isInk ? "text-paper/40" : "text-ink/45",
     italic: isInk ? "text-paper/70" : "text-ink/70",
-    italicSoft: isInk ? "text-paper/55" : "text-ink/55",
+    italicSoft: isInk ? "text-paper/55" : "text-ink/65",
     rule: isInk ? "bg-paper/20" : "bg-ink/20",
     ruleSoft: isInk ? "bg-paper/12" : "bg-ink/12",
     brass: isInk ? "text-brass-light" : "text-brass",
@@ -220,7 +220,7 @@ export default function DivisionPage({ content }: { content: DivisionPageContent
             {/* Head of */}
             <div className="mt-14 border-t border-ink/15 pt-10 grid md:grid-cols-2 gap-8">
               <div>
-                <p className="font-sans text-[10px] tracking-[0.28em] uppercase text-ink/55 mb-2">
+                <p className="font-sans text-[10px] tracking-[0.28em] uppercase text-ink/65 mb-2">
                   Head of
                 </p>
                 <p className="font-serif italic text-ink/85 text-lg">
@@ -230,7 +230,7 @@ export default function DivisionPage({ content }: { content: DivisionPageContent
                 </p>
               </div>
               <div>
-                <p className="font-sans text-[10px] tracking-[0.28em] uppercase text-ink/55 mb-2">
+                <p className="font-sans text-[10px] tracking-[0.28em] uppercase text-ink/65 mb-2">
                   Direct line
                 </p>
                 <a
@@ -250,7 +250,7 @@ export default function DivisionPage({ content }: { content: DivisionPageContent
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-5xl mx-auto">
             <div className="flex items-center justify-between mb-8">
-              <p className="font-sans text-[10px] tracking-[0.28em] uppercase text-ink/55">
+              <p className="font-sans text-[10px] tracking-[0.28em] uppercase text-ink/65">
                 The other divisions
               </p>
               <p className="font-serif italic text-sm text-ink/60 max-w-sm text-right">

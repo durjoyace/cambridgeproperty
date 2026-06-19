@@ -44,7 +44,7 @@ export default function CaseStudyCard({ study }: Props) {
           <h3 className="font-serif text-xl md:text-2xl text-ink mb-2 tracking-tight leading-snug">
             {study.title}
           </h3>
-          <p className="font-sans text-xs text-ink/55">
+          <p className="font-sans text-xs text-ink/65">
             {study.location} &middot; {study.units} units &middot; {study.strategy}
           </p>
         </div>
@@ -80,11 +80,11 @@ export default function CaseStudyCard({ study }: Props) {
                   <div className="font-serif text-lg md:text-xl text-ink mb-1 tracking-tight">
                     {pm.value}
                   </div>
-                  <div className="font-sans text-[9px] tracking-[0.12em] uppercase text-ink/55 mb-0.5">
+                  <div className="font-sans text-[9px] tracking-[0.12em] uppercase text-ink/65 mb-0.5">
                     {pm.label}
                   </div>
                   {pm.context && (
-                    <div className="font-sans text-[10px] text-ink/55 font-light">
+                    <div className="font-sans text-[10px] text-ink/65 font-light">
                       {pm.context}
                     </div>
                   )}
@@ -97,7 +97,7 @@ export default function CaseStudyCard({ study }: Props) {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-ink/15 mb-6">
           {study.metrics.map((m, j) => (
             <div key={j}>
-              <div className="font-sans text-[9px] tracking-[0.22em] uppercase text-ink/55 mb-1.5">
+              <div className="font-sans text-[9px] tracking-[0.22em] uppercase text-ink/65 mb-1.5">
                 {m.label}
               </div>
               <div className="font-serif italic text-sm text-ink/85">{m.value}</div>
