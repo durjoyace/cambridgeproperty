@@ -33,7 +33,7 @@ const principals = [
   },
   {
     name: "Timothy Johnson",
-    role: "Partner",
+    role: "Co-Founder & Partner",
     credential: "Certified Property Manager · Named principal on $37.75M institutional financing",
     image: timPlaceholder,
     bio: "Tim is a Certified Property Manager (CPM) and a named principal on the $37.75 million institutional construction financing behind 907 Main. He runs Thane & Reeve Management: asset management, property-level operations, leasing strategy, capital planning, and quarterly investor reporting across the firm's portfolio. The firm's view is straightforward: most underperformance in real estate is operational, not strategic. Holding the operating function in-house is how Thane & Reeve stays accountable to its own underwriting — the team that holds the asset at year seven is the team that bought it at year one.",
@@ -45,9 +45,9 @@ const principals = [
     ],
     schema: {
       name: "Timothy Johnson",
-      jobTitle: "Partner, Thane & Reeve",
+      jobTitle: "Co-Founder & Partner, Thane & Reeve",
       description:
-        "Partner at Thane & Reeve. Certified Property Manager and named principal on $37.75M institutional financing. Runs asset management and property operations across the firm's Northeast portfolio.",
+        "Co-Founder and Partner at Thane & Reeve. Certified Property Manager and named principal on $37.75M institutional financing. Runs asset management and property operations across the firm's Northeast portfolio.",
     },
   },
 ];

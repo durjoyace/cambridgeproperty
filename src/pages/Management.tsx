@@ -27,7 +27,7 @@ const content: DivisionPageContent = {
   ],
   head: {
     title: "Timothy Johnson",
-    role: "Partner, CPM",
+    role: "Co-Founder & Partner, CPM",
     email: "management@thaneandreeve.com",
   },
   sisters: [

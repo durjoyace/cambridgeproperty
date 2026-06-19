@@ -50,7 +50,7 @@ export const PAGE_META = {
   contact: {
     title: "Contact — Thane & Reeve",
     description:
-      "Reach Thane & Reeve directly. Boston-based Northeast real estate firm. Patrick Barrett, Founder & Managing Partner. Timothy Johnson, Partner.",
+      "Reach Thane & Reeve directly. Boston-based Northeast real estate firm. Patrick Barrett, Founder & Managing Partner. Timothy Johnson, Co-Founder & Partner.",
     canonical: "/contact",
   },
   portfolio: {

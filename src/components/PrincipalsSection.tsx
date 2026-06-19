@@ -123,7 +123,7 @@ export default function PrincipalsSection() {
                 </span>
               </figcaption>
               <p className="font-sans text-[10px] tracking-[0.28em] uppercase text-brass mb-4">
-                Partner &middot; CPM
+                Co-Founder &amp; Partner &middot; CPM
               </p>
               <h3 className="font-serif text-3xl md:text-4xl text-ink tracking-tight leading-[1.05] mb-4">
                 Timothy Johnson
