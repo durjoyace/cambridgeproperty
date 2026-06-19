@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
-import hotel907 from "@/assets/907-main.jpg";
-import building2 from "@/assets/building-2.jpg";
-import storyStreet from "@/assets/17-story-street.jpg";
+import hotel907 from "@/assets/907-main.jpg?format=webp&as=url";
+import building2 from "@/assets/building-2.jpg?format=webp&as=url";
+import storyStreet from "@/assets/17-story-street.jpg?format=webp&as=url";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const portfolioItems = [

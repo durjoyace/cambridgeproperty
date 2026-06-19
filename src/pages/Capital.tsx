@@ -2,7 +2,7 @@ import SEOHead from "@/components/seo/SEOHead";
 import { PAGE_META } from "@/lib/seo/metadata";
 import { breadcrumbSchema, serviceSchema } from "@/lib/seo/schemas";
 import DivisionPage, { DivisionPageContent } from "@/components/layout/DivisionPage";
-import hotel907 from "@/assets/907-main.jpg";
+import hotel907 from "@/assets/907-main.jpg?format=webp&as=url";
 
 const content: DivisionPageContent = {
   division: "Capital",

@@ -11,9 +11,9 @@ export interface BlogPost {
 }
 
 // Blog post images — import from assets so Vite hashes them for cache-busting
-import blogImg1 from "@/assets/building-1.jpg";
-import blogImg2 from "@/assets/building-2.jpg";
-import blogImg3 from "@/assets/hero-bg.jpg";
+import blogImg1 from "@/assets/building-1.jpg?format=webp&as=url";
+import blogImg2 from "@/assets/building-2.jpg?format=webp&as=url";
+import blogImg3 from "@/assets/hero-bg.jpg?format=webp&as=url";
 
 export const blogPosts: BlogPost[] = [
   {

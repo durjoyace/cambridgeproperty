@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import patrickHeadshot from "@/assets/patrick-barrett.jpg";
+import patrickHeadshot from "@/assets/patrick-barrett.jpg?format=webp&as=url";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 /**

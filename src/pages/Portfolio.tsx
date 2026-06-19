@@ -6,7 +6,7 @@ import { PAGE_META } from "@/lib/seo/metadata";
 import { breadcrumbSchema, itemListSchema } from "@/lib/seo/schemas";
 import { caseStudies } from "@/lib/data/case-studies";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import building2 from "@/assets/building-2.jpg";
+import building2 from "@/assets/building-2.jpg?format=webp&as=url";
 import { PageHeader } from "@/components/brand/PageHeader";
 
 const pipelineTeaser = [
