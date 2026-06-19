@@ -46,7 +46,7 @@ export default function InsightPost() {
           {/* Back link */}
           <Link
             to="/insights"
-            className="inline-flex items-center gap-2 font-sans text-[10px] tracking-[0.2em] uppercase text-ink/55 hover:text-brass transition-colors duration-300 mb-10 focus-visible:ring-2 focus-visible:ring-brass/60 focus-visible:outline-none"
+            className="inline-flex items-center gap-2 font-sans text-[10px] tracking-[0.2em] uppercase text-ink/65 hover:text-brass transition-colors duration-300 mb-10 focus-visible:ring-2 focus-visible:ring-brass/60 focus-visible:outline-none"
           >
             <ArrowLeft size={12} /> All insights
           </Link>
@@ -59,7 +59,7 @@ export default function InsightPost() {
             <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-ink leading-[1.14] tracking-tight mb-6">
               {post.title}
             </h1>
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-ink/55">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-ink/65">
               <span className="font-sans text-xs">{post.author}</span>
               <span className="text-ink/25" aria-hidden>·</span>
               <time className="font-sans text-xs">
@@ -123,7 +123,7 @@ export default function InsightPost() {
                   <h3 className="font-serif text-lg md:text-xl text-ink mb-2 group-hover:text-brass transition-colors duration-300 leading-snug">
                     {p.title}
                   </h3>
-                  <p className="font-sans text-xs text-ink/55 font-light">
+                  <p className="font-sans text-xs text-ink/65 font-light">
                     {p.author} &middot; {p.readTime}
                   </p>
                 </Link>

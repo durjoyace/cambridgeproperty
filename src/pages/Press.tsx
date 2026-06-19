@@ -75,7 +75,7 @@ export default function Press() {
                     {item.category}
                   </span>
                   <div className="flex items-center gap-3">
-                    <span className="font-serif italic text-sm text-ink/55">
+                    <span className="font-serif italic text-sm text-ink/65">
                       {new Date(item.date).toLocaleDateString("en-US", {
                         year: "numeric",
                         month: "short",
@@ -90,7 +90,7 @@ export default function Press() {
                 <h3 className="font-serif text-lg md:text-xl text-ink mb-3 group-hover:text-brass transition-colors duration-300 leading-snug">
                   {item.headline}
                 </h3>
-                <p className="font-sans text-[10px] tracking-[0.2em] uppercase text-ink/55 mb-3">
+                <p className="font-sans text-[10px] tracking-[0.2em] uppercase text-ink/65 mb-3">
                   {item.source}
                 </p>
                 <p className="font-sans text-sm text-ink/70 font-light leading-[1.75]">

@@ -92,7 +92,7 @@ export default function PortfolioSection() {
               <p className="font-sans text-[10px] tracking-[0.28em] uppercase text-brass">
                 The record, in figures
               </p>
-              <p className="font-serif italic text-ink/55 text-sm">
+              <p className="font-serif italic text-ink/65 text-sm">
                 Verified &middot; current
               </p>
             </div>
@@ -119,7 +119,7 @@ export default function PortfolioSection() {
                   <div className="font-sans text-[10px] tracking-[0.24em] uppercase text-ink/65 mb-2">
                     {s.label}
                   </div>
-                  <div className="font-serif italic text-ink/55 text-sm leading-snug">
+                  <div className="font-serif italic text-ink/65 text-sm leading-snug">
                     {s.sub}
                   </div>
                 </div>
@@ -155,7 +155,7 @@ export default function PortfolioSection() {
                   <h3 className="font-serif text-xl md:text-2xl text-ink mb-1 tracking-tight leading-snug">
                     {item.label}
                   </h3>
-                  <p className="font-sans text-xs text-ink/55 mb-4">
+                  <p className="font-sans text-xs text-ink/65 mb-4">
                     {item.location} · {item.units}
                   </p>
                   <p className="font-serif text-base text-ink/80 leading-[1.65]">
@@ -169,7 +169,7 @@ export default function PortfolioSection() {
                   <Link
                     key={i}
                     to={`/portfolio/${item.slug}`}
-                    className="group block focus-visible:outline-none"
+                    className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass focus-visible:ring-offset-2 focus-visible:ring-offset-paper-warm"
                   >
                     {inner}
                   </Link>

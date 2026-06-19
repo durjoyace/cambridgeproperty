@@ -56,7 +56,7 @@ export default function PrincipalsSection() {
                   height={1000}
                 />
               </figure>
-              <figcaption className="mb-6 flex items-baseline justify-between font-sans text-[10px] tracking-[0.28em] uppercase text-ink/55">
+              <figcaption className="mb-6 flex items-baseline justify-between font-sans text-[10px] tracking-[0.28em] uppercase text-ink/65">
                 <span>Portrait &middot; Boston, MMXXVI</span>
                 <span className="font-serif italic tracking-normal normal-case text-sm text-ink/65">
                   Plate №&thinsp;01
@@ -116,7 +116,7 @@ export default function PrincipalsSection() {
                   </span>
                 </div>
               </figure>
-              <figcaption className="mb-6 flex items-baseline justify-between font-sans text-[10px] tracking-[0.28em] uppercase text-ink/55">
+              <figcaption className="mb-6 flex items-baseline justify-between font-sans text-[10px] tracking-[0.28em] uppercase text-ink/65">
                 <span>Plate held &middot; sittings 2026</span>
                 <span className="font-serif italic tracking-normal normal-case text-sm text-ink/65">
                   Plate №&thinsp;02

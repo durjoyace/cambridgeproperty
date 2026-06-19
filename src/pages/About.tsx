@@ -73,6 +73,7 @@ export default function About() {
       <section className="pt-24 md:pt-32 pb-20 md:pb-28 bg-paper" ref={sectionRef}>
         <div className="container mx-auto px-6 md:px-12" data-reveal>
           <div className="max-w-4xl mx-auto text-center">
+            <h1 className="sr-only">About Thane &amp; Reeve</h1>
             <Wordmark size="xl" tone="ink" />
             <p className="mt-8 font-serif italic text-xl md:text-2xl text-ink/80">
               Land held. Land managed.
@@ -310,7 +311,7 @@ export default function About() {
                       {person.bio}
                     </p>
                     <div className="pt-6 border-t border-ink/10">
-                      <div className="font-sans text-[10px] tracking-[0.22em] uppercase text-ink/55 mb-3">
+                      <div className="font-sans text-[10px] tracking-[0.22em] uppercase text-ink/65 mb-3">
                         Areas of focus
                       </div>
                       <div className="flex flex-wrap gap-2">

@@ -26,7 +26,7 @@ export function PageHeader({
   className,
 }: PageHeaderProps) {
   const isInk = tone === "ink";
-  const labelTone = isInk ? "text-paper/55" : "text-ink/55";
+  const labelTone = isInk ? "text-paper/55" : "text-ink/65";
   const descriptorTone = isInk ? "text-paper/65" : "text-ink/65";
   const ruleTone = isInk ? "bg-paper/20" : "bg-ink/20";
 

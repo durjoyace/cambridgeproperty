@@ -47,7 +47,7 @@ export default function Footer() {
     <footer className="bg-ink py-16 md:py-20">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
-          <Link to="/" className="block" aria-label="Thane &amp; Reeve — home">
+          <Link to="/" className="block">
             <Wordmark size="sm" tone="paper" withTagline />
           </Link>
 

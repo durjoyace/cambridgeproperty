@@ -86,7 +86,7 @@ export default function CaseStudies() {
       {/* Stats band */}
       <section className="bg-paper">
         <div className="container mx-auto px-6 md:px-12 max-w-6xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-ink/10 border border-ink/10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-ink/10 border border-ink/10">
             {stats.map((s, i) => (
               <div key={i} className="bg-paper p-8 md:p-10 text-center">
                 <div
@@ -94,7 +94,7 @@ export default function CaseStudies() {
                   dangerouslySetInnerHTML={{ __html: s.value }}
                 />
                 <div
-                  className="font-sans text-[10px] tracking-[0.22em] uppercase text-ink/55"
+                  className="font-sans text-[10px] tracking-[0.22em] uppercase text-ink/65"
                   dangerouslySetInnerHTML={{ __html: s.label }}
                 />
               </div>

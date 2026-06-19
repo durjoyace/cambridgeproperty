@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, LogIn } from "lucide-react";
 import { Wordmark } from "@/components/brand/Wordmark";
@@ -53,6 +53,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { pathname } = useLocation();
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -64,6 +65,19 @@ export default function Navbar() {
     setMobileOpen(false);
   }, [pathname]);
 
+  // Escape closes the mobile menu and returns focus to its toggle.
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMobileOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [mobileOpen]);
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -73,7 +87,7 @@ export default function Navbar() {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between py-5">
-        <Link to="/" className="group" aria-label="Thane &amp; Reeve — home">
+        <Link to="/" className="group">
           <Wordmark size="sm" tone="ink" />
         </Link>
 
@@ -106,7 +120,8 @@ export default function Navbar() {
         </nav>
 
         <button
-          className="lg:hidden text-ink/70 hover:text-brass transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-brass/60 focus-visible:outline-none"
+          ref={menuButtonRef}
+          className="lg:hidden -m-2 p-2 text-ink/70 hover:text-brass transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-brass/60 focus-visible:outline-none"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
@@ -141,7 +156,7 @@ export default function Navbar() {
             href={RESIDENT_PORTAL_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 font-sans text-xs tracking-[0.18em] uppercase text-ink/55 hover:text-brass transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-brass/60 focus-visible:outline-none"
+            className="inline-flex items-center justify-center gap-2 font-sans text-xs tracking-[0.18em] uppercase text-ink/65 hover:text-brass transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-brass/60 focus-visible:outline-none"
             onClick={() => setMobileOpen(false)}
           >
             <LogIn size={14} />

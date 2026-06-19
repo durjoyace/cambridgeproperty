@@ -2,13 +2,16 @@ import { Link, useLocation } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 
 const labelMap: Record<string, string> = {
-  management: "Property Management",
+  capital: "Capital",
+  development: "Development",
+  management: "Management",
   "case-studies": "Case Studies",
-  "sell-your-property": "Sell Your Property",
-  partners: "Our Partners",
-  about: "About Us",
+  "sell-your-property": "Direct Acquisition",
+  partners: "Partners",
+  about: "About",
   contact: "Contact",
   insights: "Insights",
+  press: "Press",
   portfolio: "Portfolio",
 };
 
@@ -23,19 +26,19 @@ export default function Breadcrumbs() {
       <div className="container mx-auto">
         <ol className="flex items-center gap-2 font-sans text-[10px] tracking-[0.15em] uppercase">
           <li>
-            <Link to="/" className="text-cream-muted/50 hover:text-gold transition-colors duration-300">
+            <Link to="/" className="text-ink/65 hover:text-brass transition-colors duration-300">
               Home
             </Link>
           </li>
           {segments.map((segment, i) => (
             <li key={segment} className="flex items-center gap-2">
-              <ChevronRight size={10} className="text-cream-muted/50" />
+              <ChevronRight size={10} className="text-ink/40" aria-hidden />
               {i === segments.length - 1 ? (
-                <span className="text-gold">{labelMap[segment] || segment}</span>
+                <span className="text-brass" aria-current="page">{labelMap[segment] || segment}</span>
               ) : (
                 <Link
                   to={`/${segments.slice(0, i + 1).join("/")}`}
-                  className="text-cream-muted/50 hover:text-gold transition-colors duration-300"
+                  className="text-ink/65 hover:text-brass transition-colors duration-300"
                 >
                   {labelMap[segment] || segment}
                 </Link>

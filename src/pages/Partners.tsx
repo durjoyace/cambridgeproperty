@@ -109,7 +109,7 @@ export default function Partners() {
               ].map((s) => (
                 <div key={s.label} className="bg-paper p-8 text-center">
                   <div className="font-serif text-3xl text-ink mb-2 tracking-tight">{s.value}</div>
-                  <div className="font-sans text-[10px] tracking-[0.22em] uppercase text-ink/55">
+                  <div className="font-sans text-[10px] tracking-[0.22em] uppercase text-ink/65">
                     {s.label}
                   </div>
                 </div>

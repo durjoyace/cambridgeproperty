@@ -25,7 +25,7 @@ export function PullQuote({
   const isInk = tone === "ink";
   const ruleTone = isInk ? "bg-brass-light" : "bg-brass";
   const quoteTone = isInk ? "text-paper/90" : "text-ink/85";
-  const attrTone = isInk ? "text-paper/55" : "text-ink/55";
+  const attrTone = isInk ? "text-paper/55" : "text-ink/65";
 
   return (
     <figure className={cn("my-12 md:my-16 mx-auto max-w-3xl text-center", className)}>
