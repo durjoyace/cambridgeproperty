@@ -41,6 +41,7 @@ export const routes: RouteRecord[] = [
         getStaticPaths: () => PORTFOLIO_SLUGS.map((s) => `portfolio/${s}`),
       },
       { path: "press", Component: lazy(() => import("./pages/Press")) },
+      { path: "privacy", Component: lazy(() => import("./pages/Privacy")) },
       { path: "sell", element: <Navigate to="/sell-your-property" replace /> },
       { path: "acquisitions", element: <Navigate to="/capital" replace /> },
       // Prerendered to dist/404.html; Vercel serves it as the not-found fallback.

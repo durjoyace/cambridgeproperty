@@ -83,9 +83,17 @@ export default function Footer() {
             <p className="font-sans text-xs text-paper/50 font-light tracking-wide">
               &copy; {year} Thane &amp; Reeve Holdings LLC. All rights reserved.
             </p>
-            <p className="font-sans text-xs text-paper/50 font-light tracking-wide">
-              Patrick Barrett · Timothy Johnson · Boston
-            </p>
+            <div className="flex items-center gap-5">
+              <Link
+                to="/privacy"
+                className="font-sans text-xs text-paper/50 font-light tracking-wide hover:text-paper transition-colors duration-300 focus-visible:text-paper focus-visible:outline-none"
+              >
+                Privacy
+              </Link>
+              <p className="font-sans text-xs text-paper/50 font-light tracking-wide">
+                Patrick Barrett · Timothy Johnson · Boston
+              </p>
+            </div>
           </div>
         </div>
       </div>
