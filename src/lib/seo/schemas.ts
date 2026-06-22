@@ -147,6 +147,52 @@ export function personSchema(person: {
   };
 }
 
+/**
+ * Structured data for an owned/operated property, so answer engines can
+ * describe the firm's assets as entities (name, type, location, scale).
+ */
+export function propertySchema(p: {
+  name: string;
+  description: string;
+  location: string; // "Cambridge, MA"
+  assetType: string;
+  units: number;
+  url: string;
+  image?: string;
+}) {
+  const [locality, region] = p.location.split(",").map((s) => s.trim());
+  const at = p.assetType.toLowerCase();
+  const hasHotel = /hotel|lodging/.test(at);
+  const hasResidential = /residential|multifamily|home|apartment/.test(at);
+  // Mixed-use (e.g. "Hotel + Residential") has no clean schema.org type — use Place.
+  const type =
+    hasHotel && !hasResidential
+      ? "Hotel"
+      : hasResidential && !hasHotel
+        ? "ApartmentComplex"
+        : "Place";
+  return {
+    "@context": "https://schema.org",
+    "@type": type,
+    name: p.name,
+    description: p.description,
+    url: `${BASE_URL}${p.url}`,
+    address: {
+      "@type": "PostalAddress",
+      ...(locality && { addressLocality: locality }),
+      ...(region && { addressRegion: region }),
+      addressCountry: "US",
+    },
+    ...(type === "Hotel"
+      ? { numberOfRooms: p.units }
+      : type === "ApartmentComplex"
+        ? { numberOfAccommodationUnits: p.units }
+        : {}),
+    ...(p.image?.startsWith("http") && { photo: p.image }),
+    owner: { "@id": `${BASE_URL}/#organization` },
+  };
+}
+
 export function articleSchema(article: {
   title: string;
   description: string;
