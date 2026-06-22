@@ -72,6 +72,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://thaneandreeve.com/privacy</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
   <!-- Portfolio detail pages -->
   <url>
     <loc>https://thaneandreeve.com/portfolio/907-main-hotel</loc>
