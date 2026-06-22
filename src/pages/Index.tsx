@@ -9,7 +9,7 @@ import SubmitSection from "@/components/SubmitSection";
 import FAQSection from "@/components/FAQSection";
 import SEOHead from "@/components/seo/SEOHead";
 import { PAGE_META } from "@/lib/seo/metadata";
-import { organizationSchema, localBusinessSchema, faqSchema } from "@/lib/seo/schemas";
+import { localBusinessSchema, faqSchema } from "@/lib/seo/schemas";
 import { PullQuote } from "@/components/brand/PullQuote";
 import { ArchitecturalFigure } from "@/components/brand/ArchitecturalFigure";
 import hotel907 from "@/assets/907-main.jpg?format=webp&as=url";
@@ -52,7 +52,7 @@ const Index = () => {
     <>
       <SEOHead
         {...PAGE_META.home}
-        schema={[organizationSchema(), localBusinessSchema(), faqSchema(homeFaqs)]}
+        schema={[localBusinessSchema(), faqSchema(homeFaqs)]}
       />
       <HeroSection />
       <FounderLetter />

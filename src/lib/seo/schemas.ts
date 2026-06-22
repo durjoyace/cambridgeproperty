@@ -5,10 +5,16 @@ export function organizationSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": `${BASE_URL}/#organization`,
     additionalType: "RealEstateCompany",
     name: FIRM_NAME,
     legalName: "Thane & Reeve Holdings LLC",
     url: BASE_URL,
+    logo: {
+      "@type": "ImageObject",
+      url: `${BASE_URL}/favicon.png`,
+    },
+    image: `${BASE_URL}/og-image.png`,
     description:
       "Thane & Reeve is a Northeast real estate firm that acquires, develops, and manages institutional-quality property. Organized around the refusal to separate ownership from operations. Three divisions: Capital, Development, Management.",
     email: "contact@thaneandreeve.com",
@@ -17,6 +23,19 @@ export function organizationSchema() {
       { "@type": "Person", name: "Patrick Barrett", jobTitle: "Founder & Managing Partner" },
       { "@type": "Person", name: "Timothy Johnson", jobTitle: "Co-Founder & Partner" },
     ],
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Boston",
+      addressRegion: "MA",
+      addressCountry: "US",
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: "contact@thaneandreeve.com",
+      contactType: "sales",
+      areaServed: "US-Northeast",
+      availableLanguage: "English",
+    },
     areaServed: "Northeast United States",
     slogan: "Land held. Land managed.",
     knowsAbout: [
@@ -133,26 +152,37 @@ export function articleSchema(article: {
   description: string;
   url: string;
   datePublished: string;
+  dateModified?: string;
   author: string;
   image?: string;
 }) {
+  const articleUrl = `${BASE_URL}${article.url}`;
   return {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: article.title,
     description: article.description,
-    url: `${BASE_URL}${article.url}`,
+    url: articleUrl,
+    mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
+    inLanguage: "en-US",
     datePublished: article.datePublished,
+    dateModified: article.dateModified || article.datePublished,
     author: {
       "@type": "Person",
       name: article.author,
+      worksFor: { "@id": `${BASE_URL}/#organization` },
     },
     publisher: {
       "@type": "Organization",
       name: FIRM_NAME,
       url: BASE_URL,
+      logo: { "@type": "ImageObject", url: `${BASE_URL}/favicon.png` },
     },
-    ...(article.image && { image: article.image }),
+    ...(article.image && {
+      image: article.image.startsWith("http")
+        ? article.image
+        : `${BASE_URL}/og-image.png`,
+    }),
   };
 }
 

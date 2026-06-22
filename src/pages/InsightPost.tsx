@@ -22,6 +22,8 @@ export default function InsightPost() {
         description={post.excerpt}
         canonical={`/insights/${post.slug}`}
         ogType="article"
+        publishedTime={post.date}
+        author={post.author}
         schema={[
           articleSchema({
             title: post.title,
