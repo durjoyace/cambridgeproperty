@@ -6,13 +6,6 @@ import { breadcrumbSchema } from "@/lib/seo/schemas";
 import { getCaseStudyBySlug, caseStudies } from "@/lib/data/case-studies";
 import { pressItems } from "@/lib/data/press";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import hotel907 from "@/assets/907-main.jpg";
-import storyStreet from "@/assets/17-story-street.jpg";
-
-const propertyImages: Record<string, string> = {
-  "907-main": hotel907,
-  "building-2": storyStreet,
-};
 
 /** Sans tracked-caps brass eyebrow — the consistent section marker. */
 function Kicker({ children }: { children: React.ReactNode }) {
@@ -62,10 +55,10 @@ export default function PropertyDetail() {
       <Breadcrumbs />
 
       {/* Hero image */}
-      {property.image && propertyImages[property.image] && (
+      {property.image && (
         <div className="relative h-72 md:h-96 lg:h-[28rem] overflow-hidden bg-paper-warm">
           <img
-            src={propertyImages[property.image]}
+            src={property.image}
             alt={property.title}
             className="w-full h-full object-cover"
             width={1200}

@@ -78,8 +78,26 @@ export default function Navbar() {
     return () => document.removeEventListener("keydown", onKey);
   }, [mobileOpen]);
 
+  // Lock body scroll while the mobile menu is open.
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [mobileOpen]);
+
   return (
-    <header
+    <>
+      {mobileOpen && (
+        <div
+          className="lg:hidden fixed inset-0 z-40 bg-ink/40 backdrop-blur-sm"
+          onClick={() => setMobileOpen(false)}
+          aria-hidden
+        />
+      )}
+      <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
           ? "bg-paper/95 backdrop-blur-xl border-b border-ink/10"
@@ -164,6 +182,7 @@ export default function Navbar() {
           </a>
         </nav>
       )}
-    </header>
+      </header>
+    </>
   );
 }

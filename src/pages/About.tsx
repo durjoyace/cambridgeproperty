@@ -5,7 +5,7 @@ import SEOHead from "@/components/seo/SEOHead";
 import { PAGE_META } from "@/lib/seo/metadata";
 import { personSchema, breadcrumbSchema } from "@/lib/seo/schemas";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import patrickHeadshot from "@/assets/patrick-barrett.jpg";
+import patrickHeadshot from "@/assets/patrick-barrett.jpg?format=webp&as=url";
 import timPlaceholder from "@/assets/tim-johnson-placeholder.svg";
 import { Wordmark } from "@/components/brand/Wordmark";
 import { Ampersand } from "@/components/brand/Ampersand";
@@ -74,7 +74,12 @@ export default function About() {
         <div className="container mx-auto px-6 md:px-12" data-reveal>
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="sr-only">About Thane &amp; Reeve</h1>
-            <Wordmark size="xl" tone="ink" />
+            {/* Decorative mark: stacked lockup fits narrow screens, horizontal
+                takes over once there's room. The sr-only h1 above names the page. */}
+            <div aria-hidden>
+              <Wordmark variant="stacked" size="xl" tone="ink" className="lg:hidden" />
+              <Wordmark variant="horizontal" size="xl" tone="ink" className="hidden lg:inline-flex" />
+            </div>
             <p className="mt-8 font-serif italic text-xl md:text-2xl text-ink/80">
               Land held. Land managed.
             </p>

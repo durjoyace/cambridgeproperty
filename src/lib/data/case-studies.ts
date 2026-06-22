@@ -1,6 +1,6 @@
 // Case-study images — import from assets so Vite hashes them for cache-busting
-import hotel907 from "@/assets/907-main.jpg";
-import storyStreet from "@/assets/17-story-street.jpg";
+import hotel907 from "@/assets/907-main.jpg?format=webp&as=url";
+import storyStreet from "@/assets/17-story-street.jpg?format=webp&as=url";
 
 export interface PerformanceMetric {
   label: string;

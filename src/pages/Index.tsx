@@ -12,7 +12,7 @@ import { PAGE_META } from "@/lib/seo/metadata";
 import { organizationSchema, localBusinessSchema, faqSchema } from "@/lib/seo/schemas";
 import { PullQuote } from "@/components/brand/PullQuote";
 import { ArchitecturalFigure } from "@/components/brand/ArchitecturalFigure";
-import hotel907 from "@/assets/907-main.jpg";
+import hotel907 from "@/assets/907-main.jpg?format=webp&as=url";
 
 const homeFaqs = [
   {
