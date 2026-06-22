@@ -3,16 +3,55 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thane &amp; Reeve — Real Property · Northeast</title>
-    <meta name="description" content="Thane &amp; Reeve is a Northeast real estate firm that acquires, develops, and manages institutional-quality property. Land held. Land managed." />
+    <meta name="author" content="Thane &amp; Reeve" />
     <meta name="theme-color" content="#F2EFE7" />
-    <meta name="robots" content="index, follow" />
+    <!-- Per-page title, description, canonical, robots, Open Graph and Twitter
+         tags are managed via vite-react-ssg Head and baked per route at build. -->
+
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon.png" type="image/png" />
     <link rel="apple-touch-icon" href="/favicon.png" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=EB+Garamond:ital,wght@1,400;1,500&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Organization + WebSite knowledge graph (sitewide; valid on every route) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://thaneandreeve.com/#organization",
+            "additionalType": "RealEstateCompany",
+            "name": "Thane & Reeve",
+            "legalName": "Thane & Reeve Holdings LLC",
+            "url": "https://thaneandreeve.com",
+            "logo": { "@type": "ImageObject", "url": "https://thaneandreeve.com/favicon.png" },
+            "image": "https://thaneandreeve.com/og-image.png",
+            "description": "Thane & Reeve is a Northeast real estate firm that acquires, develops, and manages institutional-quality property. Organized around the refusal to separate ownership from operations. Three divisions: Capital, Development, Management.",
+            "email": "contact@thaneandreeve.com",
+            "foundingDate": "2026",
+            "slogan": "Land held. Land managed.",
+            "founder": [
+              { "@type": "Person", "name": "Patrick Barrett", "jobTitle": "Founder & Managing Partner" },
+              { "@type": "Person", "name": "Timothy Johnson", "jobTitle": "Co-Founder & Partner" }
+            ],
+            "address": { "@type": "PostalAddress", "addressLocality": "Boston", "addressRegion": "MA", "addressCountry": "US" },
+            "areaServed": "Northeast United States"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://thaneandreeve.com/#website",
+            "name": "Thane & Reeve",
+            "url": "https://thaneandreeve.com",
+            "inLanguage": "en-US",
+            "publisher": { "@id": "https://thaneandreeve.com/#organization" }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

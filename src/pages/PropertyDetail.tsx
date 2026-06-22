@@ -2,7 +2,7 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import { ArrowLeft, ArrowRight, MapPin, TrendingUp, ExternalLink } from "lucide-react";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import SEOHead from "@/components/seo/SEOHead";
-import { breadcrumbSchema } from "@/lib/seo/schemas";
+import { breadcrumbSchema, propertySchema } from "@/lib/seo/schemas";
 import { getCaseStudyBySlug, caseStudies } from "@/lib/data/case-studies";
 import { pressItems } from "@/lib/data/press";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -45,6 +45,14 @@ export default function PropertyDetail() {
         description={property.description}
         canonical={`/portfolio/${property.slug}`}
         schema={[
+          propertySchema({
+            name: property.title,
+            description: property.fullDescription || property.description,
+            location: property.location,
+            assetType: property.assetType,
+            units: property.units,
+            url: `/portfolio/${property.slug}`,
+          }),
           breadcrumbSchema([
             { name: "Home", url: "/" },
             { name: "Portfolio", url: "/portfolio" },

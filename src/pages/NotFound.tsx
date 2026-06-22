@@ -24,6 +24,7 @@ const NotFound = () => {
       <SEOHead
         title="Page Not Found | Thane & Reeve"
         description="The page you're looking for doesn't exist or has been moved."
+        noindex
       />
       <div className="min-h-screen flex items-center justify-center bg-paper">
         <div className="text-center max-w-md mx-auto px-6">
