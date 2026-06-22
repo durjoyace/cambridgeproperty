@@ -13,6 +13,8 @@ interface SEOHeadProps {
   author?: string;
   /** Override the social-image alt text. */
   imageAlt?: string;
+  /** Keep the page out of the index (e.g. the 404 page). */
+  noindex?: boolean;
 }
 
 const BASE_URL = "https://thaneandreeve.com";
@@ -32,6 +34,7 @@ export default function SEOHead({
   modifiedTime,
   author,
   imageAlt = DEFAULT_IMAGE_ALT,
+  noindex = false,
 }: SEOHeadProps) {
   const fullTitle = title.includes("Thane") ? title : `${title} | ${SITE_NAME}`;
   const canonicalUrl = canonical ? `${BASE_URL}${canonical}` : undefined;
@@ -46,7 +49,11 @@ export default function SEOHead({
       {/* Let search + answer engines use full snippets and large image previews. */}
       <meta
         name="robots"
-        content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+        content={
+          noindex
+            ? "noindex, follow"
+            : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+        }
       />
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 

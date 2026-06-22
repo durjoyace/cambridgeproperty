@@ -43,6 +43,8 @@ export const routes: RouteRecord[] = [
       { path: "press", Component: lazy(() => import("./pages/Press")) },
       { path: "sell", element: <Navigate to="/sell-your-property" replace /> },
       { path: "acquisitions", element: <Navigate to="/capital" replace /> },
+      // Prerendered to dist/404.html; Vercel serves it as the not-found fallback.
+      { path: "404", Component: lazy(() => import("./pages/NotFound")) },
       { path: "*", Component: lazy(() => import("./pages/NotFound")) },
     ],
   },
