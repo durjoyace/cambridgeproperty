@@ -1,5 +1,11 @@
-import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
+import { ViteReactSSG } from "vite-react-ssg";
+import { routes } from "./App";
 import "./index.css";
 
-createRoot(document.getElementById("root")!).render(<App />);
+export const createRoot = ViteReactSSG({
+  routes,
+  future: {
+    v7_startTransition: true,
+    v7_relativeSplatPath: true,
+  },
+});

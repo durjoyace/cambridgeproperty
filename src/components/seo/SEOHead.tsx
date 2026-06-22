@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { Head } from "vite-react-ssg";
 
 interface SEOHeadProps {
   title: string;
@@ -40,7 +40,7 @@ export default function SEOHead({
   const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 
   return (
-    <Helmet>
+    <Head>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       {/* Let search + answer engines use full snippets and large image previews. */}
@@ -82,6 +82,6 @@ export default function SEOHead({
           {JSON.stringify(s)}
         </script>
       ))}
-    </Helmet>
+    </Head>
   );
 }
