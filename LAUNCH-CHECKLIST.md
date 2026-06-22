@@ -64,16 +64,18 @@ The site sends mail through a service called **Resend**. For Resend to send from
 
 ## Phase 3 — Make the website's forms & data live (Dev) 🟦
 
-The site has three working forms — **contact**, **newsletter signup**, and **property submission** — but they need their service keys set in Vercel before they do anything. In the Vercel project's **Environment Variables** (Production), set:
+The site has three working forms — **contact**, **newsletter signup**, and **property submission**. **Good news: the service keys are already configured in Vercel** (set 116 days ago):
 
-| Variable | What it's for | Where it comes from |
+| Variable | What it's for | Status |
 |---|---|---|
-| `RESEND_API_KEY` | Sends the form emails | Resend dashboard (Phase 2b) |
-| `NOTIFICATION_EMAIL` | Where property/contact alerts go | e.g. `acquisitions@thaneandreeve.com` |
-| `NEON_DATABASE_URL` | Stores property submissions in a database | A free **Neon** Postgres database (neon.tech) |
-| `VITE_GA_MEASUREMENT_ID` | Google Analytics (Phase 5) | GA4 (leave unset for now if not ready — analytics simply stays off) |
+| `RESEND_API_KEY` | Sends the form emails | ✅ **Set** |
+| `NOTIFICATION_EMAIL` | Where property/contact alerts go | ✅ **Set** |
+| `NEON_DATABASE_URL` | Stores property submissions in a database | ✅ **Set** |
+| `VITE_GA_MEASUREMENT_ID` | Google Analytics (Phase 5) | ⬜ Not set — add when GA4 is ready (analytics simply stays off until then) |
 
-🟦 After setting these, redeploy and **submit a test through each form** to confirm emails arrive and the property form saves.
+So the forms are wired. **Two things still gate reliable email delivery:**
+- 🟦🟨 **Verify the domain in Resend** (Phase 2b) — until `thaneandreeve.com` is verified there, form emails may not send or may land in spam. This needs the Resend DNS records added in Squarespace.
+- 🟦 **Once the domain + Resend are live, submit a real test** through each form to confirm the notification email arrives and the property submission saves.
 
 ---
 
@@ -82,7 +84,7 @@ The site has three working forms — **contact**, **newsletter signup**, and **p
 - 🟪 **Tim Johnson's headshot** — the About page currently uses a tasteful placeholder for Tim (Patrick's photo is in). A real portrait should replace it. 🟩 Shaun to collect; 🟦 Dev to drop in.
 - 🟪 **Confirm the firm facts** shown publicly are final (the $ figures, "192 doors," founding details, the two properties). 🟩 Shaun to get sign-off.
 - 🟪 **Resident Portal link** currently points to AppFolio's generic login. If there's a branded tenant portal URL, 🟩 send it and 🟦 we'll point to it.
-- 🟦 **Add a short Privacy Policy page** — recommended since the site collects emails and runs analytics. (Quick dev task once we have basic language; Shaun/Patrick to approve wording.)
+- ✅ **DONE (Dev): Privacy Policy page** is built and live at `/privacy`, linked in the footer site-wide and added to the sitemap. ⚠️ The wording is a sensible baseline — **Patrick/Tim (or counsel) should review the copy** before the public launch. It's easy to edit and nothing else depends on the exact wording.
 
 ---
 
