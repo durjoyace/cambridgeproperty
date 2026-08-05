@@ -24,7 +24,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     // Upsert — don't fail on duplicates
     await sql`
       INSERT INTO newsletter_subscribers (email)
-      VALUES (${escapeHtml(email)})
+      VALUES (${email})
       ON CONFLICT (email) DO NOTHING
     `;
 
@@ -33,7 +33,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const { error: notifyError } = await resend.emails.send({
       from: "Thane & Reeve <notifications@thaneandreeve.com>",
       to: process.env.NOTIFICATION_EMAIL || "acquisitions@thaneandreeve.com",
-      subject: `New Newsletter Subscriber: ${escapeHtml(email)}`,
+      subject: `New Newsletter Subscriber: ${email}`,
       html: `<p>New newsletter subscriber: <strong>${escapeHtml(email)}</strong></p><p>Subscribed at ${new Date().toISOString()}</p>`,
     });
     // Subscriber is already persisted; log delivery failures (e.g. unverified
