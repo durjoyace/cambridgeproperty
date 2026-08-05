@@ -2,7 +2,7 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { neon } from "@neondatabase/serverless";
 import { Resend } from "resend";
 import { z } from "zod";
-import { escapeHtml, guardPublicPost, requireEnv } from "./_lib/security";
+import { escapeHtml, guardPublicPost, requireEnv } from "./_lib/security.js";
 
 const submissionSchema = z.object({
   assetType: z.string().trim().min(1, "Asset type is required").max(80).regex(/^[^\r\n]+$/),
