@@ -33,7 +33,7 @@ export default function HeroSection() {
           src={heroFallback}
           alt=""
           aria-hidden
-          fetchpriority="high"
+          fetchPriority="high"
           decoding="async"
           className="absolute inset-0 w-full h-full object-cover grayscale contrast-[1.08] brightness-[0.78]"
         />
