@@ -21,9 +21,6 @@ CREATE INDEX IF NOT EXISTS property_submissions_created_at_idx
 
 CREATE TABLE IF NOT EXISTS newsletter_subscribers (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  email TEXT NOT NULL,
+  email TEXT NOT NULL UNIQUE,
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
-
-CREATE UNIQUE INDEX IF NOT EXISTS newsletter_subscribers_email_lower_idx
-  ON newsletter_subscribers (LOWER(email));
