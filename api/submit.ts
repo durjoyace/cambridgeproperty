@@ -2,24 +2,23 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { neon } from "@neondatabase/serverless";
 import { Resend } from "resend";
 import { z } from "zod";
+import { escapeHtml, guardPublicPost, requireEnv } from "./_lib/security";
 
 const submissionSchema = z.object({
-  assetType: z.string().min(1, "Asset type is required"),
-  unitCount: z.number().int().positive("Unit count must be positive"),
-  askingPrice: z.string().optional().default(""),
-  market: z.string().min(1, "Market is required"),
-  state: z.string().min(1, "State is required"),
-  dealStructure: z.string().min(1, "Deal structure is required"),
-  ownerName: z.string().min(1, "Owner name is required"),
-  email: z.string().email("Valid email is required"),
-  phone: z.string().optional().default(""),
-  additionalNotes: z.string().optional().default(""),
+  assetType: z.string().trim().min(1, "Asset type is required").max(80),
+  unitCount: z.number().int().positive("Unit count must be positive").max(100_000),
+  askingPrice: z.string().trim().max(80).optional().default(""),
+  market: z.string().trim().min(1, "Market is required").max(120),
+  state: z.string().trim().min(1, "State is required").max(50),
+  dealStructure: z.string().trim().min(1, "Deal structure is required").max(80),
+  ownerName: z.string().trim().min(1, "Owner name is required").max(120),
+  email: z.string().trim().email("Valid email is required").max(254),
+  phone: z.string().trim().max(40).optional().default(""),
+  additionalNotes: z.string().trim().max(10_000).optional().default(""),
 });
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
-  }
+  if (!guardPublicPost(req, res, { route: "property-submission" })) return;
 
   const parsed = submissionSchema.safeParse(req.body);
   if (!parsed.success) {
@@ -32,7 +31,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const data = parsed.data;
 
   try {
-    const sql = neon(process.env.NEON_DATABASE_URL!);
+    const sql = neon(requireEnv("NEON_DATABASE_URL"));
     await sql`
       INSERT INTO property_submissions (
         asset_type, unit_count, asking_price, market, state,
@@ -45,23 +44,24 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       )
     `;
 
-    const resend = new Resend(process.env.RESEND_API_KEY!);
+    const resend = new Resend(requireEnv("RESEND_API_KEY"));
     const { error: notifyError } = await resend.emails.send({
       from: "Thane & Reeve <notifications@thaneandreeve.com>",
       to: process.env.NOTIFICATION_EMAIL || "acquisitions@thaneandreeve.com",
       subject: `New Property Submission: ${data.unitCount}-unit ${data.assetType} in ${data.market}, ${data.state}`,
+      replyTo: data.email,
       html: `
         <h2>New Property Submission</h2>
         <table style="border-collapse:collapse;width:100%;max-width:600px;">
-          <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Asset Type</td><td style="padding:8px;border:1px solid #ddd;">${data.assetType}</td></tr>
-          <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Unit Count</td><td style="padding:8px;border:1px solid #ddd;">${data.unitCount}</td></tr>
+          <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Asset Type</td><td style="padding:8px;border:1px solid #ddd;">${escapeHtml(data.assetType)}</td></tr>
+          <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Unit Count</td><td style="padding:8px;border:1px solid #ddd;">${escapeHtml(data.unitCount)}</td></tr>
           <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Asking Price</td><td style="padding:8px;border:1px solid #ddd;">${data.askingPrice || "Not disclosed"}</td></tr>
-          <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Market</td><td style="padding:8px;border:1px solid #ddd;">${data.market}, ${data.state}</td></tr>
-          <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Deal Structure</td><td style="padding:8px;border:1px solid #ddd;">${data.dealStructure}</td></tr>
-          <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Owner</td><td style="padding:8px;border:1px solid #ddd;">${data.ownerName}</td></tr>
-          <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Email</td><td style="padding:8px;border:1px solid #ddd;">${data.email}</td></tr>
+          <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Market</td><td style="padding:8px;border:1px solid #ddd;">${escapeHtml(data.market)}, ${escapeHtml(data.state)}</td></tr>
+          <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Deal Structure</td><td style="padding:8px;border:1px solid #ddd;">${escapeHtml(data.dealStructure)}</td></tr>
+          <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Owner</td><td style="padding:8px;border:1px solid #ddd;">${escapeHtml(data.ownerName)}</td></tr>
+          <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Email</td><td style="padding:8px;border:1px solid #ddd;">${escapeHtml(data.email)}</td></tr>
           <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Phone</td><td style="padding:8px;border:1px solid #ddd;">${data.phone || "Not provided"}</td></tr>
-          ${data.additionalNotes ? `<tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Notes</td><td style="padding:8px;border:1px solid #ddd;">${data.additionalNotes}</td></tr>` : ""}
+          ${data.additionalNotes ? `<tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Notes</td><td style="padding:8px;border:1px solid #ddd;">${escapeHtml(data.additionalNotes)}</td></tr>` : ""}
         </table>
       `,
     });
@@ -84,15 +84,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             <p style="color:#F2EFE7;opacity:0.6;font-size:10px;letter-spacing:4px;text-transform:uppercase;margin:10px 0 0;font-family:Arial,sans-serif;">Real Property · Northeast</p>
           </div>
           <div style="padding:36px 32px;background:#F2EFE7;">
-            <p style="font-size:15px;line-height:1.7;margin:0 0 20px;font-family:Georgia,serif;">Dear ${data.ownerName},</p>
+            <p style="font-size:15px;line-height:1.7;margin:0 0 20px;font-family:Georgia,serif;">Dear ${escapeHtml(data.ownerName)},</p>
             <p style="font-size:15px;line-height:1.8;margin:0 0 20px;font-family:Georgia,serif;">Thank you for submitting your property to Thane &amp; Reeve. Patrick Barrett and Timothy Johnson will review your submission personally and be in touch within <strong>48 business hours</strong>.</p>
             <div style="background:#E8E4D9;border-left:2px solid #836634;padding:20px 24px;margin:28px 0;">
               <p style="font-size:10px;text-transform:uppercase;letter-spacing:3px;color:#161814;opacity:0.6;margin:0 0 14px;font-family:Arial,sans-serif;">Your submission</p>
               <table style="width:100%;border-collapse:collapse;font-family:Georgia,serif;">
-                <tr><td style="padding:6px 0;font-size:13px;color:#161814;opacity:0.6;">Asset type</td><td style="padding:6px 0;font-size:13px;font-weight:600;text-align:right;">${data.assetType}</td></tr>
-                <tr><td style="padding:6px 0;font-size:13px;color:#161814;opacity:0.6;">Units</td><td style="padding:6px 0;font-size:13px;font-weight:600;text-align:right;">${data.unitCount}</td></tr>
-                <tr><td style="padding:6px 0;font-size:13px;color:#161814;opacity:0.6;">Market</td><td style="padding:6px 0;font-size:13px;font-weight:600;text-align:right;">${data.market}, ${data.state}</td></tr>
-                <tr><td style="padding:6px 0;font-size:13px;color:#161814;opacity:0.6;">Deal structure</td><td style="padding:6px 0;font-size:13px;font-weight:600;text-align:right;">${data.dealStructure}</td></tr>
+                <tr><td style="padding:6px 0;font-size:13px;color:#161814;opacity:0.6;">Asset type</td><td style="padding:6px 0;font-size:13px;font-weight:600;text-align:right;">${escapeHtml(data.assetType)}</td></tr>
+                <tr><td style="padding:6px 0;font-size:13px;color:#161814;opacity:0.6;">Units</td><td style="padding:6px 0;font-size:13px;font-weight:600;text-align:right;">${escapeHtml(data.unitCount)}</td></tr>
+                <tr><td style="padding:6px 0;font-size:13px;color:#161814;opacity:0.6;">Market</td><td style="padding:6px 0;font-size:13px;font-weight:600;text-align:right;">${escapeHtml(data.market)}, ${escapeHtml(data.state)}</td></tr>
+                <tr><td style="padding:6px 0;font-size:13px;color:#161814;opacity:0.6;">Deal structure</td><td style="padding:6px 0;font-size:13px;font-weight:600;text-align:right;">${escapeHtml(data.dealStructure)}</td></tr>
               </table>
             </div>
             <p style="font-size:14px;line-height:1.8;color:#161814;margin:24px 0 8px;font-family:Georgia,serif;"><strong>What happens next:</strong></p>
