@@ -27,7 +27,10 @@ npm run dev      # http://localhost:5173
 npm run build    # production build
 npm run test     # vitest
 npm run lint     # eslint
+npm run typecheck # app + serverless API TypeScript
 ```
+
+Pull requests run linting, production dependency audit, typechecking, tests, and the SSG build in GitHub Actions.
 
 ## Brand primitives
 
