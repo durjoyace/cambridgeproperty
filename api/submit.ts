@@ -5,11 +5,11 @@ import { z } from "zod";
 import { escapeHtml, guardPublicPost, requireEnv } from "./_lib/security";
 
 const submissionSchema = z.object({
-  assetType: z.string().trim().min(1, "Asset type is required").max(80),
+  assetType: z.string().trim().min(1, "Asset type is required").max(80).regex(/^[^\r\n]+$/),
   unitCount: z.number().int().positive("Unit count must be positive").max(100_000),
   askingPrice: z.string().trim().max(80).optional().default(""),
-  market: z.string().trim().min(1, "Market is required").max(120),
-  state: z.string().trim().min(1, "State is required").max(50),
+  market: z.string().trim().min(1, "Market is required").max(120).regex(/^[^\r\n]+$/),
+  state: z.string().trim().min(1, "State is required").max(50).regex(/^[^\r\n]+$/),
   dealStructure: z.string().trim().min(1, "Deal structure is required").max(80),
   ownerName: z.string().trim().min(1, "Owner name is required").max(120),
   email: z.string().trim().email("Valid email is required").max(254),
