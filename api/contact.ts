@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { Resend } from "resend";
 import { z } from "zod";
-import { escapeHtml, guardPublicPost, requireEnv } from "./_lib/security";
+import { escapeHtml, guardPublicPost, requireEnv } from "./_lib/security.js";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(120),
