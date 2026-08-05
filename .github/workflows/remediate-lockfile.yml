@@ -1,8 +1,9 @@
 name: One-shot lockfile remediation
 
 on:
-  push:
-    branches: [codex/launch-hardening-20260805]
+  pull_request:
+    types: [synchronize]
+    branches: [main]
     paths:
       - .github/workflows/remediate-lockfile.yml
 
@@ -11,6 +12,7 @@ permissions:
 
 jobs:
   remediate:
+    if: github.event.pull_request.head.ref == 'codex/launch-hardening-20260805'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
