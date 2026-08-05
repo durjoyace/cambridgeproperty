@@ -30,6 +30,8 @@ npm run lint     # eslint
 npm run typecheck # app + serverless API TypeScript
 ```
 
+Pull requests run linting, production dependency audit, typechecking, tests, and the SSG build in GitHub Actions.
+
 ## Brand primitives
 
 - `src/components/brand/Wordmark.tsx` — primary THANE &amp; REEVE wordmark
