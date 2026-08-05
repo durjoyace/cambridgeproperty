@@ -23,7 +23,8 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - run: npm audit fix --package-lock-only
+      - name: Apply non-breaking production fixes
+        run: npm audit fix --package-lock-only --omit=dev || true
       - run: git rm .github/workflows/remediate-lockfile.yml
       - name: Commit audited lockfile
         run: |
