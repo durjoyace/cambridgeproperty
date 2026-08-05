@@ -29,6 +29,14 @@ function hasAllowedOrigin(req: VercelRequest) {
 
 function exceedsRateLimit(key: string, limit: number, windowMs: number) {
   const now = Date.now();
+
+  // Keep the best-effort in-memory limiter bounded on warm serverless instances.
+  if (rateLimits.size > 10_000) {
+    for (const [entryKey, entry] of rateLimits) {
+      if (entry.resetAt <= now) rateLimits.delete(entryKey);
+    }
+  }
+
   const existing = rateLimits.get(key);
 
   if (!existing || existing.resetAt <= now) {
