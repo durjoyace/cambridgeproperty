@@ -76,10 +76,6 @@ export default function OperatorFramework() {
           ))}
         </div>
 
-        {/* Footnote */}
-        <p className="max-w-5xl mx-auto mt-10 font-serif italic text-ink/65 text-sm md:text-base text-center">
-          The parent brand sits quietly above; the division carries the conversation.
-        </p>
       </div>
     </section>
   );
