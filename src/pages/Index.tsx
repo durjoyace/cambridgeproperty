@@ -64,7 +64,7 @@ const Index = () => {
         context="Central Square &middot; 67 keys &middot; $45M ground-up &middot; designed by Gensler Boston &middot; 2024"
       />
       <ThesisSection />
-      <section className="bg-paper-warm py-16 md:py-24">
+      <section className="bg-paper-warm py-12 md:py-16">
         <div className="container mx-auto px-6 md:px-12">
           <PullQuote attribution="Founding document, §01">
             The ampersand is{" "}
