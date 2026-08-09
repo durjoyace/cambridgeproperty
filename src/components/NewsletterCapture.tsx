@@ -46,7 +46,7 @@ export default function NewsletterCapture() {
         htmlFor="newsletter-email"
         className="font-sans text-[10px] tracking-[0.24em] uppercase text-paper/55"
       >
-        The LP letter — to your inbox
+        Investor updates — to your inbox
       </label>
       <div className="flex gap-0">
         <input
@@ -56,14 +56,14 @@ export default function NewsletterCapture() {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="you@firm.com"
           required
-          aria-label="Email address for the LP letter"
+          aria-label="Email address for investor updates"
           className="flex-1 bg-transparent border-b border-paper/30 px-1 py-3 font-sans text-sm text-paper placeholder:text-paper/35 focus:border-brass-light focus:outline-none transition-colors duration-300"
         />
         <button
           type="submit"
           disabled={status === "loading"}
           className="px-4 py-3 border-b border-paper/30 text-paper hover:text-brass-light hover:border-brass-light transition-colors duration-300 disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-brass/60 focus-visible:outline-none"
-          aria-label="Subscribe to the LP letter"
+          aria-label="Subscribe to investor updates"
         >
           <ArrowRight size={14} />
         </button>
