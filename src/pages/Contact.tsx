@@ -6,7 +6,6 @@ import { PAGE_META } from "@/lib/seo/metadata";
 import { contactPointSchema, breadcrumbSchema } from "@/lib/seo/schemas";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Wordmark } from "@/components/brand/Wordmark";
-import { PageHeader } from "@/components/brand/PageHeader";
 
 const contactInfo = [
   {
@@ -57,14 +56,9 @@ export default function Contact() {
       <Breadcrumbs />
 
       {/* Hero */}
-      <section className="pt-24 md:pt-32 pb-20 bg-paper" ref={sectionRef}>
+      <section className="pt-16 md:pt-20 pb-12 md:pb-16 bg-paper" ref={sectionRef}>
         <div className="container mx-auto px-6 md:px-12" data-reveal>
-          <PageHeader label="Contact" descriptor="Partner correspondence" />
-
           <div className="max-w-4xl">
-            <p className="font-serif italic text-base md:text-lg text-brass mb-6">
-              Direct correspondence
-            </p>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.12] text-ink tracking-tight mb-6">
               Our line and our door are open.
             </h1>
@@ -78,7 +72,7 @@ export default function Contact() {
       </section>
 
       {/* Contact details + form */}
-      <section className="bg-paper-warm py-24 md:py-32">
+      <section className="bg-paper-warm py-16 md:py-20">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-6xl mx-auto grid lg:grid-cols-5 gap-12 lg:gap-16">
             <div className="lg:col-span-2 space-y-10">
@@ -103,7 +97,7 @@ export default function Contact() {
                         <div className="font-sans text-[10px] tracking-[0.22em] uppercase text-ink/65 mb-1">
                           {info.label}
                         </div>
-                        <div className="font-serif italic text-ink/85 break-words">{info.value}</div>
+                        <div className="font-serif italic text-ink/85 break-words underline decoration-transparent underline-offset-4 group-hover:decoration-brass group-focus-visible:decoration-brass transition-colors">{info.value}</div>
                       </div>
                     </div>
                   );
@@ -112,7 +106,7 @@ export default function Contact() {
                       <a
                         key={info.label}
                         href={info.href}
-                        className="block hover:bg-paper transition-colors px-1"
+                        className="group block hover:bg-paper transition-colors px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass/50"
                       >
                         {content}
                       </a>
