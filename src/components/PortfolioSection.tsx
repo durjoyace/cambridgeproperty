@@ -89,7 +89,7 @@ export default function PortfolioSection() {
           {/* Track record — institutional figures */}
           <div className="mb-20" data-reveal>
             <div className="flex items-baseline mb-8">
-              <p className="font-sans text-[10px] tracking-[0.28em] uppercase text-brass">
+              <p className="font-sans text-[11px] tracking-[0.22em] uppercase text-brass">
                 The record, in figures
               </p>
             </div>
@@ -113,7 +113,7 @@ export default function PortfolioSection() {
                   <div className="font-serif text-4xl md:text-5xl lg:text-6xl text-ink leading-none tracking-tight mb-5">
                     {s.value}
                   </div>
-                  <div className="font-sans text-[10px] tracking-[0.24em] uppercase text-ink/65 mb-2">
+                  <div className="font-sans text-[11px] tracking-[0.2em] uppercase text-ink/65 mb-2">
                     {s.label}
                   </div>
                   <div className="font-serif italic text-ink/65 text-sm leading-snug">
