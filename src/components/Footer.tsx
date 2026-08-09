@@ -91,7 +91,7 @@ export default function Footer() {
                 Privacy
               </Link>
               <p className="font-sans text-xs text-paper/50 font-light tracking-wide">
-                Patrick Barrett · Timothy Johnson · Boston
+                Patrick Barrett · Timothy Johnson · Cambridge
               </p>
             </div>
           </div>
