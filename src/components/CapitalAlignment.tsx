@@ -85,7 +85,7 @@ function TermRow({
         last ? "" : "border-b border-paper/10"
       }`}
     >
-      <span className="font-sans text-[10px] tracking-[0.28em] uppercase text-paper/55">
+      <span className="font-sans text-[11px] tracking-[0.22em] uppercase text-paper/55">
         {label}
       </span>
       <span className="font-serif italic text-sm md:text-base text-paper text-right">

@@ -50,10 +50,42 @@ export default function HeroSection() {
         className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-ink/70 to-transparent"
       />
 
+      {/* Cadastral covenant — a single, property-specific signature moment.
+          Survey lines resolve across the building as ownership and operations
+          meet under one accountable boundary. */}
+      <div
+        aria-hidden
+        className="cadastral-hero absolute inset-0 pointer-events-none overflow-hidden"
+      >
+        <svg
+          viewBox="0 0 1600 1000"
+          preserveAspectRatio="none"
+          className="h-full w-full"
+        >
+          <path
+            pathLength="1"
+            className="cadastral-trace cadastral-trace--one"
+            d="M-80 238 H362 V116 H962 V286 H1680"
+          />
+          <path
+            pathLength="1"
+            className="cadastral-trace cadastral-trace--two"
+            d="M-40 864 L522 518 L1110 704 L1660 418"
+          />
+          <path
+            pathLength="1"
+            className="cadastral-trace cadastral-trace--three"
+            d="M1272 -40 V184 H1110 V1040"
+          />
+          <circle className="cadastral-node cadastral-node--one" cx="362" cy="238" r="5" />
+          <circle className="cadastral-node cadastral-node--two" cx="1110" cy="704" r="5" />
+        </svg>
+      </div>
+
       {/* Top editorial meta strip */}
       <div className="hero-enter relative pt-20 md:pt-24 px-6 md:px-12">
         <div className="container mx-auto">
-          <div className="flex items-center justify-between font-sans text-[10px] tracking-[0.28em] uppercase text-paper/70">
+          <div className="flex items-center justify-between font-sans text-[11px] tracking-[0.24em] uppercase text-paper/80">
             <span>Founding Document &middot; MMXXVI</span>
             <span className="hidden md:inline font-serif italic tracking-normal normal-case text-[13px] text-paper/80">
               Real Property &middot; Boston &middot; NYC Corridor
@@ -70,7 +102,7 @@ export default function HeroSection() {
           <div className="max-w-4xl">
             <div className="mb-6 flex items-center gap-4">
               <span className="h-px w-10 bg-brass-light" />
-              <span className="font-sans text-[10px] tracking-[0.32em] uppercase text-brass-light">
+              <span className="font-sans text-[11px] tracking-[0.26em] uppercase text-brass-light">
                 Thane &amp; Reeve &middot; Real Property
               </span>
             </div>
@@ -107,13 +139,13 @@ export default function HeroSection() {
 
           {/* Photograph attribution — bottom-right marginalia */}
           <div className="mt-16 md:mt-20 pt-6 border-t border-paper/15 flex items-end justify-between text-paper/55">
-            <span className="font-sans text-[10px] tracking-[0.28em] uppercase">
+            <span className="font-sans text-[11px] tracking-[0.24em] uppercase">
               Photographed &middot; 907 Main
             </span>
             <span className="font-serif italic text-sm hidden md:inline text-paper/65">
               The Lark Cambridge &middot; Central Square &middot; 67 keys
             </span>
-            <span className="font-sans text-[10px] tracking-[0.28em] uppercase">
+            <span className="font-sans text-[11px] tracking-[0.24em] uppercase">
               Plate &middot; Frontispiece
             </span>
           </div>

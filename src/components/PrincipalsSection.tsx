@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import patrickHeadshot from "@/assets/patrick-barrett.jpg?format=webp&as=url";
+import timPartnerPlate from "@/assets/tim-johnson-placeholder.svg";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 /**
  * Editorial principal spread for the home page. Both partners shown at
  * parity. Patrick carries a real photograph; Tim is rendered as a
- * deliberate typographic plate (his initials in display Fraunces inside
- * an editorial frame) until a real portrait is commissioned. The plate
- * reads as institutional restraint, the way a quarterly report would
- * leave a chair set for the partner who is travelling.
+ * deliberate partner plate built from the same cadastral geometry as the
+ * hero. It is an intentional identity graphic—not a simulated portrait—
+ * and keeps both partners at visual parity.
  */
 export default function PrincipalsSection() {
   const sectionRef = useScrollReveal<HTMLElement>();
@@ -17,15 +17,15 @@ export default function PrincipalsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-paper-warm py-24 md:py-36 overflow-hidden"
+      className="relative bg-paper-warm py-20 md:py-28 overflow-hidden"
       aria-label="The principals"
     >
       <div className="container mx-auto px-6 md:px-12">
         <div className="max-w-6xl mx-auto">
           {/* Section header */}
-          <div className="mb-14 md:mb-20" data-reveal>
+          <div className="mb-12 md:mb-16" data-reveal>
             <div>
-              <p className="font-sans text-[10px] tracking-[0.32em] uppercase text-brass mb-5">
+              <p className="font-sans text-[11px] tracking-[0.26em] uppercase text-brass mb-5">
                 The Principals
               </p>
               <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-[1.12] text-ink tracking-tight max-w-none">
@@ -43,7 +43,7 @@ export default function PrincipalsSection() {
           <div className="h-px w-full bg-ink/20 mb-14 md:mb-20" data-reveal-rule />
 
           {/* Two-up principal grid */}
-          <div className="grid md:grid-cols-2 gap-12 md:gap-16">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-14">
             {/* Patrick — real portrait */}
             <article data-reveal>
               <figure className="relative aspect-[4/5] overflow-hidden bg-ink/10 mb-6">
@@ -56,13 +56,13 @@ export default function PrincipalsSection() {
                   height={1000}
                 />
               </figure>
-              <figcaption className="mb-6 flex items-baseline justify-between font-sans text-[10px] tracking-[0.28em] uppercase text-ink/65">
+              <figcaption className="mb-6 flex items-baseline justify-between font-sans text-[11px] tracking-[0.22em] uppercase text-ink/65">
                 <span>Cambridge &middot; MMXXVI</span>
                 <span className="font-serif italic tracking-normal normal-case text-sm text-ink/65">
                   Plate №&thinsp;01
                 </span>
               </figcaption>
-              <p className="font-sans text-[10px] tracking-[0.28em] uppercase text-brass mb-4">
+              <p className="font-sans text-[11px] tracking-[0.22em] uppercase text-brass mb-4">
                 Founder &amp; Managing Partner
               </p>
               <h3 className="font-serif text-3xl md:text-4xl text-ink tracking-tight leading-[1.05] mb-4">
@@ -87,42 +87,25 @@ export default function PrincipalsSection() {
               </p>
             </article>
 
-            {/* Tim — typographic plate (real portrait pending) */}
+            {/* Tim — intentional partner plate */}
             <article data-reveal>
-              <figure className="relative aspect-[4/5] overflow-hidden bg-paper border border-ink/15 mb-6 flex items-center justify-center">
-                <div className="absolute top-6 left-6 right-6 flex items-start justify-between">
-                  <span className="font-sans text-[9px] tracking-[0.32em] uppercase text-ink/45">
-                    Cambridge &middot; MMXXVI
-                  </span>
-                  <span className="font-serif italic text-ink/45 text-xs">
-                    in studio
-                  </span>
-                </div>
-                <div className="text-center">
-                  <span className="font-serif font-normal text-ink tracking-wordmark text-7xl md:text-8xl leading-none">
-                    TJ
-                  </span>
-                  <div className="mt-6 mx-auto h-px w-16 bg-brass" />
-                  <p className="mt-6 font-serif italic text-ink/60 text-sm md:text-base">
-                    Timothy Johnson
-                  </p>
-                </div>
-                <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
-                  <span className="font-sans text-[9px] tracking-[0.32em] uppercase text-ink/40">
-                    Plate held
-                  </span>
-                  <span className="font-sans text-[9px] tracking-[0.32em] uppercase text-ink/40">
-                    Tim Johnson &middot; CPM
-                  </span>
-                </div>
+              <figure className="relative aspect-[4/5] overflow-hidden bg-paper border border-ink/15 mb-6">
+                <img
+                  src={timPartnerPlate}
+                  alt="Editorial partner plate for Timothy Johnson, Co-Founder and Partner of Thane & Reeve"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  width={600}
+                  height={800}
+                />
               </figure>
-              <figcaption className="mb-6 flex items-baseline justify-between font-sans text-[10px] tracking-[0.28em] uppercase text-ink/65">
+              <figcaption className="mb-6 flex items-baseline justify-between font-sans text-[11px] tracking-[0.22em] uppercase text-ink/65">
                 <span>Cambridge &middot; MMXXVI</span>
                 <span className="font-serif italic tracking-normal normal-case text-sm text-ink/65">
                   Plate №&thinsp;02
                 </span>
               </figcaption>
-              <p className="font-sans text-[10px] tracking-[0.28em] uppercase text-brass mb-4">
+              <p className="font-sans text-[11px] tracking-[0.22em] uppercase text-brass mb-4">
                 Co-Founder &amp; Partner &middot; CPM
               </p>
               <h3 className="font-serif text-3xl md:text-4xl text-ink tracking-tight leading-[1.05] mb-4">

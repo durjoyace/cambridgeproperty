@@ -53,10 +53,10 @@ export default function ContactForm() {
   const inputCls = (err?: string) =>
     `bg-paper border-b ${
       err ? "border-destructive/60" : "border-ink/25 focus:border-brass"
-    } text-ink font-sans text-base px-0 py-3 focus:outline-none transition-colors duration-300 placeholder:text-ink/50 w-full`;
+    } text-ink font-sans text-base px-0 py-3 focus:outline-none transition-colors duration-300 placeholder:text-ink/60 w-full`;
 
   const labelCls =
-    "font-sans text-[10px] tracking-[0.24em] uppercase text-ink/65 block mb-2";
+    "font-sans text-[11px] tracking-[0.2em] uppercase text-ink/70 block mb-2";
 
   if (status === "success") {
     return (
@@ -105,7 +105,7 @@ export default function ContactForm() {
           Write a note.
         </h2>
         <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10">
             <div>
               <label htmlFor="contact-name" className={labelCls}>Name</label>
               <input

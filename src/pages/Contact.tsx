@@ -77,7 +77,7 @@ export default function Contact() {
           <div className="max-w-6xl mx-auto grid lg:grid-cols-5 gap-12 lg:gap-16">
             <div className="lg:col-span-2 space-y-10">
               <div>
-                <p className="font-sans text-[10px] tracking-[0.28em] uppercase text-brass mb-4">
+                <p className="font-sans text-[11px] tracking-[0.24em] uppercase text-brass mb-4">
                   Direct contact
                 </p>
                 <p className="font-serif italic text-lg text-ink/75 leading-[1.7]">
@@ -94,7 +94,7 @@ export default function Contact() {
                     <div className="flex items-start gap-5 py-5 border-b border-ink/15">
                       <Icon size={16} className="text-brass mt-1 shrink-0" />
                       <div>
-                        <div className="font-sans text-[10px] tracking-[0.22em] uppercase text-ink/65 mb-1">
+                        <div className="font-sans text-[11px] tracking-[0.2em] uppercase text-ink/65 mb-1">
                           {info.label}
                         </div>
                         <div className="font-serif italic text-ink/85 break-words underline decoration-transparent underline-offset-4 group-hover:decoration-brass group-focus-visible:decoration-brass transition-colors">{info.value}</div>
@@ -132,7 +132,7 @@ export default function Contact() {
             Based in Boston. Operating across the Boston–NYC corridor, with
             underwriting from Providence to the Hudson Valley.
           </p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-8 gap-y-3 font-sans text-[10px] tracking-[0.3em] uppercase text-paper/55">
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-8 gap-y-3 font-sans text-[11px] tracking-[0.24em] uppercase text-paper/55">
             <span>Boston</span>
             <span className="h-1 w-1 rounded-full bg-brass" />
             <span>Cambridge</span>

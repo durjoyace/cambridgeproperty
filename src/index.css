@@ -191,13 +191,13 @@
 
   /* Section label — reusable pattern */
   .section-label {
-    @apply font-sans text-[10px] tracking-[0.3em] uppercase;
+    @apply font-sans text-[11px] tracking-[0.26em] uppercase;
     color: hsl(var(--gold));
   }
 
   /* Large section spacing */
   .section-pad {
-    @apply py-32 md:py-40;
+    @apply py-24 md:py-32;
   }
 
   /* Subtle grain texture overlay */
@@ -346,8 +346,69 @@ select:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 [tabindex]:focus-visible {
-  outline: 2px solid hsl(var(--gold) / 0.6);
+  outline: 2px solid hsl(var(--brass));
   outline-offset: 2px;
+}
+
+/* Cadastral hero signature — survey geometry, not decorative noise.
+   The three boundaries draw once, then remain as quiet evidence of the
+   ownership/operations covenant. */
+.cadastral-hero {
+  opacity: 0.58;
+  mix-blend-mode: screen;
+}
+.cadastral-trace {
+  fill: none;
+  stroke: hsl(var(--brass-light) / 0.42);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: cadastral-draw 2.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.cadastral-trace--two {
+  animation-delay: 0.18s;
+  stroke: hsl(var(--paper) / 0.24);
+}
+.cadastral-trace--three {
+  animation-delay: 0.34s;
+  stroke: hsl(var(--brass-light) / 0.3);
+}
+.cadastral-node {
+  fill: hsl(var(--brass-light));
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: cadastral-node-in 0.55s ease-out 1.55s forwards;
+}
+.cadastral-node--two {
+  animation-delay: 1.82s;
+}
+@keyframes cadastral-draw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes cadastral-node-in {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 0.75; transform: scale(1); }
+}
+@media (max-width: 640px) {
+  .cadastral-hero {
+    opacity: 0.45;
+  }
+  .cadastral-trace--three {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cadastral-trace {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .cadastral-node {
+    animation: none;
+    opacity: 0.75;
+    transform: none;
+  }
 }
 
 /* Disable animations for users who prefer reduced motion */
