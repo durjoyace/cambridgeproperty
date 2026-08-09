@@ -15,7 +15,7 @@ export interface CaseStudy {
   units: number;
   assetType: string;
   strategy: string;
-  status: "Active" | "Stabilized" | "In Development";
+  status: "Active" | "Stabilized" | "In Development" | "Planning";
   statusDetail?: string;
   description: string;
   highlights: string[];
@@ -92,11 +92,11 @@ export const caseStudies: CaseStudy[] = [
     units: 50,
     assetType: "Hotel + Residential",
     strategy: "Historic Preservation + Development",
-    status: "In Development",
-    statusDetail: "CHC Approved 7-0",
+    status: "Planning",
+    statusDetail: "Approved in principle · 7–0",
     image: storyStreet,
     description:
-      "Preservation of the historic Harriet Jacobs House — an African American heritage site — combined with a new hotel and 50+ homes including 10 affordable units. Five years of community engagement with the Jacobs Legacy Committee, Harvard Square Business Association, and Cambridge residents. Designed by Cambridge Seven.",
+      "Preservation of the historic Harriet Jacobs House — an African American heritage site — paired with a proposed hotel and 50+ homes including 10 affordable units. Five years of community engagement with the Jacobs Legacy Committee, Harvard Square Business Association, and Cambridge residents. Designed by Cambridge Seven.",
     highlights: [
       "Historic preservation of Harriet Jacobs House (African American heritage site)",
       "50+ new homes including 10 affordable units",
@@ -123,7 +123,7 @@ export const caseStudies: CaseStudy[] = [
       { date: "2020–2024", event: "Five years of community meetings, design iterations, and historic preservation planning" },
       { date: "2025", event: "Cambridge Historical Commission hearing — approved in principle, 7-0 unanimous" },
       { date: "2025", event: "Harvard Square Business Association and city councillors testify in support" },
-      { date: "2026+", event: "In development — entitlements and construction planning" },
+      { date: "2026", event: "Planning — approval in principle; no construction start reported" },
     ],
     detailMetrics: [
       { label: "New Homes", value: "50+ (10 Affordable)" },
@@ -131,7 +131,7 @@ export const caseStudies: CaseStudy[] = [
       { label: "Hotel", value: "Harvard Square" },
       { label: "Neighborhood", value: "Harvard Square" },
       { label: "Architect", value: "Cambridge Seven" },
-      { label: "Status", value: "In Development — CHC Approved 7-0" },
+      { label: "Status", value: "Planning — Approved in Principle 7-0" },
     ],
   },
 ];
