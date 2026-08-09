@@ -271,7 +271,7 @@ export default function About() {
       <section className="bg-paper-warm py-24 md:py-32">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-6xl mx-auto">
-            <PullQuote attribution="Patrick Barrett · Founder">
+            <PullQuote attribution="Patrick Barrett · Founder" className="max-w-4xl">
               The operating work is{" "}
               <em className="not-italic font-serif">where real returns are made</em>{" "}
               — or lost.
