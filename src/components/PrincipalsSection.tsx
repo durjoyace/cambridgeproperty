@@ -23,17 +23,17 @@ export default function PrincipalsSection() {
       <div className="container mx-auto px-6 md:px-12">
         <div className="max-w-6xl mx-auto">
           {/* Section header */}
-          <div className="mb-14 md:mb-20 grid lg:grid-cols-[1fr_auto] items-end gap-8" data-reveal>
+          <div className="mb-14 md:mb-20" data-reveal>
             <div>
               <p className="font-sans text-[10px] tracking-[0.32em] uppercase text-brass mb-5">
                 The Principals
               </p>
-              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-[1.12] text-ink tracking-tight max-w-3xl">
+              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-[1.12] text-ink tracking-tight max-w-none">
                 Two senior decisions per investment.{" "}
                 <span className="italic">Personal capital in every transaction.</span>
               </h2>
             </div>
-            <p className="font-serif italic text-ink/60 text-sm md:text-base max-w-xs lg:text-right">
+            <p className="mt-6 ml-auto font-serif italic text-ink/60 text-sm md:text-base max-w-xs text-right">
               Boston &middot; NYC corridor
               <br />
               Established MMXXVI
@@ -57,7 +57,7 @@ export default function PrincipalsSection() {
                 />
               </figure>
               <figcaption className="mb-6 flex items-baseline justify-between font-sans text-[10px] tracking-[0.28em] uppercase text-ink/65">
-                <span>Portrait &middot; Boston, MMXXVI</span>
+                <span>Cambridge &middot; MMXXVI</span>
                 <span className="font-serif italic tracking-normal normal-case text-sm text-ink/65">
                   Plate №&thinsp;01
                 </span>
@@ -92,7 +92,7 @@ export default function PrincipalsSection() {
               <figure className="relative aspect-[4/5] overflow-hidden bg-paper border border-ink/15 mb-6 flex items-center justify-center">
                 <div className="absolute top-6 left-6 right-6 flex items-start justify-between">
                   <span className="font-sans text-[9px] tracking-[0.32em] uppercase text-ink/45">
-                    Portrait, sittings &mdash; 2026
+                    Cambridge &middot; MMXXVI
                   </span>
                   <span className="font-serif italic text-ink/45 text-xs">
                     in studio
@@ -117,7 +117,7 @@ export default function PrincipalsSection() {
                 </div>
               </figure>
               <figcaption className="mb-6 flex items-baseline justify-between font-sans text-[10px] tracking-[0.28em] uppercase text-ink/65">
-                <span>Plate held &middot; sittings 2026</span>
+                <span>Cambridge &middot; MMXXVI</span>
                 <span className="font-serif italic tracking-normal normal-case text-sm text-ink/65">
                   Plate №&thinsp;02
                 </span>
