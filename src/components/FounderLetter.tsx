@@ -16,21 +16,21 @@ export default function FounderLetter() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-paper py-24 md:py-36 overflow-hidden"
+      className="relative bg-paper py-20 md:py-28 overflow-hidden"
       aria-label="A note from the founder"
     >
       <div className="container mx-auto px-6 md:px-12">
         <div className="max-w-3xl mx-auto">
           {/* Header — chapter-style */}
-          <div className="mb-12 md:mb-14 flex items-baseline justify-between" data-reveal>
-            <p className="font-sans text-[10px] tracking-[0.32em] uppercase text-brass">
+          <div className="mb-10 md:mb-12 flex items-baseline justify-between" data-reveal>
+            <p className="font-sans text-[11px] tracking-[0.26em] uppercase text-brass">
               A note from the founder
             </p>
             <p className="font-serif italic text-ink/65 text-sm">
               Boston &middot; MMXXVI
             </p>
           </div>
-          <div className="h-px w-full bg-ink/20 mb-12 md:mb-14" data-reveal-rule />
+          <div className="h-px w-full bg-ink/20 mb-10 md:mb-12" data-reveal-rule />
 
           {/* Long-form body — single justified column */}
           <article
@@ -45,56 +45,40 @@ export default function FounderLetter() {
               ost of my career has been spent on the unglamorous side of
               real estate &mdash; first as a Cambridge zoning attorney, then
               negotiating Central Square&rsquo;s overlay amendments through
-              the City Council in 2017, then through five years of
-              hearings, conditions, and neighborhood meetings before a
-              single wall was drawn at 907 Main. The work that decides
-              whether a project happens is rarely the work that gets
-              celebrated.
+              the City Council, then through five years of hearings and
+              neighborhood meetings before a wall was drawn at 907 Main. The
+              work that decides whether a project happens is rarely the work
+              that gets celebrated.
             </p>
             <p>
-              What I noticed in those rooms, year after year, was that the
-              firms making the strongest case for a project &mdash; the
-              firms a city wanted to hand entitlement to &mdash; were
-              almost never the firms still operating the building five
-              years later. Capital teams traded the project to developers,
-              developers traded it to managers, managers reported up to
-              limited partners who had moved on. By the time someone was
-              actually accountable for occupancy and capex, the
-              underwriting was three teams old and nobody believed in it
-              anymore. The operating work is where returns are{" "}
-              <em className="text-brass not-italic font-serif italic">
+              In those rooms, the firms making the strongest case for a
+              project were rarely the firms still operating the building five
+              years later. Capital traded the project to development,
+              development traded it to management, and by the time someone was
+              accountable for occupancy and capex the underwriting was three
+              teams old. The operating work is where returns are{" "}
+              <em className="text-brass font-serif italic">
                 made or lost.
               </em>
             </p>
             <p>
-              So we built 907 Main the other way around. We held the
-              entitlement, the financing, the construction, and the
-              operating under one roof. One team on the wire from the
-              first hearing through the day the doors opened. The hotel
-              opened in 2024 as The Lark Cambridge. We still own and run
-              it.
-            </p>
-            <p>
-              Thane &amp; Reeve is built on that premise. Three disciplines
-              &mdash; Capital, Development, Management &mdash; under one
-              accountable roof. We acquire what we are willing to operate.
-              We develop what we intend to hold. We manage everything we
-              own, in&#8209;house, on systems we control. We raise on a
-              deal&#8209;by&#8209;deal basis from a closed list of
-              investors who have earned the right to see our work. We
-              invest meaningful personal capital in every transaction,
-              because if the math doesn&rsquo;t work for us it
-              shouldn&rsquo;t work for you.
+              We built 907 Main the other way around: entitlement, financing,
+              construction, and operations under one roof. The hotel opened in
+              2024 as The Lark Cambridge; we still own and run it. That
+              experience became Thane &amp; Reeve. We acquire what we are
+              willing to operate, develop what we intend to hold, manage
+              in&#8209;house, and invest meaningful personal capital in every
+              transaction.
             </p>
             <p className="font-serif italic text-ink">
-              We will be small. We will be slow. We will walk from deals
-              other firms will do.
+              We will be small. We will be slow. We will walk from deals other
+              firms will do.
             </p>
             <p>That is the firm.</p>
           </article>
 
           {/* Signature plate */}
-          <div className="mt-14 md:mt-16 pt-10 border-t border-ink/15 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6" data-reveal>
+          <div className="mt-12 md:mt-14 pt-8 border-t border-ink/15 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6" data-reveal>
             <div>
               <p
                 className="font-serif italic text-3xl md:text-4xl text-brass leading-none"
@@ -102,7 +86,7 @@ export default function FounderLetter() {
               >
                 Patrick Barrett
               </p>
-              <p className="mt-3 font-sans text-[10px] tracking-[0.28em] uppercase text-ink/65">
+              <p className="mt-3 font-sans text-[11px] tracking-[0.22em] uppercase text-ink/70">
                 Founder &amp; Managing Partner &middot; Thane &amp; Reeve
               </p>
             </div>
