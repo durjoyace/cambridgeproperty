@@ -85,7 +85,7 @@ export default function HeroSection() {
       {/* Top editorial meta strip */}
       <div className="hero-enter relative pt-20 md:pt-24 px-6 md:px-12">
         <div className="container mx-auto">
-          <div className="flex items-center justify-between font-sans text-[11px] tracking-[0.24em] uppercase text-paper/78">
+          <div className="flex items-center justify-between font-sans text-[11px] tracking-[0.24em] uppercase text-paper/80">
             <span>Founding Document &middot; MMXXVI</span>
             <span className="hidden md:inline font-serif italic tracking-normal normal-case text-[13px] text-paper/80">
               Real Property &middot; Boston &middot; NYC Corridor
