@@ -9,11 +9,11 @@ export default function ThesisSection() {
   const sectionRef = useScrollReveal<HTMLElement>();
 
   return (
-    <section id="thesis" className="relative bg-paper py-24 md:py-32 overflow-hidden" ref={sectionRef}>
+    <section id="thesis" className="relative bg-paper py-20 md:py-24 overflow-hidden" ref={sectionRef}>
       <div className="container mx-auto px-6 md:px-12">
         {/* The thesis */}
         <div className="max-w-5xl mx-auto" data-reveal>
-          <p className="font-serif italic text-base md:text-lg text-brass mb-8">
+          <p className="font-serif italic text-base md:text-lg text-brass mb-6">
             Our thesis, in one sentence
           </p>
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.15] text-ink max-w-4xl">
@@ -26,7 +26,7 @@ export default function ThesisSection() {
         </div>
 
         {/* Substantiation */}
-        <div className="max-w-3xl mx-auto mt-14 lg:ml-[8.5rem] xl:ml-[12rem]" data-reveal>
+        <div className="max-w-3xl mx-auto mt-10 lg:ml-[8.5rem] xl:ml-[12rem]" data-reveal>
           <p className="font-serif text-lg md:text-xl leading-[1.7] text-ink/85">
             Most of the industry is structured around specialization: capital allocators
             who don't operate, developers who don't hold, managers who don't own. Thane
