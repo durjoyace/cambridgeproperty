@@ -88,12 +88,9 @@ export default function PortfolioSection() {
 
           {/* Track record — institutional figures */}
           <div className="mb-20" data-reveal>
-            <div className="flex items-baseline justify-between mb-8">
+            <div className="flex items-baseline mb-8">
               <p className="font-sans text-[10px] tracking-[0.28em] uppercase text-brass">
                 The record, in figures
-              </p>
-              <p className="font-serif italic text-ink/65 text-sm">
-                Verified &middot; current
               </p>
             </div>
             <div className="h-px w-full bg-ink/20 mb-10" data-reveal-rule />

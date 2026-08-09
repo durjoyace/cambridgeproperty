@@ -179,7 +179,7 @@ export default function SellYourProperty() {
 
       <FAQSection
         faqs={faqs}
-        title="Questions from owners"
+        title="Questions for Thane & Reeve"
         label="Acquisition FAQ"
       />
 
