@@ -104,7 +104,7 @@ export default function About() {
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-5xl mx-auto grid lg:grid-cols-[180px_1fr] gap-10 lg:gap-16">
             <div>
-              <div className="font-sans text-[10px] tracking-[0.28em] uppercase text-brass mb-2">§ 01</div>
+              <div className="font-sans text-[11px] tracking-[0.22em] uppercase text-brass mb-2">§ 01</div>
               <div className="font-serif italic text-xl text-brass">The name</div>
             </div>
             <div className="font-serif text-lg md:text-xl leading-[1.8] text-ink/85 space-y-6">
@@ -151,7 +151,7 @@ export default function About() {
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-5xl mx-auto grid lg:grid-cols-[180px_1fr] gap-10 lg:gap-16">
             <div>
-              <div className="font-sans text-[10px] tracking-[0.28em] uppercase text-brass mb-2">§ 02</div>
+              <div className="font-sans text-[11px] tracking-[0.22em] uppercase text-brass mb-2">§ 02</div>
               <div className="font-serif italic text-xl text-brass">What we do</div>
             </div>
             <div className="font-serif text-lg md:text-xl leading-[1.8] text-ink/85 space-y-6">
@@ -219,7 +219,7 @@ export default function About() {
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-5xl mx-auto grid lg:grid-cols-[180px_1fr] gap-10 lg:gap-16">
             <div>
-              <div className="font-sans text-[10px] tracking-[0.28em] uppercase text-brass mb-2">§ 03</div>
+              <div className="font-sans text-[11px] tracking-[0.22em] uppercase text-brass mb-2">§ 03</div>
               <div className="font-serif italic text-xl text-brass">Who we serve</div>
             </div>
             <div className="font-serif text-lg md:text-xl leading-[1.8] text-ink/85 space-y-6">
@@ -244,7 +244,7 @@ export default function About() {
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-5xl mx-auto grid lg:grid-cols-[180px_1fr] gap-10 lg:gap-16">
             <div>
-              <div className="font-sans text-[10px] tracking-[0.28em] uppercase text-brass mb-2">§ 04</div>
+              <div className="font-sans text-[11px] tracking-[0.22em] uppercase text-brass mb-2">§ 04</div>
               <div className="font-serif italic text-xl text-brass">The firm</div>
             </div>
             <div className="font-serif text-lg md:text-xl leading-[1.8] text-ink/85 space-y-6">
@@ -303,7 +303,7 @@ export default function About() {
                     />
                   </div>
                   <div className="p-8 md:p-10">
-                    <div className="font-sans text-[10px] tracking-[0.28em] uppercase text-brass mb-3">
+                    <div className="font-sans text-[11px] tracking-[0.22em] uppercase text-brass mb-3">
                       {person.role}
                     </div>
                     <h3 className="font-serif text-2xl md:text-3xl text-ink mb-2 tracking-tight">
@@ -316,7 +316,7 @@ export default function About() {
                       {person.bio}
                     </p>
                     <div className="pt-6 border-t border-ink/10">
-                      <div className="font-sans text-[10px] tracking-[0.22em] uppercase text-ink/65 mb-3">
+                      <div className="font-sans text-[11px] tracking-[0.2em] uppercase text-ink/65 mb-3">
                         Areas of focus
                       </div>
                       <div className="flex flex-wrap gap-2">
